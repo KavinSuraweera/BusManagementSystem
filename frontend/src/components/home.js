@@ -5,7 +5,7 @@ export default function home() {
         <div>
             <div className="hero-image">
                 <div className="hero-text">
-                    <h1>We Are,<br/>Buzzy Bus.</h1>
+                    <h1>We Are,<br/>abc.</h1>
                     <button>BOOK NOW</button>
                 </div>
                     <div className="hero-buttons">
