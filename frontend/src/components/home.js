@@ -12,37 +12,45 @@ export default function home() {
                         <p>With a whole new experience and completely adaptable. <br/>
                         Booking, your significant serenity begins second <br/>
                         you start dreaming.</p>
-                    <a href="#">Book now</a><i class="far fa-arrow-circle-right"></i>
-                </div>
-                    <div className="hero-buttons">
-                        <button>LOG IN</button>
-                        <button>SIGN UP</button>
-
-                        <div className="home-search">
-                            <form className="d-flex">
-                                <input className="home-search-form" type="search" placeholder="Search.." aria-label="Search"/>
-                                <button className="btn btn-outline-success" type="submit"><i className="fas fa-search"></i></button>
-                            </form>
+                        <div className="book-now-link" >
+                            <a href="#">Book now
+                                <i class="far fa-arrow-circle-right"></i>
+                            </a>
                         </div>
-                    </div>
+                        
+                        <div className="home-buttons">
+                            <button>Login</button>
+                            <button>Sign up</button>
+                        </div>
+
+                    
+                </div>
+
+            </div>
+            <div className="gold-hr">
+                <hr/>
             </div>
             <div className="home-content">
-                <div className="home-content-topic">
-                    <p><font color="red">BUZZY</font> BUS</p>
+                <div className="whyus-container">
+                    <h1>why us ?</h1>
+
                 </div>
-                <div className="packagecards-container">
-                    <div className="package-card">
-                        <h1>HISTORY</h1>
-                    </div>
-                    <div className="package-card">
-                        <h1>WHY WE?</h1>
-                    </div>
-                    <div className="package-card">
-                        <h1>OUR SERVICES</h1>
-                    </div>
-                 
+
+                <div className="whyus-content">
+                    <div className="whyus-img">aa</div>
+                    <div className="whyus-txt-l"></div>
                 </div>
+                <div className="whyus-content">
+                    <div className="whyus-img-l">aa</div>
+                    <div className="whyus-txt"></div>
+                </div>
+                <div className="whyus-content">
+                    <div className="whyus-img">aa</div>
+                    <div className="whyus-txt-l"></div>
+                </div>
+
             </div>
+
         </div>
     )
 }
