@@ -4,8 +4,14 @@ export default function home() {
     return (
         <div>
             <div className="hero-image">
+                <div className="bg_banner"></div>
                 <div className="hero-text">
-                    <h1>We Are,<br/>abc.</h1>
+                    <h1>CONNECTING PEOPLE <br/>
+                        <font color="#1473E6">WITH</font> <br/>
+                        DESTINATIONS </h1>
+                        <p>With a whole new experience and completely adaptable. <br/>
+                        Booking, your significant serenity begins second <br/>
+                        you start dreaming.</p>
                     <button>BOOK NOW</button>
                 </div>
                     <div className="hero-buttons">

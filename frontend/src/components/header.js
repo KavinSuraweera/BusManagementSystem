@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 export default function header() {
     return (
         <div>
+            <div className="blue_line">
+                sss
+            </div>
             <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/"><div className="header-logo"></div></a>
