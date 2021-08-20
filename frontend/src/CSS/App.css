@@ -69,11 +69,11 @@ width: 100%;
 .hero-image .bg_banner{
   display: block;
   position: relative;
-  top: -83px;
+  right: -6.4%;
   width: 100%;
   float: right;
   color: violet;
-  height: 700px;
+  height: 65%;
   background-image: url(../img/banner.png);
   background-position: right;
   background-size: 83%;
@@ -115,6 +115,10 @@ width: 100%;
   cursor: pointer;
   margin-top: 30px;
 
+}
+
+.hero-text a{
+  text-decoration: none;
 }
 
 .hero-buttons{

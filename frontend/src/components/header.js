@@ -5,7 +5,6 @@ export default function header() {
     return (
         <div>
             <div className="blue_line">
-                sss
             </div>
             <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
@@ -29,7 +28,7 @@ export default function header() {
                         <Link to="/packages" className="link">SERVICES</Link>
                     </li>
                     <li className="item">
-                        <Link to="/add" className="link">ACONTACT US</Link>
+                        <Link to="/add" className="link">CONTACT US</Link>
                     </li>
                     <li className="item">
                     <Link to="/add" className="link">ABOUT US</Link>
