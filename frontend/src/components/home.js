@@ -12,7 +12,7 @@ export default function home() {
                         <p>With a whole new experience and completely adaptable. <br/>
                         Booking, your significant serenity begins second <br/>
                         you start dreaming.</p>
-                    <button>BOOK NOW</button>
+                    <a href="#">Book now</a><i class="far fa-arrow-circle-right"></i>
                 </div>
                     <div className="hero-buttons">
                         <button>LOG IN</button>

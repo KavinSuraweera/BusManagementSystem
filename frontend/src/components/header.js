@@ -5,7 +5,6 @@ export default function header() {
     return (
         <div>
             <div className="blue_line">
-                sss
             </div>
             <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
