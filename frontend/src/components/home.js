@@ -45,7 +45,7 @@ export default function home() {
                     <div className="whyus-txt"></div>
                 </div>
                 <div className="whyus-content">
-                    <div className="whyus-img">aa</div>
+                    <div className="whyus-img">a</div>
                     <div className="whyus-txt-l"></div>
                 </div>
 
