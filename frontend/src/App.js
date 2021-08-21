@@ -5,6 +5,7 @@ import Booking from './components/booking';
 import Footer from './components/footer';
 import contact from './components/contactUs';
 import adminLogin from './components/adminLogin';
+import availablebuses from './components/availablebuses';
 import './CSS/App.css'
 import './CSS/booking.css'
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact component={Home}/>
         <Route path="/bookings" exact component={Booking} />
         <Route path="/contact" exact component={contact}/>
+        <Route path="/avilablebus" exact component={availablebuses} />
 
         <Switch>
           <Route path="/admin" exact component={adminLogin}/>
