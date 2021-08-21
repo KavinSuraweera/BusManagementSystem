@@ -13,7 +13,6 @@ function App() {
         <Route path="/" exact component={Home}/>
         <Route path="/bookings" exact component={Booking} />
         
-        <Footer/>
       </Router>
     </div>
   );
