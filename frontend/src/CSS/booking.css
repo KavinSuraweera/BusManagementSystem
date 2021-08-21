@@ -1,0 +1,33 @@
+.booking-container-1{
+    display:block;
+    position:relative;
+    color: violet;
+    position: absolute;
+    background-color:yellow;
+    width: 100%;
+    height: 600px;
+    margin: 40px auto ;
+}
+
+.booking-container-1 .booking-container-2{
+    background-color:white;
+    display: block;
+    width: 80%;
+    margin: 50px auto;
+    position: relative;
+    border-style: solid;
+    border-color: #707070;
+    border-width: 1px;
+    border-radius: 10px;
+
+}
+
+.booking-container-1 .booking-container-2 .booking-container-left{
+   background-image: url(../img/booking-cover.png);
+   position: relative;
+   background-size: cover;
+   display: block;
+    height: 500px;
+    width: 45%;
+    border-radius: 10px 0 0 10px;
+}
