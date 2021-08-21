@@ -5,7 +5,7 @@ export default function footer() {
         <div>
             <div className="fixed-footer">
                 <p>Fixed footer</p>
-                <p>Contact us: Kaveen</p>
+                <p>Contact us: </p>
                 <div></div>
             </div>
         </div>
