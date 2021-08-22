@@ -8,7 +8,7 @@ export default function footer() {
                 <p>Contact us: hello </p>
                 <p>Contact us: Panch </p>
                 <p>Contact us: </p>
-                <p>Contact us: Panch , Navee</p>
+                <p>Contact us: Panc , Navee</p>
                 <div></div>
             </div>
         </div>
