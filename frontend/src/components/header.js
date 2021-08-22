@@ -31,7 +31,7 @@ export default function header() {
                         <Link to="/contact" className="link">CONTACT US</Link>
                     </li>
                     <li className="item">
-                    <Link to="/add" className="link">ABOUT US</Link>
+                    <Link to="/packages" className="link">ABOUT US</Link>
                     </li>
                 </ul>
                 </div>

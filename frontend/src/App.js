@@ -10,6 +10,7 @@ import seats from './components/seats';
 import './CSS/App.css'
 import './CSS/booking.css'
 import './CSS/seats.css'
+import Allpackages from './components/Allpackages';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/contact" exact component={contact}/>
         <Route path="/avilablebus" exact component={availablebuses} />
         <Route path="/seats" exact component={seats}/>
+        <Route path="/packages" exact component={Allpackages}/>
 
         <Switch>
           <Route path="/admin" exact component={adminLogin}/>
