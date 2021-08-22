@@ -5,7 +5,9 @@ export default function footer() {
         <div>
             <div className="fixed-footer">
                  
-                <div></div>
+                <div>
+                    <h1>footer</h1>
+                </div>
             </div>
         </div>
     )
