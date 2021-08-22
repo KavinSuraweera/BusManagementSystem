@@ -19,16 +19,16 @@ export default function header() {
                         <Link to="/" className="link">HOME</Link>
                     </li>
                     <li className="item">
-                        <Link to="/bookings" className="link">BOOKINGS</Link>
+                        <Link to="/bookings" className="link">BUS BOOKINGS</Link>
                     </li>
                     <li className="item">
-                        <Link to="/packages" className="link">BUS SCEDULES</Link>
+                        <Link to="/packages" className="link">SCEDULES</Link>
                     </li>
                     <li className="item">
-                        <Link to="/packages" className="link">SERVICES</Link>
+                        <Link to="/packages" className="link">PACKAGES</Link>
                     </li>
                     <li className="item">
-                        <Link to="/add" className="link">CONTACT US</Link>
+                        <Link to="/contact" className="link">CONTACT US</Link>
                     </li>
                     <li className="item">
                     <Link to="/add" className="link">ABOUT US</Link>
