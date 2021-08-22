@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import contact from './components/contactUs';
 import adminLogin from './components/adminLogin';
 import availablebuses from './components/availablebuses';
+import seats from './components/seats';
 import './CSS/App.css'
 import './CSS/booking.css'
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/bookings" exact component={Booking} />
         <Route path="/contact" exact component={contact}/>
         <Route path="/avilablebus" exact component={availablebuses} />
+        <Route path="/seats" exact component={seats}/>
 
         <Switch>
           <Route path="/admin" exact component={adminLogin}/>

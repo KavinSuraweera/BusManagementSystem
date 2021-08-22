@@ -1,4 +1,7 @@
 /* Nav bar */
+div{
+  scroll-behavior: smooth
+}
 .blue_line{
   display: block;
   position: relative;

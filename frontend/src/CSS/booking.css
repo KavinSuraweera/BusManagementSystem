@@ -122,9 +122,67 @@
     margin-right: 20px;
 }
 .abotSearch-container{
-    margin: auto;
-    color: white;
-    background-color: greenyellow;
-    width: fit-content;
     
+    color: #707070;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 100px;
+    font-size: 20px;
+
+}
+
+.abotSearch-container input{
+    background-color: rgba(255, 245, 238, 0.295);
+    color: #707070;
+    width: 160px;
+    right: 0;
+    margin-left: 25px;
+    margin: 10px;
+  
+
+    
+}
+
+.abotSearch-container h3{
+    font-size: 20px;
+    float: left;
+
+
+}
+
+
+
+.available-bus-tbl{
+    font-size: 12px;
+    width: 98%;
+    height: 400px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.available-bus-tbl th{
+    color: #212121;
+}
+
+
+
+.available-bus-tbl td{
+    font-size: 15px;
+    color: #3e3e3e;
+}
+
+.available-bus-tbl button{
+    text-align: center;
+    height: 29px;
+    padding: 3px;
+    border-color: slategrey;
+}
+
+.available-bus-tbl button:hover{
+    background-color: rgb(196, 196, 196);
+    border-color: slategrey;
+}
+
+.available-bus-tbl button p{
+    font-size: 15px;
 }
