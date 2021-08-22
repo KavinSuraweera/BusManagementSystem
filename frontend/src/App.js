@@ -9,6 +9,7 @@ import availablebuses from './components/availablebuses';
 import seats from './components/seats';
 import './CSS/App.css'
 import './CSS/booking.css'
+import './CSS/seats.css'
 
 function App() {
   return (
