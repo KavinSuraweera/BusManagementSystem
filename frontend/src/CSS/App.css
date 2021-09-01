@@ -68,27 +68,33 @@ div{
 .hero-image{
   direction: block;
   position: relative;
-  height: 660px;
+  height: 760px;
   width:100%;
   background-image: url(../img/banner.png);
   width: 100%;
   float: right;
   background-position: right;
   background-size: 70%;
+  background-position-y: 440px;
   background-repeat: no-repeat;
   background-color: white;
+  right: 0;
+  transition: 0.5s;
 }
 
 
 
 .hero-text{
-  display: block;
+  transition: 0.5s;
+  display: inline-block;
   position: relative;
   padding: 30px;
   text-align: left;
   position: absolute;
   color: #474747;
+  width: 100%;
   top:10%;
+  margin-bottom:1000px ;
   margin-left: 40px;
 }
 
@@ -286,7 +292,12 @@ margin-left: 10px;
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
+  .hero-image{
 
+    height: 660px;
+    background-position-y:100px;
+  }
+  
   }
 
 /* Medium devices (tablets, 768px and up) */
