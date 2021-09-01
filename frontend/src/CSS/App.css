@@ -49,7 +49,7 @@ div{
 .link{
   right: 0;
   float: left;
-  padding: 5px 15px; 
+  padding: 5px 10px; 
   text-decoration: none;
   color: rgb(97, 97, 97);
   height: 43px;
@@ -285,21 +285,43 @@ margin-left: 10px;
 
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {  }
+@media (min-width: 576px) { 
+
+  }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { }
+@media (min-width: 768px) { 
+
+}
+@media (min-width: 1024px) {
+  .link{
+
+    padding: 5px 10px; 
+
+    
+  }
+}
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { }
 
  /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {
+
+ }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
 
   .hero-image{
-    min-width: 700px;
+    height: 900px;
+    background-size: 80%;
+    
+  }
+  .link{
+
+    padding: 5px 15px; 
+
+    
   }
  }
