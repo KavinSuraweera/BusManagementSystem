@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Add from './Addpackage';
 import Popup from "../components/popup";
 import Update from '../components/Updatepackage';
+import Addpackage from './Addpackage';
 
 export default function Allpackages() {
 
@@ -50,6 +51,7 @@ export default function Allpackages() {
     }
 
 
+
     const openInPopup = packages =>{
         setRecordForEdit(packages)
         setOpenPopup(true);
@@ -91,14 +93,18 @@ export default function Allpackages() {
             <td>{packages.time_period}</td>
             <td>{packages.price}</td>
             <td>
+            <button type="button" class="btn btn-primary">
+                <i class="far fa-eye"></i>&nbsp;View
+            </button>
+            &nbsp;
                 <button 
                 className="btn btn-warning"
                 onClick={() => {openInPopup(packages)}}
                 >
-                    <i className="fas fa-edit"></i>&nbsp;Edit
+                    <i className="fas fa-edit"></i>&nbsp;Update
                 </button>
                 &nbsp;
-                <button className="btn btn-danger" href="/add">
+                <button className="btn btn-danger" href="/add" onClick={() => {onDelete(packages._id)}} >
                     <i className="far fa-trash-alt"></i>&nbsp;Delete
                 </button>
             </td>
@@ -112,11 +118,11 @@ export default function Allpackages() {
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
         >
-            <Add
+            <Addpackage
             recordForEdit={recordForEdit} />
         </Popup>
-
         
+       
         </div>
     )
 }

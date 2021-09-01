@@ -53,7 +53,8 @@ import '../CSS/App.css';
             axios.get(`http://localhost:8000/package/get/${props.match.params.id}`)
             .then(res =>{
                 setData(res.data.package)
-                console.log()
+                
+                console.log(name)
 
             }).catch((err) =>{
                 console.log(err)
