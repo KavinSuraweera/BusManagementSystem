@@ -70,7 +70,6 @@ div{
   position: relative;
   height: 670px;
   width:100%;
-  width: 100%;
   float: right;
   background-position: right;
   background-size: 80%;
@@ -83,7 +82,7 @@ div{
 
 
 .hero-text{
-  background-color: #0865D5;
+  background-color: #8ec1ff;
   transition: 0.5s;
   display: inline-block;
   position: relative;
@@ -96,19 +95,19 @@ div{
 }
 
 .hero-text h1{
-  font-size: 60px;
+  font-size: 40px;
   font-weight: bold;
+  text-align: center;
 }
 
 .hero-text p{
   margin-left: 40px;
   text-align: center;
-  color: #bdbdbd;
+  color: white;
 }
 
 .book-now-link{
   color: #1473E6;
-  background-color: wheat;
   margin: auto;
   width: fit-content;
   letter-spacing: 2px;
@@ -123,7 +122,7 @@ margin-left: 10px;
 }
 
 .hero-text .home-buttons{
-  padding:0 60px ;
+  padding:0px ;
 }
 
 .hero-text .home-buttons button{
@@ -133,13 +132,12 @@ margin-left: 10px;
   height: 50px;
   outline: 0;
   display: relative;
-  padding: 10px 25px;
   color: black;
   background-color: #1473E6;
   text-align: center;
   cursor: pointer;
   margin-top: 30px;
-  margin-left: 30px;
+  margin: 8px;
   color: white;
   transition: 0.3s;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -289,10 +287,20 @@ margin-left: 10px;
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
+  .hero-image{
+    height: 450px;
+  }
+
   .hero-text{
     background-color:transparent; 
     color: #0865D5 ;
     float: left;
+  }
+
+  .hero-text p{
+    background-color:transparent; 
+    text-align: center;
+    color:#bbbbbb;
   }
 
 }
@@ -302,22 +310,39 @@ margin-left: 10px;
   .hero-image{
     background-image: url(../img/banner.png);
     background-position-y:0em;
+    height: 550px;
+
   }
   .hero-text{
     background-color:transparent; 
     color: #0865D5 ;
     float: left;
+
   }
   .hero-text h1{
     background-color:transparent; 
     color: #0865D5 ;
     text-align: left;
+    font-size: 60px;
+    margin-top: 15px;
   }
   .hero-text p{
     background-color:transparent; 
     text-align: left;
     color:#bbbbbb;
   }
+
+  .book-now-link{
+    margin-top: 30px;
+    margin-left:100px;
+  }
+
+  .hero-text .home-buttons button{
+    margin-top: 20px;
+    float: left;
+  }
+
+
 }
 @media (min-width: 1024px) {
   .hero-text{
@@ -334,6 +359,11 @@ margin-left: 10px;
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .hero-text .home-buttons button{
+    margin-top: 50px;
+    float: left;
+  }
+
   .hero-text{
     background-color:transparent; 
 
@@ -349,8 +379,8 @@ margin-left: 10px;
 @media (min-width: 1400px) { 
 
   .hero-image{
-    height: 900px;
-    background-size: 80%;
+    height: 700px;
+    background-size: 75%;
     
   }
   .link{
