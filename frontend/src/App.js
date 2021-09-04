@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import contact from './components/contactUs';
 import adminLogin from './components/adminLogin';
 import availablebuses from './components/availablebuses';
+import dashbord from './components/dashbord';
 import seats from './components/seats';
 import './CSS/App.css'
 import './CSS/booking.css'
@@ -26,6 +27,7 @@ function App() {
 
         <Switch>
           <Route path="/admin" exact component={adminLogin}/>
+          <Route path="/dashbord" exact component={dashbord}/>
         </Switch>
         
       </Router>

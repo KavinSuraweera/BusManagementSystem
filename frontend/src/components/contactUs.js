@@ -7,7 +7,12 @@ export default function contactUs() {
             <Link to="./admin">
             <button>
                 abc
-            </button>
+            </button><br/>
+            </Link>
+            <Link to="./dashbord">
+            <button>
+                abc
+            </button><br/>
             </Link>
         </div>
     )

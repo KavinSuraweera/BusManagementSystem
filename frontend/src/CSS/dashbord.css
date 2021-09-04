@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+}
+
+.inside-container{
+    padding: 30px;
+    margin-top:20px ;
+}
+
+.bottomBar{
+    background-color: #1A5276;
+    left:228px;
+    width: 88%;  
+    height:200px;   
+    position: absolute;
+    justify-content: center;
+}
+
+.bbBar{
+    margin-top: 550px;
+    margin-left: -4%;
+    width: 88%;  
+    height:max-content;   
+    position: absolute;
+    justify-content: center;
+}
