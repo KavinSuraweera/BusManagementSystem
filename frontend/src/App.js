@@ -26,7 +26,9 @@ function App() {
 
         <Switch>
           <Route path="/admin" exact component={adminLogin}/>
+
         </Switch>
+        <Footer/>
         
       </Router>
 
