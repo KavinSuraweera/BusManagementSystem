@@ -345,6 +345,12 @@ margin-left: 10px;
 
 }
 @media (min-width: 1024px) {
+
+  .hero-image{
+    height: 700px;
+
+  }
+
   .hero-text{
     background-color:transparent; 
     color: #474747;
@@ -380,7 +386,6 @@ margin-left: 10px;
 
   .hero-image{
     height: 700px;
-    background-size: 75%;
     
   }
   .link{
