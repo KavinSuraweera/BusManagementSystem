@@ -268,7 +268,6 @@ margin-left: 10px;
 /* ---Footer--- */
 
 .fixed-footer{
-  background-color: turquoise;
 background-image: url(../img/Footer.png);
 background-repeat: no-repeat;
 background-size: 100;
@@ -276,13 +275,13 @@ height:900px;
 padding-top: 300px;
 }
 
-.foot-content{
+/* .foot-content{
   background-color: tomato;
   width: 100%;
   position: fixed;
   bottom: 0;
 
-}
+} */
 
 .left-footer{
   display:block;
