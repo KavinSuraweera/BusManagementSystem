@@ -22,6 +22,7 @@ export default function popup(props) {
                 <DialogContent dividers>
                         {children}
                 </DialogContent>
+
             </Dialog>
         </div>
     )

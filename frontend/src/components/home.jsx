@@ -7,7 +7,7 @@ export default function home() {
                 <div className="bg_banner"></div>
                 <div className="hero-text">
                     <h1>CONNECTING PEOPLE <br/>
-                        <font color="#1473E6">WITH</font> <br/>
+                        <font color="#002D67">WITH</font> <br/>
                         DESTINATIONS </h1>
                         <p>With a whole new experience and completely adaptable. <br/>
                         Booking, your significant serenity begins second <br/>

@@ -1,3 +1,5 @@
+
+
 /* Nav bar */
 div{
   scroll-behavior: smooth
@@ -47,7 +49,7 @@ div{
 .link{
   right: 0;
   float: left;
-  padding: 5px 15px; 
+  padding: 5px 10px; 
   text-decoration: none;
   color: rgb(97, 97, 97);
   height: 43px;
@@ -66,47 +68,49 @@ div{
 .hero-image{
   direction: block;
   position: relative;
-  height: 660px;
+  height: 670px;
   width:100%;
-  background-image: url(../img/banner.png);
-  width: 100%;
   float: right;
   background-position: right;
-  background-size: 70%;
+  background-size: 80%;
   background-repeat: no-repeat;
   background-color: white;
+  background-position-y:660px;
+  transition: 0.5s;
 }
 
 
 
 .hero-text{
-  display: block;
+  background-color: #8ec1ff;
+  transition: 0.5s;
+  display: inline-block;
   position: relative;
   padding: 30px;
-  text-align: left;
+  text-align: center;
   position: absolute;
-  color: #474747;
-  top:10%;
-  margin-left: 40px;
+  width: 100%;
+  color: white;
+  top:4%;
 }
 
 .hero-text h1{
-  font-size: 60px;
+  font-size: 40px;
   font-weight: bold;
+  text-align: center;
 }
 
 .hero-text p{
   margin-left: 40px;
-  text-align: left;
-  color: #707070;
+  text-align: center;
+  color: white;
 }
 
 .book-now-link{
   color: #1473E6;
+  margin: auto;
   width: fit-content;
   letter-spacing: 2px;
-  margin-top: 20px;
-  margin-left:200px;
 }
 
 .book-now-link:hover{
@@ -118,7 +122,7 @@ margin-left: 10px;
 }
 
 .hero-text .home-buttons{
-  padding:0 60px ;
+  padding:0px ;
 }
 
 .hero-text .home-buttons button{
@@ -128,13 +132,12 @@ margin-left: 10px;
   height: 50px;
   outline: 0;
   display: relative;
-  padding: 10px 25px;
   color: black;
   background-color: #1473E6;
   text-align: center;
   cursor: pointer;
   margin-top: 30px;
-  margin-left: 30px;
+  margin: 8px;
   color: white;
   transition: 0.3s;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -265,15 +268,144 @@ margin-left: 10px;
 /* ---Footer--- */
 
 .fixed-footer{
-  background-color: rgb(230, 230, 230);
-  text-align: center;
-  padding: 10px;
+  background-color: turquoise;
+background-image: url(../img/Footer.png);
+background-repeat: no-repeat;
+background-size: 100;
+height:900px;
+padding-top: 300px;
 }
 
-.fixed-footer p{
-  margin: 0;
+.foot-content{
+  background-color: tomato;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+}
+
+.left-footer{
   display:block;
-  font-size: 13px;
+  position: relative;
+  background-color: thistle;
+  width: 100px;
+  height: 100px;
+
 }
 
 /* ------------ */
+
+
+/* Media quaries */
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+  .hero-image{
+    height: 450px;
+  }
+
+  .hero-text{
+    background-color:transparent; 
+    color: #0865D5 ;
+    float: left;
+  }
+
+  .hero-text p{
+    background-color:transparent; 
+    text-align: center;
+    color:#bbbbbb;
+  }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .hero-image{
+    background-image: url(../img/banner.png);
+    background-position-y:0em;
+    height: 550px;
+
+  }
+  .hero-text{
+    background-color:transparent; 
+    color: #0865D5 ;
+    float: left;
+
+  }
+  .hero-text h1{
+    background-color:transparent; 
+    color: #0865D5 ;
+    text-align: left;
+    font-size: 60px;
+    margin-top: 15px;
+  }
+  .hero-text p{
+    background-color:transparent; 
+    text-align: left;
+    color:#bbbbbb;
+  }
+
+  .book-now-link{
+    margin-top: 30px;
+    margin-left:100px;
+  }
+
+  .hero-text .home-buttons button{
+    margin-top: 20px;
+    float: left;
+  }
+
+
+}
+@media (min-width: 1024px) {
+
+  .hero-image{
+    height: 700px;
+
+  }
+
+  .hero-text{
+    background-color:transparent; 
+    color: #474747;
+  }
+  .link{
+
+    padding: 5px 10px; 
+
+    
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hero-text .home-buttons button{
+    margin-top: 50px;
+    float: left;
+  }
+
+  .hero-text{
+    background-color:transparent; 
+
+  }
+ }
+
+ /* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+ }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+
+  .hero-image{
+    height: 700px;
+    
+  }
+  .link{
+
+    padding: 5px 15px; 
+
+    
+  }
+ }

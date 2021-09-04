@@ -27,8 +27,13 @@ function App() {
 
         <Switch>
           <Route path="/admin" exact component={adminLogin}/>
+<<<<<<< HEAD
           <Route path="/dashbord" exact component={dashbord}/>
+=======
+
+>>>>>>> eaa87388cdbf5cf6ba6bd70293fea6a5fe8f081a
         </Switch>
+        <Footer/>
         
       </Router>
 
