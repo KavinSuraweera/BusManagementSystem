@@ -22,6 +22,7 @@ export default function home() {
                             <button>Login</button>
                             <button>Sign up</button>
                         </div>
+                    
 
                     
                 </div>

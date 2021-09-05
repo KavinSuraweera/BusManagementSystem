@@ -10,7 +10,7 @@
     background-color:white;
     position: relative;
     display:block;
-    width: 1200px;
+    width: 1000px;
     height: 502px;
     margin: 30px auto;
     position: relative;
@@ -29,7 +29,7 @@
    display: inline-block;
     height: 500px;
     width: 45%;
-    background-position-x: -15px;
+    background-position-x: -3px;
     border-radius: 10px 0 0 10px;
 }
 
@@ -41,7 +41,7 @@
     background-size: 900px;
     background-repeat: no-repeat;
     width: 560px;
-    background-position-x: -195px;
+    background-position-x: -220px;
     background-position-y: 90px;
 }
 
@@ -77,10 +77,11 @@
 }
 
 .form-input-1{
+    background-color: tomato;
     border-style: solid;
     border-color: #707070;
     border-width: 1px;
-    height: 25px;
+    height: 15px;
     border-radius: 5px;
     width: 147px;
     margin-right: 20px;

@@ -24,13 +24,13 @@ export default function adminLogin() {
                 <h2>LOGIN AS ADMIN</h2>
                     <div>
                             <p className="e_mail">Email</p><br/>
-                            <input id="email" 
+                            <input id="email" className="login-email"
                             placeholder="jhonedoe@abz.com"
                             type="text"
                             />
 
                             <p className="pword">Password</p><br/>
-                            <input id="password" 
+                            <input id="password" className="login-pw"
                             placeholder="X X X X X"
                             type="password"/><br/>
                          
