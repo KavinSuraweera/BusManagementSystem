@@ -9,7 +9,7 @@ export default function topbar() {
 
     return (
 
-        <div>
+        <div className="oouter-container">
             <Topbar/>
             <div className="container">
                 <Sidebar/>
