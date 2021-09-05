@@ -6,7 +6,7 @@ export default function contactUs() {
         <div>
             <Link to="./adminLogin">
             <button>
-                admin login
+                admin loginn
             </button><br/>
             </Link>
             <Link to="./dashbordui">
