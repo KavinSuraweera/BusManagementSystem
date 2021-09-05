@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 export default function contactUs() {
     return (
         <div>
-            <Link to="./admin">
+            <Link to="/admin">
             <button>
                 abc
             </button><br/>
             </Link>
-            <Link to="./dashbord">
+            <Link to="/dashbord">
             <button>
                 abc
             </button><br/>
