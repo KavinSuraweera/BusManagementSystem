@@ -29,6 +29,7 @@ function App() {
         <Route path="/avilablebus" exact component={availablebuses} />
         <Route path="/seats" exact component={seats} />
         <Route path="/packages" exact component={Allpackages} />
+        <Footer />
 
         <Switch>
           <Route path="/adminLogin" exact component={adminLogin} />
@@ -36,7 +37,7 @@ function App() {
         <Switch>
          <Route path="/dashbord" exact component={dashbord} />
         </Switch>
-        <Footer />
+
       </Router>
     </div>
   );
