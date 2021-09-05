@@ -9,9 +9,14 @@ export default function contactUs() {
                 admin loginn
             </button><br/>
             </Link>
-            <Link to="./dashbordui">
+            <Link to="./dashbord">
             <button>
                 dashbord
+            </button><br/>
+            </Link>
+            <Link to="./adminregister">
+            <button>
+                adminregister
             </button><br/>
             </Link>
         </div>

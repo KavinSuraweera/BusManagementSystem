@@ -13,6 +13,8 @@ import adminLogin from "./components/adminLogin";
 import availablebuses from "./components/availablebuses";
 import dashbord from "./components/dashbord";
 import seats from "./components/seats";
+import adminregister from "./components/adminregister"
+
 import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
@@ -36,6 +38,9 @@ function App() {
         </Switch>
         <Switch>
          <Route path="/dashbord" exact component={dashbord} />
+        </Switch>
+        <Switch>
+         <Route path="/adminregister" exact component={adminregister} />
         </Switch>
 
       </Router>
