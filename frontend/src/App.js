@@ -31,13 +31,14 @@ function App() {
         <Route path="/avilablebus" exact component={availablebuses} />
         <Route path="/seats" exact component={seats} />
         <Route path="/packages" exact component={Allpackages} />
-        <Footer />
+        <Route path="/dashbord" exact component={dashbord} />
+
 
         <Switch>
           <Route path="/adminLogin" exact component={adminLogin} />
         </Switch>
         <Switch>
-         <Route path="/dashbord" exact component={dashbord} />
+         
         </Switch>
         <Switch>
          <Route path="/adminregister" exact component={adminregister} />
