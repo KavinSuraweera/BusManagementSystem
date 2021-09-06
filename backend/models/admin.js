@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const EmpSchema = new Schema({
+const AdminSchema = new Schema({
 
-    EmpName : {
+    Name : {
         type : String,
         required : true
     },
@@ -19,13 +19,13 @@ const EmpSchema = new Schema({
         required : true
     },
 
-    NIC : {
-        type : Number,
+    Email : {
+        type : String,
         requird : true
     },
 
-    Email : {
-        type : String,
+    NIC : {
+        type : Number,
         requird : true
     },
 
@@ -37,6 +37,6 @@ const EmpSchema = new Schema({
 });
 
 
-const employee = mongoose.model("employee", EmpSchema);
+const admin = mongoose.model("admin", AdminSchema);
 
-module.exports = employee;
+module.exports = admin;

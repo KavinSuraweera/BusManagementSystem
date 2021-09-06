@@ -1,5 +1,5 @@
 const express = require('express');
-let Employee = require('../models/employee.js')
+let Admin = require('../models/admin.js')
 
 const router = express.Router()
 
@@ -7,15 +7,15 @@ const router = express.Router()
 
 router.route("/add").post((req, res ) =>{
     
-    const EmpName = req.body.EmpName;
+    const Name = req.body.Name;
     const Password = req.body.Password;
     const Email = req.body.Email;
     const Phone = Number(req.body.Phone);
     const NIC = Number(req.body.NIC);
     const Type = req.body.Type;
 
-    const newEmployee = new Employee({
-        EmpName,
+    const newAdmin = new Admin({
+        Name,
         Password,
         Email,
         Phone,
@@ -23,30 +23,30 @@ router.route("/add").post((req, res ) =>{
         Type 
     })
 
-    newEmployee.save((err)=>{
+    newAdmin.save((err)=>{
         if(err){
             return res.status(400).json({
                 error:err
             });
         }
         return res.status(200).json({
-            sucess:"Employee Added Sucessfully"
+            sucess:"Admin Added Sucessfully"
         })
     })
 })
 
 router.route("/").get((req, res) =>{
-    Employee.find().then((emp) =>{
-        res.json(emp)
+    Admin.find().then((add) =>{
+        res.json(add)
     }).catch((err)=>{
         console.log(err)
     })
 })
 
 router.route("/update/:id").put(async(req,res)=>{
-    EmpID = req.params.id;
+    adId = req.params.id;
     const {
-        EmpName,
+        Name,
         Password,
         Email,
         Phone,
@@ -54,8 +54,8 @@ router.route("/update/:id").put(async(req,res)=>{
         Type 
     } = req.body;
 
-    const updateemployee ={
-        EmpName,
+    const updateadmin ={
+        Name,
         Password,
         Email,
         Phone,
@@ -63,8 +63,8 @@ router.route("/update/:id").put(async(req,res)=>{
         Type 
     }
 
-    const update = await Employee.findByIdAndUpdate(EmpID, updateemployee ).then(() =>{
-        res.status(200).send({status:"employee updated sucessfully"})
+    const update = await Admin.findByIdAndUpdate(adId, updateadmin ).then(() =>{
+        res.status(200).send({status:"admin data updated sucessfully"})
     }).catch((err)=>{
         console.log(err)
         res.status(500).send({status:"error with updating data", error: err.message})
@@ -74,8 +74,8 @@ router.route("/update/:id").put(async(req,res)=>{
 })
 
 router.route("get/:id").get(async(req, res) => {
-    let empId = res.params.id;
-    const employee = await Employee.findById(empId).then((emp)=>{
+    let adId = res.params.id;
+    const admin = await Admin.findById(adId).then((emp)=>{
         res.status(200).send({status:" fetched",emp})
     }).catch((err) =>{
         console.log(err.message);
@@ -84,12 +84,12 @@ router.route("get/:id").get(async(req, res) => {
 })
 
 router.route("/delete/:id").delete(async(req, res) =>{
-    let empId = req.params.id;
-    const employee = await Employee.findByIdAndDelete(empId).then((emp) =>{
-        res.status(200).send({status:"Employee deleted sucessfully"})
-    }).catch((err)=>{
+    let adId = req.params.id;
+    const admin = await Admin.findByIdAndDelete(adId).then((emp) =>{
+        res.status(200).send({status:"Admin removed sucessfully"})
+    }).catch((err)=>{S
         console.log(err.message);
-        res.status(500).send({status:"Error with removing employee",err : err.message})
+        res.status(500).send({status:"Error with removing admin",err : err.message})
     })
 })
 
