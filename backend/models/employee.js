@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const EmpSchema = new Schema({
 
     EmpName : {
-        type : Number,
+        type : String,
         required : true
     },
 
@@ -20,7 +20,7 @@ const EmpSchema = new Schema({
     },
 
     NIC : {
-        type : String,
+        type : Number,
         requird : true
     },
 

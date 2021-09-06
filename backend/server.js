@@ -10,6 +10,7 @@ const packageRoutes = require('./routes/packages.js');
 const busRouter = require('./routes/bus.js');
 const busscheduleRouter = require('./routes/busschedule.js')
 const cusRouter = require('./routes/customer.js');
+const empRouter = require('./routes/employee.js');
 
 //app midleware
 app.use(bodyParser.json());
@@ -18,6 +19,7 @@ app.use("/package", packageRoutes);
 app.use("/bus", busRouter);
 app.use("/busSchedule", busscheduleRouter);
 app.use("/customer", cusRouter);
+app.use("/employee",empRouter);
  
 const PORT = 8000;
 // const DB_URL = 'mongodb+srv://user:user@busapp.1dmsk.mongodb.net/bus?retryWrites=true&w=majority';

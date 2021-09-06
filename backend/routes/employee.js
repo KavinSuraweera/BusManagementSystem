@@ -1,5 +1,5 @@
 const express = require('express');
-let BusSchedules = require('../models/employee.js')
+let Employee = require('../models/employee.js')
 
 const router = express.Router()
 
@@ -7,13 +7,14 @@ const router = express.Router()
 
 router.route("/add").post((req, res ) =>{
     
-    const scheduleId = req.body.scheduleId;
-    const RouteId = req.body.RouteId;
-    const Route = req.body.Route;
-    const Time = req.body.Time;
-    const BusNumber = req.body.BusNumber;
+    const EmpName = req.body.EmpName;
+    const Password = req.body.Password;
+    const Email = req.body.Email;
+    const Phone = Number(req.body.Phone);
+    const NIC = Number(req.body.NIC);
+    const Type = req.body.Type;
 
-    const newBusSchedule = new BusSchedules({
+    const newEmployee = new Employee({
         EmpName,
         Password,
         Email,
@@ -22,46 +23,48 @@ router.route("/add").post((req, res ) =>{
         Type 
     })
 
-    newBusSchedule.save((err)=>{
+    newEmployee.save((err)=>{
         if(err){
             return res.status(400).json({
                 error:err
             });
         }
         return res.status(200).json({
-            sucess:"BusSchedule Added Sucessfully"
+            sucess:"Employee Added Sucessfully"
         })
     })
 })
 
 router.route("/").get((req, res) =>{
-    BusSchedules.find().then((busShadule) =>{
-        res.json(busShadule)
+    Employee.find().then((emp) =>{
+        res.json(emp)
     }).catch((err)=>{
         console.log(err)
     })
 })
 
 router.route("/update/:id").put(async(req,res)=>{
-    SchedleId = req.params.id;
+    EmpID = req.params.id;
     const {
-        scheduleId,
-        RouteId,
-        Route,
-        Time,
-        BusNumber 
+        EmpName,
+        Password,
+        Email,
+        Phone,
+        NIC,
+        Type 
     } = req.body;
 
-    const updateschedule ={
-        scheduleId,
-        RouteId,
-        Route,
-        Time,
-        BusNumber 
+    const updateemployee ={
+        EmpName,
+        Password,
+        Email,
+        Phone,
+        NIC,
+        Type 
     }
 
-    const update = await BusSchedules.findByIdAndUpdate(SchedleId, updateschedule ).then(() =>{
-        res.status(200).send({status:"schedule updated sucessfully"})
+    const update = await Employee.findByIdAndUpdate(EmpID, updateemployee ).then(() =>{
+        res.status(200).send({status:"employee updated sucessfully"})
     }).catch((err)=>{
         console.log(err)
         res.status(500).send({status:"error with updating data", error: err.message})
@@ -71,9 +74,9 @@ router.route("/update/:id").put(async(req,res)=>{
 })
 
 router.route("get/:id").get(async(req, res) => {
-    let scheduleId = res.params.id;
-    const schedule = await BusSchedules.findById(scheduleId).then((schedule)=>{
-        res.status(200).send({status:"Schedule fetched",package})
+    let empId = res.params.id;
+    const employee = await Employee.findById(empId).then((emp)=>{
+        res.status(200).send({status:" fetched",emp})
     }).catch((err) =>{
         console.log(err.message);
         res.status(500).send({status:"Error with get user ", err :err.message})
@@ -81,12 +84,12 @@ router.route("get/:id").get(async(req, res) => {
 })
 
 router.route("/delete/:id").delete(async(req, res) =>{
-    let scheduleId = req.params.id;
-    const schedule = await BusSchedules.findByIdAndDelete(scheduleId).then((schedule) =>{
-        res.status(200).send({status:"scehdule deleted sucessfully"})
+    let empId = req.params.id;
+    const employee = await Employee.findByIdAndDelete(empId).then((emp) =>{
+        res.status(200).send({status:"Employee deleted sucessfully"})
     }).catch((err)=>{
         console.log(err.message);
-        res.status(500).send({status:"Error with deleting schedule",err : err.message})
+        res.status(500).send({status:"Error with removing employee",err : err.message})
     })
 })
 
