@@ -3,12 +3,15 @@ let BusSchedules = require('../models/busschedule.js')
 
 const router = express.Router()
 
+//add schedule
+
 router.route("/add").post((req, res ) =>{
+    
     const scheduleId = req.body.scheduleId;
-    const RouteId = req.body.scheduleIde;
-    const Route = req.body.scheduleIde;
-    const Time = req.body.scheduleIde;
-    const BusNumber = req.body.scheduleIde;
+    const RouteId = req.body.RouteId;
+    const Route = req.body.Route;
+    const Time = req.body.Time;
+    const BusNumber = req.body.BusNumber;
 
     const newBusSchedule = new BusSchedules({
         scheduleId,
@@ -30,3 +33,60 @@ router.route("/add").post((req, res ) =>{
     })
 })
 
+router.route("/").get((req, res) =>{
+    BusSchedules.find().then((busShadule) =>{
+        res.json(busShadule)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+router.route("/update/:id").put(async(req,res)=>{
+    SchedleId = req.params.id;
+    const {
+        scheduleId,
+        RouteId,
+        Route,
+        Time,
+        BusNumber 
+    } = req.body;
+
+    const updateschedule ={
+        scheduleId,
+        RouteId,
+        Route,
+        Time,
+        BusNumber 
+    }
+
+    const update = await BusSchedules.findByIdAndUpdate(SchedleId, updateschedule ).then(() =>{
+        res.status(200).send({status:"schedule updated sucessfully"})
+    }).catch((err)=>{
+        console.log(err)
+        res.status(500).send({status:"error with updating data", error: err.message})
+    })
+
+
+})
+
+router.route("get/:id").get(async(req, res) => {
+    let scheduleId = res.params.id;
+    const schedule = await BusSchedules.findById(scheduleId).then((schedule)=>{
+        res.status(200).send({status:"Schedule fetched",package})
+    }).catch((err) =>{
+        console.log(err.message);
+        res.status(500).send({status:"Error with get user ", err :err.message})
+    })
+})
+
+router.route("/delete/:id").delete(async(req, res) =>{
+    let scheduleId = req.params.id;
+    const schedule = await BusSchedules.findByIdAndDelete(scheduleId).then((schedule) =>{
+        res.status(200).send({status:"scehdule deleted sucessfully"})
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status:"Error with deleting schedule",err : err.message})
+    })
+})
+
+module.exports = router;

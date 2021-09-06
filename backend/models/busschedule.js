@@ -9,12 +9,12 @@ const busScheduleSchema = new Schema({
     },
 
     RouteId : {
-        type : Number,
+        type : String,
         required : true
     },
 
     Route : {
-        type : Number,
+        type : String,
         required : true
     },
 
