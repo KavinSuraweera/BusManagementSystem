@@ -37,6 +37,6 @@ const EmpSchema = new Schema({
 });
 
 
-const customer = mongoose.model("employee", EmpSchema);
+const employee = mongoose.model("employee", EmpSchema);
 
-module.exports = customer;
+module.exports = employee;

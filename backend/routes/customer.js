@@ -41,15 +41,15 @@ router.route("/add").post((req, res) => {
 })
 
 router.route("/").get((req, res) =>{
-    Bus.find().then((customer)=>{
-        res.json(customer)
+    Customer.find().then((customermm)=>{
+        res.json(customermm)
     }).catch((err) =>{
         console.log(err)
     })
 })
 
 router.route("/update/:id").put(async(req, res) =>{
-    let CusId = req.params.id;
+    let cusId = req.params.id;
     const {
         CusNIC,
         Password,
@@ -58,7 +58,7 @@ router.route("/update/:id").put(async(req, res) =>{
         Email,
         Address} = req.body;
 
-    const updateBus = {
+    const customId = {
         CusNIC,
         Password,
         Phone,
@@ -67,7 +67,7 @@ router.route("/update/:id").put(async(req, res) =>{
         Address
     }
 
-    const update = await Bus.findByIdAndUpdate(CusId, updateCustomer).then(()=>{
+    const update = await Customer.findByIdAndUpdate(cusId, customId).then(()=>{
         res.status(200).send({status:"Customer Updated sucessfully"})
     }).catch((err)=>{
         console.log(err)
@@ -77,8 +77,8 @@ router.route("/update/:id").put(async(req, res) =>{
 
 router.route("/get/:id").get(async(req, res) =>{
     let cusId = req.params.id;
-    const customer = await Customer.findById(busId).then((bus)=>{
-        res.status(200).send({status:"Customer fetched",bus})
+    const customer = await Customer.findById(cusId).then((cus)=>{
+        res.status(200).send({status:"Customer fetched",cus})
     }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status:"error with retrieving customer", err : err.message})
@@ -86,8 +86,8 @@ router.route("/get/:id").get(async(req, res) =>{
 })
 
 router.route("/delete/:id").delete(async(req, res) =>{
-    let CId = req.params.id;
-    const customer = await Customer.findOneAndDelete(busId).then((bus)=>{
+    let cusId = req.params.id;
+    const customer = await Customer.findOneAndDelete(cusId).then((cus)=>{
         res.status(200).send({status:"Customer deleted sucessfully"})
     }).catch((err)=>{
         console.log(err.message);
