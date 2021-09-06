@@ -23,11 +23,7 @@ router.route("/add").post((req, res) => {
         price
     })
 
-    // newPackage.save().then(() => {
-    //     res.json("Package Added");
-    // }).catch(() => {
-    //     console.log(err.message);
-    // })
+
     
     newPackage.save((err) => {
         if(err){

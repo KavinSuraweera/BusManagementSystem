@@ -2,7 +2,7 @@
 
 /* Nav bar */
 div{
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
 }
 .blue_line{
   display: block;
@@ -31,6 +31,7 @@ div{
   position: relative;
   height: 65px;
   top:0;
+  background-color: rgba(250, 250, 250, 0.514);
 }
 
 .navbar-nav{
@@ -42,6 +43,7 @@ div{
   margin: auto;
   height: 40px;
   top:0;
+
 }
 
 
@@ -53,12 +55,16 @@ div{
   text-decoration: none;
   color: rgb(97, 97, 97);
   height: 43px;
-  
+  border-radius: 10px;
+  transition: 2s;
 }
 
 .link:hover{
   color: black;
   background-color: rgb(232, 238, 255);
+  border-radius: 30px;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  
 
 }
 
@@ -123,6 +129,11 @@ margin-left: 10px;
 
 .hero-text .home-buttons{
   padding:0px ;
+}
+
+.item--active {
+  border-bottom: 3px solid #29b6f6;
+  transition: border-bot  tom .5s ease-in-out;
 }
 
 .hero-text .home-buttons button{
