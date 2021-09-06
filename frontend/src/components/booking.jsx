@@ -22,10 +22,16 @@ export default function booking() {
                             </div>
                             <div className="form-row">
                                 <label for="depature">Depature</label>
-                                <input type="text" className="form-input-1" id="depature" placeholder="Leave From"/>
+                                <select id="depatureTime" className="form-input-2">
+                                    <option selected>Leave From</option>
+                                    <option>ඩේටා බේස් එකෙන් ගන්න</option>
+                                </select> 
                                 
                                 <label for="destination">Destination</label>
-                                <input type="text" className="form-input-1" id="depature" placeholder="Going To"/>
+                                <select id="depatureTime" class="form-input-2">
+                                    <option selected>Going To</option>
+                                    <option>ඩේටා බේස් එකෙන් ගන්න</option>
+                                </select> 
                                 <hr/>
                             </div>
 
