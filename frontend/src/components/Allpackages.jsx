@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Add from './Addpackage';
 import Popup from "../components/popup";
 import Update from '../components/Updatepackage';
 import Addpackage from './Addpackage';

@@ -13,7 +13,8 @@ import adminLogin from "./components/adminLogin";
 import availablebuses from "./components/availablebuses";
 import dashbord from "./components/dashbord";
 import seats from "./components/seats";
-import adminregister from "./components/adminregister"
+import adminregister from "./components/adminregister";
+import customermain from "./components/customercrud/customermain";
 
 import "./CSS/App.css";
 import "./CSS/booking.css";
@@ -37,11 +38,13 @@ function App() {
         <Switch>
           <Route path="/adminLogin" exact component={adminLogin} />
         </Switch>
-        <Switch>
-         
-        </Switch>
+ 
         <Switch>
          <Route path="/adminregister" exact component={adminregister} />
+        </Switch>
+
+        <Switch>
+         <Route path="/customermain" exact component={customermain} />
         </Switch>
 
       </Router>

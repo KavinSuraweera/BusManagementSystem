@@ -19,6 +19,11 @@ export default function contactUs() {
                 adminregister
             </button><br/>
             </Link>
+            <Link to="./customermain">
+            <button>
+                customer cruds
+            </button><br/>
+            </Link>
         </div>
     )
 }
