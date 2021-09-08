@@ -24,6 +24,11 @@ export default function contactUs() {
                 customer cruds
             </button><br/>
             </Link>
+            <Link to="./employeemain">
+            <button>
+                employee cruds
+            </button><br/>
+            </Link>
         </div>
     )
 }

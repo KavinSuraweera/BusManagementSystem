@@ -15,6 +15,7 @@ import dashbord from "./components/dashbord";
 import seats from "./components/seats";
 import adminregister from "./components/adminregister";
 import customermain from "./components/customercrud/customermain";
+import employeemain from "./components/employeecrud/employeemain";
 
 import "./CSS/App.css";
 import "./CSS/booking.css";
@@ -45,6 +46,10 @@ function App() {
 
         <Switch>
          <Route path="/customermain" exact component={customermain} />
+        </Switch>
+
+        <Switch>
+         <Route path="/employeemain" exact component={employeemain} />
         </Switch>
 
       </Router>

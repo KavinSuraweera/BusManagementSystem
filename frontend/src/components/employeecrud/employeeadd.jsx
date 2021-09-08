@@ -1,118 +1,113 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { createHashHistory } from "history";
-import { useHistory, useParams, Redirect } from "react-router-dom";
-import async from "async";
-
+import { Link } from "react-router-dom";
 import "../../CSS/App.css";
 
-function UpdateCustomer(props) {
-  const History = createHashHistory();
+export default function EmployeeAdd(props) {
+  const { addOrEdit, recordForEdit } = props;
 
-  const [CusNIC, setNic] = useState("");
+  const [employee, setEmployee] = useState([]);
+
+  const [EmpName, setEmpName] = useState("");
   const [Password, setPass] = useState("");
   const [Phone, setPhone] = useState("");
-  const [Name, setName] = useState("");
+  const [NIC, setNIC] = useState("");
   const [Email, setEmail] = useState("");
-  const [Address, setAddress] = useState("");
+  const [Type, setType] = useState("");
 
-  function editPackage(e) {
+  function sendData(e) {
     e.preventDefault();
 
-    const updateCustomer = {
-      CusNIC,
+    const newEmployee = {
+      id: "0",
+      EmpName,
       Password,
       Phone,
-      Name,
+      NIC,
       Email,
-      Address,
+      Type,
     };
 
     axios
-      .put(
-        `http://localhost:8000/customer/update/${props.match.params.id}`,
-        updateCustomer
-      )
-      .then((res) => {
-        alert("Customer Updated");
-        this.setState({ redirect: "/home" });
+      .post("http://localhost:8000/employee/add", newEmployee)
+      .then(() => {
+        // alert("Package added!")
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+  const [eId, setId] = useState("");
+  function sendId(e) {
+    e.preventDefault();
+    alert(eId);
+    const employeeId = {
+      eId,
+    };
+
+    axios
+      .post(`http://localhost:8000/employee/update/${eId}`, employeeId)
+      .then(() => {
+        alert("Updated");
       })
       .catch((err) => {
         alert(err);
       });
   }
 
-  const [customerList, setCustomer] = useState([]);
-  const [data, setData] = useState({
-    CusNIC: "",
-    Password: "",
-    Phone: "",
-    Name: "",
-    Email: "",
-    Address: "",
-  });
-
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/customer/get/${props.match.params.id}`)
-      .then((res) => {
-        setData(res.data.customer);
-
-        console.log(CusNIC);
-      })
-      .catch((err) => {
-        console.log(err);
+    if (recordForEdit != null)
+      setEmployee({
+        ...recordForEdit,
       });
-  }, []);
+  }, [recordForEdit]);
 
   return (
-    <div className="container" key="index">
+    <div className="container">
       <form className="row g-3">
         <div className="col-md-6">
           <label htmlFor="customerNIC" className="form-label">
-            Customer NIC
+            Employee Name:
           </label>
           <input
             type="text"
             className="form-control"
-            id="customerNic"
-            placeholder="Enter Customer NIC"
-            defaultValue={data.CusNIC}
-            requird
+            id="tripsCount"
+            placeholder="Enter Employee Name"
+            defaultValue={employee.EmpName}
             onChange={(e) => {
-              setNic(e.target.value);
+              setEmpName(e.target.value);
             }}
           />
         </div>
 
         <div className="col-md-6">
           <label htmlFor="customerName" className="form-label">
-            Customer Name
+            Employee Password
           </label>
           <input
             type="text"
             className="form-control"
             id="tripsCount"
             placeholder="Enter Customer Name"
-            defaultValue={data.Name}
-            requird
+            defaultValue={employee.Password}
             onChange={(e) => {
-              setName(e.target.value);
+                setPass(e.target.value);
             }}
           />
         </div>
 
         <div className="col-md-2">
           <label htmlFor="customerPhone" className="form-label">
-            Customer Phone
+            Employee Phone
           </label>
           <input
             type="text"
             className="form-control"
             id="customerphone"
             placeholder="Enter Customer phone"
-            defaultValue={data.Phone}
-            requird
+            defaultValue={employee.Phone}
             onChange={(e) => {
               setPhone(e.target.value);
             }}
@@ -120,32 +115,30 @@ function UpdateCustomer(props) {
         </div>
         <div className="col-md-6">
           <label htmlFor="customerAddress" className="form-label">
-            Customer Address
+          Employee NIC
           </label>
           <input
             type="text"
             className="form-control"
             id="customeraddress"
-            placeholder="Enter Customer Address"
-            defaultValue={data.Address}
-            requird
+            placeholder="Enter Employee Name"
+            defaultValue={employee.NIC}
             onChange={(e) => {
-              setAddress(e.target.value);
+                setNIC(e.target.value);
             }}
           />
         </div>
 
         <div className="col-md-2">
           <label htmlFor="customerEmail" className="form-label">
-            Customer Email
+          Enter Email
           </label>
           <input
             type="text"
             className="form-control"
             id="customeremail"
             placeholder="Enter Email"
-            defaultValue={data.Email}
-            requird
+            defaultValue={employee.Email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -154,17 +147,16 @@ function UpdateCustomer(props) {
 
         <div className="col-md-2">
           <label htmlFor="customerPassword" className="form-label">
-            Customer Password
+            Employee Type
           </label>
           <input
             type="text"
             className="form-control"
             id="customerpword"
-            placeholder="Enter Password"
-            defaultValue={data.Password}
-            requird
+            placeholder="Enter Type"
+            defaultValue={employee.Password}
             onChange={(e) => {
-              setPass(e.target.value);
+                setType(e.target.value);
             }}
           />
         </div>
@@ -174,7 +166,7 @@ function UpdateCustomer(props) {
             type="submit"
             className="btn btn-primary"
             href="/home"
-            onClick={UpdateCustomer}
+            onClick={sendData}
           >
             Submit
           </button>
@@ -183,5 +175,3 @@ function UpdateCustomer(props) {
     </div>
   );
 }
-
-export default UpdateCustomer;

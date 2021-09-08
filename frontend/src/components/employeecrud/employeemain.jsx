@@ -2,38 +2,38 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Popup from "../../components/popup";
-import AddCustomers from "./customeradd";
+import EmployeeAdd from "./employeeadd";
 
-export default function Customermain() {
+export default function Employeemain() {
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
 
-  const [customer, setCustomers] = useState([]);
+  const [employee, setEmployee] = useState([]);
 
   useEffect(() => {
-    const getCustomers = () => {
+    const getEmployee = () => {
       axios
-        .get("http://localhost:8000/customer/")
+        .get("http://localhost:8000/employee/")
         .then((res) => {
-          setCustomers(res.data);
+          setEmployee(res.data);
         })
         .catch((err) => {
           alert(err.message);
         });
     };
-    getCustomers();
+    getEmployee();
   }, []);
 
-  const [cId, setId] = useState("");
+  const [eId, setId] = useState("");
   function sendId(e) {
     e.preventDefault();
-    alert(cId);
-    const customerId = {
-      cId,
+    alert(eId);
+    const employeeId = {
+      eId,
     };
 
     axios
-      .post(`http://localhost:8000/customer/update/${cId}`, customerId)
+      .post(`http://localhost:8000/employee/update/${eId}`, employeeId)
       .then(() => {
         alert("Updated");
       })
@@ -42,9 +42,9 @@ export default function Customermain() {
       });
   }
 
-  function onDelete(pId) {
+  function onDelete(eId) {
     axios
-      .delete(`http://localhost:8000/customer/delete/${pId}`)
+      .delete(`http://localhost:8000/employee/delete/${eId}`)
       .then((req, res) => {
         window.location.reload(false);
       })
@@ -53,15 +53,15 @@ export default function Customermain() {
       });
   }
 
-  const openInPopup = (customer) => {
-    setRecordForEdit(customer);
+  const openInPopup = (employee) => {
+    setRecordForEdit(employee);
     setOpenPopup(true);
-    console.log(customer);
+    console.log(employee);
   };
 
   useState(() => {
     if (recordForEdit != null) {
-      setCustomers({
+      setEmployee({
         ...recordForEdit,
       });
     }
@@ -72,24 +72,25 @@ export default function Customermain() {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">NIC</th>
+            <th scope="col">EmpName</th>
             <th scope="col">Password</th>
             <th scope="col">Phone</th>
-            <th scope="col">Name</th>
+            <th scope="col">NIC</th>
             <th scope="col">E-mail</th>
-            <th scope="col">Address</th>
+            <th scope="col">Type</th>
           </tr>
         </thead>
         <tbody>
-          {customer.map((customer, index) => (
+          {employee.map((employee, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{customer.CusNIC}</td>
-              <td>{customer.Password}</td>
-              <td>{customer.Phone}</td>
-              <td>{customer.Name}</td>
-              <td>{customer.Email}</td>
-              <td>{customer.Address}</td>
+              <td>{employee.NIC}</td>
+              <td>{employee.EmpName}</td>
+              <td>{employee.Phone}</td>
+              <td>{employee.Type}</td>
+              <td>{employee.Email}</td>
+              <td>{employee.Password}</td>
+              
               <td>
                 <button type="button" class="btn btn-primary">
                   <i class="far fa-eye"></i>&nbsp;View
@@ -98,7 +99,7 @@ export default function Customermain() {
                 <button
                   className="btn btn-warning"
                   onClick={() => {
-                    openInPopup(customer);
+                    openInPopup(employee);
                   }}
                 >
                   <i className="fas fa-edit"></i>&nbsp;Update
@@ -108,7 +109,7 @@ export default function Customermain() {
                   className="btn btn-danger"
                   href="/add"
                   onClick={() => {
-                    onDelete(customer._id);
+                    onDelete(employee._id);
                   }}
                 >
                   <i className="far fa-trash-alt"></i>&nbsp;Delete
@@ -119,14 +120,14 @@ export default function Customermain() {
         </tbody>
       </table>
       <button className="btn btn-success" onClick={() => setOpenPopup(true)}>
-        Add new customer
+        Add new employee
       </button>
       <Popup
-        title="Add new customer form."
+        title="Add new employee form."
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
       >
-        <AddCustomers recordForEdit={recordForEdit} />
+        <EmployeeAdd recordForEdit={recordForEdit} />
       </Popup>
     </div>
   );
