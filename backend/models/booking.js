@@ -15,4 +15,4 @@ const bookingSchema = new Schema({
 });
 
 const booking = mongoose.model("booking", bookingSchema);
-module.exports = route;
+module.exports = booking;

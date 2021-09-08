@@ -13,6 +13,7 @@ const cusRouter = require('./routes/customer.js');
 const routeRouter = require('./routes/route.js')
 const empRouter = require('./routes/employee.js');
 const adminRouter = require('./routes/admin.js');
+const bookingRouter = require('./routes/booking.js')
 
 
 //app midleware
@@ -25,6 +26,7 @@ app.use("/customer", cusRouter);
 app.use("/route", routeRouter);
 app.use("/admin",adminRouter);
 app.use("/employee",empRouter);
+app.use("/booking",bookingRouter);
 
  
 const PORT = 8000;
