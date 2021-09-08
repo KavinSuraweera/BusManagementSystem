@@ -7,6 +7,8 @@ import busmanagement from "../../../img/dashbord/busmanagement.jpg";
 import empmanage from "../../../img/dashbord/calendar.png";
 import packagemanage from "../../../img/dashbord/packagemanage.jpg";
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from "react-router-dom";
+
 
 export default function sidebar() {
     return (
@@ -36,10 +38,12 @@ export default function sidebar() {
                             <img class="image1" src={shedulemanage}/>
                             Shedule Management
                         </li>
+                        <Link to="/bus">
                         <li className="sidebarListItem">
                             <img class="image1" src={busmanagement}/>
                             Bus Management
                         </li>
+                        </Link>
                         <li className="sidebarListItem">
                             <img class="image1" src={empmanage}/>
                             Emp Management

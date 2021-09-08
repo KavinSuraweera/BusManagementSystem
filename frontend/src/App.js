@@ -16,11 +16,12 @@ import seats from "./components/seats";
 import adminregister from "./components/adminregister";
 import customermain from "./components/customercrud/customermain";
 import employeemain from "./components/employeecrud/employeemain";
-
+import bus from "./components/busCrud/busform";
 import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
 import Allpackages from "./components/Allpackages";
+
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/seats" exact component={seats} />
         <Route path="/packages" exact component={Allpackages} />
         <Route path="/dashbord" exact component={dashbord} />
+        <Route path="/bus" exact component={bus}/>
 
 
         <Switch>
