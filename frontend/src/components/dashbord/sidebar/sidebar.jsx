@@ -48,7 +48,7 @@ export default function sidebar() {
                     
 
 
-                        <Link className="Link" to="./employeemain">
+                        <Link className="Link" to="/bus">
                         <li className="sidebarListItem">
                         <i class="fas fa-bus"></i>
                             BUSSES
