@@ -10,12 +10,19 @@ router.route("/add").post((req, res ) =>{
       const routeName = req.body.routeName;
       const to = req.body.to;
       const from = req.body.from;
+      const pAdult = req.body.pChild;
+      const pChild = req.body.pChild;
+      const pStudent = req.body.pStudent;
+      
 
       const newRoute = new route({
           routeId,
           routeName,
           to,
-          from
+          from,
+          pAdult,
+          pChild,
+          pStudent
       })
 
       newRoute.save((err) =>{
@@ -44,14 +51,20 @@ router.route("/update/:id").put(async(req, res) =>{
         routeId,
         routeName,
         to,
-        from
+        from,
+        pAdult,
+        pChild,
+        pStudent
     } = req.body;
 
     const updateRoute ={
         routeId,
         routeName,
         to,
-        from
+        from,
+        pAdult,
+        pChild,
+        pStudent
     }
 
     const update = await route.findByIdAndUpdate(rId, updateRoute).then(() =>{
