@@ -48,7 +48,7 @@ export default function sidebar() {
                     
 
 
-                        <Link className="Link" to="./employeemain">
+                        <Link className="Link" to="/bus">
                         <li className="sidebarListItem">
                             <img class="image1" src={busmanagement}/>
                             Bus Management
