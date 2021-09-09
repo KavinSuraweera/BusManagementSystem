@@ -3,37 +3,40 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Popup from "../../components/popup";
 
-import Addbus from './busadd';
+import Addschedule from './ScheduleAdd'; 
+
 
 export default function Allpackagse() {
 
     const[recordForEdit, setRecordForEdit] = useState(null);
     const[openPopup, setOpenPopup] = useState(false);
     
-    const[bus, setbus] = useState([]);
+    const[schedule, setschedule] = useState([]);
 
     useEffect(() =>{
-        const getbus = () =>{
-            axios.get("http://localhost:8000/bus/").then((res) =>{
-                setbus(res.data);
+        const getschedule = () =>{
+            axios.get("http://localhost:8000/busschedule/").then((res) =>{
+                setschedule(res.data);
             }).catch((err) => {
                 alert(err.message)
             })
         }
-        getbus();
+        getschedule();
     },[])
 
     
 
-    const [bId, setId] =useState("")
+    
+
+    const [sId, setId] =useState("")
     function sendId(e){
         e.preventDefault();
-        alert(bId)
-        const busId ={
-            bId,
+        alert(sId)
+        const scheduleId ={
+            sId,
         }
 
-        axios.post(`http://localhost:8000/bus/update/${bId}`, busId).then(() => {
+        axios.post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId).then(() => {
             alert("Updated")
         }).catch((err) => {
             alert(err)
@@ -41,8 +44,8 @@ export default function Allpackagse() {
     }
 
    
-    function onDelete(bId){
-        axios.delete(`http://localhost:8000/bus/delete/${bId}`).then((req,res) => {
+    function onDelete(sId){
+        axios.delete(`http://localhost:8000/busschedule/delete/${sId}`).then((req,res) => {
             window.location.reload(false);
         }).catch((err)=>{
             alert(err);
@@ -51,16 +54,16 @@ export default function Allpackagse() {
 
 
 
-    const openInPopup = bus =>{
-        setRecordForEdit(bus)
+    const openInPopup = schedule =>{
+        setRecordForEdit(schedule)
         setOpenPopup(true);
-        console.log(bus)
+        console.log(schedule)
     }
 
 
     useState(() => { 
         if(recordForEdit != null){
-            setbus({
+            setschedule({
                 ...recordForEdit
             })
         }
@@ -76,23 +79,23 @@ export default function Allpackagse() {
   <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">BusNo</th>
-        <th scope="col">Seat Count</th>
-        <th scope="col">Registration No</th>
-        <th scope="col">Bus Type</th>
-        <th scope="col">Permit ID</th>
+        <th scope="col">Schedule ID</th>
+        <th scope="col">Route ID</th>
+        <th scope="col">Route</th>
+        <th scope="col">Departure Time</th>
+        <th scope="col">Bus Number</th>
         <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    {bus.map((bus, index) =>(
+    {schedule.map((schedule, index) =>(
         <tr key={index}>
             <th scope="row">{index+1}</th>
-            <td>{bus.busNo}</td>
-            <td>{bus.NoOfSeats}</td>
-            <td>{bus.regNo}</td>
-            <td>{bus.Type}</td>
-            <td>{bus.permitID}</td>
+            <td>{schedule.scheduleId}</td>
+            <td>{schedule.RouteId}</td>
+            <td>{schedule.Route}</td>
+            <td>{schedule.Time}</td>
+            <td>{schedule.BusNumber}</td>
             <td>
             <button type="button" class="btn btn-primary">
                 <i class="far fa-eye"></i>&nbsp;View
@@ -100,12 +103,12 @@ export default function Allpackagse() {
             &nbsp;
                 <button 
                 className="btn btn-warning"
-                onClick={() => {openInPopup(bus)}}
+                onClick={() => {openInPopup(schedule)}}
                 >
                     <i className="fas fa-edit"></i>&nbsp;Update
                 </button>
                 &nbsp;
-                <button className="btn btn-danger" href="/add" onClick={() => {onDelete(bus._id)}} >
+                <button className="btn btn-danger" href="/add" onClick={() => {onDelete(schedule._id)}} >
                     <i className="far fa-trash-alt"></i>&nbsp;Delete
                 </button>
             </td>
@@ -113,13 +116,13 @@ export default function Allpackagse() {
     ))}
   </tbody>
 </table>
-<button className="btn btn-success" onClick={() => setOpenPopup(true)}>Add new bus</button>
+<button className="btn btn-success" onClick={() => setOpenPopup(true)}>Add new schedule</button>
         <Popup
-        title = "Add new bus form."
+        title = "Add New  Bus Schedule Plan."
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
         >
-            <Addbus
+            <Addschedule
             recordForEdit={recordForEdit} />
         </Popup>
         
