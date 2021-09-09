@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Header from './header'
 
 export default function contactUs() {
     return (
         <div>
+            <Header/>
             <Link to="./adminLogin">
             <button>
                 admin loginn

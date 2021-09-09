@@ -37,7 +37,7 @@ export default function Addschedule(props) {
       });
   }
   const [sId, setId] = useState("");
-  function sendId(e) {
+  function sendData(e) {
     e.preventDefault();
     alert(sId);
     const scheduleId = {
@@ -47,6 +47,7 @@ export default function Addschedule(props) {
     axios
       .post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId)
       .then(() => {
+        setId(sId)
         alert("Updated");
       })
       .catch((err) => {

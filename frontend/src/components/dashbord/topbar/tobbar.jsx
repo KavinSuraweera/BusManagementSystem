@@ -8,7 +8,8 @@ export default function tobbar() {
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topleft">
-                    <span className="logo">Admin Portal</span>
+                    
+                <span className="logo">Admin Portal</span> 
                 </div>
                 <div className="topleft">
                     <input 

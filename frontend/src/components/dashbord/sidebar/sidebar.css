@@ -2,12 +2,12 @@
     text-decoration: none;
 }
 
+
 .toptag{
     display: flex;
 }
 
 .image1{
-    margin-right: 5px;
     width: 20px;
     height:20px;
 }
@@ -18,14 +18,14 @@
     left: 0px;
     display:flex;
     overflow-x: hidden;
-    height: 110vh;
-    position:absolute;
-    background-color: #F2F3F4;
+    height: 100%;
+    position:fixed;
+    background-color: #1d6eb9;
 }
 
 .sidebarWrapper{
     flex:1;
-    padding: 20px;
+    
     color: #555;
 }
 
@@ -36,25 +36,38 @@
 .sidebarTitle{
     font-size: 17px;
     color:#1A5276;
-    margin-left: 3px;
+    
 }
 
 .sidebarList{
-    list-style: none;
-    padding:5px;
+
+    list-style-type: none;
+    margin-top: 50px;
+    
 }
 
+li{
+    text-decoration: none;
+    color:white;
+    font-weight: 500;
+}
 .sidebarListItem{
-    margin-top: 5px;
-    padding:5px;
-    display: 1;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin-top: 10px;
+    margin-right: 40px;
+    width: 100%;
+    padding: 20px;
+    left: 0;
     cursor: pointer;
-    align-items: center;
-    border-radius: 10px;
+}
+
+.sidebarListItem i{
+    margin-right: 1rem;
 }
 
 sidebarListItem.active,
  .sidebarListItem:hover{
-    background-color: #5DADE2 ;
+    background-color: #145897;
+    box-shadow: rgba(14, 30, 37, 0.0) 0px 2px 4px 0px, rgba(14, 30, 37, 0.0) 0px 2px 16px 0px;
     color:white;
 }

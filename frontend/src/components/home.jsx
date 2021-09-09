@@ -1,8 +1,10 @@
 import React from 'react'
+import Header from './header'
 
 export default function home() {
     return (
         <div>
+            <Header />
             <div className="hero-image">
                 <div className="bg_banner"></div>
                 <div className="hero-text">

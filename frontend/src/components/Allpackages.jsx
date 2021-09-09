@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Popup from "../components/popup";
 import Update from '../components/Updatepackage';
 import Addpackage from './Addpackage';
+import Header from './header'
 
 export default function Allpackages() {
 
@@ -66,9 +67,10 @@ export default function Allpackages() {
         }
     },[recordForEdit])
     return (
+        <div>
+            <Header/>
         <div className="container">
 
-            
 
 
 
@@ -122,6 +124,7 @@ export default function Allpackages() {
         </Popup>
         
        
+        </div>
         </div>
     )
 }

@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 
-import dashbord from "./components/dashbord";
+import Dashbord from "./components/dashbord";
 
 
 import "./CSS/App.css";
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Route path="/dashbord" exact component={dashbord} />
+          
       </Router>
     </div>
   );

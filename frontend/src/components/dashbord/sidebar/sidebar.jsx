@@ -24,25 +24,25 @@ export default function sidebar() {
                     <ul className="sidebarList">
                         <Link className="Link" to="/dashbord">
                         <li className="sidebarListItem active">
-                            <img class="image1" src={home}/>
-                            Dashbord
+                        <i class="fas fa-home"></i>
+                            DASHBORD
                         </li>
                         </Link>
                         <Link className="Link" to="./customermain">
                         <li className="sidebarListItem">
-                            <img class="image1" src={manageemployee}/>
-                            User Management
+                        <i class="fas fa-users"></i>
+                            USERS
                         </li>
                         </Link>
                         <li className="sidebarListItem">
-                            <img class="image1" src={ownermanage}/>
-                            Owner Management
+                        <i class="fas fa-walking"></i>
+                            OWNERS
                         </li>
 
                         <Link to="/schedule">
                         <li className="sidebarListItem">
-                            <img class="image1" src={shedulemanage}/>
-                            Shedule Management
+                        <i class="fas fa-clock"></i>
+                            SCHEDULES
                         </li>
                         </Link>
                     
@@ -50,19 +50,19 @@ export default function sidebar() {
 
                         <Link className="Link" to="./employeemain">
                         <li className="sidebarListItem">
-                            <img class="image1" src={busmanagement}/>
-                            Bus Management
+                        <i class="fas fa-bus"></i>
+                            BUSSES
                         </li>
                         </Link>
                         <Link className="Link" to="./employeemain">
                         <li className="sidebarListItem">
-                            <img class="image1" src={empmanage}/>
-                            Emp Management
+                        <i class="fas fa-briefcase"></i>
+                            EMPLOYEE
                         </li>
                         </Link>
                         <li className="sidebarListItem">
-                            <img class="image1" src={packagemanage}/>
-                            Package Management
+                        <i class="fas fa-file-powerpoint"></i>
+                            PACKAGES
                         </li>
                     </ul>
                 </div>
