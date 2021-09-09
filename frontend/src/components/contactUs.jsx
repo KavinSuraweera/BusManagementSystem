@@ -19,16 +19,6 @@ export default function contactUs() {
                 adminregister
             </button><br/>
             </Link>
-            <Link to="./customermain">
-            <button>
-                customer cruds
-            </button><br/>
-            </Link>
-            <Link to="./employeemain">
-            <button>
-                employee cruds
-            </button><br/>
-            </Link>
             <Link to="./adminmain">
             <button>
                 admin cruds
