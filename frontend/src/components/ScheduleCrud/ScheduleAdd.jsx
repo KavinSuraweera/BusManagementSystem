@@ -27,9 +27,9 @@ export default function Addschedule(props) {
     };
 
     axios
-      .post("http://localhost:8000/schedule/add", newschedule)
+      .post("http://localhost:8000/busschedule/add", newschedule)
       .then(() => {
-        // alert("Schedule added!")
+        
         window.location.reload(false);
       })
       .catch((err) => {

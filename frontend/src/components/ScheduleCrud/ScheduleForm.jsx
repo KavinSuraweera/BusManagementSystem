@@ -13,6 +13,8 @@ export default function Allpackagse() {
     
     const[schedule, setschedule] = useState([]);
 
+
+
     useEffect(() =>{
         const getschedule = () =>{
             axios.get("http://localhost:8000/busschedule/").then((res) =>{
@@ -24,6 +26,7 @@ export default function Allpackagse() {
         getschedule();
     },[])
 
+    
     
 
     
@@ -68,6 +71,8 @@ export default function Allpackagse() {
             })
         }
     },[recordForEdit])
+
+   
     return (
         <div className="container">
 
