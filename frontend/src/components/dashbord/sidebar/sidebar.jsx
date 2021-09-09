@@ -34,10 +34,12 @@ export default function sidebar() {
                             <img class="image1" src={ownermanage}/>
                             Owner Management
                         </li>
+                        <Link to="/schedule">
                         <li className="sidebarListItem">
                             <img class="image1" src={shedulemanage}/>
                             Shedule Management
                         </li>
+                        </Link>
                         <Link to="/bus">
                         <li className="sidebarListItem">
                             <img class="image1" src={busmanagement}/>

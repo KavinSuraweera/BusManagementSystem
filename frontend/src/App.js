@@ -16,12 +16,12 @@ import seats from "./components/seats";
 import adminregister from "./components/adminregister";
 import customermain from "./components/customercrud/customermain";
 import employeemain from "./components/employeecrud/employeemain";
-<<<<<<< HEAD
+import schedule from "./components/ScheduleCrud/ScheduleForm";
+
 import bus from "./components/busCrud/busform";
-=======
+
 import adminmain from "./components/admincrud/adminmain";
 
->>>>>>> 572fff4f1650675bdb4426a7e594587be1fb5081
 import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
@@ -41,6 +41,8 @@ function App() {
         <Route path="/packages" exact component={Allpackages} />
         <Route path="/dashbord" exact component={dashbord} />
         <Route path="/bus" exact component={bus}/>
+        <Route path="/schedule" exact component={schedule}/>
+        
 
 
         <Switch>
@@ -62,6 +64,8 @@ function App() {
         <Switch>
          <Route path="/adminmain" exact component={adminmain} />
         </Switch>
+
+
 
       </Router>
     </div>
