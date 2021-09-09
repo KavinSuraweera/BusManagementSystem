@@ -16,7 +16,6 @@ import seats from "./components/seats";
 import adminregister from "./components/adminregister";
 import customermain from "./components/customercrud/customermain";
 import employeemain from "./components/employeecrud/employeemain";
-<<<<<<< HEAD
 
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
@@ -26,19 +25,6 @@ import adminmain from "./components/admincrud/adminmain";
 import schedule from "./components/ScheduleCrud/ScheduleForm";
 
 
-=======
-<<<<<<< HEAD
-import schedule from "./components/ScheduleCrud/ScheduleForm";
-
-import bus from "./components/busCrud/busform";
-
-import adminmain from "./components/admincrud/adminmain";
-
-=======
-import bus from "./components/busCrud/busform";
-import adminmain from "./components/admincrud/adminmain";
->>>>>>> 86fb8042cb8ae11c3313b172858c3fdcb0124ccf
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
 import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";

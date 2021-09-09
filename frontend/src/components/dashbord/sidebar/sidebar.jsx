@@ -38,35 +38,17 @@ export default function sidebar() {
                             <img class="image1" src={ownermanage}/>
                             Owner Management
                         </li>
-<<<<<<< HEAD
 
                         <Link to="/schedule">
-=======
-<<<<<<< HEAD
-                        <Link to="/schedule">
-=======
-                        
->>>>>>> 86fb8042cb8ae11c3313b172858c3fdcb0124ccf
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
                         <li className="sidebarListItem">
                             <img class="image1" src={shedulemanage}/>
                             Shedule Management
                         </li>
-<<<<<<< HEAD
                         </Link>
                     
 
 
                         <Link className="Link" to="./employeemain">
-=======
-<<<<<<< HEAD
-                        </Link>
-                        <Link to="/bus">
-=======
-
-                        <Link className="Link" to="./employeemain">
->>>>>>> 86fb8042cb8ae11c3313b172858c3fdcb0124ccf
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
                         <li className="sidebarListItem">
                             <img class="image1" src={busmanagement}/>
                             Bus Management

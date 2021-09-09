@@ -15,11 +15,7 @@ export default function Allpackagse() {
 
     useEffect(() =>{
         const getschedule = () =>{
-<<<<<<< HEAD
             axios.get("http://localhost:8000/busschedule/").then((res) =>{
-=======
-            axios.get("http://localhost:8000/schedule/").then((res) =>{
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
                 setschedule(res.data);
             }).catch((err) => {
                 alert(err.message)
@@ -30,11 +26,8 @@ export default function Allpackagse() {
 
     
 
-<<<<<<< HEAD
     
 
-=======
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
     const [sId, setId] =useState("")
     function sendId(e){
         e.preventDefault();
@@ -43,11 +36,7 @@ export default function Allpackagse() {
             sId,
         }
 
-<<<<<<< HEAD
         axios.post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId).then(() => {
-=======
-        axios.post(`http://localhost:8000/schedule/update/${sId}`, scheduleId).then(() => {
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
             alert("Updated")
         }).catch((err) => {
             alert(err)
@@ -56,11 +45,7 @@ export default function Allpackagse() {
 
    
     function onDelete(sId){
-<<<<<<< HEAD
         axios.delete(`http://localhost:8000/busschedule/delete/${sId}`).then((req,res) => {
-=======
-        axios.delete(`http://localhost:8000/schedule/delete/${sId}`).then((req,res) => {
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
             window.location.reload(false);
         }).catch((err)=>{
             alert(err);
@@ -99,10 +84,7 @@ export default function Allpackagse() {
         <th scope="col">Route</th>
         <th scope="col">Departure Time</th>
         <th scope="col">Bus Number</th>
-<<<<<<< HEAD
         <th scope="col">Action</th>
-=======
->>>>>>> c09d256ac12da06ed2faba29f20d03a4b91ce579
     </tr>
   </thead>
   <tbody>
