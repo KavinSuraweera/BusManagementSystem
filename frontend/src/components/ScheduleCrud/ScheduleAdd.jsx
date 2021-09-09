@@ -45,7 +45,7 @@ export default function Addschedule(props) {
     };
 
     axios
-      .post(`http://localhost:8000/schedule/update/${sId}`, scheduleId)
+      .post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId)
       .then(() => {
         alert("Updated");
       })
