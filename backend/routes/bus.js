@@ -12,7 +12,7 @@ router.route("/add").post((req, res) => {
 
     const busNo = req.body.busNo;
     const NoOfSeats = Number(req.body.NoOfSeats);
-    const regNo = Number(req.body.regNo);
+    const regNo = req.body.regNo;
     const Type = req.body.Type;
     const permitID = req.body.permitID;
 
