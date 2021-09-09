@@ -10,7 +10,7 @@ router.route("/get/:loc").get(async(req,res)=>{
         res.status(200).send({status:"sucessfull", bookings})
     }).catch((err)=>{
         console.log(err.message);
-        res.status(500).send({status:"error",err:err.message})
+        res.status(500).send({status:"Error",err:err.message})
     })
 }) 
 
