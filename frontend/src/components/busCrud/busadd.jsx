@@ -129,7 +129,7 @@ export default function Addbus(props) {
 
         <div className="col-md-2">
           <label htmlFor="customerEmail" className="form-label">
-            Permit ID
+            PermitID
           </label>
           <input
             type="text"
