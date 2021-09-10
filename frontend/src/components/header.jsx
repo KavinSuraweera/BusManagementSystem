@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function header() {
     return (
         <div>
-            <div className="header-logo"></div>
+            <div className="marquee effect2"><div className="header-logo"></div></div>
             <div className="blue_line">
             </div>
             <nav className="navbar navbar-expand-lg ">

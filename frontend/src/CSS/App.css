@@ -1,6 +1,7 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
 /* Nav bar */
+
 div{
   scroll-behavior: smooth;
 }
@@ -9,15 +10,17 @@ div{
   position: relative;
   background-color: #002D67;
   height: 25px;
+  top: 0;
 }
 
 .header-logo{
-  display:block;
+  display:inline-block;
+  float: left;
   position:relative;
-  width: 130px;
+  width: 120px;
   height: 45px;
-  margin-left: 10px;
   top:0;
+  bottom: 0;
   padding: 0;;
   background-image: url(../img/icon.png);
   background-position: center;
@@ -25,7 +28,26 @@ div{
   background-size: cover;
   
 }
+.marquee{
+  display: block;
+  height: 40px;
+  margin: auto;
+  margin:0;
+  top:0;
+  bottom: 0;
+}
 
+
+.marquee p{
+  display: inline;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+  letter-spacing: 2rem;
+  color: #707070;
+  font-weight: 600;
+  
+}
 .navbar{
   background-color: transparent;
   position: relative;

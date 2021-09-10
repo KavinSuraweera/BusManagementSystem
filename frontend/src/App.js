@@ -35,7 +35,6 @@ function App() {
   return (
     <div>
       <Router>
-        
         <Route path="/" exact component={Home} />
         <Route path="/bookings" exact component={Booking} />
         <Route path="/contact" exact component={contact} />

@@ -15,7 +15,7 @@ export default function tobbar() {
                     <input 
                     className="searchbox" 
                     type="text"
-                    placeholder="Search"/>
+                    placeholder="Search..."/>
                 </div>
                 <div className="topright">
                       <div className="topbarIcons">

@@ -9,40 +9,56 @@ import packagemanage from "../../../img/dashbord/packagemanage.jpg";
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { Link } from 'react-router-dom'
+import { useState } from "react";
 
-export default function sidebar() {
+export default function Sidebar() {
+
+    const [sidebarToggeled, setSidebarToggeled] = useState(false);
+
+    const togglesidebar = () =>{
+
+        sidebarToggeled ? setSidebarToggeled(false):setSidebarToggeled(true);
+        console.log(sidebarToggeled)
+    }
+  
+
     return (
-        <div className="sidebar">
+        <div className={sidebarToggeled? "active sidebar effect8" : "sidebar effect8"}>
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
                     <div className="toptag">
                         <MenuIcon/>
                         <h3 className="sidebarTitle">    
-                                Quick Select
+                        <p className={sidebarToggeled? "active p" : "p"}>BUZZY BUS</p>
+                                <i class="fas fa-bars ham" onClick={togglesidebar}></i>
                         </h3>
                     </div>
                     <ul className="sidebarList">
                         <Link className="Link" to="/dashbord">
                         <li className="sidebarListItem active">
+                            <span className="tooltip">DASHBORdfgfdgdfdjhgjgjgkjkkhkhkhkjhkD</span>
                         <i class="fas fa-home"></i>
-                            DASHBORD
+                            <p className={sidebarToggeled? "active p" : "p"}>DASHBORD</p>
                         </li>
                         </Link>
                         <Link className="Link" to="./customermain">
                         <li className="sidebarListItem">
                         <i class="fas fa-users"></i>
-                            USERS
+                            <p className={sidebarToggeled? "active p" : "p"}>USERS</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                         <li className="sidebarListItem">
                         <i class="fas fa-walking"></i>
-                            OWNERS
+                            <p className={sidebarToggeled? "active p" : "p"}>OWNERS</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
 
                         <Link to="/schedule">
                         <li className="sidebarListItem">
                         <i class="fas fa-clock"></i>
-                            SCHEDULES
+                            <p className={sidebarToggeled? "active p" : "p"}>SCHEDULES</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                     
@@ -51,18 +67,21 @@ export default function sidebar() {
                         <Link className="Link" to="/bus">
                         <li className="sidebarListItem">
                         <i class="fas fa-bus"></i>
-                            BUSSES
+                            <p className={sidebarToggeled? "active p" : "p"}>BUSSES</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                         <Link className="Link" to="./employeemain">
                         <li className="sidebarListItem">
                         <i class="fas fa-briefcase"></i>
-                            EMPLOYEE
+                            <p className={sidebarToggeled? "active p" : "p"}>EMPLOYEE</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                         <li className="sidebarListItem">
                         <i class="fas fa-file-powerpoint"></i>
-                            PACKAGES
+                            <p className={sidebarToggeled? "active p" : "p"}>PACKAGES</p>
+                           <div className="tooltip">DASHBORD</div> 
                         </li>
                     </ul>
                 </div>
