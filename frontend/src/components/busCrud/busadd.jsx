@@ -135,7 +135,7 @@ export default function Addbus(props) {
             type="text"
             className="form-control"
             id="customeremail"
-            placeholder="Enter permit ID"
+            placeholder="Enter PermitID"
             defaultValue={bus.permitID}
             onChange={(e) => {
               setpermitID(e.target.value);
