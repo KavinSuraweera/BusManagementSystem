@@ -74,7 +74,6 @@ export default function Addpackage(props) {
             .then((res) => {
                 alert("Package Updated");
                 window.location.reload(false);
-                //this.setState({ redirect: "/home" });
             })
             .catch((err) => {
                 alert(err);
@@ -101,7 +100,7 @@ export default function Addpackage(props) {
 
         }
 
-console.log(description)
+        console.log(description)
 
     }, [recordForEdit]);
 
