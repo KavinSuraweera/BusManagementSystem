@@ -88,7 +88,6 @@ export default function Allpackages() {
         axios.put(`http://localhost:8000/package/update/${pid}`, packages).then(() => {
             alert("Updated")
             window.location.reload(false);
-            setOpenPopup(true);
         }).catch((err) => {
             alert(err)
         })
