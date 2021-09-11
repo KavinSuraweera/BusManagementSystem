@@ -16,16 +16,24 @@ export default function contactUs() {
                 dashbord
             </button><br/>
             </Link>
-            <Link to="./adminregister">
-            <button>
-                adminregister
-            </button><br/>
-            </Link>
             <Link to="./adminmain">
             <button>
                 admin cruds
+            </button><br/><br/>
+            </Link>
+
+            <Link to="./Sign-Up">
+            <button>
+                user signup
             </button><br/>
             </Link>
+
+            <Link to="./Login-Page">
+            <button>
+                user login
+            </button><br/>
+            </Link>
+
         </div>
     )
 }
