@@ -36,24 +36,12 @@ export default function Addschedule(props) {
         alert(err);
       });
   }
-  const [sId, setId] = useState("");
-  function sendData(e) {
-    e.preventDefault();
-    alert(sId);
-    const scheduleId = {
-      sId,
-    };
 
-    axios
-      .post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId)
-      .then(() => {
-        setId(sId)
-        alert("Updated");
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
+
+
+
+
+
 
   useEffect(() => {
     if (recordForEdit != null)
@@ -149,7 +137,7 @@ export default function Addschedule(props) {
             type="submit"
             className="btn btn-primary"
             href="/home"
-            onClick={sendData}
+            onClick={sendData()}
           >
             Submit
           </button>

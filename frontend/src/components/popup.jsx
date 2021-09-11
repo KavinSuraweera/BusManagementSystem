@@ -7,6 +7,8 @@ export default function popup(props) {
     
     const {title, children, openPopup, setOpenPopup} = props;
 
+    const useStyles = makeStyles
+
 
     return (
         <div className="modal-fullscreen-xl-down">
