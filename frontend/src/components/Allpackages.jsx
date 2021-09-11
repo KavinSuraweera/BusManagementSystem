@@ -16,17 +16,17 @@ export default function Allpackages() {
 
 
 
-    function sendData(e){
+    function sendData(e) {
 
         e.preventDefault();
 
 
-        
-        axios.post("http://localhost:8000/package/add", packages).then(()=>{
+
+        axios.post("http://localhost:8000/package/add", packages).then(() => {
             // alert("Package added!")
             window.location.reload(false);
 
-        }).catch((err)=>{
+        }).catch((err) => {
             alert(err)
         })
 
@@ -45,19 +45,13 @@ export default function Allpackages() {
 
 
 
-    const [pId, setId] = useState("")
-    function sendId(pId) {
-        
-  
-  
+    // const [pId, setId] = useState("")
+    // function sendId(pId) {
 
-        axios.put(`http://localhost:8000/package/update/${pId}`, packages).then(() => {
-            alert("Updated")
-            window.location.reload(false);
-        }).catch((err) => {
-            alert(err)
-        })
-    }
+
+
+
+    // }
 
 
     function onDelete(pId) {
@@ -68,9 +62,9 @@ export default function Allpackages() {
         })
     }
 
-    
 
-  
+
+
     const openInPopup = packages => {
         setRecordForEdit(packages);
         setOpenPopup(true);
@@ -79,25 +73,34 @@ export default function Allpackages() {
 
 
 
-   
 
 
 
-    // const addOrEdit =(packages) =>{
-    //    // if(packages._id == null)
-    //         alert(packages._id)
-    //   //      else{
-    //  //           sendId(packages.id)
-    //     //    }
-                
-    // }
+
+    const addOrEdit = (packages) => {
+
+        const pid = packages._id
+
+
+
+
+
+        axios.put(`http://localhost:8000/package/update/${pid}`, packages).then(() => {
+            alert("Updated")
+            window.location.reload(false);
+            setOpenPopup(true);
+        }).catch((err) => {
+            alert(err)
+        })
+
+    }
 
 
 
 
     // update error fixed ---------------------
 
-   
+
     const [updateBtn, setUpdatebtn] = useState(false);
     console.log(updateBtn);
 
@@ -105,7 +108,7 @@ export default function Allpackages() {
 
     //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
     //     }
- 
+
 
 
 
@@ -144,12 +147,12 @@ export default function Allpackages() {
                                     &nbsp;
                                     <button
                                         className="btn btn-warning"
-                                        onClick={() => { 
+                                        onClick={() => {
                                             openInPopup(packages);
                                             setUpdatebtn(true);
                                         }}
 
-                                        
+
                                     >
                                         <i className="fas fa-edit"></i>&nbsp;Update
                                     </button>
@@ -162,22 +165,22 @@ export default function Allpackages() {
                         ))}
                     </tbody>
                 </table>
-                <button className="btn btn-success" 
-                onClick={() => {
-                    setOpenPopup(true);
-                    setUpdatebtn(false);
-                }}>
+                <button className="btn btn-success"
+                    onClick={() => {
+                        setOpenPopup(true);
+                        setUpdatebtn(false);
+                    }}>
                     Add new package</button>
                 <Popup
-                    title={updateBtn?"Update package form":"Add new Package form"} 
+                    title={updateBtn ? "Update package form" : "Add new Package form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
                 >
-                    <Addpackage 
-                    recordForEdit={recordForEdit}
-                    // addOrEdit={addOrEdit}
+                    <Addpackage
+                        recordForEdit={recordForEdit}
+                        addOrEdit={addOrEdit}
                     />
-                    
+
                 </Popup>
 
 
