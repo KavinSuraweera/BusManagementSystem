@@ -5,24 +5,47 @@ let Customer = require('../models/customer.js')
 
 const router = express.Router(); 
 
-//Add bus 
+//LOGIN
+router.route("/login").post((req, res) => {
+
+    const Email = req.body.Email;
+    const Password =req.body.Password;
+
+   Customer.findOne({Email}).then((customer)=>{  
+       if(!customer){
+            return res.status(400).json({msg:"User does not exist"});
+       }
+       if(customer.Password===Password){
+           res.json(customer);
+       }
+       else{
+           res.status(400).json({msg:"Invalid Password"});
+       }
+        console.log(customer)
+
+    }).catch((err) =>{
+        res.status(500).json({msg:"Server Error"});
+    })
+
+})
+
+
+//ADD
 
 router.route("/add").post((req, res) => {
 
-    const CusNIC = Number(req.body.CusNIC);
-    const Password = req.body.Password;
-    const Phone = Number(req.body.Phone);
-    const Name = req.body.Name;
-    const Email =req.body.Email;
-    const Address = req.body.Address;
+    const UserName = req.body.UserName;
+    const FirstName = req.body.FirstName;
+    const LastName = req.body.LastName;
+    const Email = req.body.Email;
+    const Password =req.body.Password;
 
     const newcustomer = new customer({
-        CusNIC,
-        Password,
-        Phone,
-        Name,
+        UserName,
+        FirstName,
+        LastName,
         Email,
-        Address
+        Password
     })
 
 
@@ -51,20 +74,18 @@ router.route("/").get((req, res) =>{
 router.route("/update/:id").put(async(req, res) =>{
     let cusId = req.params.id;
     const {
-        CusNIC,
-        Password,
-        Phone,
-        Name,
+        UserName,
+        FirstName,
+        LastName,
         Email,
-        Address} = req.body;
+        Password} = req.body;
 
     const customId = {
-        CusNIC,
-        Password,
-        Phone,
-        Name,
+        UserName,
+        FirstName,
+        LastName,
         Email,
-        Address
+        Password
     }
 
     const update = await Customer.findByIdAndUpdate(cusId, customId).then(()=>{

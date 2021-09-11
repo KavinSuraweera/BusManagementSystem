@@ -95,6 +95,7 @@ export default function Customermain() {
                   <i class="far fa-eye"></i>&nbsp;View
                 </button>
                 &nbsp;
+
                 <button
                   className="btn btn-warning"
                   onClick={() => {
@@ -103,6 +104,7 @@ export default function Customermain() {
                 >
                   <i className="fas fa-edit"></i>&nbsp;Update
                 </button>
+                
                 &nbsp;
                 <button
                   className="btn btn-danger"
