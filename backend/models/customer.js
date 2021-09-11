@@ -18,6 +18,11 @@ const customerSchema = new Schema({
         type : String,
         required : true
     },
+
+    Phone : {
+        type : Number,
+        required : true
+    },
     
     Email : {
         type : String,

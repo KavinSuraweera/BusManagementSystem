@@ -37,6 +37,7 @@ router.route("/add").post((req, res) => {
     const UserName = req.body.UserName;
     const FirstName = req.body.FirstName;
     const LastName = req.body.LastName;
+    const Phone = Number(req.body.Phone);
     const Email = req.body.Email;
     const Password =req.body.Password;
 
@@ -44,6 +45,7 @@ router.route("/add").post((req, res) => {
         UserName,
         FirstName,
         LastName,
+        Phone,
         Email,
         Password
     })
@@ -77,6 +79,7 @@ router.route("/update/:id").put(async(req, res) =>{
         UserName,
         FirstName,
         LastName,
+        Phone,
         Email,
         Password} = req.body;
 
@@ -84,6 +87,7 @@ router.route("/update/:id").put(async(req, res) =>{
         UserName,
         FirstName,
         LastName,
+        Phone,
         Email,
         Password
     }

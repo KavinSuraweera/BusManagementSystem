@@ -1,135 +1,188 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Popup from "../../components/popup";
-import AddCustomers from "./customeradd";
+import Addcustomer from './customeradd';
+import Header from '../header'
 
-export default function Customermain() {
-  const [recordForEdit, setRecordForEdit] = useState(null);
-  const [openPopup, setOpenPopup] = useState(false);
+export default function Allpackages() {
 
-  const [customer, setCustomers] = useState([]);
+    const [recordForEdit, setRecordForEdit] = useState(null);
+    const [openPopup, setOpenPopup] = useState(false);
+    const [customer, setCustomer] = useState([]);
 
-  useEffect(() => {
-    const getCustomers = () => {
-      axios
-        .get("http://localhost:8000/customer/")
-        .then((res) => {
-          setCustomers(res.data);
+
+
+
+
+    function sendData(e) {
+
+        e.preventDefault();
+
+
+
+        axios.post("http://localhost:8000/customer/add", customer).then(() => {
+            // alert("Customer added!")
+            window.location.reload(false);
+
+        }).catch((err) => {
+            alert(err)
         })
-        .catch((err) => {
-          alert(err.message);
-        });
-    };
-    getCustomers();
-  }, []);
 
-  const [cId, setId] = useState("");
-  function sendId(e) {
-    e.preventDefault();
-    alert(cId);
-    const customerId = {
-      cId,
-    };
-
-    axios
-      .post(`http://localhost:8000/customer/update/${cId}`, customerId)
-      .then(() => {
-        alert("Updated");
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
-
-  function onDelete(pId) {
-    axios
-      .delete(`http://localhost:8000/customer/delete/${pId}`)
-      .then((req, res) => {
-        window.location.reload(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
-
-  const openInPopup = (customer) => {
-    setRecordForEdit(customer);
-    setOpenPopup(true);
-    console.log(customer);
-  };
-
-  useState(() => {
-    if (recordForEdit != null) {
-      setCustomers({
-        ...recordForEdit,
-      });
     }
-  }, [recordForEdit]);
-  return (
-    <div className="container">
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">NIC</th>
-            <th scope="col">Password</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Name</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Address</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customer.map((customer, index) => (
-            <tr key={index}>
-              <th scope="row">{index + 1}</th>
-              <td>{customer.CusNIC}</td>
-              <td>{customer.Password}</td>
-              <td>{customer.Phone}</td>
-              <td>{customer.Name}</td>
-              <td>{customer.Email}</td>
-              <td>{customer.Address}</td>
-              <td>
-                <button type="button" class="btn btn-primary">
-                  <i class="far fa-eye"></i>&nbsp;View
-                </button>
-                &nbsp;
 
-                <button
-                  className="btn btn-warning"
-                  onClick={() => {
-                    openInPopup(customer);
-                  }}
+    useEffect(() => {
+        const getCustomer = () => {
+            axios.get("http://localhost:8000/customer/").then((res) => {
+                setCustomer(res.data);
+            }).catch((err) => {
+                alert(err.message)
+            })
+        }
+        getCustomer();
+    }, [])
+
+
+
+    // const [pId, setId] = useState("")
+    // function sendId(pId) {
+
+
+
+
+    // }
+
+
+    function onDelete(pId) {
+        axios.delete(`http://localhost:8000/customer/delete/${pId}`).then((req, res) => {
+            window.location.reload(false);
+        }).catch((err) => {
+            alert(err);
+        })
+    }
+
+
+
+
+    const openInPopup = customer => {
+        setRecordForEdit(customer);
+        setOpenPopup(true);
+        console.log(customer)
+    }
+
+
+
+
+
+
+
+    const addOrEdit = (customer) => {
+
+        const pid = customer._id
+
+
+        axios.put(`http://localhost:8000/customer/update/${pid}`, customer).then(() => {
+            alert("Updated")
+            window.location.reload(false);
+        }).catch((err) => {
+            alert(err)
+        })
+
+    }
+
+
+
+
+    // update error fixed ---------------------
+
+
+    const [updateBtn, setUpdatebtn] = useState(false);
+    console.log(updateBtn);
+
+    // const updateBtnactive = () =>{
+
+    //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
+    //     }
+
+
+
+
+    //------------------------------------------ 
+    return (
+        <div>
+            <Header />
+            <div className="container">
+
+
+
+
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">UserName</th>
+                            <th scope="col">FirstName</th>
+                            <th scope="col">LastName</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {customer.map((customer, index) => (
+                            <tr key={index}>
+                                <th scope="row">{index + 1}</th>
+                                <td>{customer.UserName}</td>
+                                <td>{customer.FirstName}</td>
+                                <td>{customer.LastName}</td>
+                                <td>{customer.Phone}</td>
+                                <td>{customer.Email}</td>
+                                <td>{customer.Password}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="far fa-eye"></i>&nbsp;View
+                                    </button>
+                                    &nbsp;
+                                    <button
+                                        className="btn btn-warning"
+                                        onClick={() => {
+                                            openInPopup(customer);
+                                            setUpdatebtn(true);
+                                        }}
+
+
+                                    >
+                                        <i className="fas fa-edit"></i>&nbsp;Update
+                                    </button>
+                                    &nbsp;
+                                    <button className="btn btn-danger" href="/add" onClick={() => { onDelete(customer._id) }} >
+                                        <i className="far fa-trash-alt"></i>&nbsp;Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <button className="btn btn-success"
+                    onClick={() => {
+                        setOpenPopup(true);
+                        setUpdatebtn(false);
+                    }}>
+                    Add new Customer</button>
+                <Popup
+                    title={updateBtn ? "Update Customer form" : "Add new Customer form"}
+                    openPopup={openPopup}
+                    setOpenPopup={setOpenPopup}
                 >
-                  <i className="fas fa-edit"></i>&nbsp;Update
-                </button>
-                
-                &nbsp;
-                <button
-                  className="btn btn-danger"
-                  href="/add"
-                  onClick={() => {
-                    onDelete(customer._id);
-                  }}
-                >
-                  <i className="far fa-trash-alt"></i>&nbsp;Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button className="btn btn-success" onClick={() => setOpenPopup(true)}>
-        Add new customer
-      </button>
-      <Popup
-        title="Add new customer form."
-        openPopup={openPopup}
-        setOpenPopup={setOpenPopup}
-      >
-        <AddCustomers recordForEdit={recordForEdit} />
-      </Popup>
-    </div>
-  );
+                    <Addcustomer
+                        recordForEdit={recordForEdit}
+                        addOrEdit={addOrEdit}
+                    />
+
+                </Popup>
+
+
+            </div>
+        </div>
+    )
 }

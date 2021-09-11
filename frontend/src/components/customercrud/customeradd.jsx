@@ -1,177 +1,183 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import "../../CSS/App.css";
+import React, { useState, useEffect, useForms } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom'
+import '../../CSS/App.css';
 
-export default function AddCustomers(props) {
-  const { addOrEdit, recordForEdit } = props;
 
-  const [customer, setCustomers] = useState([]);
+export default function Addpackage(props) {
 
-  const [CusNIC, setNic] = useState("");
-  const [Password, setPass] = useState("");
-  const [Phone, setPhone] = useState("");
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Address, setAddress] = useState("");
+    const { recordForEdit } = props;
 
-  function sendData(e) {
-    e.preventDefault();
+    const [customer, setCustomer] = useState({});
 
-    const newCustomers = {
-      id: "0",
-      CusNIC,
-      Password,
-      Phone,
-      Name,
-      Email,
-      Address,
+    const [UserName, setUserName] = useState("");
+    const [FirstName, setFirstName] = useState("");
+    const [LastName, setLastName] = useState("");
+    const [Phone, setPhone] = useState("");
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+
+
+
+
+
+    function sendData() {
+
+
+
+        const newCustomer = {
+            id: '0',
+            UserName,
+            FirstName,
+            LastName,
+            Phone,
+            Email,
+            Password
+        }
+
+
+        axios.post("http://localhost:8000/customer/add", newCustomer).then(() => {
+
+            window.location.reload(false);
+
+        }).catch((err) => {
+            alert(err)
+        })
+
+    }
+
+    console.log(customer)
+
+    const updateCustomer = {
+        UserName,
+        FirstName,
+        LastName,
+        Phone,
+        Email,
+        Password
     };
 
-    axios
-      .post("http://localhost:8000/customer/add", newCustomers)
-      .then(() => {
-        // alert("Package added!")
-        window.location.reload(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
-  const [cId, setId] = useState("");
-  function sendId(e) {
-    e.preventDefault();
-    alert(cId);
-    const customerId = {
-      cId,
-    };
+    function editCustomer(uId) {
 
-    axios
-      .post(`http://localhost:8000/package/update/${cId}`, customerId)
-      .then(() => {
-        alert("Updated");
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
+        axios
+            .put(
+                `http://localhost:8000/customer/update/${uId}`,
+                updateCustomer
+            )
+            .then((res) => {
+                alert("Customer Updated");
+                window.location.reload(false);
+                //this.setState({ redirect: "/home" });
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    }
 
-  useEffect(() => {
-    if (recordForEdit != null)
-      setCustomers({
-        ...recordForEdit,
-      });
-  }, [recordForEdit]);
 
-  return (
-    <div className="container">
-      <form className="row g-3">
-        <div className="col-md-6">
-          <label htmlFor="customerNIC" className="form-label">
-            Customer NIC
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="tripsCount"
-            placeholder="Enter Customer NIC"
-            defaultValue={customer.CusNIC}
-            onChange={(e) => {
-              setNic(e.target.value);
-            }}
-          />
+
+
+
+    useEffect(() => {
+        if (recordForEdit != null) {
+            setCustomer({
+                ...recordForEdit
+            })
+
+            setUserName(recordForEdit.UserName)
+            setFirstName(recordForEdit.FirstName)
+            setLastName(recordForEdit.LastName)
+            setLastName(recordForEdit.Phone)
+            setEmail(recordForEdit.Email)
+            setPassword(recordForEdit.Password)
+
+        }
+    }, [recordForEdit]);
+
+
+
+
+    const handleSubmit = (e) => {
+        if (customer._id == null)
+
+            sendData(customer)
+        else {
+
+
+            editCustomer(customer._id)
+        }
+
+    }
+
+
+
+
+    return (
+        <div className="container">
+            <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
+                <div className="col-md-6">
+                    <label htmlFor="packageName" className="form-label">Enter UserName:</label>
+                    <input type="text" className="form-control" id="packageName" placeholder="Enter User Name"
+                        value={UserName}
+                        onChange={(e) => {
+                            setUserName(e.target.value);
+                        }}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <label htmlFor="packageName" className="form-label">Enter First Name:</label>
+                    <input type="text" className="form-control" id="packageName" placeholder="Enter First Name"
+                        value={FirstName}
+                        onChange={(e) => {
+                            setFirstName(e.target.value);
+                        }}
+                    />
+                </div>
+                <div className="col-md-2">
+                    <label htmlFor="tripsCount" className="form-label">Enter Last Name</label>
+                    <input type="text" className="form-control" id="tripsCount" placeholder="Enter Last Name"
+                        value={LastName}
+                        onChange={(e) => {
+                            setLastName(e.target.value);
+                        }}
+                    />
+                </div>
+                <div className="col-md-2">
+                    <label htmlFor="tripsCount" className="form-label">Enter Phone</label>
+                    <input type="tel" className="form-control" id="phone" placeholder="Enter Last Name"
+                        value={Phone}
+                        onChange={(e) => {
+                            setPhone(e.target.value);
+                        }}
+                    />
+                </div>
+
+                <div className="col-md-6">
+                    <label htmlFor="timePeriod" className="form-label">Enter Email:</label>
+                    <input type="text" className="form-control" id="timePeriod" placeholder="Email"
+                        value={Email}
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                        }}
+                    />
+                </div>
+
+                <div className="col-md-2">
+                    <label htmlFor="price" className="form-label">Enter Password:</label>
+                    <input type="text" className="form-control" id="price" placeholder="Password"
+                        value={Password}
+                        onChange={(e) => {
+                            setPassword(e.target.value);
+                        }}
+                    />
+                </div>
+
+                <div>
+                    <input type="submit" className="btn btn-primary" href="/home" value="Submit" />
+                </div>
+            </form>
+
         </div>
-
-        <div className="col-md-6">
-          <label htmlFor="customerName" className="form-label">
-            Customer Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="tripsCount"
-            placeholder="Enter Customer Name"
-            defaultValue={customer.Name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="col-md-2">
-          <label htmlFor="customerPhone" className="form-label">
-            Customer Phone
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customerphone"
-            placeholder="Enter Customer phone"
-            defaultValue={customer.Phone}
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="customerAddress" className="form-label">
-            Customer Address
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customeraddress"
-            placeholder="Enter Customer Address"
-            defaultValue={customer.Address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="col-md-2">
-          <label htmlFor="customerEmail" className="form-label">
-            Customer Email
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customeremail"
-            placeholder="Enter Email"
-            defaultValue={customer.Email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="col-md-2">
-          <label htmlFor="customerPassword" className="form-label">
-            Customer Password
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customerpword"
-            placeholder="Enter Password"
-            defaultValue={customer.Password}
-            onChange={(e) => {
-              setPass(e.target.value);
-            }}
-          />
-        </div>
-
-        <div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            href="/home"
-            onClick={sendData}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+    )
 }
