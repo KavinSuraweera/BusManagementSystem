@@ -9,7 +9,7 @@ import Home from "./components/home";
 import Booking from "./components/booking";
 import Footer from "./components/footer";
 import contact from "./components/contactUs";
-import adminLogin from "./components/adminLogin";
+import AdminLogin from "./components/AdminLogin";
 import availablebuses from "./components/availablebuses";
 import dashbord from "./components/dashbord";
 import seats from "./components/seats";
@@ -18,6 +18,7 @@ import employeemain from "./components/employeecrud/employeemain";
 import userreg from "./components/Userprofile/UserRegister";
 import UserLogin from "./components/Userprofile/UserLogin";
 import Userprofile from "./components/Userprofile/Userprofile";
+import Blocks from "./components/dashbord/features/blocks"
 
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
@@ -44,13 +45,14 @@ function App() {
         <Route path="/schedule" exact component={schedule} />
 
         <Switch>
-          <Route path="/adminLogin" exact component={adminLogin} />
+          <Route path="/Admin-Login" exact component={AdminLogin} />
           <Route path="/customermain" exact component={customermain} />
           <Route path="/employeemain" exact component={employeemain} />
           <Route path="/adminmain" exact component={adminmain} />
           <Route path="/Sign-Up" exact component={userreg} />
           <Route path="/Login-Page" exact component={UserLogin}/>
           <Route path="/Userprofile/:id" exact component={Userprofile}/>
+          <Route path="/Blocks/:id" exact component={Blocks}/>
         </Switch>
       </Router>
     </div>

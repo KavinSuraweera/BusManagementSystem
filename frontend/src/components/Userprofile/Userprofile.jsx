@@ -17,7 +17,6 @@ import Popup from "./userpopup";
   })
   };
   const[btnlock, setBtnlock]= useState(false);
-
   console.log(btnlock);
 
   return (
@@ -118,6 +117,7 @@ export default function Userprofile() {
 
   const [profile, setProfile] = useState(initialState);
 
+  //Retrieve id from login page
   const { id } = useParams();
 
   const[isupdate, setisupdate] = useState(false);
