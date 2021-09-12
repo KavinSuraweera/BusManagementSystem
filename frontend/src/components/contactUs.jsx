@@ -22,18 +22,6 @@ export default function contactUs() {
             </button><br/><br/>
             </Link>
 
-            <Link to="./Sign-Up">
-            <button>
-                user signup
-            </button><br/>
-            </Link>
-
-            <Link to="./Login-Page">
-            <button>
-                user login
-            </button><br/>
-            </Link>
-
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import { Link } from 'react-router-dom'
 
 export default function home() {
     return (
@@ -21,8 +22,14 @@ export default function home() {
                         </div>
                         
                         <div className="home-buttons">
+
+                         <Link to="./Login-Page">
                             <button>Login</button>
+                            </Link>
+                            
+                            <Link to="./Sign-Up">
                             <button>Sign up</button>
+                            </Link>
                         </div>
                     
 

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
+import './ProfileCSS/Userlogin.css'
+import {Alert} from 'react-bootstrap'
 
 export default function UserLogin() {
 
@@ -22,28 +24,30 @@ export default function UserLogin() {
       Email: loginForm.email,
       Password: loginForm.password,
     };
-
+    
     console.log(payload);
     axios
       .post(`http://localhost:8000/customer/login`, payload)
-      .then(() => {
-        history.push("/Userprofile");
+      .then((response) => {
+        
+        console.log(response);
+        history.push(`/Userprofile/${response.data._id}`);
+        
       })
       .catch((err) => {
-        alert(err);
-        console.log(err.response);
+       alert(err?.response?.data?.msg);
       });
   };
 
   return (
-    <div>
-      Email:
+    <div className="login-container">
+      <label for="email">Enter Email</label><br/>
       <input type="text" name="email" onChange={onChange}/>
       <br />
-      <br />
-      Password:
+      <label for="password">Enter Password</label><br/>
       <input type="text" name="password" onChange={onChange}/>
-
+      <br />
+      <br />
       <button onClick={submit}>Submit</button>
     </div>
   );

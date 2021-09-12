@@ -50,7 +50,7 @@ function App() {
           <Route path="/adminmain" exact component={adminmain} />
           <Route path="/Sign-Up" exact component={userreg} />
           <Route path="/Login-Page" exact component={UserLogin}/>
-          <Route path="/Userprofile" exact component={Userprofile}/>
+          <Route path="/Userprofile/:id" exact component={Userprofile}/>
         </Switch>
       </Router>
     </div>

@@ -29,6 +29,21 @@ router.route("/login").post((req, res) => {
 
 })
 
+//GET ONE CUSOTMER
+router.route("/:id").get((req, res) =>{
+    
+    const cusId = req.params.id;
+
+    Customer.findOne({_id:cusId}).then((customer)=>{  
+        if(!customer){
+             return res.status(400).json({msg:"User does not exist"});
+        }
+        return res.status(200).json({customer});
+     }).catch((err) =>{
+         res.status(500).json({msg:"Server Error"});
+     })
+
+})
 
 //ADD
 
@@ -112,7 +127,7 @@ router.route("/get/:id").get(async(req, res) =>{
 
 router.route("/delete/:id").delete(async(req, res) =>{
     let cusId = req.params.id;
-    const customer = await Customer.findOneAndDelete(cusId).then((cus)=>{
+    const customer = await Customer.findOneAndDelete({_id:cusId}).then((cus)=>{
         res.status(200).send({status:"Customer deleted sucessfully"})
     }).catch((err)=>{
         console.log(err.message);
