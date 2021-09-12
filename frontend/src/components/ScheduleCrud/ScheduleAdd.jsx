@@ -3,23 +3,24 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../CSS/App.css";
 
-export default function Addschedule(props) {
+export default function AddSchedule(props) {
   const { addOrEdit, recordForEdit } = props;
 
-  const [schedule, setschedule] = useState([]);
+  const [schedule, setSchedule] = useState([]);
 
   const [scheduleId, setscheduleId] = useState("");
-  const [RouteId , setRouteId ] = useState("");
+  const [RouteId, setRouteId] = useState("");
   const [Route, setRoute] = useState("");
   const [Time, setTime] = useState("");
   const [BusNumber, setBusNumber] = useState("");
+  
 
   function sendData(e) {
     e.preventDefault();
 
-    const newschedule = {
+    const newSchedules = {
       id: "0",
-      scheduleId ,
+      scheduleId,
       RouteId,
       Route,
       Time,
@@ -27,9 +28,9 @@ export default function Addschedule(props) {
     };
 
     axios
-      .post("http://localhost:8000/busschedule/add", newschedule)
+      .post("http://localhost:8000/schedule/add", newSchedules)
       .then(() => {
-        
+        // alert("Schedule has been added!")
         window.location.reload(false);
       })
       .catch((err) => {
@@ -45,9 +46,9 @@ export default function Addschedule(props) {
     };
 
     axios
-      .post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId)
+      .post(`http://localhost:8000/package/update/${sId}`, scheduleId)
       .then(() => {
-        alert("Updated");
+        alert("Schedule has been Updated");
       })
       .catch((err) => {
         alert(err);
@@ -56,7 +57,7 @@ export default function Addschedule(props) {
 
   useEffect(() => {
     if (recordForEdit != null)
-      setschedule({
+    setSchedule({
         ...recordForEdit,
       });
   }, [recordForEdit]);
@@ -65,8 +66,8 @@ export default function Addschedule(props) {
     <div className="container">
       <form className="row g-3">
         <div className="col-md-6">
-          <label htmlFor="customerNIC" className="form-label">
-          scheduleId
+          <label htmlFor="scheduleID" className="form-label">
+            Schedule ID
           </label>
           <input
             type="text"
@@ -81,8 +82,8 @@ export default function Addschedule(props) {
         </div>
 
         <div className="col-md-6">
-          <label htmlFor="customerName" className="form-label">
-            Route ID  
+          <label htmlFor="RouteID" className="form-label">
+            Route ID
           </label>
           <input
             type="text"
@@ -97,14 +98,14 @@ export default function Addschedule(props) {
         </div>
 
         <div className="col-md-2">
-          <label htmlFor="customerPhone" className="form-label">
+          <label htmlFor="Route" className="form-label">
             Route
           </label>
           <input
             type="text"
             className="form-control"
-            id="customerphone"
-            placeholder="Enter Route"
+            id="Route"
+            placeholder="Enter Route Name"
             defaultValue={schedule.Route}
             onChange={(e) => {
               setRoute(e.target.value);
@@ -112,14 +113,14 @@ export default function Addschedule(props) {
           />
         </div>
         <div className="col-md-6">
-          <label htmlFor="customerAddress" className="form-label">
-            Departure Time
+          <label htmlFor="Time" className="form-label">
+            Time
           </label>
           <input
             type="text"
             className="form-control"
-            id="customeraddress"
-            placeholder="Enter Departure Time"
+            id="Time"
+            placeholder="Enter Time"
             defaultValue={schedule.Time}
             onChange={(e) => {
               setTime(e.target.value);
@@ -128,13 +129,13 @@ export default function Addschedule(props) {
         </div>
 
         <div className="col-md-2">
-          <label htmlFor="customerEmail" className="form-label">
+          <label htmlFor="BusNumber" className="form-label">
             Bus Number
           </label>
           <input
             type="text"
             className="form-control"
-            id="customeremail"
+            id="BusNumber"
             placeholder="Enter Bus Number"
             defaultValue={schedule.BusNumber}
             onChange={(e) => {
@@ -142,6 +143,8 @@ export default function Addschedule(props) {
             }}
           />
         </div>
+
+       
 
         <div>
           <button
