@@ -4,17 +4,20 @@ import Topbar from './dashbord/topbar/tobbar'
 import '../CSS/dashbord.css'
 import Blocks from './dashbord/features/blocks'
 import TinyBlock from './dashbord/features/tinyblocks'
+import { useParams } from "react-router-dom";
 
-export default function topbar() {
+export default function Tobbarcus() {
 
-    return (
+    const {id} = useParams();
+
+    return ( 
 
         <div>
             <Topbar/>
             <div className="container">
                 <Sidebar/>
                 <div className="bottomBar">
-                       <Blocks/>
+                       <Blocks id={id}/>
                  </div>
                  <div className="bbBar">
                        <TinyBlock/>
