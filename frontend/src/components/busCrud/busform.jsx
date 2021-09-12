@@ -2,44 +2,55 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Popup from "../../components/popup";
-import Sidebar from '../dashbord/sidebar/sidebar';
-
 import Addbus from './busadd';
+import Header from '../header'
 
-export default function Allpackagse() {
+export default function Allbus() {
 
     const [recordForEdit, setRecordForEdit] = useState(null);
     const [openPopup, setOpenPopup] = useState(false);
+    const [bus, setBus] = useState([]);
 
-    const [bus, setbus] = useState([]);
+
+
+
+
+    function sendData(e) {
+
+        e.preventDefault();
+
+
+
+        axios.post("http://localhost:8000/bus/add", bus).then(() => {
+            // alert("Bus added!")
+            window.location.reload(false);
+
+        }).catch((err) => {
+            alert(err)
+        })
+
+    }
 
     useEffect(() => {
-        const getbus = () => {
+        const getBus = () => {
             axios.get("http://localhost:8000/bus/").then((res) => {
-                setbus(res.data);
+                setBus(res.data);
             }).catch((err) => {
                 alert(err.message)
             })
         }
-        getbus();
+        getBus();
     }, [])
 
 
 
-    const [bId, setId] = useState("")
-    function sendId(e) {
-        e.preventDefault();
-        alert(bId)
-        const busId = {
-            bId,
-        }
+    // const [pId, setId] = useState("")
+    // function sendId(pId) {
 
-        axios.post(`http://localhost:8000/bus/update/${bId}`, busId).then(() => {
-            alert("Updated")
-        }).catch((err) => {
-            alert(err)
-        })
-    }
+
+
+
+    // }
 
 
     function onDelete(bId) {
@@ -52,25 +63,55 @@ export default function Allpackagse() {
 
 
 
+
     const openInPopup = bus => {
-        setRecordForEdit(bus)
+        setRecordForEdit(bus);
         setOpenPopup(true);
         console.log(bus)
     }
 
 
-    useState(() => {
-        if (recordForEdit != null) {
-            setbus({
-                ...recordForEdit
-            })
-        }
-    }, [recordForEdit])
+
+
+
+
+
+    const addOrEdit = (bus) => {
+
+        const bid = bus._id
+
+
+        axios.put(`http://localhost:8000/bus/update/${bid}`, bus).then(() => {
+            alert("Updated")
+            window.location.reload(false);
+        }).catch((err) => {
+            alert(err)
+        })
+
+    }
+
+
+
+
+    // update error fixed ---------------------
+
+
+    const [updateBtn, setUpdatebtn] = useState(false);
+    console.log(updateBtn);
+
+    // const updateBtnactive = () =>{
+
+    //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
+    //     }
+
+
+
+
+    //------------------------------------------ 
     return (
         <div>
-            
+            <Header />
             <div className="container">
-
 
 
 
@@ -79,12 +120,12 @@ export default function Allpackagse() {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">BusNo</th>
-                            <th scope="col">Seat Count</th>
-                            <th scope="col">Registration No</th>
+                            <th scope="col">Bus Number</th>
+                            <th scope="col">Number of seats</th>
+                            <th scope="col">Registration Number</th>
                             <th scope="col">Bus Type</th>
                             <th scope="col">Permit ID</th>
-                            <th scope="col">Action</th>
+                        
                         </tr>
                     </thead>
                     <tbody>
@@ -96,6 +137,7 @@ export default function Allpackagse() {
                                 <td>{bus.regNo}</td>
                                 <td>{bus.Type}</td>
                                 <td>{bus.permitID}</td>
+
                                 <td>
                                     <button type="button" class="btn btn-primary">
                                         <i class="far fa-eye"></i>&nbsp;View
@@ -103,7 +145,12 @@ export default function Allpackagse() {
                                     &nbsp;
                                     <button
                                         className="btn btn-warning"
-                                        onClick={() => { openInPopup(bus) }}
+                                        onClick={() => {
+                                            openInPopup(bus);
+                                            setUpdatebtn(true);
+                                        }}
+
+
                                     >
                                         <i className="fas fa-edit"></i>&nbsp;Update
                                     </button>
@@ -116,14 +163,22 @@ export default function Allpackagse() {
                         ))}
                     </tbody>
                 </table>
-                <button className="btn btn-success" onClick={() => setOpenPopup(true)}>Add new bus</button>
+                <button className="btn btn-success"
+                    onClick={() => {
+                        setOpenPopup(true);
+                        setUpdatebtn(false);
+                    }}>
+                    Add new Bus</button>
                 <Popup
-                    title="Add new bus form."
+                    title={updateBtn ? "Update Bus form" : "Add new Bus form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
                 >
                     <Addbus
-                        recordForEdit={recordForEdit} />
+                        recordForEdit={recordForEdit}
+                        addOrEdit={addOrEdit}
+                    />
+
                 </Popup>
 
 
@@ -131,4 +186,3 @@ export default function Allpackagse() {
         </div>
     )
 }
-
