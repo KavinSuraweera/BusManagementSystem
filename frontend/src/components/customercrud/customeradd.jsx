@@ -87,7 +87,7 @@ export default function Addpackage(props) {
             setUserName(recordForEdit.UserName)
             setFirstName(recordForEdit.FirstName)
             setLastName(recordForEdit.LastName)
-            setLastName(recordForEdit.Phone)
+            setPhone(recordForEdit.Phone)
             setEmail(recordForEdit.Email)
             setPassword(recordForEdit.Password)
 

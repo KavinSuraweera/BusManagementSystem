@@ -40,7 +40,7 @@ function App() {
         <Route path="/avilablebus" exact component={availablebuses} />
         <Route path="/seats" exact component={seats} />
         <Route path="/packages" exact component={Allpackages} />
-        <Route path="/dashbord" exact component={dashbord} />
+        <Route path="/dashbord/:id" exact component={dashbord} />
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
 
@@ -52,7 +52,6 @@ function App() {
           <Route path="/Sign-Up" exact component={userreg} />
           <Route path="/Login-Page" exact component={UserLogin}/>
           <Route path="/Userprofile/:id" exact component={Userprofile}/>
-          <Route path="/Blocks/:id" exact component={Blocks}/>
         </Switch>
       </Router>
     </div>

@@ -2,9 +2,33 @@ const express = require('express');
 const customer = require('../models/customer.js');
 const { findByIdAndUpdate } = require('../models/customer.js');
 let Customer = require('../models/customer.js')
-
+const multer = require('multer');
 const router = express.Router(); 
 
+//IMAGE
+const storage = multer.diskStorage({
+destination: (req, file, cb) => {
+cb(null, "./");},
+filename: function(req, file, cb){
+const ext = file.mimetype.split("/") [1];
+cb(null, `uploads/${file.originalname}-${Date.now()}.${ext}`);}});
+const upload = multer({ storage: storage});
+
+const path = require('path');
+
+router.post("/image/:id", upload.single('image'),(req, res, err) => {
+
+    const cusId = req.params.id;
+
+    if (!req.file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) 
+    {
+        res.status(400).json({ msg:'Only image files (jpg, jpeg, png) are allowed!'})
+    }else
+    {
+        console.log(req.file.filename);
+        res.status(200);
+    }
+});
 //LOGIN
 router.route("/login").post((req, res) => {
 

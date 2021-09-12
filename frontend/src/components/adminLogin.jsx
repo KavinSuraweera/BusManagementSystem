@@ -30,7 +30,7 @@ export default function AdminLogin() {
       .post(`http://localhost:8000/admin/login`, payload)
       .then((response) => {
         console.log(response);
-        history.push(`/Blocks/${response.data._id}`);
+        history.push(`/dashbord/${response.data._id}`);
       })
       .catch((err) => {
         alert(err?.response?.data?.msg);

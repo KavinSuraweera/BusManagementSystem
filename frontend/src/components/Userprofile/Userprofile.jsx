@@ -98,7 +98,6 @@ import Popup from "./userpopup";
 
 export default function Userprofile() {
 
-
   const history = useHistory();
 
   const [openPopup, setOpenPopup] = useState(false);
@@ -121,6 +120,39 @@ export default function Userprofile() {
   const { id } = useParams();
 
   const[isupdate, setisupdate] = useState(false);
+
+  ///IMAEG HANDLER
+
+  const[image, setImage] = useState(null);
+
+  const imageHandler = (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+
+    setImage(formData)
+
+    console.log(formData, "ccccc");
+  };
+
+  //IMAGE UP BTN
+
+
+  const uploadImage=()=>{
+    axios
+    .post(`http://localhost:8000/customer/image/${id}`, image, {
+      headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      setImage(null)
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
 
   useEffect(() => {
     axios
@@ -156,11 +188,10 @@ export default function Userprofile() {
       <p>{profile.Phone}</p>
       <h3>Email</h3>
       <p>{profile.Email}</p>
-
+      
       <button className="logout-btn" onClick={logout}>
         LOG OUT
       </button>
-
 
       <button className="logout-btn" onClick={() => { setOpenPopup(true); setisupdate(false) }}>
         Delete Profile
@@ -170,7 +201,16 @@ export default function Userprofile() {
         Update Profile
       </button>
 
-
+      <input
+            type="file"
+            name="image"
+            accept="image/*"
+            multiple={false}
+            onChange={imageHandler}
+          />
+        <button disabled={!image} onClick={uploadImage}>
+          upload image
+        </button>
 
        <Popup
           openPopup={openPopup}

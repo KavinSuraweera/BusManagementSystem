@@ -9,9 +9,7 @@ import Profilepics from "../../../img/dashbord/profilepics.jpeg";
 import Welcomeimg from "../../../img/dashbord/welcomeimg.png";
 import Block3 from "../../../img/dashbord/3rdblock.png";
 
-export default function Blocks() {
-
-  const {id} = useParams();
+export default function Blocks({id}) {
 
   const initialState = {
       _id: "",
