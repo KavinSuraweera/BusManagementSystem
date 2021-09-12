@@ -2,6 +2,7 @@ const express = require('express');
 const customer = require('../models/customer.js');
 const { findByIdAndUpdate } = require('../models/customer.js');
 let Customer = require('../models/customer.js')
+let Image = require('../models/cusimage.js')
 const multer = require('multer');
 const router = express.Router(); 
 
@@ -11,7 +12,7 @@ destination: (req, file, cb) => {
 cb(null, "./");},
 filename: function(req, file, cb){
 const ext = file.mimetype.split("/") [1];
-cb(null, `uploads/${file.originalname}-${Date.now()}.${ext}`);}});
+cb(null, `public/${file.originalname}-${Date.now()}.${ext}`);}});
 const upload = multer({ storage: storage});
 
 const path = require('path');
@@ -25,10 +26,41 @@ router.post("/image/:id", upload.single('image'),(req, res, err) => {
         res.status(400).json({ msg:'Only image files (jpg, jpeg, png) are allowed!'})
     }else
     {
-        console.log(req.file.filename);
-        res.status(200);
+        //IMAGE SET TO DATABASE
+        const image = new Image({
+            id:cusId,
+            image:req.file.filename
+        })
+        
+        image.save((err) => {
+            if(err){
+                return res.status(400).json({
+                    error:err
+                });
+            }
+            return res.status(200).json({
+                success:"Image Added Successfully "
+            })
+        })
     }
 });
+
+//IMAGE GET ROUTE
+router.route("/image/:id").get((req, res) =>{
+    
+    const cusId = req.params.id;
+
+    Image.findOne({id:cusId}).then((image)=>{  
+        if(!image){
+             return res.status(400).json({msg:"image does not exist"});
+        }
+        return res.status(200).json({image});
+     }).catch((err) =>{
+         res.status(500).json({msg:"Server Error"});
+     })
+
+})
+
 //LOGIN
 router.route("/login").post((req, res) => {
 

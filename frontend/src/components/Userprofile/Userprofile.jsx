@@ -68,6 +68,8 @@ import Popup from "./userpopup";
   })
   };
 
+
+
   return(
     <div>
             <center>
@@ -94,6 +96,7 @@ import Popup from "./userpopup";
   )
 }
 
+///USER PROFILEEEE
 
 
 export default function Userprofile() {
@@ -120,6 +123,7 @@ export default function Userprofile() {
   const { id } = useParams();
 
   const[isupdate, setisupdate] = useState(false);
+  const[profilepic, setProfilepic] = useState(null);
 
   ///IMAEG HANDLER
 
@@ -163,6 +167,19 @@ export default function Userprofile() {
       .catch((err) => {
         setError(true);
       });
+
+      //IMAGE
+      axios
+      .get(`http://localhost:8000/customer/image/${id}`)
+      .then((response) => {
+        const data = response?.data?.image?.image?.split("/")
+        console.log(data[0],"ccccccccccccccccccccccc")
+        console.log(data[1],"caaaaaaaaaaaaaaaaaac")
+        setProfilepic(data[1]);
+      })
+      .catch((err) => {
+      });
+
   }, []);
 
   const logout = () => {
@@ -179,6 +196,8 @@ export default function Userprofile() {
 
   return (
     <div>
+      {profilepic && <img src={`http://localhost:8000/${profilepic}`} alt="img"/>}
+
       <h1>{profile.UserName}</h1>
       <h3>First Name</h3>
       <p>{profile.FirstName}</p>
