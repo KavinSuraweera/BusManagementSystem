@@ -4,8 +4,10 @@
     display: block;
 }
 
-.container{
+.dashbord{
     display: flex;
+    width: 200px;
+    height: 200px;
 }
 
 .inside-container{
@@ -13,13 +15,29 @@
     margin-top:20px ;
 }
 
-.bottomBar{
-    background-color: #1A5276;
-    left:228px;
-    width: 88%;  
-    height:200px;   
+.dashbord_container{
+    z-index: -1;
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    left:0;
+    width: 100%;  
+    height:100%;   
     position: absolute;
     justify-content: center;
+}
+
+.dashbord_container .block_1{
+    display: block;
+    margin: auto;
+    margin-top:100px;
+    width: 100%;
+    height: 550px;
+}
+
+.dashbord_container .block_2{
+    width: 1250px;
+    
+    height: 500px;
+    margin: 25px auto;
 }
 
 .bbBar{

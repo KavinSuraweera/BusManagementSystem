@@ -9,39 +9,39 @@ import Profilepics from "../../../img/dashbord/profilepics.jpeg";
 import Welcomeimg from "../../../img/dashbord/welcomeimg.png";
 import Block3 from "../../../img/dashbord/3rdblock.png";
 
-export default function Blocks({id}) {
+export default function Blocks({ id }) {
 
   const initialState = {
-      _id: "",
-      Name:"",
-      Password:null,
-      Email:"",
-      Phone:null,
-      NIC:null,
-      Type:"" 
-    };
+    _id: "",
+    Name: "",
+    Password: null,
+    Email: "",
+    Phone: null,
+    NIC: null,
+    Type: ""
+  };
 
   const [adminprofile, setAdminProfile] = useState(initialState);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-      axios
-        .get(`http://localhost:8000/admin/${id}`)
-        .then((response) => {
-          setAdminProfile(response?.data?.admin);
-        })
-        .catch((err) => {
-          setError(true);
-        });
-    }, []);
-  
-    if (error) {
-      return (
-        <div>
-          <h1>Page Not Found</h1>
-        </div>
-      );
-    }
+    axios
+      .get(`http://localhost:8000/admin/${id}`)
+      .then((response) => {
+        setAdminProfile(response?.data?.admin);
+      })
+      .catch((err) => {
+        setError(true);
+      });
+  }, []);
+
+  if (error) {
+    return (
+      <div>
+        <h1>Page Not Found</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -57,7 +57,22 @@ export default function Blocks({id}) {
           </div>
         </div>
         <div className="featured">
-          <div className="featuredItem">
+          <div className="featuredItems_component">
+            <div className="featuredItem">
+              a
+            </div>
+
+            <div className="featuredItem">
+              a
+            </div>
+
+            <div className="featuredItem">
+              a
+            </div>
+          </div>
+
+
+          {/* <div className="featuredItem">
             <center>
               <p className="personal-info">Personal Info</p>
               <hr />
@@ -100,7 +115,7 @@ export default function Blocks({id}) {
               With a whole new experience and completely adaptable booking, your
               significant serenity begins the second you start dreaming
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
