@@ -2,7 +2,6 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import './ProfileCSS/Userlogin.css'
-import {Alert} from 'react-bootstrap'
 
 export default function UserLogin() {
 

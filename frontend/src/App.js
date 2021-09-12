@@ -9,7 +9,7 @@ import Home from "./components/home";
 import Booking from "./components/booking";
 import Footer from "./components/footer";
 import contact from "./components/contactUs";
-import AdminLogin from "./components/AdminLogin";
+import AdminLogin from "./components/adminLogin";
 import availablebuses from "./components/availablebuses";
 import dashbord from "./components/dashbord";
 import seats from "./components/seats";

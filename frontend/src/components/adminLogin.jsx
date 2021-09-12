@@ -3,7 +3,6 @@ import axios from "axios";
 import logo from "../img/adminlogin/bus-blue.png";
 import admincss from "../CSS/adminlogin.css";
 import { useHistory } from "react-router-dom";
-import { Alert } from "react-bootstrap";
 
 export default function AdminLogin() {
   const history = useHistory();
