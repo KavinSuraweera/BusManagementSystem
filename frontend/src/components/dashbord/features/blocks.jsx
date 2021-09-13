@@ -8,6 +8,7 @@ import Calender from "../../../img/dashbord/calendar.png";
 import Profilepics from "../../../img/dashbord/profilepics.jpeg";
 import Welcomeimg from "../../../img/dashbord/welcomeimg.png";
 import Block3 from "../../../img/dashbord/3rdblock.png";
+import TinyBlock from '../features/tinyblocks'
 
 export default function Blocks({ id }) {
 
@@ -46,7 +47,7 @@ export default function Blocks({ id }) {
   return (
     <div>
       <div className="main-container">
-        <div className="nameDate-container">
+        {/* <div className="nameDate-container">
           <div className="dashbord-name">
             <DashboardIcon className="dashbord-image" />
             Dashbord
@@ -55,21 +56,63 @@ export default function Blocks({ id }) {
             <img className="calendar" src={Calender} />
             <Datetime className="dt" />
           </div>
-        </div>
+        </div> */}
         <div className="featured">
           <div className="featuredItems_component">
-            <div className="featuredItem">
-              a
-            </div>
+
+            {/* --------------------- card 1 ------------------- */}
 
             <div className="featuredItem">
-              a
+              <center>
+
+                <p className="personal-info">Personal Info</p>
+                <hr />
+                <span className="featuredTile">
+                  <img class="profilepics" src={Profilepics} />
+                </span>
+                <div className="block1-container">
+                  <div className="feature-profile">
+                    <p className="header">Name:</p>
+                    <p className="values">{adminprofile.Name}</p>
+                  </div>
+                  <div className="feature-profile">
+                    <p className="header">Email:</p>
+                    <p className="values">{adminprofile.Email}</p>
+                  </div>
+                  <div className="feature-profile">
+                    <p className="header">Position:</p>
+                    <p className="values">{adminprofile.Type}</p>
+                  </div>
+                </div>
+
+              </center>
+
+            </div>
+            {/* --------------------- card 1 ------------------- */}
+            <div className="featuredItem">
+
+              <center>
+                <p className="personal-info">Welcome to BuzzyBus Admin Portal</p>
+                <hr />
+              </center>
+              <div className="block2-container">
+                <img src={Welcomeimg} className="welcome-img" />
+              </div>
             </div>
 
+            {/* --------------------- card 1 ------------------- */}
+
             <div className="featuredItem">
-              a
+              <div className="block3-container">
+                <img src={Block3} className="block3-img" />
+              </div>
+              <p className="block3-para">
+                With a whole new experience and completely adaptable booking, your
+                significant serenity begins the second you start dreaming
+              </p>
             </div>
           </div>
+          {/* <TinyBlock/> */}
 
 
           {/* <div className="featuredItem">
@@ -117,6 +160,7 @@ export default function Blocks({ id }) {
             </p>
           </div> */}
         </div>
+        
       </div>
     </div>
   );
