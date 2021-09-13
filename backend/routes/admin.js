@@ -3,7 +3,49 @@ let Admin = require('../models/admin.js')
 
 const router = express.Router()
 
-//add schedule
+
+//GET ONE ADMIN
+router.route("/:id").get((req, res) =>{
+    
+    const adID = req.params.id;
+
+    Admin.findOne({_id:adID}).then((admin)=>{  
+        if(!admin){
+             return res.status(400).json({msg:"User does not exist"});
+        }
+        return res.status(200).json({admin});
+     }).catch((err) =>{
+         res.status(500).json({msg:"Server Error"});
+     })
+
+})
+
+
+//LOGIN
+router.route("/login").post((req, res) => {
+
+    const Email = req.body.Email;
+    const Password =req.body.Password;
+
+   Admin.findOne({Email}).then((admin)=>{  
+       if(!admin){
+            return res.status(400).json({msg:"User does not exist"});
+       }
+       if(admin.Password===Password){
+           res.json(admin);
+       }
+       else{
+           res.status(400).json({msg:"Invalid Password"});
+       }
+        console.log(admin)
+
+    }).catch((err) =>{
+        res.status(500).json({msg:"Server Error"});
+    })
+
+})
+
+//add admin
 
 router.route("/add").post((req, res ) =>{
     
@@ -43,6 +85,7 @@ router.route("/").get((req, res) =>{
     })
 })
 
+//UPDATE ADMIN
 router.route("/update/:id").put(async(req,res)=>{
     adId = req.params.id;
     const {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Link } from 'react-router-dom'
+import Header from './header'
 
 
 
@@ -53,7 +54,7 @@ export default function Booking() {
     }
 
     function sendTo(to){
-        axios.get(`http://localhost:8000/booking/getTo/${this.loc}${to}`).then((res) =>{
+        axios.get(`http://localhost:8000/booking/getTo/${this.loc},${to}`).then((res) =>{
             setTo(res.data);
             console.log(res.data) 
         }).catch((err) =>{
@@ -74,6 +75,7 @@ export default function Booking() {
 
     return (
         <div>
+            <Header />
             <div className="booking-container-1">
                 <div className="booking-container-2">
                     <div className="booking-container-left">

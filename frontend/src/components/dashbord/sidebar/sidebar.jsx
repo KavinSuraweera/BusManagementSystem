@@ -9,40 +9,56 @@ import packagemanage from "../../../img/dashbord/packagemanage.jpg";
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { Link } from 'react-router-dom'
+import { useState } from "react";
 
-export default function sidebar() {
+export default function Sidebar() {
+
+    const [sidebarToggeled, setSidebarToggeled] = useState(false);
+
+    const togglesidebar = () =>{
+
+        sidebarToggeled ? setSidebarToggeled(false):setSidebarToggeled(true);
+        console.log(sidebarToggeled)
+    }
+  
+
     return (
-        <div className="sidebar">
+        <div className={sidebarToggeled? "active sidebar effect8" : "sidebar effect8"}>
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
                     <div className="toptag">
                         <MenuIcon/>
                         <h3 className="sidebarTitle">    
-                                Quick Select
+                        <p className={sidebarToggeled? "active p" : "p"}>BUZZY BUS</p>
+                                <i class="fas fa-bars ham" onClick={togglesidebar}></i>
                         </h3>
                     </div>
                     <ul className="sidebarList">
                         <Link className="Link" to="/dashbord">
                         <li className="sidebarListItem active">
-                            <img class="image1" src={home}/>
-                            Dashbord
+                            <span className="tooltip">DASHBORdfgfdgdfdjhgjgjgkjkkhkhkhkjhkD</span>
+                        <i class="fas fa-home"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>DASHBORD</p>
                         </li>
                         </Link>
                         <Link className="Link" to="./customermain">
                         <li className="sidebarListItem">
-                            <img class="image1" src={manageemployee}/>
-                            User Management
+                        <i class="fas fa-users"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>USERS</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                         <li className="sidebarListItem">
-                            <img class="image1" src={ownermanage}/>
-                            Owner Management
+                        <i class="fas fa-walking"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>OWNERS</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
 
                         <Link to="/schedule">
                         <li className="sidebarListItem">
-                            <img class="image1" src={shedulemanage}/>
-                            Shedule Management
+                        <i class="fas fa-clock"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>SCHEDULES</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                     
@@ -50,19 +66,22 @@ export default function sidebar() {
 
                         <Link className="Link" to="/bus">
                         <li className="sidebarListItem">
-                            <img class="image1" src={busmanagement}/>
-                            Bus Management
+                        <i class="fas fa-bus"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>BUSSES</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                         <Link className="Link" to="./employeemain">
                         <li className="sidebarListItem">
-                            <img class="image1" src={empmanage}/>
-                            Emp Management
+                        <i class="fas fa-briefcase"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>EMPLOYEE</p>
+                            <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
                         <li className="sidebarListItem">
-                            <img class="image1" src={packagemanage}/>
-                            Package Management
+                        <i class="fas fa-file-powerpoint"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>PACKAGES</p>
+                           <div className="tooltip">DASHBORD</div> 
                         </li>
                     </ul>
                 </div>

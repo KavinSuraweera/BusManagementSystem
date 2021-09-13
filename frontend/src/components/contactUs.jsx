@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Header from './header'
 
 export default function contactUs() {
     return (
         <div>
-            <Link to="./adminLogin">
+            <Header/>
+            <Link to="./Admin-Login">
             <button>
                 admin loginn
             </button><br/>
@@ -14,16 +16,12 @@ export default function contactUs() {
                 dashbord
             </button><br/>
             </Link>
-            <Link to="./adminregister">
-            <button>
-                adminregister
-            </button><br/>
-            </Link>
             <Link to="./adminmain">
             <button>
                 admin cruds
-            </button><br/>
+            </button><br/><br/>
             </Link>
+
         </div>
     )
 }

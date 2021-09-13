@@ -13,7 +13,7 @@ export default function Schedulemain() {
   useEffect(() => {
     const getSchedule = () => {
       axios
-        .get("http://localhost:8000/customer/")
+        .get("http://localhost:8000/busschedule/")
         .then((res) => {
           setSchedule(res.data);
         })
@@ -33,7 +33,7 @@ export default function Schedulemain() {
     };
 
     axios
-      .post(`http://localhost:8000/schedule/update/${sId}`, scheduleId)
+      .post(`http://localhost:8000/busschedule/update/${sId}`, scheduleId)
       .then(() => {
         alert("Updated");
       })
@@ -44,7 +44,7 @@ export default function Schedulemain() {
 
   function onDelete(pId) {
     axios
-      .delete(`http://localhost:8000/schedule/delete/${pId}`)
+      .delete(`http://localhost:8000/busschedule/delete/${pId}`)
       .then((req, res) => {
         window.location.reload(false);
       })
