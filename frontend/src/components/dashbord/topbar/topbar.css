@@ -60,6 +60,20 @@
     display: flex;
     position: relative;
     align-items:center;
+    height: 100%;
+}
+
+.topright p{
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: .3s;
+}
+
+.topright p:hover dashbord_container{
+    color:rgb(158, 181, 211);
+   
 }
 
 .topbarIcons{

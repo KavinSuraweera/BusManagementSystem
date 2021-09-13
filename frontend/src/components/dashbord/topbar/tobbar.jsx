@@ -20,7 +20,7 @@ export default function tobbar() {
                 </div>
                 <div className="topright">
                       <div className="topbarIcons">
-                        <a href="#"><p>Logout</p></a>
+                        <a href="#"><p>Logout &nbsp; <i class="fas fa-sign-out-alt"></i></p></a>
                     </div>
                         <img src={profile} alt="" className="topAvatar" />
                     </div>

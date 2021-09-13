@@ -22,6 +22,7 @@ export default function Tobbarcus() {
                     <div className="block_1">
                         <div className="block_2">
                             <Blocks id={id}/>
+                            <TinyBlock/>
                         </div>
                     </div>
 
