@@ -72,7 +72,7 @@ export default function blocks() {
             <i class="fas fa-book"></i>
             </div>
             <div className="inner-lvl2">
-              <p>Total Bookings</p>
+              <p>Bookings</p>
               <h1>Count</h1>
             </div>
           </div>

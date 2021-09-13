@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
 .lowset-container{
     margin-top: 0px;
     margin-left: 0px;
@@ -32,7 +34,7 @@
     border-color: #0069c5;
 }
 
-
+ 
 
 .featuredlow.b{
     background-color: #5cb85c;
@@ -66,6 +68,11 @@
 
 .inner-lvl2 p{
     margin: 0;
+    color: white;
+}
+
+.inner-lvl2 h1{
+    font-family: 'Handlee', cursive;
     color: white;
 }
 
