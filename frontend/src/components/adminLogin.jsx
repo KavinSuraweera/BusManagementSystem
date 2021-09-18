@@ -3,9 +3,13 @@ import axios from "axios";
 import logo from "../img/adminlogin/bus-blue.png";
 import admincss from "../CSS/adminlogin.css";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { setadminid } from "../actions/authAction";
 
 export default function AdminLogin() {
   const history = useHistory();
+
+  const dispatch = useDispatch()
 
   const initialValues = {
     email: "",
@@ -29,7 +33,8 @@ export default function AdminLogin() {
       .post(`http://localhost:8000/admin/login`, payload)
       .then((response) => {
         console.log(response);
-        history.push(`/dashbord/${response.data._id}`);
+        dispatch(setadminid(response.data._id));
+        history.push(`/dashbord`);
       })
       .catch((err) => {
         alert(err?.response?.data?.msg);

@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-} from "react-router-dom";
+  Redirect, } from "react-router-dom";
+
 import Home from "./components/home";
 import Booking from "./components/booking";
 import Footer from "./components/footer";
@@ -30,28 +31,39 @@ import "./CSS/booking.css";
 import "./CSS/seats.css";
 import Allpackages from "./components/Allpackages";
 
+import {  useSelector } from 'react-redux';
+
 function App() {
+
+  const  userID  = useSelector(state => state.auth.id)
+  const adminID = useSelector(state => state.auth.adminid)
+
   return (
+
     <div>
       <Router>
-        <Route path="/" exact component={Home} />
+      <Route path="/" exact component={Home} />  
         <Route path="/bookings" exact component={Booking} />
         <Route path="/contact" exact component={contact} />
         <Route path="/avilablebus" exact component={availablebuses} />
         <Route path="/seats" exact component={seats} />
         <Route path="/packages" exact component={Allpackages} />
-        <Route path="/dashbord/:id" exact component={dashbord} />
+        <Route path="/dashbord" exact component={dashbord} />
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
 
         <Switch>
-          <Route path="/Admin-Login" exact component={AdminLogin} />
+          <Route path="/Admin-Login">
+             {adminID?<Redirect to="/dashbord"/>:<AdminLogin/>}
+            </Route>
           <Route path="/customermain" exact component={customermain} />
           <Route path="/employeemain" exact component={employeemain} />
           <Route path="/adminmain" exact component={adminmain} />
           <Route path="/Sign-Up" exact component={userreg} />
-          <Route path="/Login-Page" exact component={UserLogin}/>
-          <Route path="/Userprofile/:id" exact component={Userprofile}/>
+          <Route path="/Login-Page" >
+             {userID?<Redirect to="/Userprofile"/>:<UserLogin/>}
+          </Route>
+          <Route path="/Userprofile" exact component={Userprofile}/>       
         </Switch>
       </Router>
     </div>

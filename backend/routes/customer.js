@@ -32,16 +32,32 @@ router.post("/image/:id", upload.single('image'),(req, res, err) => {
             image:req.file.filename
         })
         
-        image.save((err) => {
-            if(err){
-                return res.status(400).json({
-                    error:err
-                });
+        //IMAGE SEARCH FOR UPDATE
+        Image.findOne({id:cusId}).then((pic)=>{  
+            if(!pic){
+                //IMAGE EKAK NATHNM SAVE WENWA
+                image.save((err) => {
+                    if(err){
+                        return res.status(400).json({
+                            error:err
+                        });
+                    }
+                    return res.status(200).json({
+                        success:"Image Added Successfully"
+                    })
+                })
+            }else{
+            //UPDATE IMAGE IF ONE EXIST ONE ALREADY
+            Image.updateOne({id:cusId}, {$set: {image:req.file.filename}}).then(()=>{  
+                return res.status(200).json("Image Added Successfully ");
+             }).catch((err) =>{
+                 res.status(500).json({msg:"Server Error"});
+             })
             }
-            return res.status(200).json({
-                success:"Image Added Successfully "
-            })
-        })
+         }).catch((err) =>{
+             res.status(500).json({msg:"Server Error"});
+         })
+
     }
 });
 
