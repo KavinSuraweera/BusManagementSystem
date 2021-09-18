@@ -2,8 +2,12 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import './ProfileCSS/Userlogin.css'
+import { useDispatch, useSelector } from 'react-redux';
+import {setid} from  '../../actions/authAction';
 
 export default function UserLogin() {
+
+  const dispatch = useDispatch();
 
     const history = useHistory();
 
@@ -28,9 +32,9 @@ export default function UserLogin() {
     axios
       .post(`http://localhost:8000/customer/login`, payload)
       .then((response) => {
-        
+        dispatch(setid(response.data._id));
         console.log(response);
-        history.push(`/Userprofile/${response.data._id}`);
+        history.push(`/Userprofile`);
         
       })
       .catch((err) => {

@@ -1,9 +1,36 @@
-import React from 'react'
-import "./topbar.css"
+import React, {useEffect, useState} from 'react';
+import "./topbar.css";
 import {AccountCircle} from '@material-ui/icons';
 import profile from "../../../img/profile.jpg"
+import { useDispatch, useSelector} from 'react-redux';
+import { useHistory } from "react-router-dom";
+import {logout} from '../../../actions/authAction'
+import axios from 'axios';
 
-export default function tobbar() {
+export default function Tobbar() {
+
+    const id = useSelector(state => state.auth.adminid);
+    const dispatch = useDispatch();
+
+    const history = useHistory();
+
+    const [profilepic, setProfilepic] = useState(null);
+
+    const logoutadmin=()=>{
+        dispatch(logout());
+        history.push('/Admin-Login');
+    }
+
+    useEffect(() => {
+        //IMAGE
+        axios
+          .get(`http://localhost:8000/customer/image/${id}`)
+          .then((response) => {
+            const data = response?.data?.image?.image?.split("/");
+            setProfilepic(data[1]);
+          })
+          .catch((err) => {});
+      }, []);
 
     return (
         <div className="topbar">
@@ -20,9 +47,11 @@ export default function tobbar() {
                 </div>
                 <div className="topright">
                       <div className="topbarIcons">
-                        <a href="#"><p>Logout &nbsp; <i class="fas fa-sign-out-alt"></i></p></a>
+                        <a href="#"><p onClick={logoutadmin}>Logout &nbsp; <i class="fas fa-sign-out-alt"></i></p></a>
                     </div>
-                        <img src={profile} alt="" className="topAvatar" />
+                        {profilepic && (
+                        <img className="topAvatar" src={`http://localhost:8000/${profilepic}`} alt="img" />
+                      )}
                     </div>
                 </div>
             </div>
