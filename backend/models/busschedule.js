@@ -8,10 +8,6 @@ const busScheduleSchema = new Schema({
         required : true
     },
 
-    RouteId : {
-        type : String,
-        required : true
-    },
 
     Route : {
         type : String,

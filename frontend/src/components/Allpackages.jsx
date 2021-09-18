@@ -11,6 +11,8 @@ export default function Allpackages() {
     const [recordForEdit, setRecordForEdit] = useState(null);
     const [openPopup, setOpenPopup] = useState(false);
     const [packages, setPackages] = useState([]);
+    
+
 
 
 
@@ -72,6 +74,9 @@ export default function Allpackages() {
     }
 
 
+    function refreshpage(){
+        window.location.reload();
+    }
 
 
 
@@ -174,6 +179,7 @@ export default function Allpackages() {
                     title={updateBtn ? "Update package form" : "Add new Package form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
+                    refreshpage = {refreshpage}
                 >
                     <Addpackage
                         recordForEdit={recordForEdit}

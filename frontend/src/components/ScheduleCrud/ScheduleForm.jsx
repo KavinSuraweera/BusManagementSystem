@@ -24,6 +24,12 @@ export default function Schedulemain() {
     getSchedule();
   }, []);
 
+
+  function refreshpage(){
+    window.location.reload();
+}
+
+
   const [sId, setcheduleId] = useState("");
   function sendscheduleId(e) {
     e.preventDefault();
@@ -85,7 +91,6 @@ export default function Schedulemain() {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>{schedule.scheduleId}</td>
-              <td>{schedule.RouteId}</td>
               <td>{schedule.Route}</td>
               <td>{schedule.Time}</td>
               <td>{schedule.BusNumber}</td>
@@ -125,6 +130,7 @@ export default function Schedulemain() {
         title="Add new customer form."
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
+        refreshpage={refreshpage}
       >
         <AddSchedule recordForEdit={recordForEdit} />
       </Popup>

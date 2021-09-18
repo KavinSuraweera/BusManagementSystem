@@ -9,13 +9,15 @@ export default function Addschedule(props) {
     const { recordForEdit } = props;
 
     const [schedule, setSchedule] = useState({});
+    const [routes, setRoutes] = useState([]);
+    const [bus, setBus] = useState([]);
 
     const [scheduleId, setscheduleId] = useState("");
     const [RouteId, setRouteId] = useState("");
     const [Route, setRoute] = useState("");
     const [Time, setTime] = useState("");
     const [BusNumber, setBusNumber] = useState("");
-    
+
 
 
 
@@ -53,8 +55,32 @@ export default function Addschedule(props) {
         Route,
         Time,
         BusNumber,
-       
+
     };
+
+    useEffect(() => {
+        const getRoutes = () => {
+            axios.get("http://localhost:8000/route/").then((res) => {
+                setRoutes(res.data);
+
+            }).catch((err) => {
+                alert(err.message)
+            })
+        }
+        getRoutes();
+    }, [])
+
+    useEffect(() => {
+        const getBus = () => {
+            axios.get("http://localhost:8000/bus/").then((res) => {
+                setBus(res.data);
+            }).catch((err) => {
+                alert(err.message)
+            })
+        }
+        getBus();
+    }, [])
+
 
     function editSchedule(uId) {
 
@@ -88,7 +114,7 @@ export default function Addschedule(props) {
             setRoute(recordForEdit.Route)
             setTime(recordForEdit.Time)
             setBusNumber(recordForEdit.BusNumber)
-        
+
 
         }
     }, [recordForEdit]);
@@ -113,7 +139,7 @@ export default function Addschedule(props) {
 
     return (
         <div className="container">
-            <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
+            <form className="row g-4" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-6">
                     <label htmlFor="scheduleId" className="form-label">Enter Schedule ID:</label>
                     <input type="text" className="form-control" id="scheduleId" placeholder="Enter Schedule ID"
@@ -124,44 +150,88 @@ export default function Addschedule(props) {
                     />
                 </div>
 
-                <div className="input-group">
-                    <label htmlFor="RouteId" className="form-label">Enter Route ID:</label>
-                    <input type="text" className="form-control" id="RouteId" placeholder="Enter Route ID"
-                        value={RouteId}
-                        onChange={(e) => {
-                            setRouteId(e.target.value);
-                        }}
-                    />
-                </div>
-                <div className="col-md-2">
-                    <label htmlFor="Route" className="form-label">Enter Route</label>
-                    <input type="text" className="form-control" id="Route" placeholder="Enter Route"
+              
+                <div className="col-md-6">
+                    <label htmlFor="Route" className="form-label">Select Route :</label>
+                    {/* <input type="text" className="form-control" id="Route" placeholder="Enter Route"
                         value={Route}
                         onChange={(e) => {
                             setRoute(e.target.value);
                         }}
-                    />
-                </div>
-                <div className="col-md-2">
-                    <label htmlFor="Time" className="form-label">Enter Time</label>
-                    <input type="tel" className="form-control" id="Time" placeholder="Enter Last Name"
-                        value={Time}
+                    /> */}
+                    <select id="depatureTime" className="form-input-2"
                         onChange={(e) => {
+                            // setShow(true);
+                            setRoute(e.target.value);
+                        }}>
+                        <option selected >...</option>
+                        {routes.map((routes, index) => (
+                            <option key={index}>{routes.routeName}</option>
+
+
+                        ))}
+
+                    </select>
+                </div>
+                
+
+
+                
+
+                <div className="col-md-6">
+                    <label htmlFor="Route" className="form-label">Select Time :</label>
+                    
+                    <select id="depatureTime" className="form-input-2"
+                        onChange={(e) => {
+                            // setShow(true);
                             setTime(e.target.value);
-                        }}
-                    />
+                        }}>
+                        <option selected >...</option>
+                        <option >8:00 a.m</option>
+                        <option >8:30 a.m</option>
+                        <option >9:00 a.m</option>
+                        <option >9:30 a.m</option>
+                        <option >10:00 a.m</option>
+                        <option >11:00 a.m</option>
+                        <option >12:00</option>
+                        <option >01:00 p.m</option>
+                        <option >02:00 p.m</option>
+                        <option >03:00 p.m</option>
+                        <option >04:00 p.m</option>
+                        <option >05:00 p.m</option>
+                        <option >06:00 p.m</option>
+                        <option >07:00 p.m</option>
+                        <option >08:00 p.m</option>
+                        
+                        
+
+                    </select>
                 </div>
 
-
-                <div className="col-md-2">
-                    <label htmlFor="BusNumber" className="form-label">Enter Bus Number:</label>
-                    <input type="BusNumber" className="form-control" id="BusNumber" placeholder="Bus Number"
-                        value={BusNumber}
+                <div className="col-md-6">
+                    <label htmlFor="busnumber" className="form-label">Select Bus Number :</label>
+                    
+                    <select id="busnumber" className="form-input-2"
                         onChange={(e) => {
+                            // setShow(true);
                             setBusNumber(e.target.value);
-                        }}
-                    />
+                        }}>
+                        <option selected >...</option>
+                        {bus.map((bus, index) => (
+                            <option key={index}>{bus.busNo}</option>
+
+
+                        ))}
+
+                    </select>
                 </div>
+                
+
+                
+                {/* <label htmlFor="">Select tieme</label>
+                <div className="time_container">
+
+                </div> */}
 
                 <div>
                     <input type="submit" className="btn btn-primary" href="/home" value="Submit" />
