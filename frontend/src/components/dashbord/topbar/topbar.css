@@ -71,7 +71,7 @@
     transition: .3s;
 }
 
-.topright p:hover dashbord_container{
+.topright p:hover {
     color:rgb(158, 181, 211);
    
 }

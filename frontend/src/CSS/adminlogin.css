@@ -8,18 +8,18 @@
 }
 
 .border{
-    margin-top: 100px;
+    top: 80px;
     height: 500px;
-    padding: 20px;
+    padding: 40px;
     position: relative;
     background-color: transparent;
-    width:90%;
+    width:1000px;
     display: block;
     margin: auto;
     border-radius: 5px;
     border-width: 1px;
     border-style: solid;
-    border-color: #707070;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
   
   .line{
@@ -56,12 +56,12 @@
     border-radius: 100px;
   }
   
-.login-email, login-pw{
+.login-email, .login-pw{
     width: 100%;
     height: 50px;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 10px 10px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -105,6 +105,13 @@
     background-repeat: no-repeat;
     width: 50%;
 }
+
+.center{
+  text-align: center;
+  text-decoration: none;
+}
+
+
 
 .pageright{
   margin-top:-30px;

@@ -9,7 +9,7 @@ import { Description } from '@material-ui/icons';
 export default function Booking() {
 
     const [routes, setroutes] = useState([]);
-    const [routedata , setRouteData] = useState([]);
+    const [routedata, setRouteData] = useState([]);
     const [route, setRoute] = useState([]);
 
 
@@ -47,21 +47,20 @@ export default function Booking() {
     // }, [])
 
 
-   
-    function sendTo(to){
-        axios.get(`http://localhost:8000/booking/get/${to}`).then((res) =>{
+
+    function sendTo(to) {
+        axios.get(`http://localhost:8000/booking/get/${to}`).then((res) => {
             setRouteData(res.data.bookings);
-            console.log(res.data.bookings) 
-        }).catch((err) =>{
+            console.log(res.data.bookings)
+        }).catch((err) => {
             alert(err)
         })
     }
 
-    function sendRoute(routeN){
-        axios.get(`http://localhost:8000/busShedules/getbyname/${routeN}`).then((res) =>{
-            setRoute(res.data)
-            console.log(res.data)
-        }).catch((err) =>{
+    function sendRoute(routeN) {
+        axios.get(`http://localhost:8000/busschedule/getbyname/${routeN}`).then((res) => {
+            setRoute(res.data.route)
+        }).catch((err) => {
             alert("set route err")
         })
     }
@@ -72,17 +71,17 @@ export default function Booking() {
 
 
 
-   
 
-    console.log(schedule)
+    console.log("-->", route)
 
-   
+
+
 
 
 
 
     return (
-        <div>
+        <div className="usr_background">
             <Header />
             <div className="booking-container-1">
                 <div className="booking-container-2">
@@ -102,12 +101,13 @@ export default function Booking() {
                             <div className="form-row">
                                 <label for="depature">Your Location</label>
                                 <select id="depatureTime" className="form-input-2"
-                                    onChange={(e) =>{
+                                    onChange={(e) => {
+                                        setShow(true);
                                         sendRoute(e.target.value);
                                     }}>
                                     <option selected >From</option>
                                     {routes.map((routes, index) => (
-                                        <option key={index}>{routes.routeName                                        }</option>
+                                        <option key={index}>{routes.routeName}</option>
 
 
                                     ))}
@@ -128,7 +128,7 @@ export default function Booking() {
 
                                 <hr />
                             </div>
-{/* 
+                            {/* 
                             <div className="form-row">
                                 <label for="depature">Depature Time</label>
                                 <select id="depatureTime" class="form-input-2">
@@ -141,7 +141,7 @@ export default function Booking() {
                                 </select>
                                 <hr />
                             </div> */}
-
+{/* 
                             {
                                 show ? <div className="form-row">
                                     <label for="arrivalTime">Return Time</label>
@@ -151,7 +151,7 @@ export default function Booking() {
                                     </select>
                                     <hr />
                                 </div> : null
-                            }
+                            } */}
 
 
 
@@ -190,49 +190,42 @@ export default function Booking() {
 
                             </div>
 
-                            <div className="table">
-                            <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Trips Count</th>
-                            <th scope="col">Time Period</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* {schedule.map((schedule, index) => (
-                            <tr key={index}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{schedule.name}</td>
-                                <td>{schedule.trips_count}</td>
-                                <td>{schedule.time_period}</td>
-                                <td>{schedule.price}</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary">
-                                        <i class="far fa-eye"></i>&nbsp;View
-                                    </button>
-                                    &nbsp;
-                                    
-                                    
-                                </td>
-                            </tr>
-                        ))} */}
-                    </tbody>
-                </table>
-                            </div>
+                            {
+                                show?<div className="table_container">
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Route Id</th>
+                                            <th scope="col">Route Name</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Book</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {route.map((route, index) => (
+                                            <tr >
+                                                <th >{route.RouteId}</th>
+                                                <td>{route.Route}</td>
+                                                <td>{route.Time}</td>
+                                                <td>d</td>
+
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>:null
+                            }
 
 
 
-                            <div className="form-raw">
+                            {/* <div className="form-raw">
                                 <div className="search-button">
                                     <Link to="/avilablebus">
                                         <button type="button" class="btn btn-primary"><i class="fas fa-search"></i>&nbsp;Seatch</button>
                                     </Link>
                                 </div>
-                            </div>
+                            </div> */}
                         </form>
                     </div>
                 </div>

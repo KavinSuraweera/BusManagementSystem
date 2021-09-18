@@ -57,7 +57,7 @@ export default function AdminLogin() {
             id="email"
             name="email"
             className="login-email"
-            placeholder="jhonedoe@abz.com"
+            placeholder="example@abcgmail.com"
             type="text"
             onChange={onChange}
           />
@@ -68,7 +68,7 @@ export default function AdminLogin() {
             id="password"
             name="password"
             className="login-pw"
-            placeholder="X X X X X"
+            placeholder="Enter your password..."
             type="password"
             onChange={onChange}
           />
@@ -81,18 +81,18 @@ export default function AdminLogin() {
             value="L O G I N"
           />
 
+          <div className="center">
           <a href="#">
             <p className="forgot-pword">Forgot your password?</p>
           </a>
-          <br />
-          <center>
+          
             <a href="#">
               <p className="help">Get help Signin</p>
             </a>
             <a href="#">
               <p className="policy">Terms of use Privacy Policy</p>
             </a>
-          </center>
+          </div>
         </div>
       </div>
     </div>

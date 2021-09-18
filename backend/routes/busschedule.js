@@ -90,9 +90,9 @@ router.route("/delete/:id").delete(async(req, res) =>{
 })
 
 router.route("/getbyname/:rname").get(async(req,res) => {
-    let rname = res.params.rname;
-    const schedule = await BusSchedules.findby({route : 'Kadawatha-kotuwa'}).then((schedule) =>{
-        res.status(200).send({status:"sccssfully fetched by name",schedule})
+    routename = req.params.rname;
+    const schedule = await BusSchedules.find({Route:routename}).then((route) =>{
+        res.status(200).send({status:"sccssfully fetched by name",route})
     }).catch((err)=>{
         condsple.log(err.message);
         res.status(500).send({status:'err with fetching by name', err: err.message})
