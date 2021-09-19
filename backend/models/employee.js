@@ -12,7 +12,7 @@ const EmpSchema = new Schema({
     
 
     Phone : {
-        type : Number,
+        type : String,
         required : true
     },
 
