@@ -61,6 +61,7 @@ export default function Booking() {
         })
     }
 
+    
 
 
 
@@ -193,9 +194,9 @@ export default function Booking() {
                                 <hr />
 
                             </div>
-
+                            <div className="table_container">
                             {
-                                show ? <div className="table_container">
+                                show ? <div >
                                     <table className="table">
                                         <thead>
                                             <tr>
@@ -211,11 +212,11 @@ export default function Booking() {
                                                     <td>{route.Route}</td>
                                                     <td>{route.Time}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary"
-                                                       
-                                                        >
-                                                            Go
-                                                        </button>
+                                                        <Link to="./seats">
+                                                            <button type="button" class="btn btn-primary">
+                                                                Go
+                                                            </button>
+                                                        </Link>
                                                     </td>
 
                                                 </tr>
@@ -224,6 +225,7 @@ export default function Booking() {
                                     </table>
                                 </div> : null
                             }
+                            </div>
 
 
 
