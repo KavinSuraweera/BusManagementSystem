@@ -87,7 +87,7 @@ export default function Sidebar() {
                         <Link to="./routes">
                         <li className="sidebarListItem">
                         <i class="fas fa-route"></i>
-                            <p className={sidebarToggeled? "active p" : "p"}>ROUTES</p>
+                            <p className={sidebarToggeled? "active p" : "p"}>ROUTE</p>
                            <div className="tooltip">DASHBORD</div> 
                         </li>
                         </Link>

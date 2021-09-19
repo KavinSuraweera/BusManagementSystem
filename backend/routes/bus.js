@@ -83,7 +83,7 @@ router.route("/get/:id").get(async(req, res) =>{
 
 router.route("/delete/:id").delete(async(req, res) =>{
     let busId = req.params.id;
-    const bus = await Bus.findOneAndDelete(busId).then((bus)=>{
+    const bus = await Bus.findByIdAndDelete(busId).then((bus)=>{
         res.status(200).send({status:"bus deleted sucessfully"})
     }).catch((err)=>{
         console.log(err.message);
