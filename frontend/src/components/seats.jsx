@@ -97,7 +97,7 @@ export default function seats() {
             </div>
 
             <div>
-                <h1>hi</h1>
+                <h1>h i </h1>
             </div>
         </div>
     )
