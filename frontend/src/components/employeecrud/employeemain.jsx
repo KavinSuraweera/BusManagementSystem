@@ -84,12 +84,14 @@ export default function Employeemain() {
           {employee.map((employee, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{employee.NIC}</td>
               <td>{employee.EmpName}</td>
-              <td>{employee.Phone}</td>
-              <td>{employee.Type}</td>
-              <td>{employee.Email}</td>
               <td>{employee.Password}</td>
+              <td>{employee.Phone}</td>
+              <td>{employee.NIC}</td>
+              <td>{employee.Email}</td>
+              <td>{employee.Type}</td>
+              
+              
               
               <td>
                 <button type="button" class="btn btn-primary">
