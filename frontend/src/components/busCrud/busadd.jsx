@@ -161,7 +161,7 @@ export default function Addpackage(props) {
                 </div>
 
                 <div className="col-md-5">
-                    <label htmlFor="timePeriod" className="form-label">Enter Permit ID:</label>
+                    <label htmlFor="timePeriod" className="form-label">Enter Permit ID :</label>
                     <input type="text" className="form-control" id="timePeriod" placeholder="Enter permit ID"
                         value={permitID}
                         onChange={(e) => {
