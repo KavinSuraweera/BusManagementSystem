@@ -12,134 +12,110 @@ import TinyImg8 from "../../../img/dashbord/tinyblock/route_img.png";
 export default function blocks() {
   return (
     <div>
-      <div className="lowset-container">
-        <div className="featuredlow">
+      <div className="lowset-container ">
+        <div className="featuredlow a">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg1} alt="" />
+              <i class="fas fa-users-cog"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Admin</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Admin Type</h5>
-          </div>
+          
         </div>
-        <div className="featuredlow">
+        <div className="featuredlow b">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg2} alt="" />
+            <i class="fas fa-users"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Users</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Active customers</h5>
-          </div>
+          
         </div>
 
-        <div className="featuredlow">
+        <div className="featuredlow c">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg3} alt="" />
+            <i class="fas fa-briefcase"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Employees</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Employees on work</h5>
-          </div>
+          
         </div>
 
-        <div className="featuredlow">
+        <div className="featuredlow d">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg4} alt="" />
+            <i class="fas fa-grin-stars"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Reviews</p>
+              <h1>50%</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Ratings</h5>
-          </div>
+          
         </div>
       </div>
 
       <div className="lowset-container">
-        <div className="featuredlow">
+        <div className="featuredlow e">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg5} alt="" />
+            <i class="fas fa-book"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Bookings</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Bookings</h5>
-          </div>
+          
         </div>
 
-        <div className="featuredlow">
+        <div className="featuredlow f">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg6} alt="" />
+            <i class="fas fa-bus"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Busses</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Available Buses</h5>
-          </div>
+          
         </div>
 
-        <div className="featuredlow">
+        <div className="featuredlow g">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg7} alt="" />
+            <i class="fas fa-hammer"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>break Downs</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Buses not in use</h5>
-          </div>
+          
         </div>
 
-        <div className="featuredlow">
+        <div className="featuredlow h">
           <div className="inner-lvl0">
             <div className="inner-lvl1">
-              <img className="inner-image" src={TinyImg8} alt="" />
+              <i class="fas fa-road"></i>
             </div>
             <div className="inner-lvl2">
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
-              <p>sssssssssssssss</p>
+              <p>Routes</p>
+              <h1>Count</h1>
             </div>
           </div>
-          <div className="title-container">
-            <h5>Routes</h5>
-          </div>
+          
         </div>
       </div>
     </div>

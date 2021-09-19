@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "../../CSS/adminregister.css";
+import { useDispatch, useSelector } from 'react-redux';
+import {logout} from "../../actions/authAction"
 
 export default function Adminregister() {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const initialState = {
     username: "",
@@ -38,6 +41,7 @@ export default function Adminregister() {
       axios
         .post(`http://localhost:8000/customer/add`, payload)
         .then(() => {
+          dispatch(logout());
           history.push("/Login-Page");
         })
         .catch((err) => {

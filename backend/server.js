@@ -5,6 +5,10 @@ const cors = require('cors');
 
 const app = express();
 
+ app.use(express.static('public'))
+
+//  app.use('/uploads', express.static(path.resolve(__dirname, './uploads')));
+
 //import Routes
 const packageRoutes = require('./routes/packages.js');
 const busRouter = require('./routes/bus.js');

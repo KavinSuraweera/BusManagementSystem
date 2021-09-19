@@ -86,7 +86,7 @@ router.route("/get/:id").get(async(req,res) =>{
 })
 
 router.route("/delete/:id").delete(async(req, res) =>{
-    let rId = req.params,id;
+    let rId = req.params.id;
     const routes = await route.findByIdAndDelete(rId).then((route)=>{
         res.status(200).send({status :"roure deleted sucessfully"})
     }).catch((err) =>{
@@ -95,4 +95,14 @@ router.route("/delete/:id").delete(async(req, res) =>{
     })
 }) 
 
+
+router.route("/routeidbyname/:name").get(async(req, res) =>{
+    let rname = req.params.name;
+    const routes = await route.find({routeName : rname}).then((routesbyname)=>{
+        res.status(200).send({status:"Sucessfully fetched by name",routesbyname})
+    }).catch((err) =>{
+        console.log(err.message);
+        res.status(500).send({status:"Err with fetching by name",err: err.message})
+    })
+})
 module.exports = router;

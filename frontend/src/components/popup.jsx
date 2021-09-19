@@ -5,7 +5,9 @@ import {Dialog, DialogTitle, DialogContent, makeStyles, Typography} from'@materi
 
 export default function popup(props) {
     
-    const {title, children, openPopup, setOpenPopup} = props;
+    const {title, children, openPopup, setOpenPopup, refreshpage} = props;
+
+    
 
     const useStyles = makeStyles
 
@@ -18,7 +20,17 @@ export default function popup(props) {
                         <Typography variant="h6" component="div" style={{flexGrow:1}}>
                             {title}
                         </Typography>
-                        <button type="button" className="btn btn-danger" aria-label="Close" onClick={()=>{setOpenPopup(false)}}>x</button>
+                        <button type="button" className="btn btn-danger" aria-label="Close" 
+                        onClick={
+                            ()=>{
+                                
+                                if(title == "Delete Profile form"){
+                                    setOpenPopup(false);
+                                }else{
+                                    setOpenPopup(false);
+                                    refreshpage();
+                                }
+                            }}>x</button>
                     </div>
                 </DialogTitle>
                 <DialogContent dividers>

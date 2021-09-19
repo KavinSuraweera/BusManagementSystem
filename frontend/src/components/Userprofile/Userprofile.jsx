@@ -4,52 +4,56 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import "./ProfileCSS/Userprofile.css";
 import Popup from "./userpopup";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../actions/authAction";
 
- function DeleteCustomer({id}){
-
+//DELETE CUSTOMER
+function DeleteCustomer({ id }) {
   const history = useHistory();
 
   const deleteProfile = () => {
-    axios.delete(`http://localhost:8000/customer/delete/${id}`).then((req, res) => {
-      history.push("/Login-Page")
-  }).catch((err) => {
-      alert(err);
-  })
+    axios
+      .delete(`http://localhost:8000/customer/delete/${id}`)
+      .then((req, res) => {
+        history.push("/Login-Page");
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
-  const[btnlock, setBtnlock]= useState(false);
+  const [btnlock, setBtnlock] = useState(false);
   console.log(btnlock);
 
   return (
     <div>
-      <input onChange={() => setBtnlock(!btnlock)} value={btnlock} type="checkbox"></input>
-      <button className="logout-btn" onClick={deleteProfile} disabled={!btnlock} >
+      <input
+        onChange={() => setBtnlock(!btnlock)}
+        value={btnlock}
+        type="checkbox"
+      ></input>
+      <button
+        className="logout-btn"
+        onClick={deleteProfile}
+        disabled={!btnlock}
+      >
         Confirm
       </button>
     </div>
-  )
- }
+  );
+}
 
-
- function UpdateCustomer({customer , setOpenPopup}){
-
-
-  const[profile, setProfile] = useState(customer);
+//UPDATE CUSTOMER
+function UpdateCustomer({ customer, setOpenPopup }) {
+  const [profile, setProfile] = useState(customer);
 
   const history = useHistory();
 
-  const onChange=(e)=>{
-    setProfile({...profile,[e.target.name]:e.target.value})
-} 
+  const onChange = (e) => {
+    setProfile({ ...profile, [e.target.name]: e.target.value });
+  };
 
   const updateProfile = () => {
-
-    const{      
-      UserName,
-      FirstName,
-      LastName,
-      Phone,
-      Email,
-      Password } = profile;
+    const { UserName, FirstName, LastName, Phone, Email, Password } = profile;
 
     const payload = {
       UserName,
@@ -57,46 +61,95 @@ import Popup from "./userpopup";
       LastName,
       Phone,
       Email,
-      Password
-    }
+      Password,
+    };
 
-    axios.put(`http://localhost:8000/customer/update/${customer._id}`,payload).then((req, res) => {
-      setOpenPopup(false);
-      window.location.reload();
-  }).catch((err) => {
-      alert(err);
-  })
+    axios
+      .put(`http://localhost:8000/customer/update/${customer._id}`, payload)
+      .then((req, res) => {
+        setOpenPopup(false);
+        window.location.reload();
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
-  return(
+  return (
     <div>
-            <center>
-            <div className="form">
-                Username:
-                <input  type="text" name="UserName" value={profile.UserName} placeholder="First Name" onChange={onChange}/><br/><br/>
-                First Name:
-                <input type="text" name="FirstName" value={profile.FirstName} placeholder="First Name" onChange={onChange}/><br/><br/>
-                Last Name:
-                <input type="text" name="LastName" value={profile.LastName} placeholder="Last Name" onChange={onChange}/><br/><br/>
-                Phone:
-                <input type="tel" name="Phone" value={profile.Phone} placeholder="Phone" onChange={onChange}/><br/><br/>
-                Email:
-                <input type="text" name="Email" value={profile.Email} placeholder="Email" onChange={onChange}/><br/><br/>
-                Enter Password:
-                <input type="text" name="Password" value={profile.Password} placeholder="Enter Password" onChange={onChange}/><br/><br/>
-
-               <button onClick={updateProfile}>
-                   Submit
-               </button>
-            </div>
-            </center>
+      <center>
+        <div className="form">
+          Username:
+          <input
+            type="text"
+            name="UserName"
+            value={profile.UserName}
+            placeholder="First Name"
+            onChange={onChange}
+          />
+          <br />
+          <br />
+          First Name:
+          <input
+            type="text"
+            name="FirstName"
+            value={profile.FirstName}
+            placeholder="First Name"
+            onChange={onChange}
+          />
+          <br />
+          <br />
+          Last Name:
+          <input
+            type="text"
+            name="LastName"
+            value={profile.LastName}
+            placeholder="Last Name"
+            onChange={onChange}
+          />
+          <br />
+          <br />
+          Phone:
+          <input
+            type="tel"
+            name="Phone"
+            value={profile.Phone}
+            placeholder="Phone"
+            onChange={onChange}
+          />
+          <br />
+          <br />
+          Email:
+          <input
+            type="text"
+            name="Email"
+            value={profile.Email}
+            placeholder="Email"
+            onChange={onChange}
+          />
+          <br />
+          <br />
+          Enter Password:
+          <input
+            type="text"
+            name="Password"
+            value={profile.Password}
+            placeholder="Enter Password"
+            onChange={onChange}
+          />
+          <br />
+          <br />
+          <button onClick={updateProfile}>Submit</button>
         </div>
-  )
+      </center>
+    </div>
+  );
 }
 
-
+///USER PROFILEEEE
 
 export default function Userprofile() {
+  const dispatch = useDispatch();
 
   const history = useHistory();
 
@@ -117,42 +170,43 @@ export default function Userprofile() {
   const [profile, setProfile] = useState(initialState);
 
   //Retrieve id from login page
-  const { id } = useParams();
+  //Meken thama id ganne
+  const id = useSelector((state) => state.auth.id);
 
-  const[isupdate, setisupdate] = useState(false);
+  const [isupdate, setisupdate] = useState(false);
+  const [profilepic, setProfilepic] = useState(null);
 
   ///IMAEG HANDLER
 
-  const[image, setImage] = useState(null);
+  const [image, setImage] = useState(null);
 
   const imageHandler = (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
 
-    setImage(formData)
+    setImage(formData);
 
     console.log(formData, "ccccc");
   };
 
-  //IMAGE UP BTN
+  //IMAGE UP BTN function
 
-
-  const uploadImage=()=>{
+  const uploadImage = () => {
     axios
-    .post(`http://localhost:8000/customer/image/${id}`, image, {
-      headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-    })
-    .then((res) => res.json())
-    .then((res) => {
-      setImage(null)
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
+      .post(`http://localhost:8000/customer/image/${id}`, image, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        setImage(null);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   useEffect(() => {
     axios
@@ -163,9 +217,20 @@ export default function Userprofile() {
       .catch((err) => {
         setError(true);
       });
+
+    //IMAGE
+    axios
+      .get(`http://localhost:8000/customer/image/${id}`)
+      .then((response) => {
+        const data = response?.data?.image?.image?.split("/");
+        setProfilepic(data[1]);
+      })
+      .catch((err) => {});
   }, []);
 
-  const logout = () => {
+  //LOGOUT
+  const userlogout = () => {
+    dispatch(logout());
     history.push("/");
   };
 
@@ -179,6 +244,10 @@ export default function Userprofile() {
 
   return (
     <div>
+      {profilepic && (
+        <img src={`http://localhost:8000/${profilepic}`} alt="img" />
+      )}
+
       <h1>{profile.UserName}</h1>
       <h3>First Name</h3>
       <p>{profile.FirstName}</p>
@@ -188,41 +257,59 @@ export default function Userprofile() {
       <p>{profile.Phone}</p>
       <h3>Email</h3>
       <p>{profile.Email}</p>
-      
-      <button className="logout-btn" onClick={logout}>
+
+      {/* LOGOUTBUTTON */}
+      <button className="logout-btn" onClick={userlogout}>
         LOG OUT
       </button>
 
-      <button className="logout-btn" onClick={() => { setOpenPopup(true); setisupdate(false) }}>
+      <button
+        className="logout-btn"
+        onClick={() => {
+          setOpenPopup(true);
+          setisupdate(false);
+        }}
+      >
         Delete Profile
       </button>
 
-      <button className="logout-btn" onClick={() => {setOpenPopup(true); setisupdate(true) }}>
+      <button
+        className="logout-btn"
+        onClick={() => {
+          setOpenPopup(true);
+          setisupdate(true);
+        }}
+      >
         Update Profile
       </button>
 
-      <input
-            type="file"
-            name="image"
-            accept="image/*"
-            multiple={false}
-            onChange={imageHandler}
-          />
+      {!profilepic && (
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          multiple={false}
+          onChange={imageHandler}
+        />
+      )}
+
+      {!profilepic && (
         <button disabled={!image} onClick={uploadImage}>
           upload image
         </button>
+      )}
 
-       <Popup
-          openPopup={openPopup}
-          title={isupdate ? "Update Profile form" : "Delete Profile form"}
-          setOpenPopup={setOpenPopup}
-          
-        >
-
-        {isupdate? <UpdateCustomer customer={profile} setOpenPopup={setOpenPopup} /> : <DeleteCustomer id ={id}/>}
-
-        </Popup> 
-
+      <Popup
+        openPopup={openPopup}
+        title={isupdate ? "Update Profile form" : "Delete Profile form"}
+        setOpenPopup={setOpenPopup}
+      >
+        {isupdate ? (
+          <UpdateCustomer customer={profile} setOpenPopup={setOpenPopup} />
+        ) : (
+          <DeleteCustomer id={id} />
+        )}
+      </Popup>
     </div>
   );
 }

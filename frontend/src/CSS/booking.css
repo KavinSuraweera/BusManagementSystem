@@ -21,6 +21,20 @@
 
 }
 
+.table_container{
+    padding: 5px;
+    height: 300px;
+    overflow-y: scroll;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #0865D5;
+    border-width:  5px 0;
+    margin:15px;
+
+}
+
+
+
 .booking-container-1 .booking-container-2 .booking-container-left{
    background-image: url(../img/booking-cover.png);
    position: relative;
@@ -90,7 +104,7 @@
 
 .form-input-2{
     margin-right: 10px;
-    width: 100px;
+    width: 200px;
 
 }
 

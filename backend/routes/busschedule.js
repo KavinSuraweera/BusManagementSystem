@@ -72,7 +72,7 @@ router.route("/update/:id").put(async(req,res)=>{
 router.route("get/:id").get(async(req, res) => {
     let scheduleId = res.params.id;
     const schedule = await BusSchedules.findById(scheduleId).then((schedule)=>{
-        res.status(200).send({status:"Schedule fetched",package})
+        res.status(200).send({status:"Schedule fetched",schedule})
     }).catch((err) =>{
         console.log(err.message);
         res.status(500).send({status:"Error with get user ", err :err.message})
@@ -86,6 +86,16 @@ router.route("/delete/:id").delete(async(req, res) =>{
     }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status:"Error with deleting schedule",err : err.message})
+    })
+})
+
+router.route("/getbyname/:rname").get(async(req,res) => {
+    routename = req.params.rname;
+    const schedule = await BusSchedules.find({Route:routename}).then((route) =>{
+        res.status(200).send({status:"sccssfully fetched by name",route})
+    }).catch((err)=>{
+        condsple.log(err.message);
+        res.status(500).send({status:'err with fetching by name', err: err.message})
     })
 })
 

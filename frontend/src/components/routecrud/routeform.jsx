@@ -1,21 +1,20 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Popup from "../components/popup";
-import Update from '../components/Updatepackage';
-import Addpackage from './Addpackage';
-import Header from './header'
+import Popup from "../../components/popup";
+import Addroute from './route';
+import Header from '../header'
 
-export default function Allpackages() {
+export default function Allroute() {
 
     const [recordForEdit, setRecordForEdit] = useState(null);
     const [openPopup, setOpenPopup] = useState(false);
-    const [packages, setPackages] = useState([]);
-    
+    const [route, setRoute] = useState([]);
 
 
-
-
+    function refreshpage(){
+        window.location.reload();
+    }
 
 
     function sendData(e) {
@@ -24,8 +23,8 @@ export default function Allpackages() {
 
 
 
-        axios.post("http://localhost:8000/package/add", packages).then(() => {
-            // alert("Package added!")
+        axios.post("http://localhost:8000/route/add", route).then(() => {
+            // alert("Route added!")
             window.location.reload(false);
 
         }).catch((err) => {
@@ -35,14 +34,14 @@ export default function Allpackages() {
     }
 
     useEffect(() => {
-        const getPackages = () => {
-            axios.get("http://localhost:8000/package/").then((res) => {
-                setPackages(res.data);
+        const getRoute = () => {
+            axios.get("http://localhost:8000/route/").then((res) => {
+                setRoute(res.data);
             }).catch((err) => {
                 alert(err.message)
             })
         }
-        getPackages();
+        getRoute();
     }, [])
 
 
@@ -56,8 +55,8 @@ export default function Allpackages() {
     // }
 
 
-    function onDelete(pId) {
-        axios.delete(`http://localhost:8000/package/delete/${pId}`).then((req, res) => {
+    function onDelete(rId) {
+        axios.delete(`http://localhost:8000/route/delete/${rId}`).then((req, res) => {
             window.location.reload(false);
         }).catch((err) => {
             alert(err);
@@ -67,30 +66,24 @@ export default function Allpackages() {
 
 
 
-    const openInPopup = packages => {
-        setRecordForEdit(packages);
+    const openInPopup = route => {
+        setRecordForEdit(route);
         setOpenPopup(true);
-        console.log(packages)
-    }
-
-
-    function refreshpage(){
-        window.location.reload();
+        console.log(route)
     }
 
 
 
 
 
-    const addOrEdit = (packages) => {
-
-        const pid = packages._id
 
 
+    const addOrEdit = (route) => {
+
+        const rid = route._id
 
 
-
-        axios.put(`http://localhost:8000/package/update/${pid}`, packages).then(() => {
+        axios.put(`http://localhost:8000/route/update/${rid}`, route).then(() => {
             alert("Updated")
             window.location.reload(false);
         }).catch((err) => {
@@ -129,21 +122,28 @@ export default function Allpackages() {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Trips Count</th>
-                            <th scope="col">Time Period</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Route ID</th>
+                            <th scope="col">Route Name</th>
+                            <th scope="col">To</th>
+                            <th scope="col">From</th>
+                            <th scope="col">Adult</th>
+                            <th scope="col">Child</th>
+                            <th scope="col">Student</th>
+                        
                         </tr>
                     </thead>
                     <tbody>
-                        {packages.map((packages, index) => (
+                        {route.map((route, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{packages.name}</td>
-                                <td>{packages.trips_count}</td>
-                                <td>{packages.time_period}</td>
-                                <td>{packages.price}</td>
+                                <td>{route.routeId}</td>
+                                <td>{route.routeName}</td>
+                                <td>{route.to}</td>
+                                <td>{route.from}</td>
+                                <td>{route.pAdult}</td>
+                                <td>{route.pChild}</td>
+                                <td>{route.pStudent}</td>
+
                                 <td>
                                     <button type="button" class="btn btn-primary">
                                         <i class="far fa-eye"></i>&nbsp;View
@@ -152,7 +152,7 @@ export default function Allpackages() {
                                     <button
                                         className="btn btn-warning"
                                         onClick={() => {
-                                            openInPopup(packages);
+                                            openInPopup(route);
                                             setUpdatebtn(true);
                                         }}
 
@@ -161,7 +161,7 @@ export default function Allpackages() {
                                         <i className="fas fa-edit"></i>&nbsp;Update
                                     </button>
                                     &nbsp;
-                                    <button className="btn btn-danger" href="/add" onClick={() => { onDelete(packages._id) }} >
+                                    <button className="btn btn-danger" href="/add" onClick={() => { onDelete(route._id) }} >
                                         <i className="far fa-trash-alt"></i>&nbsp;Delete
                                     </button>
                                 </td>
@@ -174,14 +174,14 @@ export default function Allpackages() {
                         setOpenPopup(true);
                         setUpdatebtn(false);
                     }}>
-                    Add new package</button>
+                    Add new Route</button>
                 <Popup
-                    title={updateBtn ? "Update package form" : "Add new Package form"}
+                    title={updateBtn ? "Update Route form" : "Add new Route form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
                     refreshpage = {refreshpage}
                 >
-                    <Addpackage
+                    <Addroute
                         recordForEdit={recordForEdit}
                         addOrEdit={addOrEdit}
                     />
