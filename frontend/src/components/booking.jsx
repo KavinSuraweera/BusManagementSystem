@@ -1,13 +1,13 @@
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
-import { BrowserRouter, Link } from 'react-router-dom'
+import { BrowserRouter, Link, useHistory} from 'react-router-dom'
 import Header from './header'
-import seats from './seats'
 import { Description } from '@material-ui/icons';
 
 
 
 export default function Booking() {
+
 
     const [routes, setroutes] = useState([]);
     const [routedata, setRouteData] = useState([]);
@@ -39,11 +39,8 @@ export default function Booking() {
         }
         getRoutes();
     }, [])
-
-
-
-
-
+   
+  
     function sendTo(to) {
         axios.get(`http://localhost:8000/booking/get/${to}`).then((res) => {
             setRouteData(res.data.bookings);
@@ -61,15 +58,11 @@ export default function Booking() {
         })
     }
 
-    
 
-
-
-
-
-
-
-    console.log("-->", route)
+    const history = useHistory();
+    const jump = () => {
+        history.push('/seats',{params:"Hello world"})
+    }
 
 
 
@@ -212,11 +205,24 @@ export default function Booking() {
                                                     <td>{route.Route}</td>
                                                     <td>{route.Time}</td>
                                                     <td>
+
                                                         <Link to="./seats">
                                                             <button type="button" class="btn btn-primary">
                                                                 Go
                                                             </button>
                                                         </Link>
+
+                                                        
+                                                            <button type="button" class="btn btn-primary" 
+                                                            onClick={() => {
+                                                                jump()
+                                                            }}
+                                                            >
+                                                                Go
+                                                            </button>
+                                                        
+                                                        
+
                                                     </td>
 
                                                 </tr>

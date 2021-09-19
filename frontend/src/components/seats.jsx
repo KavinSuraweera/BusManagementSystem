@@ -1,6 +1,9 @@
 import React from 'react'
+import { useLocation } from "react-router-dom";
+
 
 export default function seats() {
+
     return (
         <div>
             <div className="seat-container">
@@ -91,6 +94,10 @@ export default function seats() {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <h1>h i </h1>
             </div>
         </div>
     )
