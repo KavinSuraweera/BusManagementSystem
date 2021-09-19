@@ -14,7 +14,7 @@ const busSchema = new Schema({
     },
 
     regNo : {
-        type : Number,
+        type : String,
         required : true
     },
 

@@ -2,14 +2,19 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const customerSchema = new Schema({
-
-    CusNIC : {
-        type : Number,
+const customerSchema = new Schema({      
+    
+    UserName:{
+        type:String,
+        required : true
+    },
+    
+    FirstName : {
+        type : String,
         required : true
     },
 
-    Password : {
+    LastName : {
         type : String,
         required : true
     },
@@ -18,18 +23,13 @@ const customerSchema = new Schema({
         type : Number,
         required : true
     },
-
-    Name : {
-        type : String,
-        requird : true
-    },
-
+    
     Email : {
         type : String,
-        requird : true
+        required : true
     },
 
-    Address: {
+    Password: {
         type : String,
         requird : true
     }
