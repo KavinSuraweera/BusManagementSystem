@@ -24,7 +24,7 @@
 .table_container{
     padding: 5px;
     height: 300px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     border-radius: 8px;
     border-style: solid;
     border-color: #0865D5;
@@ -33,8 +33,7 @@
 
 }
 
-.table {
-}
+
 
 .booking-container-1 .booking-container-2 .booking-container-left{
    background-image: url(../img/booking-cover.png);

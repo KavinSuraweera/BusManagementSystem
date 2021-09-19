@@ -14,9 +14,9 @@ export default function Addpackage(props) {
     const [routeName, setrouteName] = useState("");
     const [to, setto] = useState("");
     const [from, setfrom] = useState("");
-    const [pAdult, setaAdult] = useState("");
+    const [pAdult, setpAdult] = useState("");
     const [pChild, setpChild] = useState("");
-    const [pStudent, setStudent] = useState("");
+    const [pStudent, setpStudent] = useState("");
  
 
 
@@ -24,14 +24,14 @@ export default function Addpackage(props) {
 
 
 
-        const newBus = {
+        const newRoute = {
             id: '0',
             routeId,
             routeName,
             to,
             from,
             pAdult,
-            pChildt,
+            pChild,
             pStudent,
         }
 

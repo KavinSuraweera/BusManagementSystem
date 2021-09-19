@@ -7,6 +7,8 @@ export default function popup(props) {
     
     const {title, children, openPopup, setOpenPopup, refreshpage} = props;
 
+    
+
     const useStyles = makeStyles
 
 
@@ -21,8 +23,13 @@ export default function popup(props) {
                         <button type="button" className="btn btn-danger" aria-label="Close" 
                         onClick={
                             ()=>{
-                                setOpenPopup(false);
-                                refreshpage();
+                                
+                                if(title == "Delete Profile form"){
+                                    setOpenPopup(false);
+                                }else{
+                                    setOpenPopup(false);
+                                    refreshpage();
+                                }
                             }}>x</button>
                     </div>
                 </DialogTitle>

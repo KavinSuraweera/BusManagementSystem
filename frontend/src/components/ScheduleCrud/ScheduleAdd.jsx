@@ -2,6 +2,7 @@ import React, { useState, useEffect, useForms } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import '../../CSS/App.css';
+import { FindReplaceOutlined, NearMeRounded } from '@material-ui/icons';
 
 
 export default function Addschedule(props) {
@@ -11,6 +12,7 @@ export default function Addschedule(props) {
     const [schedule, setSchedule] = useState({});
     const [routes, setRoutes] = useState([]);
     const [bus, setBus] = useState([]);
+    const [routeByName, setRouteByName] = useState([0]);
 
     const [scheduleId, setscheduleId] = useState("");
     const [RouteId, setRouteId] = useState("");
@@ -18,9 +20,12 @@ export default function Addschedule(props) {
     const [Time, setTime] = useState("");
     const [BusNumber, setBusNumber] = useState("");
 
+    const [fetchedId, setfetchedId] = useState("");
 
 
 
+
+    
 
 
     function sendData() {
@@ -100,6 +105,17 @@ export default function Addschedule(props) {
     }
 
 
+    function findRouteId(name) {
+        axios.get(`http://localhost:8000/route/routeidbyname/${name}`).then((res) => {
+            setRouteByName(res.data.routesbyname)
+
+
+        }).catch((err) => {
+            alert(err)
+        })
+    }
+
+
 
 
 
@@ -119,6 +135,19 @@ export default function Addschedule(props) {
         }
     }, [recordForEdit]);
 
+    useEffect(() => {
+      
+
+            setfetchedId(routeByName.routeId)
+            
+
+      
+
+    
+
+    }, []);
+
+
 
 
 
@@ -137,6 +166,7 @@ export default function Addschedule(props) {
 
 
 
+
     return (
         <div className="container">
             <form className="row g-4" onSubmit={(e) => { handleSubmit(e) }}>
@@ -150,7 +180,9 @@ export default function Addschedule(props) {
                     />
                 </div>
 
-              
+
+
+
                 <div className="col-md-6">
                     <label htmlFor="Route" className="form-label">Select Route :</label>
                     {/* <input type="text" className="form-control" id="Route" placeholder="Enter Route"
@@ -163,6 +195,7 @@ export default function Addschedule(props) {
                         onChange={(e) => {
                             // setShow(true);
                             setRoute(e.target.value);
+                            findRouteId(e.target.value);
                         }}>
                         <option selected >...</option>
                         {routes.map((routes, index) => (
@@ -173,14 +206,14 @@ export default function Addschedule(props) {
 
                     </select>
                 </div>
-                
 
 
-                
+
+
 
                 <div className="col-md-6">
                     <label htmlFor="Route" className="form-label">Select Time :</label>
-                    
+
                     <select id="depatureTime" className="form-input-2"
                         onChange={(e) => {
                             // setShow(true);
@@ -202,15 +235,15 @@ export default function Addschedule(props) {
                         <option >06:00 p.m</option>
                         <option >07:00 p.m</option>
                         <option >08:00 p.m</option>
-                        
-                        
+
+
 
                     </select>
                 </div>
 
                 <div className="col-md-6">
                     <label htmlFor="busnumber" className="form-label">Select Bus Number :</label>
-                    
+
                     <select id="busnumber" className="form-input-2"
                         onChange={(e) => {
                             // setShow(true);
@@ -225,9 +258,19 @@ export default function Addschedule(props) {
 
                     </select>
                 </div>
-                
 
-                
+                {/* <div className="col-md-6">
+                    <label htmlFor="scheduleId" className="form-label">Route ID:</label>
+                    <input type="text" className="form-control" id="scheduleId" placeholder="Enter Schedule ID"
+                        value={fetchedId}
+                        onChange={(e) => {
+                            setscheduleId(e.target.value);
+                        }}
+                    />
+                </div> */}
+
+
+
                 {/* <label htmlFor="">Select tieme</label>
                 <div className="time_container">
 

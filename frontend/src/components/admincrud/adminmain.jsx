@@ -44,8 +44,8 @@ export default function Alladmin() {
 
 
   function refreshpage(){
-    window.location.reload();
-}
+    
+  }
 
   function onDelete(aId) {
     axios
@@ -130,7 +130,7 @@ export default function Alladmin() {
         title="Add new admin form."
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
-        refreshpage={refreshpage}
+        refreshpage = {refreshpage}
       >
         <Addadmin recordForEdit={recordForEdit} />
       </Popup>

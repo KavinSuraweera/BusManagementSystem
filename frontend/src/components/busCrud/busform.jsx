@@ -73,7 +73,9 @@ export default function Allbus() {
 
 
 
-
+    function refreshpage(){
+        window.location.reload();
+    }
 
 
     const addOrEdit = (bus) => {
@@ -173,6 +175,7 @@ export default function Allbus() {
                     title={updateBtn ? "Update Bus form" : "Add new Bus form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
+                    refreshpage = {refreshpage}
                 >
                     <Addbus
                         recordForEdit={recordForEdit}

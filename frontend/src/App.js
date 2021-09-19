@@ -20,6 +20,7 @@ import userreg from "./components/Userprofile/UserRegister";
 import UserLogin from "./components/Userprofile/UserLogin";
 import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
+import routes from "./components/routecrud/routeform";
 
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
@@ -51,6 +52,7 @@ function App() {
         <Route path="/dashbord" exact component={dashbord} />
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
+        <Route path="/routes" exact component={routes} />
 
         <Switch>
           <Route path="/Admin-Login">

@@ -109,7 +109,7 @@ export default function Addpackage(props) {
     return (
         <div className="container">
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
-                <div className="col-md-6">
+                <div className="col-md-5">
                     <label htmlFor="packageName" className="form-label">Enter Bus Number:</label>
                     <input type="text" className="form-control" id="packageName" placeholder="Enter Bus Number"
                         value={busNo}
@@ -119,16 +119,29 @@ export default function Addpackage(props) {
                     />
                 </div>
 
-                <div className="input-group">
-                    <label htmlFor="packageName" className="form-label">Enter Number of seats:</label>
-                    <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
+                <div className="col-md-5">
+                    <label htmlFor="packageName" className="form-label">Select Number of seats:</label>
+                    <select id="depatureTime" className="form-input-2"
+                        onChange={(e) => {
+                            // setShow(true);
+                            setNoOfSeats(e.target.value);
+                        }}>
+                        <option selected >...</option>
+                        <option >54</option>
+                        <option >42</option>
+                      
+                        
+                        
+
+                    </select>
+                    {/* <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
                         value={NoOfSeats}
                         onChange={(e) => {
                             setNoOfSeats(e.target.value);
                         }}
-                    />
+                    /> */}
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-5">
                     <label htmlFor="tripsCount" className="form-label">Enter Registration Number</label>
                     <input type="text" className="form-control" id="tripsCount" placeholder="Enter Registration Number"
                         value={regNo}
@@ -137,7 +150,7 @@ export default function Addpackage(props) {
                         }}
                     />
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-5">
                     <label htmlFor="tripsCount" className="form-label">Bus Type</label>
                     <input type="tel" className="form-control" id="phone" placeholder="Enter Bus Type"
                         value={Type}
@@ -147,7 +160,7 @@ export default function Addpackage(props) {
                     />
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-5">
                     <label htmlFor="timePeriod" className="form-label">Enter Permit ID:</label>
                     <input type="text" className="form-control" id="timePeriod" placeholder="Enter permit ID"
                         value={permitID}

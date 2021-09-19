@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import axios from 'axios';
 import { BrowserRouter, Link } from 'react-router-dom'
 import Header from './header'
+import seats from './seats'
 import { Description } from '@material-ui/icons';
 
 
@@ -21,6 +22,10 @@ export default function Booking() {
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
 
+    const [adult , setAdult] = useState("")
+    const [child , setChild] = useState("")
+    const [student , setStudent] = useState("")
+
 
 
     useEffect(() => {
@@ -35,16 +40,7 @@ export default function Booking() {
         getRoutes();
     }, [])
 
-    // useEffect(() => {
-    //     const getSchedules = (routeId) => {
-    //         axios.get("http://localhost:8000/booking/get/").then((res) => {
-    //             setSchedule(res.data);
-    //         }).catch((err) => {
-    //             alert(err.message)
-    //         })
-    //         getSchedules();
-    //     }
-    // }, [])
+
 
 
 
@@ -76,10 +72,6 @@ export default function Booking() {
 
 
 
-
-
-
-
     return (
         <div className="usr_background">
             <Header />
@@ -99,7 +91,7 @@ export default function Booking() {
                                 <hr />
                             </div> */}
                             <div className="form-row">
-                                <label for="depature">Your Location</label>
+                                <label for="depature">Select Route</label>
                                 <select id="depatureTime" className="form-input-2"
                                     onChange={(e) => {
                                         setShow(true);
@@ -141,7 +133,7 @@ export default function Booking() {
                                 </select>
                                 <hr />
                             </div> */}
-{/* 
+                            {/* 
                             {
                                 show ? <div className="form-row">
                                     <label for="arrivalTime">Return Time</label>
@@ -157,7 +149,11 @@ export default function Booking() {
 
                             <div className="form-row">
                                 <label for="Adult">Adult</label>
-                                <select id="Adult" class="form-input-3">
+                                <select id="Adult" class="form-input-3"
+                                onChange={(e) =>{
+                                    setAdult(e.target.value)
+                                }}
+                                >
                                     <option selected>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -167,7 +163,11 @@ export default function Booking() {
                                 </select>
 
                                 <label for="Student">Student</label>
-                                <select id="Student" class="form-input-3">
+                                <select id="Student" class="form-input-3"
+                                onChange={(e) =>{
+                                    setChild(e.target.value)
+                                }}
+                                >
                                     <option selected>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -177,7 +177,11 @@ export default function Booking() {
                                 </select>
 
                                 <label for="Child">Child</label>
-                                <select id="Child" class="form-input-3">
+                                <select id="Child" class="form-input-3"
+                                onChange={(e) =>{
+                                    setStudent(e.target.value)
+                                }}
+                                >
                                     <option selected>0</option>
                                     <option>0</option>
                                     <option>1</option>
@@ -191,30 +195,34 @@ export default function Booking() {
                             </div>
 
                             {
-                                show?<div className="table_container">
-                                <table className="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Route Id</th>
-                                            <th scope="col">Route Name</th>
-                                            <th scope="col">Time</th>
-                                            <th scope="col">Book</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {route.map((route, index) => (
-                                            <tr >
-                                                <th >{route.RouteId}</th>
-                                                <td>{route.Route}</td>
-                                                <td>{route.Time}</td>
-                                                <td>d</td>
+                                show ? <div className="table_container">
+                                    <table className="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Route Name</th>
+                                                <th scope="col">Time</th>
+                                                <th scope="col">Book</th>
 
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>:null
+                                        </thead>
+                                        <tbody>
+                                            {route.map((route, index) => (
+                                                <tr >
+                                                    <td>{route.Route}</td>
+                                                    <td>{route.Time}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary"
+                                                       
+                                                        >
+                                                            Go
+                                                        </button>
+                                                    </td>
+
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div> : null
                             }
 
 

@@ -12,7 +12,9 @@ export default function Allroute() {
     const [route, setRoute] = useState([]);
 
 
-
+    function refreshpage(){
+        window.location.reload();
+    }
 
 
     function sendData(e) {
@@ -34,7 +36,7 @@ export default function Allroute() {
     useEffect(() => {
         const getRoute = () => {
             axios.get("http://localhost:8000/route/").then((res) => {
-                setBus(res.data);
+                setRoute(res.data);
             }).catch((err) => {
                 alert(err.message)
             })
@@ -150,7 +152,7 @@ export default function Allroute() {
                                     <button
                                         className="btn btn-warning"
                                         onClick={() => {
-                                            openInPopup(bus);
+                                            openInPopup(route);
                                             setUpdatebtn(true);
                                         }}
 
@@ -177,8 +179,9 @@ export default function Allroute() {
                     title={updateBtn ? "Update Route form" : "Add new Route form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
+                    refreshpage = {refreshpage}
                 >
-                    <Addbus
+                    <Addroute
                         recordForEdit={recordForEdit}
                         addOrEdit={addOrEdit}
                     />
