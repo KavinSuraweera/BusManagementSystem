@@ -111,7 +111,7 @@ export default function Addpackage(props) {
       <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
           <div className="col-md-5">
               <label htmlFor="packageName" className="form-label">Enter Employee Name:</label>
-              <input type="text" className="form-control" id="packageName" placeholder="Enter Employee Name"
+              <input type="text" className="form-control" name="EmpName" placeholder="Enter Employee Name"
                   value={EmpName}
                   onChange={(e) => {
                       setEmpName(e.target.value);
@@ -122,7 +122,7 @@ export default function Addpackage(props) {
          
           <div className="col-md-5">
               <label htmlFor="tripsCount" className="form-label">Enter Phone Number</label>
-              <input type="text" className="form-control" id="tripsCount" placeholder="Enter phone Number"
+              <input type="text" className="form-control" name="Phone" placeholder="Enter phone Number"
                   value={Phone}
                   onChange={(e) => {
                       setPhone(e.target.value);
@@ -131,7 +131,7 @@ export default function Addpackage(props) {
           </div>
           <div className="col-md-5">
               <label htmlFor="tripsCount" className="form-label">NIC</label>
-              <input type="text" className="form-control" id="phone" placeholder="Enter NIC"
+              <input type="text" className="form-control" name="NIC" placeholder="Enter NIC"
                   value={NIC}
                   onChange={(e) => {
                       setNIC(e.target.value);
@@ -141,7 +141,7 @@ export default function Addpackage(props) {
 
           <div className="col-md-5">
               <label htmlFor="timePeriod" className="form-label">Enter Email :</label>
-              <input type="text" className="form-control" id="timePeriod" placeholder="Enter Email"
+              <input type="text" className="form-control" name="Email" placeholder="Enter Email"
                   value={Email}
                   onChange={(e) => {
                       setEmail(e.target.value);
@@ -151,7 +151,7 @@ export default function Addpackage(props) {
 
           <div className="col-md-5">
               <label htmlFor="timePeriod" className="form-label">Enter Employee Type</label>
-              <input type="text" className="form-control" id="timePeriod" placeholder="Enter Employee Type"
+              <input type="text" className="form-control" name="Type" placeholder="Enter Employee Type"
                   value={Type}
                   onChange={(e) => {
                       setType(e.target.value);
