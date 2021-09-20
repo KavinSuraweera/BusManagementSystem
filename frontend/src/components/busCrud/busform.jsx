@@ -53,12 +53,13 @@ export default function Allbus() {
     // }
 
 
-    function onDelete(bId) {
-    
-        axios.delete(`http://localhost:8000/bus/delete/${bId}`).then((req, res) => {
-            window.location.reload(false);
-        }).catch((err) => {
-            alert(err);
+
+    function onDelete(kId) {
+      
+      axios.delete(`http://localhost:8000/bus/delete/${kId}`).then((req, res) => {
+           window.location.reload(false);
+       }).catch((err) => {
+           alert(err);
         })
     }
 

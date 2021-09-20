@@ -1,8 +1,38 @@
-import React from 'react'
-import { useLocation } from "react-router-dom";
+import {React, useEffect, useState} from 'react'
+import { useLocation} from 'react-router-dom';
+import axios from 'axios';
 
 
-export default function seats() {
+export default function Seats() {
+
+
+    const [bus, setBus] = useState({});
+
+    const location = useLocation();
+
+    const busNumber = location.state.BusNumber;
+    const adult = location.state.adult;
+    const child = location.state.child;
+    const student = location.state.student;
+
+
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/bus/getbybusid/${busNumber}`).then((res) =>{
+            setBus(res.data)
+            console.log(res.data.bus)
+        }).catch((err) =>{
+            alert("get bus id err")
+        })
+    }, [])
+
+    
+
+
+
+
+
 
     return (
         <div>
@@ -20,7 +50,7 @@ export default function seats() {
                             <div className="seatid" id="7"></div>
                             <div className="seatid" id="8"></div>
                             <div className="seatid" id="9"></div>
-                            <div className="seatid" id="10"></div>
+                            <div className="seatid a" id="10"></div>
                         </div>
 
                         <div className="row" id="1">
@@ -50,6 +80,9 @@ export default function seats() {
                             <div className="seatid" id="9"></div>
                             <div className="seatid" id="10"></div>
                         </div>
+
+                        <br/>
+                        <br/>
 
                         <div className="row" id="1">
                             <div className="rowNumb" id="1"></div>
@@ -97,7 +130,10 @@ export default function seats() {
             </div>
 
             <div>
-                <h1>h i </h1>
+                <h1>{busNumber}</h1>
+                <h1>{child}</h1>
+                <h1>{adult}</h1>
+                <h1>{student}</h1>
             </div>
         </div>
     )
