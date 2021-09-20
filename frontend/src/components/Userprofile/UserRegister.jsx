@@ -2,9 +2,10 @@ import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "../../CSS/adminregister.css";
-import { useDispatch, useSelector } from 'react-redux';
-import {logout} from "../../actions/authAction"
+import "./ProfileCSS/Userreg.css";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/authAction";
+import Header from "../header";
 
 export default function Adminregister() {
   const history = useHistory();
@@ -56,77 +57,93 @@ export default function Adminregister() {
   };
 
   return (
-    <div>
-      <center>
-        <div className="form">
-          Username:
-          <input
-            type="text"
-            name="username"
-            placeholder="First Name"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          First Name:
-          <input
-            type="text"
-            name="firstname"
-            placeholder="First Name"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Last Name:
-          <input
-            type="text"
-            name="lastname"
-            placeholder="Last Name"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Phone:
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Email:
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Enter Password:
-          <input
-            type="text"
-            name="password"
-            placeholder="Enter Password"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Confirm Password:
-          <input
-            type="text"
-            name="password2"
-            placeholder="re Enter Password"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          <p style={{ color: "red" }}>{error}</p>
+    <div className="usr_backgound">
+      <div className="outer-container">
+        <Header />
+        <div className="form-container">
+          <div className="form">
+            <center>
+              <h3>Passenger Registration Form</h3>
+            </center>
+            <hr />
+            <p className="Qheader">Username:</p>
+            <input
+              className="entries"
+              type="text"
+              name="username"
+              placeholder="First Name"
+              onChange={onChange}
+            />
 
-          <button onClick={submit}>Submit</button>
+            <br />
+            <p className="Qheader">First Name:</p>
+            <input
+              className="entries"
+              type="text"
+              name="firstname"
+              placeholder="First Name"
+              onChange={onChange}
+            />
+
+            <br />
+            <p className="Qheader">Last Name:</p>
+            <input
+              className="entries"
+              type="text"
+              name="lastname"
+              placeholder="Last Name"
+              onChange={onChange}
+            />
+
+            <br />
+            <p className="Qheader"> Phone:</p>
+            <input
+              className="entries"
+              type="tel"
+              name="phone"
+              placeholder="Phone"
+              onChange={onChange}
+            />
+
+            <br />
+            <p className="Qheader">Email:</p>
+            <input
+              className="entries"
+              type="email"
+              pattern=".+@globex\.com"
+              name="email"
+              placeholder="Email"
+              onChange={onChange}
+              required
+            />
+
+            <br />
+            <p className="Qheader">Enter Password:</p>
+            <input
+              className="entries"
+              type="text"
+              name="password"
+              placeholder="Enter Password"
+              onChange={onChange}
+            />
+
+            <br />
+            <p className="Qheader">Confirm Password:</p>
+            <input
+              className="entries"
+              type="text"
+              name="password2"
+              placeholder="Re Enter Password"
+              onChange={onChange}
+            />
+            <br />
+            <p style={{ color: "red" }}>{error}</p>
+            <center>
+            <button className="submitbtn" onClick={submit}>Submit</button>
+            </center>
+          </div>
         </div>
-      </center>
+      </div>
     </div>
   );
 }
