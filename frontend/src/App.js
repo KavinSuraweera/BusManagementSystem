@@ -32,6 +32,13 @@ import "./CSS/booking.css";
 import "./CSS/seats.css";
 import Allpackages from "./components/Allpackages";
 
+import CreatePost from './components/BusOwner/CreatePost';
+import EditPost from './components/BusOwner/EditPost';
+import BusOwner from './components/BusOwner/BusOwner';
+import PostDetails from './components/BusOwner/PostDetails';
+
+
+
 import {  useSelector } from 'react-redux';
 
 function App() {
@@ -66,7 +73,12 @@ function App() {
              {userID?<Redirect to="/Userprofile"/>:<UserLogin/>}
           </Route>
           <Route path="/Userprofile" exact component={Userprofile}/>       
+          <Route path="/BusOwner" exact component={BusOwner}></Route>
+          <Route path="/add" component={CreatePost}></Route>
+          <Route path="/edit/:id" component={EditPost}></Route>
+          <Route path="/post/:id" component={PostDetails}></Route>
         </Switch>
+
       </Router>
     </div>
   );
