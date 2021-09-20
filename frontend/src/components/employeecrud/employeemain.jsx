@@ -73,7 +73,6 @@ export default function Employeemain() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">EmpName</th>
-            
             <th scope="col">Phone</th>
             <th scope="col">NIC</th>
             <th scope="col">E-mail</th>

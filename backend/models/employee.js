@@ -18,17 +18,17 @@ const EmpSchema = new Schema({
 
     NIC : {
         type : String,
-        requird : true
+        required : true
     },
 
     Email : {
         type : String,
-        requird : true
+        required : true
     },
 
     Type: {
         type : String,
-        requird : true
+        required : true
     }
 
 });
