@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Popup from "../../components/popup";
 import Addbus from './busadd';
 import Header from '../header'
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default function Allbus() {
 
@@ -53,11 +55,13 @@ export default function Allbus() {
     // }
 
 
-    function onDelete(bId) {
-        axios.delete(`http://localhost:8000/bus/delete/${bId}`).then((req, res) => {
-            window.location.reload(false);
-        }).catch((err) => {
-            alert(err);
+
+    function onDelete(kId) {
+      
+      axios.delete(`http://localhost:8000/bus/delete/${kId}`).then((req, res) => {
+           window.location.reload(false);
+       }).catch((err) => {
+           alert(err);
         })
     }
 
@@ -111,8 +115,9 @@ export default function Allbus() {
 
     //------------------------------------------ 
     return (
-        <div>
-            <Header />
+        <div className="usr_background">
+            <Sidebar/>
+            <Topbar/>
             <div className="container">
 
 
@@ -127,6 +132,7 @@ export default function Allbus() {
                             <th scope="col">Registration Number</th>
                             <th scope="col">Bus Type</th>
                             <th scope="col">Permit ID</th>
+                            <th scope="col">Action</th>
                         
                         </tr>
                     </thead>
@@ -157,7 +163,7 @@ export default function Allbus() {
                                         <i className="fas fa-edit"></i>&nbsp;Update
                                     </button>
                                     &nbsp;
-                                    <button className="btn btn-danger" href="/add" onClick={() => { onDelete(bus._id) }} >
+                                    <button className="btn btn-danger" href="/add" onClick={() => {onDelete(bus._id) }} >
                                         <i className="far fa-trash-alt"></i>&nbsp;Delete
                                     </button>
                                 </td>

@@ -21,6 +21,11 @@ export default function contactUs() {
                 admin cruds
             </button><br/><br/>
             </Link>
+            <Link to="./BusOwner">
+            <button>
+                Bus Owner
+            </button><br/><br/>
+            </Link>
 
         </div>
     )

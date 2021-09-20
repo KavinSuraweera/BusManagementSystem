@@ -9,29 +9,26 @@ const EmpSchema = new Schema({
         required : true
     },
 
-    Password : {
-        type : String,
-        required : true
-    },
+    
 
     Phone : {
-        type : Number,
+        type : String,
         required : true
     },
 
     NIC : {
-        type : Number,
-        requird : true
+        type : String,
+        required : true
     },
 
     Email : {
         type : String,
-        requird : true
+        required : true
     },
 
     Type: {
         type : String,
-        requird : true
+        required : true
     }
 
 });

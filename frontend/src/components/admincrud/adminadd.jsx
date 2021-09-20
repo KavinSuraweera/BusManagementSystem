@@ -65,7 +65,7 @@ export default function AddAdmin(props) {
 
   return (
     <div className="container">
-      <form className="row g-3">
+      <form className="row g-4">
         <div className="col-md-6">
           <label htmlFor="customerNIC" className="form-label">
           Name:

@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Popup from "../../components/popup";
 import Addcustomer from './customeradd';
 import Header from '../header'
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default function Allpackages() {
 
@@ -90,6 +92,9 @@ export default function Allpackages() {
 
     }
 
+    function refreshpage(){
+        window.location.reload();
+    }
 
 
 
@@ -109,10 +114,14 @@ export default function Allpackages() {
 
     //------------------------------------------ 
     return (
-        <div>
-            <Header />
-            <div className="container">
+        <div className="usr_background">
+            <Topbar/>
+            <Sidebar/>
+            <div className="table-name">
+                <h1>abc</h1>
+            </div>
 
+            <div className="container">
 
 
 
@@ -126,6 +135,7 @@ export default function Allpackages() {
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
                             <th scope="col">Password</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -173,6 +183,7 @@ export default function Allpackages() {
                     title={updateBtn ? "Update Customer form" : "Add new Customer form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
+                    refreshpage={refreshpage}
                 >
                     <Addcustomer
                         recordForEdit={recordForEdit}

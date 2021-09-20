@@ -168,7 +168,7 @@ export default function Addschedule(props) {
 
 
     return (
-        <div className="container">
+        <div className="popup_container">
             <form className="row g-4" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-6">
                     <label htmlFor="scheduleId" className="form-label">Enter Schedule ID:</label>

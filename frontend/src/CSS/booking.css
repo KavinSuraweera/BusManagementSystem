@@ -6,6 +6,19 @@
     margin: 0px auto ;
 }
 
+.seat-container h1{
+    color: #707070;
+    text-align: center;
+}
+
+.seat-container hr{
+    height: 5px;
+    width: 100px;
+    margin: auto;
+    border-radius: 3px;
+    background-color:#BE8B00;
+}
+
 .booking-container-1 .booking-container-2{
     background-color:white;
     position: relative;
@@ -23,7 +36,8 @@
 
 .table_container{
     padding: 5px;
-    height: 300px;
+    min-height: 100px;
+    max-height: 300px;
     overflow-y: scroll;
     border-radius: 8px;
     border-style: solid;

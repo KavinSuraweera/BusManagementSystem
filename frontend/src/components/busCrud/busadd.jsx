@@ -107,11 +107,11 @@ export default function Addpackage(props) {
 
 
     return (
-        <div className="container">
+        <div className="popup_container">
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-5">
                     <label htmlFor="packageName" className="form-label">Enter Bus Number:</label>
-                    <input type="text" className="form-control" id="packageName" placeholder="Enter Bus Number"
+                    <input type="text" required className="form-control" id="packageName" placeholder="Enter Bus Number"
                         value={busNo}
                         onChange={(e) => {
                             setbusNo(e.target.value);
@@ -143,7 +143,7 @@ export default function Addpackage(props) {
                 </div>
                 <div className="col-md-5">
                     <label htmlFor="tripsCount" className="form-label">Enter Registration Number</label>
-                    <input type="text" className="form-control" id="tripsCount" placeholder="Enter Registration Number"
+                    <input type="text" required className="form-control" id="tripsCount" placeholder="Enter Registration Number"
                         value={regNo}
                         onChange={(e) => {
                             setregNo(e.target.value);
@@ -151,18 +151,32 @@ export default function Addpackage(props) {
                     />
                 </div>
                 <div className="col-md-5">
-                    <label htmlFor="tripsCount" className="form-label">Bus Type</label>
-                    <input type="tel" className="form-control" id="phone" placeholder="Enter Bus Type"
-                        value={Type}
+                    <label htmlFor="packageName" className="form-label">Select Bus Type:</label>
+                    <select id="depatureTime" className="form-input-2"
                         onChange={(e) => {
+                            // setShow(true);
                             setType(e.target.value);
+                        }}>
+                        <option selected >...</option>
+                        <option >Luxury</option>
+                        <option >Semi-Luxury</option>
+                        <option >Regular</option>
+                      
+                        
+                        
+
+                    </select>
+                    {/* <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
+                        value={NoOfSeats}
+                        onChange={(e) => {
+                            setNoOfSeats(e.target.value);
                         }}
-                    />
+                    /> */}
                 </div>
 
                 <div className="col-md-5">
-                    <label htmlFor="timePeriod" className="form-label">Enter Permit ID :</label>
-                    <input type="text" className="form-control" id="timePeriod" placeholder="Enter permit ID"
+                    <label htmlFor="timePeriod" className="form-label">Enter Permit ID:</label>
+                    <input type="text" required className="form-control" id="timePeriod" placeholder="Enter permit ID"
                         value={permitID}
                         onChange={(e) => {
                             setpermitID(e.target.value);

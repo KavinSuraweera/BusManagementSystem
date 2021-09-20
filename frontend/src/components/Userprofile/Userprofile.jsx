@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../actions/authAction";
 import { setid } from "../../actions/authAction";
 import Header from "../header";
-import { responsiveFontSizes } from "@material-ui/core";
+
 
 //DELETE CUSTOMER
 function DeleteCustomer({ id }) {
@@ -344,17 +344,17 @@ export default function Userprofile() {
             </div>
           </div>
           <div className="right-container">
-            <h1>HEllo</h1>
+            <h1>HEllO</h1>
             <br />
-            <h1>HEllo</h1>
+            <h1>HEllO</h1>
             <br />
-            <h1>HEllo</h1>
+            <h1>HEllO</h1>
             <br />
-            <h1>HEllo</h1>
+            <h1>HEllO</h1>
             <br />
-            <h1>HEllo</h1>
+            <h1>HEllO</h1>
             <br />
-            <h1>HEllo</h1>
+            <h1>HEllO</h1>
             <br />
           </div>
         </div>
@@ -362,77 +362,3 @@ export default function Userprofile() {
     </div>
   );
 }
-
-// return (
-//   <div>
-//       <Header />
-// {profilepic && (
-//   <img
-//     className="profilepicture"
-//     src={`http://localhost:8000/${profilepic}`}
-//     alt="img"
-//   />
-// )}
-
-// <h1>{profile.UserName}</h1>
-//             <h3>First Name</h3>
-//             <p>{profile.FirstName}</p>
-//             <h3>Last Name</h3>
-//             <p>{profile.LastName}</p>
-//             <h3> Phone</h3>
-//             <p>{profile.Phone}</p>
-//             <h3>Email</h3>
-//             <p>{profile.Email}</p>
-
-//             {/* LOGOUTBUTTON */}
-//             <button className="logout-btn" onClick={userlogout}>
-//               LOG OUT
-//             </button>
-
-//             <button
-//               className="delete-btn"
-//               onClick={() => {
-//                 setOpenPopup(true);
-//                 setisupdate(false);
-//               }}
-//             >
-//               Delete Profile
-//             </button>
-
-//             <button
-//               className="update-btn"
-//               onClick={() => {
-//                 setOpenPopup(true);
-//                 setisupdate(true);
-//               }}
-//             >
-//               Update Profile
-//             </button>
-
-//             {!profilepic && (
-//               <input
-//                 type="file"
-//                 name="image"
-//                 accept="image/*"
-//                 multiple={false}
-//                 onChange={imageHandler}
-//               />
-//             )}
-// {!profilepic && (
-//   <button disabled={!image} onClick={uploadImage}>
-//     upload image
-//   </button>
-// )}
-
-// <Popup
-//   openPopup={openPopup}
-//   title={isupdate ? "Update Profile form" : "Delete Profile form"}
-//   setOpenPopup={setOpenPopup}
-// >
-//   {isupdate ? (
-//     <UpdateCustomer customer={profile} setOpenPopup={setOpenPopup} />
-//   ) : (
-//     <DeleteCustomer id={id} />
-//   )}
-// </Popup>
-//   </div>
