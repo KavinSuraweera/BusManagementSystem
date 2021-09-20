@@ -15,13 +15,16 @@ export default function Seats() {
     const child = location.state.child;
     const student = location.state.student;
 
+    const seats = bus;
+    console.log(seats)
+    
 
 
 
     useEffect(() => {
         axios.get(`http://localhost:8000/bus/getbybusid/${busNumber}`).then((res) =>{
-            setBus(res.data)
-            console.log(res.data.bus)
+            setBus(res.data.bus)
+         
         }).catch((err) =>{
             alert("get bus id err")
         })
@@ -39,7 +42,10 @@ export default function Seats() {
             <div className="seat-container">
                 <div className="bus">
                     <div className="seat-rows">
-                        <div className="row" id="1">
+                        <div>
+                            
+                        </div>
+                        {/* <div className="row" id="1">
                             <div className="rowNumb" id="1"></div>
                             <div className="seatid" id="1"></div>
                             <div className="seatid" id="2"></div>
@@ -50,7 +56,7 @@ export default function Seats() {
                             <div className="seatid" id="7"></div>
                             <div className="seatid" id="8"></div>
                             <div className="seatid" id="9"></div>
-                            <div className="seatid a" id="10"></div>
+                            <div className="seatid a" id="10"  onclick={clickseat(id)}></div>
                         </div>
 
                         <div className="row" id="1">
@@ -124,7 +130,7 @@ export default function Seats() {
                             <div className="seatid" id="8"></div>
                             <div className="seatid" id="9"></div>
                             <div className="seatid" id="10"></div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -132,7 +138,9 @@ export default function Seats() {
             <div>
                 <h1>{busNumber}</h1>
                 <h1>{child}</h1>
-                <h1>{adult}</h1>
+
+               
+                <h1>{adult}</h1> 
                 <h1>{student}</h1>
             </div>
         </div>
