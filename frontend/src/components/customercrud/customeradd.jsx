@@ -113,7 +113,7 @@ export default function Addpackage(props) {
 
 
     return (
-        <div className="container">
+        <div className="popup_container">
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-6">
                     <label htmlFor="packageName" className="form-label">Enter UserName:</label>

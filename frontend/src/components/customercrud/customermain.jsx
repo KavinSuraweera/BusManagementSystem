@@ -92,6 +92,9 @@ export default function Allpackages() {
 
     }
 
+    function refreshpage(){
+        window.location.reload();
+    }
 
 
 
@@ -114,8 +117,11 @@ export default function Allpackages() {
         <div className="usr_background">
             <Topbar/>
             <Sidebar/>
-            <div className="container">
+            <div className="table-name">
+                <h1>abc</h1>
+            </div>
 
+            <div className="container">
 
 
 
@@ -177,6 +183,7 @@ export default function Allpackages() {
                     title={updateBtn ? "Update Customer form" : "Add new Customer form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
+                    refreshpage={refreshpage}
                 >
                     <Addcustomer
                         recordForEdit={recordForEdit}

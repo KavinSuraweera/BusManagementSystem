@@ -7,13 +7,33 @@ div{
 }
 
 .container{
-  padding: 40px;
+  margin-top: 100px;
   width: 1800px;
-  padding-top: 100px;
   margin-left: 100px;
   display: block;
   position: relative;
+  background-color: tomato;
+  
 }
+
+table{
+  color: greenyellow;
+  text-align: center;
+}
+
+.table-name{
+  width: 1800px;
+  height: 100px;
+  margin-top: 50px;
+  margin-left: 100px;
+  background-color: turquoise;
+
+}
+.container h1{
+  margin-top: 100px;
+}
+
+
 
 
 

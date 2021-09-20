@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './BusOwner.css';
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default class Home extends Component {
 constructor(props){
@@ -66,7 +68,9 @@ handleSearchArea=(e)=>{
 
   render(){
     return (
-      <div className="bgimg">
+      <div className="usr_background">
+        <Topbar/>
+        <Sidebar/>
       <div className="container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">

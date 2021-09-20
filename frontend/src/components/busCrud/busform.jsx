@@ -132,6 +132,7 @@ export default function Allbus() {
                             <th scope="col">Registration Number</th>
                             <th scope="col">Bus Type</th>
                             <th scope="col">Permit ID</th>
+                            <th scope="col">Action</th>
                         
                         </tr>
                     </thead>
