@@ -83,11 +83,21 @@ router.route("/get/:id").get(async(req, res) =>{
 
 router.route("/delete/:id").delete(async(req, res) =>{
     let busId = req.params.id;
-    const bus = await Bus.findOneAndDelete(busId).then((bus)=>{
+    const bus = await Bus.findByIdAndDelete(busId).then((bus)=>{
         res.status(200).send({status:"bus deleted sucessfully"})
     }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status:"Error with deleting bus",err : err.message})
+    })
+})
+
+router.route("/getbybusid/:busN").get(async(req, res)=>{
+    let Bnum = req.params.busN;
+    const bus = await Bus.find({busNo : Bnum}).then((bus) =>{
+        res.status(200).send({status:"bus fetched by bus no",bus})
+    }).catch((err) =>{
+        console.log(err.message);
+        res.status(500).send({status:"error on fetching bus by bus no"})
     })
 })
 

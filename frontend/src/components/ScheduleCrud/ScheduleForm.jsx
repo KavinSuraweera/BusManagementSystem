@@ -79,10 +79,10 @@ export default function Schedulemain() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">scheduleId</th>
-            <th scope="col">RouteId</th>
-            <th scope="col">Route</th>
+            <th scope="col">Route Name</th>
             <th scope="col">Time</th>
-            <th scope="col">BusNumber</th>
+            <th scope="col">Bus Number</th>
+            <th scope="col">Action</th>
             
           </tr>
         </thead>

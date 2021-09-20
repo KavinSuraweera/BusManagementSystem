@@ -1,13 +1,13 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter, Link } from 'react-router-dom'
+import { BrowserRouter as Link, useHistory, s } from 'react-router-dom'
 import Header from './header'
-import seats from './seats'
 import { Description } from '@material-ui/icons';
 
 
 
 export default function Booking() {
+
 
     const [routes, setroutes] = useState([]);
     const [routedata, setRouteData] = useState([]);
@@ -22,9 +22,9 @@ export default function Booking() {
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
 
-    const [adult , setAdult] = useState("")
-    const [child , setChild] = useState("")
-    const [student , setStudent] = useState("")
+    const [adult, setAdult] = useState("")
+    const [child, setChild] = useState("")
+    const [student, setStudent] = useState("")
 
 
 
@@ -39,9 +39,6 @@ export default function Booking() {
         }
         getRoutes();
     }, [])
-
-
-
 
 
     function sendTo(to) {
@@ -64,11 +61,23 @@ export default function Booking() {
 
 
 
+    const history = useHistory();
+
+    const goToseats = (BusNumber) => {
+        if (adult == 0 && child == 0 && student == 0) {
+            alert("please enter count of passengers")
+        } else {
+            
+            history.push("/seats", {
+                BusNumber: BusNumber,
+                adult: adult,
+                child: child,
+                student: student
 
 
-
-
-    console.log("-->", route)
+            })
+        }
+    }
 
 
 
@@ -150,9 +159,9 @@ export default function Booking() {
                             <div className="form-row">
                                 <label for="Adult">Adult</label>
                                 <select id="Adult" class="form-input-3"
-                                onChange={(e) =>{
-                                    setAdult(e.target.value)
-                                }}
+                                    onChange={(e) => {
+                                        setAdult(e.target.value)
+                                    }}
                                 >
                                     <option selected>0</option>
                                     <option>1</option>
@@ -164,9 +173,9 @@ export default function Booking() {
 
                                 <label for="Student">Student</label>
                                 <select id="Student" class="form-input-3"
-                                onChange={(e) =>{
-                                    setChild(e.target.value)
-                                }}
+                                    onChange={(e) => {
+                                        setChild(e.target.value)
+                                    }}
                                 >
                                     <option selected>0</option>
                                     <option>1</option>
@@ -178,12 +187,11 @@ export default function Booking() {
 
                                 <label for="Child">Child</label>
                                 <select id="Child" class="form-input-3"
-                                onChange={(e) =>{
-                                    setStudent(e.target.value)
-                                }}
+                                    onChange={(e) => {
+                                        setStudent(e.target.value)
+                                    }}
                                 >
                                     <option selected>0</option>
-                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -193,37 +201,46 @@ export default function Booking() {
                                 <hr />
 
                             </div>
-
-                            {
-                                show ? <div className="table_container">
-                                    <table className="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Route Name</th>
-                                                <th scope="col">Time</th>
-                                                <th scope="col">Book</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {route.map((route, index) => (
-                                                <tr >
-                                                    <td>{route.Route}</td>
-                                                    <td>{route.Time}</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary"
-                                                       
-                                                        >
-                                                            Go
-                                                        </button>
-                                                    </td>
+                            <div className="table_container">
+                                {
+                                    show ? <div >
+                                        <table className="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Route Name</th>
+                                                    <th scope="col">Time</th>
+                                                    <th scope="col">Book</th>
 
                                                 </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div> : null
-                            }
+                                            </thead>
+                                            <tbody>
+                                                {route.map((route, index) => (
+                                                    <tr >
+                                                        <td>{route.Route}</td>
+                                                        <td>{route.Time}</td>
+                                                        <td>
+
+
+
+                                                            <button type="button" class="btn btn-primary"
+                                                                onClick={() => {
+                                                                    goToseats(route.BusNumber);
+                                                                }}
+                                                            >
+                                                                Go
+                                                            </button>
+
+
+
+                                                        </td>
+
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div> : <h1>please select a route</h1>
+                                }
+                            </div>
 
 
 

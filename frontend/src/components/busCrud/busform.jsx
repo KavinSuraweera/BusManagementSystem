@@ -53,11 +53,13 @@ export default function Allbus() {
     // }
 
 
-    function onDelete(bId) {
-        axios.delete(`http://localhost:8000/bus/delete/${bId}`).then((req, res) => {
-            window.location.reload(false);
-        }).catch((err) => {
-            alert(err);
+
+    function onDelete(kId) {
+      
+      axios.delete(`http://localhost:8000/bus/delete/${kId}`).then((req, res) => {
+           window.location.reload(false);
+       }).catch((err) => {
+           alert(err);
         })
     }
 
@@ -157,7 +159,7 @@ export default function Allbus() {
                                         <i className="fas fa-edit"></i>&nbsp;Update
                                     </button>
                                     &nbsp;
-                                    <button className="btn btn-danger" href="/add" onClick={() => { onDelete(bus._id) }} >
+                                    <button className="btn btn-danger" href="/add" onClick={() => {onDelete(bus._id) }} >
                                         <i className="far fa-trash-alt"></i>&nbsp;Delete
                                     </button>
                                 </td>
