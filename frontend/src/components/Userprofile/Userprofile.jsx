@@ -6,6 +6,8 @@ import "./ProfileCSS/Userprofile.css";
 import Popup from "./userpopup";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../actions/authAction";
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 //DELETE CUSTOMER
 function DeleteCustomer({ id }) {
@@ -77,6 +79,8 @@ function UpdateCustomer({ customer, setOpenPopup }) {
 
   return (
     <div>
+      <Topbar/>
+      <Sidebar/>
       <center>
         <div className="form">
           Username:

@@ -115,9 +115,9 @@ export default function Addpackage(props) {
 
 
     return (
-        <div className="container">
+        <div className="popup-container">
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <label htmlFor="packageName" className="form-label">Enter Route ID:</label>
                     <input type="text" className="form-control" id="packageName" placeholder="Enter Route Number"
                         value={routeId}
@@ -127,7 +127,7 @@ export default function Addpackage(props) {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="col-md-8">
                     <label htmlFor="packageName" className="form-label">Enter Route Name:</label>
                     <input type="text" className="form-control" id="packageName" placeholder="Enter Route Name"
                         value={routeName}
@@ -136,18 +136,19 @@ export default function Addpackage(props) {
                         }}
                     />
                 </div>
-                <div className="col-md-2">
-                    <label htmlFor="tripsCount" className="form-label">Enter To</label>
-                    <input type="text" className="form-control" id="tripsCount" placeholder="Enter To"
+                <div className="col-md-6">
+                    <label htmlFor="tripsCount" className="form-label">To :</label>
+                    <input type="text" className="form-control" id="tripsCount" placeholder="Enter Location"
                         value={to}
                         onChange={(e) => {
                             setto(e.target.value);
                         }}
                     />
                 </div>
-                <div className="col-md-2">
-                    <label htmlFor="tripsCount" className="form-label">Enter From</label>
-                    <input type="tel" className="form-control" id="phone" placeholder="Enter From"
+                
+                <div className="col-md-6">
+                    <label htmlFor="tripsCount" className="form-label">From :</label>
+                    <input type="tel" className="form-control" id="phone" placeholder="Enter Location"
                         value={from}
                         onChange={(e) => {
                             setfrom(e.target.value);
@@ -155,9 +156,9 @@ export default function Addpackage(props) {
                     />
                 </div>
 
-                <div className="col-md-6">
-                    <label htmlFor="timePeriod" className="form-label">Enter Adult Name:</label>
-                    <input type="text" className="form-control" id="timePeriod" placeholder="Enter Adult Name"
+                <div className="col-md-4">
+                    <label htmlFor="timePeriod" className="form-label">Prics Adult :</label>
+                    <input type="text" className="form-control" id="timePeriod" placeholder="LKR"
                         value={pAdult}
                         onChange={(e) => {
                             setpAdult(e.target.value);
@@ -165,9 +166,9 @@ export default function Addpackage(props) {
                     />
                 </div>
 
-                <div className="col-md-6">
-                    <label htmlFor="timePeriod" className="form-label">Enter Child Name:</label>
-                    <input type="text" className="form-control" id="timePeriod" placeholder="Enter Child Name"
+                <div className="col-md-4">
+                    <label htmlFor="timePeriod" className="form-label">Price Child :</label>
+                    <input type="text" className="form-control" id="timePeriod" placeholder="LKR"
                         value={pChild}
                         onChange={(e) => {
                             setpChild(e.target.value);
@@ -175,9 +176,9 @@ export default function Addpackage(props) {
                     />
                 </div>
 
-                <div className="col-md-6">
-                    <label htmlFor="timePeriod" className="form-label">Enter Student Name:</label>
-                    <input type="text" className="form-control" id="timePeriod" placeholder="Enter Student Name"
+                <div className="col-md-4">
+                    <label htmlFor="timePeriod" className="form-label">Price Student :</label>
+                    <input type="text" className="form-control" id="timePeriod" placeholder="LKR"
                         value={pStudent}
                         onChange={(e) => {
                             setpStudent(e.target.value);

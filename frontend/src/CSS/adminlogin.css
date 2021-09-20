@@ -121,3 +121,13 @@
   background-size: cover;
   display: inline-block;
 }
+
+.button-upload{
+  background-color: tomato;
+  
+  display: inline;
+}
+
+.upload{
+
+}
