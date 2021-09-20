@@ -23,7 +23,7 @@ export default function Addpackage(props) {
 
 
         const newEmployee = {
-            id: '0',
+            
             EmpName,
             Phone,
             NIC,
@@ -131,7 +131,7 @@ export default function Addpackage(props) {
           </div>
           <div className="col-md-5">
               <label htmlFor="tripsCount" className="form-label">NIC</label>
-              <input type="tel" className="form-control" id="phone" placeholder="Enter NIC"
+              <input type="text" className="form-control" id="phone" placeholder="Enter NIC"
                   value={NIC}
                   onChange={(e) => {
                       setNIC(e.target.value);

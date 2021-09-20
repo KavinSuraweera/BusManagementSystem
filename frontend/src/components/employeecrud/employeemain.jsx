@@ -73,7 +73,7 @@ export default function Employeemain() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">EmpName</th>
-            <th scope="col">Password</th>
+            
             <th scope="col">Phone</th>
             <th scope="col">NIC</th>
             <th scope="col">E-mail</th>
@@ -85,7 +85,7 @@ export default function Employeemain() {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>{employee.EmpName}</td>
-              <td>{employee.Password}</td>
+              
               <td>{employee.Phone}</td>
               <td>{employee.NIC}</td>
               <td>{employee.Email}</td>
