@@ -3,7 +3,7 @@ let Package = require('../models/packages.js');
 
 const router = express.Router(); 
 
-//Add Package
+//Add(create) Package
 
 router.route("/add").post((req, res) => {
 
@@ -38,6 +38,9 @@ router.route("/add").post((req, res) => {
 
 })
 
+
+//retrieve package
+
 router.route("/").get((req, res) =>{
     Package.find().then((packages)=>{
         res.json(packages)
@@ -45,6 +48,8 @@ router.route("/").get((req, res) =>{
         console.log(err)
     })
 })
+
+//update package
 
 router.route("/update/:id").put(async(req, res) =>{
     let packageId = req.params.id;
@@ -75,6 +80,10 @@ router.route("/get/:id").get(async(req,res)=>{
         res.status(500).send({status:"Error with get user", err : err.message})
     })
 })
+
+
+
+//delete package
 
 router.route("/delete/:id").delete(async(req, res) =>{
     let packageId = req.params.id;
