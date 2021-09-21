@@ -78,6 +78,11 @@ export default function Schedulemain() {
     <div className="usr_background">
       <Topbar />
       <Sidebar />
+      <div className="table-name">
+                <h1>SCHEDULES</h1>
+                <hr/>
+            </div>
+
       <div className="container">
         <table className="table">
           <thead>

@@ -23,16 +23,16 @@ export default function header() {
                         <Link to="/bookings" className="link">BUS BOOKINGS</Link>
                     </li>
                     <li className="item">
-                        <Link to="/packages" className="link">SCEDULES</Link>
+                        <Link to="#" className="link">SCEDULES</Link>
                     </li>
                     <li className="item">
-                        <Link to="/packages" className="link">PACKAGES</Link>
+                        <Link to="#" className="link">PACKAGES</Link>
                     </li>
                     <li className="item">
                         <Link to="/contact" className="link">CONTACT US</Link>
                     </li>
                     <li className="item">
-                    <Link to="/packages" className="link">ABOUT US</Link>
+                    <Link to="#" className="link">ABOUT US</Link>
                     </li>
                 </ul>
                 </div>

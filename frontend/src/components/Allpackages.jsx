@@ -124,6 +124,11 @@ export default function Allpackages() {
         <div className="usr_background">
             <Topbar/>
             <Sidebar/>
+            <div className="table-name">
+                <h1>PACKAGES</h1>
+                <hr/>
+            </div>
+
             
             <div className="container">
 

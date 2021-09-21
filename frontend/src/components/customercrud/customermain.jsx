@@ -118,7 +118,8 @@ export default function Allpackages() {
             <Topbar/>
             <Sidebar/>
             <div className="table-name">
-                <h1>abc</h1>
+                <h1>USERS</h1>
+                <hr/>
             </div>
 
             <div className="container">

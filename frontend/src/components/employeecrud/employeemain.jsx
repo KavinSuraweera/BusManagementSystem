@@ -76,6 +76,11 @@ export default function Employeemain() {
     <div className="usr_background">
       <Topbar/>
       <Sidebar/>
+      <div className="table-name">
+                <h1>EMPLOYEES</h1>
+                <hr/>
+            </div>
+
     <div className="container">
       <table className="table">
         <thead>
