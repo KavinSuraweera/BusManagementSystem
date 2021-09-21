@@ -47,7 +47,10 @@ export default function Allpackages() {
     // const [pId, setId] = useState("")
     // function sendId(pId) {
 
-
+    function refreshpage(){
+        window.location.reload();
+    }
+    
 
 
     // }
@@ -173,6 +176,7 @@ export default function Allpackages() {
                     title={updateBtn ? "Update Customer form" : "Add new Customer form"}
                     openPopup={openPopup}
                     setOpenPopup={setOpenPopup}
+                    refreshpage={refreshpage}
                 >
                     <Addcustomer
                         recordForEdit={recordForEdit}
