@@ -71,12 +71,14 @@ handleSearchArea=(e)=>{
       <div className="usr_background">
         <Topbar/>
         <Sidebar/>
+        <div className="table-name">
+                <h1>USERS</h1>
+                <hr/>
+            </div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-9 mt-2 mb-2">
-            <h2> Bus Owners </h2>
-          </div>
-          <div className="col-lg-3 mt-2 mb-2">
+          
+          {/* <div className="col-lg-3 mt-2 mb-2">
             <input
               className="form-control"
               type="search"
@@ -85,7 +87,7 @@ handleSearchArea=(e)=>{
               onChange={this.handleSearchArea}>
 
               </input>
-          </div>
+          </div> */}
         </div>
         
         <table className="table table-hover" style={{marginTop:'40px'}}>

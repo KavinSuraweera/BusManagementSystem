@@ -117,6 +117,11 @@ export default function Allroute() {
         <div className="usr_background">
             <Topbar/>
             <Sidebar/>
+            <div className="table-name">
+                <h1>ROUTES</h1>
+                <hr/>
+            </div>
+
             <div className="container">
 
 
@@ -133,6 +138,7 @@ export default function Allroute() {
                             <th scope="col">Adult</th>
                             <th scope="col">Child</th>
                             <th scope="col">Student</th>
+                            <th scope="col">Action</th>
                         
                         </tr>
                     </thead>

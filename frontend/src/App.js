@@ -22,6 +22,7 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 
+
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
 
@@ -30,6 +31,7 @@ import schedule from "./components/ScheduleCrud/ScheduleForm";
 import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
+import "./CSS/usercard.css"
 import Allpackages from "./components/Allpackages";
 
 import CreatePost from './components/BusOwner/CreatePost';

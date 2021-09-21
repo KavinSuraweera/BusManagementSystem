@@ -1,11 +1,13 @@
 import React from 'react'
 import Header from './header'
 import { Link } from 'react-router-dom'
+import Logincart from './usercard/card'
 
 export default function home() {
     return (
         <div>
             <Header />
+            <Logincart/>
             <div className="hero-image">
                 <div className="bg_banner"></div>
                 <div className="hero-text">

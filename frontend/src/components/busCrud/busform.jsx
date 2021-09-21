@@ -118,6 +118,11 @@ export default function Allbus() {
         <div className="usr_background">
             <Sidebar/>
             <Topbar/>
+            <div className="table-name">
+                <h1>BUSES</h1>
+                <hr/>
+            </div>
+
             <div className="container">
 
 
