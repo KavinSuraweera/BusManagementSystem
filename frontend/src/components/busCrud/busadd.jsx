@@ -150,6 +150,7 @@ export default function Addpackage(props) {
                         onChange={(e) => {
                             setregNo(e.target.value);
                         }}
+                        pattern = "R.[0-3]{1,5}$"
                     />
                 </div>
                 <div className="col-md-5">
