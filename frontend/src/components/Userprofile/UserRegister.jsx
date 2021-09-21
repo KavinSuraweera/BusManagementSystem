@@ -96,7 +96,7 @@ export default function Adminregister() {
             />
 
             <br />
-            <label className="Qheader"> Phone:</label>
+            <label className="Qheader">Enter Phone:</label>
             <input
               className="entries"
               type="tel"
@@ -106,7 +106,7 @@ export default function Adminregister() {
             />
 
             <br />
-            <label className="Qheader">Email:</label>
+            <label className="Qheader">Enter Email:</label>
             <input
               className="entries"
               type="email"
@@ -137,6 +137,7 @@ export default function Adminregister() {
               onChange={onChange}
             />
             <p style={{ color: "red" }}>{error}</p>
+            
             <center>
             <button className="submitbtn" onClick={submit}>R E G I S T E R</button>
             </center>
