@@ -136,6 +136,9 @@ export default function Addpackage(props) {
                   onChange={(e) => {
                       setNIC(e.target.value);
                   }}
+
+                  pattern="^[0-9+]{9}[vV|xX]$"
+                  required
               />
           </div>
 
@@ -146,6 +149,9 @@ export default function Addpackage(props) {
                   onChange={(e) => {
                       setEmail(e.target.value);
                   }}
+
+                  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                  required
               />
           </div>
 
