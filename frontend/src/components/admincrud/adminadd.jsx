@@ -1,55 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useForms } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../CSS/App.css";
 
-export default function AddAdmin(props) {
-  const { addOrEdit, recordForEdit } = props;
+export default function Addpackage(props) {
+  const { recordForEdit } = props;
 
-  const [admin, setAdmin] = useState([]);
+  const [admin, setCustomer] = useState({});
 
-  const [Name, setName] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Phone, setPhone] = useState("");
-  const [Email, setEmail] = useState("");
   const [NIC, setNIC] = useState("");
+  const [Name, setName] = useState("");
+  const [Phone, setPhone] = useState("");
   const [Type, setType] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
 
-  function sendData(e) {
-    e.preventDefault();
-
+  function sendData() {
     const newAdmin = {
-      id: "0",
-      Name,
-      Password,
-      Phone,
-      Email,
       NIC,
+      Name,
+      Phone,
       Type,
+      Email,
+      Password,
     };
 
     axios
       .post("http://localhost:8000/admin/add", newAdmin)
       .then(() => {
-        // alert("Admin added!")
         window.location.reload(false);
       })
       .catch((err) => {
         alert(err);
       });
   }
-  const [aId, setId] = useState("");
-  function sendId(e) {
-    e.preventDefault();
-    alert(aId);
-    const adminId = {
-        aId,
-    };
 
+  console.log(admin);
+
+  const updateAdmin = {
+    NIC,
+    Name,
+    Phone,
+    Type,
+    Email,
+    Password,
+  };
+
+  function editAdmin(uId) {
     axios
-      .post(`http://localhost:8000/admin/update/${aId}`, adminId)
-      .then(() => {
-        alert("Updated");
+      .put(`http://localhost:8000/admin/update/${uId}`, updateAdmin)
+      .then((res) => {
+        alert("Admin Updated");
+        window.location.reload(false);
+        //this.setState({ redirect: "/home" });
       })
       .catch((err) => {
         alert(err);
@@ -57,102 +60,136 @@ export default function AddAdmin(props) {
   }
 
   useEffect(() => {
-    if (recordForEdit != null)
-      setAdmin({
+    if (recordForEdit != null) {
+      setCustomer({
         ...recordForEdit,
       });
+
+      setNIC(recordForEdit.NIC);
+      setName(recordForEdit.Name);
+      setPhone(recordForEdit.Phone);
+      setType(recordForEdit.Type);
+      setEmail(recordForEdit.Email);
+      setPassword(recordForEdit.Password);
+    }
   }, [recordForEdit]);
 
+  const handleSubmit = (e) => {
+    if (admin._id == null) sendData(admin);
+    else {
+      editAdmin(admin._id);
+    }
+  };
+
   return (
-    <div className="container">
-      <form className="row g-4">
+    <div className="popup_container">
+      <form
+        className="row g-3"
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <div className="col-md-6">
-          <label htmlFor="customerNIC" className="form-label">
-          Name:
+          <label htmlFor="packageName" className="form-label">
+            Enter NIC:
           </label>
           <input
             type="text"
             className="form-control"
-            id="tripsCount"
-            placeholder="Enter Name"
-            defaultValue={admin.Name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="col-md-6">
-          <label htmlFor="customerName" className="form-label">
-            Password:
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="tripsCount"
-            placeholder="Enter admin Name"
-            defaultValue={admin.Password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="col-md-2">
-          <label htmlFor="customerPhone" className="form-label">
-             Phone:
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customerphone"
-            placeholder="Enter Customer phone"
-            defaultValue={admin.Phone}
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="customerAddress" className="form-label">
-          Email
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customeraddress"
-            placeholder="Enter Email Address"
-            defaultValue={admin.Address}
-            onChange={(e) => {
-                setEmail(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="col-md-2">
-          <label htmlFor="customerEmail" className="form-label">
-            Admin Nic
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="customeremail"
+            id="packageName"
             placeholder="Enter NIC"
-            defaultValue={admin.Email}
+            value={NIC}
             onChange={(e) => {
               setNIC(e.target.value);
             }}
           />
         </div>
 
+        <div className="input-group">
+          <label htmlFor="packageName" className="form-label">
+            Enter Name:
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="packageName"
+            placeholder="Enter Name"
+            value={Name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+        </div>
+        <div className="col-md-2">
+          <label htmlFor="tripsCount" className="form-label">
+            Enter Phone
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="tripsCount"
+            placeholder="Enter Phone"
+            value={Phone}
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
+          />
+        </div>
+        <div className="col-md-2">
+          <label htmlFor="tripsCount" className="form-label">
+            Enter Type
+          </label>
+          <input
+            type="tel"
+            className="form-control"
+            id="phone"
+            placeholder="Enter Type"
+            value={Type}
+            onChange={(e) => {
+              setType(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="col-md-6">
+          <label htmlFor="timePeriod" className="form-label">
+            Enter Email:
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="timePeriod"
+            placeholder="Email"
+            value={Email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="col-md-2">
+          <label htmlFor="price" className="form-label">
+            Enter Password:
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="price"
+            placeholder="Password"
+            value={Password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+
         <div>
-          <button
+          <input
             type="submit"
             className="btn btn-primary"
             href="/home"
-            onClick={sendData}>
-            Submit
-          </button>
+            value="Submit"
+          />
         </div>
       </form>
     </div>
