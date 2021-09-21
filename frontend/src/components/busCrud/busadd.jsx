@@ -111,11 +111,13 @@ export default function Addpackage(props) {
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-5">
                     <label htmlFor="packageName" className="form-label">Enter Bus Number:</label>
-                    <input type="text" required className="form-control" id="packageName" placeholder="Enter Bus Number"
+                    <input type="text" className="form-control" id="packageName" placeholder="Enter Bus Number"
                         value={busNo}
                         onChange={(e) => {
                             setbusNo(e.target.value);
                         }}
+                        pattern = "[A-Z].\-[0-9]{0-3}$"
+                        required
                     />
                 </div>
 

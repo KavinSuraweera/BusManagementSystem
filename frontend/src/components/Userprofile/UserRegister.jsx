@@ -56,6 +56,25 @@ export default function Adminregister() {
     }
   };
 
+  const [isValid, setIsValid] = useState(false);
+  const [message, setMessage] = useState('');
+
+  // The regular exprssion to validate the email pattern
+  // It may not be 100% perfect but can catch most email pattern errors and assures that the form is mostly right
+  const emailRegex = /\S+@\S+\.\S+/;
+
+  const validateEmail = (event) => {
+    const email = event.target.value;
+    if (emailRegex.test(email)) {
+      setIsValid(true);
+      setMessage('Your email looks good!');
+      document.getElementById("pattaneh").disabled = false;
+    } else {
+      setIsValid(false);
+      document.getElementById("pattaneh").disabled = true;
+      setMessage('Please enter a valid email!');
+    }}
+
   return (
     <div className="usr_backgound">
       <div className="outer-container">
@@ -102,20 +121,25 @@ export default function Adminregister() {
               type="tel"
               name="phone"
               placeholder="Phone"
+              pattern="[0-9]{10}"
               onChange={onChange}
             />
+
 
             <br />
             <label className="Qheader">Enter Email:</label>
             <input
               className="entries"
               type="email"
-              pattern=".+@globex\.com"
               name="email"
               placeholder="Email"
               onChange={onChange}
+              onClick={ validateEmail}
               required
             />
+            <div style={{color:"red"}} className={`message ${isValid ? 'success' : 'error'}`}>
+        {message}
+      </div>
 
             <br />
             <label className="Qheader">Enter Password:</label>
@@ -139,7 +163,7 @@ export default function Adminregister() {
             <p style={{ color: "red" }}>{error}</p>
             
             <center>
-            <button className="submitbtn" onClick={submit}>R E G I S T E R</button>
+            <button id="pattaneh" className="submitbtn" onClick={submit}>R E G I S T E R</button>
             </center>
           </div>
         </div>

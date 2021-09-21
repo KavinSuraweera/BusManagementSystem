@@ -17,6 +17,8 @@ export default function Addpackage(props) {
     const [pAdult, setpAdult] = useState("");
     const [pChild, setpChild] = useState("");
     const [pStudent, setpStudent] = useState("");
+
+    
  
 
 
@@ -92,8 +94,11 @@ export default function Addpackage(props) {
             setpAdult(recordForEdit.pAdult)
             setpChild(recordForEdit.pChild)
             setpStudent(recordForEdit.pStudent)
-         
+
+            
         }
+         
+        
     }, [recordForEdit]);
 
 
@@ -111,6 +116,19 @@ export default function Addpackage(props) {
 
     }
 
+    // let routenumber = document.getElementById('route-number');
+
+    // routenumber.oninvalid = function(e){
+    //     e.target.setCustomVisibility('hi')
+    // }
+   
+
+
+       
+          
+
+
+
 
 
 
@@ -119,21 +137,25 @@ export default function Addpackage(props) {
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-4">
                     <label htmlFor="packageName" className="form-label">Enter Route ID:</label>
-                    <input type="text" className="form-control" id="packageName" placeholder="Enter Route Number"
+                    <input type="text" className="form-control" id="route-number" placeholder="Enter Route Number"
                         value={routeId}
                         onChange={(e) => {
                             setrouteId(e.target.value);
                         }}
+                        pattern = "R.[0-9]{1,5}$"
+                        required
                     />
                 </div>
 
                 <div className="col-md-8">
                     <label htmlFor="packageName" className="form-label">Enter Route Name:</label>
-                    <input type="text" className="form-control" id="packageName" placeholder="Enter Route Name"
+                    <input type="text" className="form-control" id="route-name" placeholder="Enter Route Name"
                         value={routeName}
                         onChange={(e) => {
                             setrouteName(e.target.value);
                         }}
+                        pattern="^[A-Z]+\-[A-Z]{2,4}$"
+                        required
                     />
                 </div>
                 <div className="col-md-6">
@@ -143,6 +165,7 @@ export default function Addpackage(props) {
                         onChange={(e) => {
                             setto(e.target.value);
                         }}
+                        required
                     />
                 </div>
                 
@@ -163,6 +186,7 @@ export default function Addpackage(props) {
                         onChange={(e) => {
                             setpAdult(e.target.value);
                         }}
+                        required
                     />
                 </div>
 
@@ -173,6 +197,7 @@ export default function Addpackage(props) {
                         onChange={(e) => {
                             setpChild(e.target.value);
                         }}
+                        required
                     />
                 </div>
 
@@ -183,6 +208,7 @@ export default function Addpackage(props) {
                         onChange={(e) => {
                             setpStudent(e.target.value);
                         }}
+                        required
                     />
                 </div>
 
