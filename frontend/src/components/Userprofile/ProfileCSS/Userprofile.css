@@ -30,7 +30,11 @@
 }
 
 .outermost-container .outer-container .left-container .profilepic-container .profilepicture {
+<<<<<<< HEAD
   margin-top: 20px;
+=======
+  margin-top: 50px;
+>>>>>>> 5329df9865fc2945a0ecdc3dd170bece8523a46a
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -46,14 +50,9 @@
   .left-container
   .button-container
   .logout-btn {
-  margin-left: 100px;
-}
 
-.outermost-container
-  .outer-container
-  .left-container
-  .button-container
-  .logout-btn {
+      margin-left: 130px;
+
   margin-top: 15px;
   border: 0px;
   color: white;

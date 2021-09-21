@@ -66,7 +66,11 @@ export default function Adminregister() {
               <h3>Passenger Registration Form</h3>
             </center>
             <hr />
-            <p className="Qheader">Username:</p>
+
+
+
+            <label className="Qheader">Username:</label>
+
             <input
               className="entries"
               type="text"
@@ -76,7 +80,11 @@ export default function Adminregister() {
             />
 
             <br />
-            <p className="Qheader">First Name:</p>
+
+   
+
+            <label className="Qheader">First Name:</label>
+
             <input
               className="entries"
               type="text"
@@ -86,7 +94,10 @@ export default function Adminregister() {
             />
 
             <br />
-            <p className="Qheader">Last Name:</p>
+
+
+            <label className="Qheader">Last Name:</label>
+
             <input
               className="entries"
               type="text"
@@ -96,7 +107,11 @@ export default function Adminregister() {
             />
 
             <br />
-            <p className="Qheader"> Phone:</p>
+
+     
+
+            <label className="Qheader"> Phone:</label>
+
             <input
               className="entries"
               type="tel"
@@ -106,7 +121,11 @@ export default function Adminregister() {
             />
 
             <br />
-            <p className="Qheader">Email:</p>
+
+     
+
+            <label className="Qheader">Email:</label>
+
             <input
               className="entries"
               type="email"
@@ -118,7 +137,10 @@ export default function Adminregister() {
             />
 
             <br />
-            <p className="Qheader">Enter Password:</p>
+
+
+            <label className="Qheader">Enter Password:</label>
+
             <input
               className="entries"
               type="text"
@@ -128,7 +150,9 @@ export default function Adminregister() {
             />
 
             <br />
-            <p className="Qheader">Confirm Password:</p>
+
+            <label className="Qheader">Confirm Password:</label>
+
             <input
               className="entries"
               type="text"
@@ -136,10 +160,16 @@ export default function Adminregister() {
               placeholder="Re Enter Password"
               onChange={onChange}
             />
+
             <br />
             <p style={{ color: "red" }}>{error}</p>
             <center>
             <button className="submitbtn" onClick={submit}>Submit</button>
+            </center>
+            <p style={{ color: "red" }}>{error}</p>
+            <center>
+            <button className="submitbtn" onClick={submit}>R E G I S T E R</button>
+
             </center>
           </div>
         </div>

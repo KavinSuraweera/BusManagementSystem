@@ -12,8 +12,13 @@
     padding: 30px;
     margin-top: 50px;
     display: block;
+<<<<<<< HEAD
     width: 400px;
     height: 750px;
+=======
+    width: 500px;
+    height: 780px;
+>>>>>>> 5329df9865fc2945a0ecdc3dd170bece8523a46a
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -22,13 +27,24 @@
 }
 
 .entries{
+<<<<<<< HEAD
     width: 100%;
     padding: 5px;
     border-radius: 5px;
+=======
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 7px;
+    border-radius: 250px;
+>>>>>>> 5329df9865fc2945a0ecdc3dd170bece8523a46a
     border: 1px solid grey;
 }
 
 .submitbtn{
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5329df9865fc2945a0ecdc3dd170bece8523a46a
     border: 0px;
     border-radius: 50px;
     width: 100px;
