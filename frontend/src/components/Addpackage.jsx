@@ -170,6 +170,8 @@ export default function Addpackage(props) {
                         onChange={(e) => {
                             setPrice(e.target.value);
                         }}
+                        pattern="^\d+(\.\d{0,2})?$"
+
                     />
                 </div>
 
