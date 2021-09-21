@@ -177,6 +177,7 @@ export default function Addschedule(props) {
                         onChange={(e) => {
                             setscheduleId(e.target.value);
                         }}
+                        required
                     />
                 </div>
 
@@ -196,7 +197,8 @@ export default function Addschedule(props) {
                             // setShow(true);
                             setRoute(e.target.value);
                             findRouteId(e.target.value);
-                        }}>
+                        }}
+                        required>
                         <option selected >...</option>
                         {routes.map((routes, index) => (
                             <option key={index}>{routes.routeName}</option>

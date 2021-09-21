@@ -97,6 +97,15 @@ export default function Sidebar() {
                            <div className="tooltip">DASHBORD</div> 
                         </li>
                         </Link>
+
+                        <Link to="./admin">
+                        <li className="sidebarListItem">
+                        <i class="fas fa-user-tie"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>ADMINS</p>
+                           <div className="tooltip">ADMINS</div> 
+                        </li>
+                        </Link>
+                        
                     </ul>
                 </div>
             </div>

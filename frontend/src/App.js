@@ -21,6 +21,7 @@ import UserLogin from "./components/Userprofile/UserLogin";
 import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
+import admin from './components/admincrud/adminmain'
 
 
 import bus from "./components/busCrud/busform";
@@ -63,6 +64,8 @@ function App() {
         <Route path="/schedule" exact component={schedule} />
         <Route path="/routes" exact component={routes} />
         <Route path="/BusOwner" exact component={busOwner}/>
+        <Route path="/admin" exact component={admin}/>
+
 
         <Switch>
           <Route path="/Admin-Login">
