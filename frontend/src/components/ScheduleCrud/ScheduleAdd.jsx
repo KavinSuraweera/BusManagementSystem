@@ -177,6 +177,7 @@ export default function Addschedule(props) {
                         onChange={(e) => {
                             setscheduleId(e.target.value);
                         }}
+                        pattern = "S.[0-3]{1,5}$"
                         required
                     />
                 </div>
