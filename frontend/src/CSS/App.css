@@ -18,7 +18,9 @@ div{
   
 }
 
-
+.home-background{
+  background-color:#001219;
+}
 
 
 
@@ -152,7 +154,7 @@ div{
   background-position: right;
   background-size: 80%;
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: #001219;
   background-position-y:660px;
   transition: 0.5s;
 }
@@ -293,9 +295,11 @@ margin-left: 10px;
 .whyus-content{
   display: block;
   position: relative;
-  background-color: green;
-  height: 500px;
-  width: 100%;
+  background-color: #001219;
+  height: 400px;
+  margin: auto;
+  margin-top: 25px;
+  width: 90%;
 }
 
 .whyus-content .whyus-img{
@@ -305,33 +309,82 @@ margin-left: 10px;
   float: left;
   height: 100%;
   width: 50%;
+  border-radius: 21px 0 0 21px;
+  
 }
+
+
 
 .whyus-content .whyus-img-l{
   display: block;
   position: relative;
-  background-color: rgb(140, 140, 255);
+  background-color: #001219;
   float: left;
   height: 100%;
+  padding: 20px;
   width: 50%;
+  border-style: solid;
+  border-color: white;
+  border-width:1px 0 1px 1px;
+  border-radius: 21px 0 0 21px;
 }
 
 .whyus-content .whyus-txt-l{
   display: block;
   position: relative;
-  background-color: rgb(140, 140, 255);
+  background-color: #001219;
   height: 100%;
   float: right;
+  padding: 20px;
+  padding: 20px;  
   width: 50%;
+  border-style: solid;
+  border-color: white;
+  border-width:1px 1px 1px 0;
+  border-radius:0 21px 21px 0;
 }
 
 .whyus-content .whyus-txt{
   display: block;
   position: relative;
-  background-color: white;
+  background-color:white;
   height: 100%;
   float: right;
   width: 50%;
+  
+  border-radius:0 21px 21px 0;
+}
+
+.whyus-content .whyus-img .img1{
+  z-index: 1;
+  display: block;
+  position: relative;
+  background-image: url(../img/Beauty_of_Sigiriya_by_Binuka.jpg);
+  width: 100%;
+  height: 100%;
+  
+  border-radius: 21px 0 0 21px;
+}
+
+.whyus-content .whyus-txt .img2{
+  z-index: 1;
+  display: block;
+  position: relative;
+  background-image: url(../img/Beauty_of_Sigiriya_by_Binuka.jpg);
+  width: 100%;
+  height: 100%;
+  border-radius:0 21px 21px 0;
+}
+
+.whyus-content .whyus-img .img3{
+  z-index: 1;
+  display: block;
+  position: relative;
+  background-image: url(../img/Beauty_of_Sigiriya_by_Binuka.jpg);
+  width: 100%;
+  height: 100%;
+  
+  border-radius: 21px 0 0 21px;
 }
 
 
@@ -401,6 +454,8 @@ padding-top: 300px;
     text-align: center;
     color:#bbbbbb;
   }
+
+
 
 }
 
@@ -473,6 +528,8 @@ padding-top: 300px;
     background-color:transparent; 
 
   }
+
+  
  }
 
  /* X-Large devices (large desktops, 1200px and up) */
