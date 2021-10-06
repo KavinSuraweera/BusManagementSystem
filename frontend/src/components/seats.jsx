@@ -18,6 +18,11 @@ export default function Seats() {
     const child = location.state.child;
     const student = location.state.student;
 
+    // --------------------Seats--------------------------------- 
+
+    const [seat1, setSeat1] = useState();
+
+    //-----------------------------------------------------------
 
 
 
@@ -33,8 +38,7 @@ export default function Seats() {
     }, [])
 
  
-
-
+    console.log(seat1)
 
 
     useEffect(() => {
@@ -82,12 +86,7 @@ export default function Seats() {
                                         onChange={e =>{
                                             let checked = e.target.checked;
                                             let id = 1 
-                                            if(checked == true){
-                                                console.log(id,checked)
-                                            }else{
-                                                console.log(id,checked)
-                                            }
-                                            // display(checked);
+                                            setSeat1(checked)
                                         }} type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
