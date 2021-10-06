@@ -18,11 +18,6 @@ export default function Seats() {
     const child = location.state.child;
     const student = location.state.student;
 
-    // --------------------Seats--------------------------------- 
-
-    const [seat1, setSeat1] = useState();
-
-    //-----------------------------------------------------------
 
 
 
@@ -37,8 +32,7 @@ export default function Seats() {
         })
     }, [])
 
- 
-    console.log(seat1)
+
 
 
     useEffect(() => {
@@ -53,9 +47,6 @@ export default function Seats() {
     })
 
 
-    function display(checked){
-        console.log(checked)
-    }
 
 
 
@@ -82,12 +73,7 @@ export default function Seats() {
 
                         <ul>
 
-                            <li><label><input
-                                        onChange={e =>{
-                                            let checked = e.target.checked;
-                                            let id = 1 
-                                            setSeat1(checked)
-                                        }} type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
@@ -116,11 +102,7 @@ export default function Seats() {
 
                         <ul>
 
-                            <li><label><input
-                                        onChange={e =>{
-                                            let checked = e.target.checked;
-                                            display(checked);
-                                        }} type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
                             <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>

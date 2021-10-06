@@ -143,7 +143,7 @@ const seatsSchema = new Schema({
 
     },
 
-    seat121 : {
+    seat21 : {
         type : Boolean,
         required : true
 
