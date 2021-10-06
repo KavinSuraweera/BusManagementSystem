@@ -29,6 +29,303 @@ const seatsSchema = new Schema({
 
     }
 
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+    seat1 : {
+        type : Boolean,
+        required : true
+
+    }
+
+
+    
+
     
 
 
