@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Popup from "../../components/popup";
 import Addbus from './busadd';
 import Header from '../header'
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default function Allbus() {
 
@@ -113,8 +115,14 @@ export default function Allbus() {
 
     //------------------------------------------ 
     return (
-        <div>
-            <Header />
+        <div className="usr_background">
+            <Sidebar/>
+            <Topbar/>
+            <div className="table-name">
+                <h1>BUSES</h1>
+                <hr/>
+            </div>
+
             <div className="container">
 
 
@@ -129,6 +137,7 @@ export default function Allbus() {
                             <th scope="col">Registration Number</th>
                             <th scope="col">Bus Type</th>
                             <th scope="col">Permit ID</th>
+                            <th scope="col">Action</th>
                         
                         </tr>
                     </thead>

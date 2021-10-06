@@ -81,81 +81,100 @@ function UpdateAdmin({admin,setOpenPopup}) {
   return (
     <div>
       <center>
-        <div className="form">
-          NIC:
+        <div className="col-md-12">
+        <label htmlFor="nic" className="form-label">NIC :</label>
+          
           <input
+          className="form-control"
             type="text"
             name="UserName"
             value={profile.NIC}
             onChange={onChange}
           />
-          <br />
-          <br />
+          </div>
+          <div className="col-md-12">
+        
+
           Enter Name:
           <input
+          className="form-control"
             type="text"
             name="Name"
             value={profile.Name}
             onChange={onChange}
           />
-          <br />
-          <br />
+          </div>
+          <div className="col-md-12">
+       
           Enter Phone:
           <input
+          className="form-control"
             type="text"
             name="Phone"
             value={profile.Phone}
             onChange={onChange}
           />
-          <br />
-          <br />
+          </div>
+          <div className="col-md-12">
+        
           Enter Type:
           <input
+          className="form-control"
             type="text"
             name="Type"
             value={profile.Type}
             placeholder="Email"
             onChange={onChange}
           />
-          <br />
-          <br />
+          </div>
+          <div className="col-md-12">
+        
+        
 
           Enter Email:
           <input
+          className="form-control"
             type="tel"
             name="Email"
             value={profile.Email}
             onChange={onChange}
           />
-          <br />
-          <br />
+          </div>
+          <div className="col-md-12">
+          
           Enter Password:
           <input
+          className="form-control"
             type="text"
             name="Password"
             value={profile.Password}
             placeholder="Enter Password"
             onChange={onChange}
           />
-          <br />
-          <br />
-          <button onClick={updateProfile}>Submit</button>
-        </div>
+          </div>
+          <br/>
+          <div className="col-md-8">
         {!profilepic && (
-        <input
+          <input
+          className="form-control "
           type="file"
           name="image"
           accept="image/*"
           multiple={false}
           onChange={imageHandler}
-        />
-      )}
+          />
+          )}
 
       {!profilepic && (
-        <button disabled={!image} onClick={addprofilepic}>
-          upload image
+        <div className="col-md-4">
+        <button disabled={!image} className="button-upload upload form-control btn btn-warning" onClick={addprofilepic}>
+          <i class="fas fa-upload"></i>
         </button>
+        </div>
       )}
+          <br/>
+        </div>
+      <button class="btn btn-primary" onClick={updateProfile}>Submit</button>
       </center>
     </div>
   );}
@@ -254,7 +273,7 @@ const updateprofile=()=>{
                     <p className="values">{adminprofile.Type}</p>
                   </div>
 
-                <button onClick={updateprofile}>
+                <button class="btn btn-primary" onClick={updateprofile}>
                   Edit Profile
                 </button>
                 </div>

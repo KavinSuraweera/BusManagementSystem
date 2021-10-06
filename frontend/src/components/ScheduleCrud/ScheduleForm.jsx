@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Popup from "../../components/popup";
 import AddSchedule from "./ScheduleAdd";
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default function Schedulemain() {
   const [recordForEdit, setRecordForEdit] = useState(null);
@@ -25,9 +27,9 @@ export default function Schedulemain() {
   }, []);
 
 
-  function refreshpage(){
+  function refreshpage() {
     window.location.reload();
-}
+  }
 
 
   const [sId, setcheduleId] = useState("");
@@ -73,67 +75,76 @@ export default function Schedulemain() {
     }
   }, [recordForEdit]);
   return (
-    <div className="container">
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">scheduleId</th>
-            <th scope="col">Route Name</th>
-            <th scope="col">Time</th>
-            <th scope="col">Bus Number</th>
-            <th scope="col">Action</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          {schedule.map((schedule, index) => (
-            <tr key={index}>
-              <th scope="row">{index + 1}</th>
-              <td>{schedule.scheduleId}</td>
-              <td>{schedule.Route}</td>
-              <td>{schedule.Time}</td>
-              <td>{schedule.BusNumber}</td>
-              
-              <td>
-                <button type="button" class="btn btn-primary">
-                  <i class="far fa-eye"></i>&nbsp;View
-                </button>
-                &nbsp;
-                <button
-                  className="btn btn-warning"
-                  onClick={() => {
-                    openInPopup(schedule);
-                  }}
-                >
-                  <i className="fas fa-edit"></i>&nbsp;Update
-                </button>
-                &nbsp;
-                <button
-                  className="btn btn-danger"
-                  href="/add"
-                  onClick={() => {
-                    onDelete(schedule._id);
-                  }}
-                >
-                  <i className="far fa-trash-alt"></i>&nbsp;Delete
-                </button>
-              </td>
+    <div className="usr_background">
+      <Topbar />
+      <Sidebar />
+      <div className="table-name">
+                <h1>SCHEDULES</h1>
+                <hr/>
+            </div>
+
+      <div className="container">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">scheduleId</th>
+              <th scope="col">Route Name</th>
+              <th scope="col">Time</th>
+              <th scope="col">Bus Number</th>
+              <th scope="col">Action</th>
+
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <button className="btn btn-success" onClick={() => setOpenPopup(true)}>
-        Add new Schedule
-      </button>
-      <Popup
-        title="Add new customer form."
-        openPopup={openPopup}
-        setOpenPopup={setOpenPopup}
-        refreshpage={refreshpage}
-      >
-        <AddSchedule recordForEdit={recordForEdit} />
-      </Popup>
+          </thead>
+          <tbody>
+            {schedule.map((schedule, index) => (
+              <tr key={index}>
+                <th scope="row">{index + 1}</th>
+                <td>{schedule.scheduleId}</td>
+                <td>{schedule.Route}</td>
+                <td>{schedule.Time}</td>
+                <td>{schedule.BusNumber}</td>
+
+                <td>
+                  <button type="button" class="btn btn-primary">
+                    <i class="far fa-eye"></i>&nbsp;View
+                  </button>
+                  &nbsp;
+                  <button
+                    className="btn btn-warning"
+                    onClick={() => {
+                      openInPopup(schedule);
+                    }}
+                  >
+                    <i className="fas fa-edit"></i>&nbsp;Update
+                  </button>
+                  &nbsp;
+                  <button
+                    className="btn btn-danger"
+                    href="/add"
+                    onClick={() => {
+                      onDelete(schedule._id);
+                    }}
+                  >
+                    <i className="far fa-trash-alt"></i>&nbsp;Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <button className="btn btn-success" onClick={() => setOpenPopup(true)}>
+          Add new Schedule
+        </button>
+        <Popup
+          title="Schedule Form"
+          openPopup={openPopup}
+          setOpenPopup={setOpenPopup}
+          refreshpage={refreshpage}
+        >
+          <AddSchedule recordForEdit={recordForEdit} />
+        </Popup>
+      </div>
     </div>
   );
 }

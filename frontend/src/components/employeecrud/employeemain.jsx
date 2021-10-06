@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Popup from "../../components/popup";
 import EmployeeAdd from "./employeeadd";
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default function Employeemain() {
   const [recordForEdit, setRecordForEdit] = useState(null);
@@ -23,6 +25,10 @@ export default function Employeemain() {
     };
     getEmployee();
   }, []);
+
+  function refreshpage(){
+    window.location.reload();
+  }
 
   const [eId, setId] = useState("");
   function sendId(e) {
@@ -67,17 +73,25 @@ export default function Employeemain() {
     }
   }, [recordForEdit]);
   return (
+    <div className="usr_background">
+      <Topbar/>
+      <Sidebar/>
+      <div className="table-name">
+                <h1>EMPLOYEES</h1>
+                <hr/>
+            </div>
+
     <div className="container">
       <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">EmpName</th>
-            <th scope="col">Password</th>
             <th scope="col">Phone</th>
             <th scope="col">NIC</th>
             <th scope="col">E-mail</th>
             <th scope="col">Type</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -85,7 +99,7 @@ export default function Employeemain() {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>{employee.EmpName}</td>
-              <td>{employee.Password}</td>
+              
               <td>{employee.Phone}</td>
               <td>{employee.NIC}</td>
               <td>{employee.Email}</td>
@@ -128,9 +142,11 @@ export default function Employeemain() {
         title="Add new employee form."
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
+        refreshpage={refreshpage}
       >
         <EmployeeAdd recordForEdit={recordForEdit} />
       </Popup>
+    </div>
     </div>
   );
 }

@@ -168,7 +168,7 @@ export default function Addschedule(props) {
 
 
     return (
-        <div className="container">
+        <div className="popup_container">
             <form className="row g-4" onSubmit={(e) => { handleSubmit(e) }}>
                 <div className="col-md-6">
                     <label htmlFor="scheduleId" className="form-label">Enter Schedule ID:</label>
@@ -177,6 +177,8 @@ export default function Addschedule(props) {
                         onChange={(e) => {
                             setscheduleId(e.target.value);
                         }}
+                        pattern = "S.[0-3]{1,5}$"
+                        required
                     />
                 </div>
 
@@ -196,7 +198,8 @@ export default function Addschedule(props) {
                             // setShow(true);
                             setRoute(e.target.value);
                             findRouteId(e.target.value);
-                        }}>
+                        }}
+                        required>
                         <option selected >...</option>
                         {routes.map((routes, index) => (
                             <option key={index}>{routes.routeName}</option>

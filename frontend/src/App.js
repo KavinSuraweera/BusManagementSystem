@@ -21,6 +21,8 @@ import UserLogin from "./components/Userprofile/UserLogin";
 import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
+import admin from './components/admincrud/adminmain'
+
 
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
@@ -30,7 +32,15 @@ import schedule from "./components/ScheduleCrud/ScheduleForm";
 import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
+import "./CSS/usercard.css"
 import Allpackages from "./components/Allpackages";
+
+import CreatePost from './components/BusOwner/CreatePost';
+import EditPost from './components/BusOwner/EditPost';
+import busOwner from './components/BusOwner/BusOwner';
+import PostDetails from './components/BusOwner/PostDetails';
+
+
 
 import {  useSelector } from 'react-redux';
 
@@ -53,6 +63,9 @@ function App() {
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
         <Route path="/routes" exact component={routes} />
+        <Route path="/BusOwner" exact component={busOwner}/>
+        <Route path="/admin" exact component={admin}/>
+
 
         <Switch>
           <Route path="/Admin-Login">
@@ -65,8 +78,12 @@ function App() {
           <Route path="/Login-Page" >
              {userID?<Redirect to="/Userprofile"/>:<UserLogin/>}
           </Route>
-          <Route path="/Userprofile" exact component={Userprofile}/>       
+          <Route path="/Userprofile" exact component={Userprofile}/>    
+          <Route path="/add" component={CreatePost}></Route>
+          <Route path="/edit/:id" component={EditPost}></Route>
+          <Route path="/post/:id" component={PostDetails}></Route>
         </Switch>
+
       </Router>
     </div>
   );

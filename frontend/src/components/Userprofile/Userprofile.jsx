@@ -6,15 +6,21 @@ import "./ProfileCSS/Userprofile.css";
 import Popup from "./userpopup";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../actions/authAction";
+import { setid } from "../../actions/authAction";
+import Header from "../header";
+
 
 //DELETE CUSTOMER
 function DeleteCustomer({ id }) {
   const history = useHistory();
 
+  const dispatch = useDispatch();
+
   const deleteProfile = () => {
     axios
       .delete(`http://localhost:8000/customer/delete/${id}`)
       .then((req, res) => {
+        dispatch(setid(null));
         history.push("/Login-Page");
       })
       .catch((err) => {
@@ -121,7 +127,7 @@ function UpdateCustomer({ customer, setOpenPopup }) {
           <br />
           Email:
           <input
-            type="text"
+            type="email"
             name="Email"
             value={profile.Email}
             placeholder="Email"
@@ -139,7 +145,9 @@ function UpdateCustomer({ customer, setOpenPopup }) {
           />
           <br />
           <br />
-          <button onClick={updateProfile}>Submit</button>
+          <button className="submit-btn" onClick={updateProfile}>
+            Submit
+          </button>
         </div>
       </center>
     </div>
@@ -244,72 +252,113 @@ export default function Userprofile() {
 
   return (
     <div>
-      {profilepic && (
-        <img src={`http://localhost:8000/${profilepic}`} alt="img" />
-      )}
+      <div className="outermost-container">
+        <Header />
+        <div className="outer-container">
+          <div className="left-container">
+            <div className="profilepic-container">
+              <center>
+                {profilepic && (
+                  <img
+                    className="profilepicture"
+                    src={`http://localhost:8000/${profilepic}`}
+                    alt="img"
+                  />
+                )}
 
-      <h1>{profile.UserName}</h1>
-      <h3>First Name</h3>
-      <p>{profile.FirstName}</p>
-      <h3>Last Name</h3>
-      <p>{profile.LastName}</p>
-      <h3> Phone</h3>
-      <p>{profile.Phone}</p>
-      <h3>Email</h3>
-      <p>{profile.Email}</p>
+                <h1>{profile.UserName}</h1>
+              </center>
+            </div>
+            <div className="userinfo-container">
+              <h4>First Name:</h4>
+              <p style={{ fontSize: "18px" }}>{profile.FirstName}</p>
+              <h4>Last Name:</h4>
+              <p style={{ fontSize: "18px" }}>{profile.LastName}</p>
+              <h4> Phone:</h4>
+              <p style={{ fontSize: "18px" }}>{profile.Phone}</p>
+              <h4>Email:</h4>
+              <p style={{ fontSize: "18px" }}>{profile.Email}</p>
+            </div>
 
-      {/* LOGOUTBUTTON */}
-      <button className="logout-btn" onClick={userlogout}>
-        LOG OUT
-      </button>
+            <div className="button-container">
 
-      <button
-        className="logout-btn"
-        onClick={() => {
-          setOpenPopup(true);
-          setisupdate(false);
-        }}
-      >
-        Delete Profile
-      </button>
+            <div className="imageadd">
+                {!profilepic && (
+                  <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    multiple={false}
+                    onChange={imageHandler}
+                  />
+                )}
+                {!profilepic && (
+                  <button
+                    className="picAdd"
+                    disabled={!image}
+                    onClick={uploadImage}
+                  >
+                    UPLOAD IMAGE
+                  </button>
+                )}
+              </div>
 
-      <button
-        className="logout-btn"
-        onClick={() => {
-          setOpenPopup(true);
-          setisupdate(true);
-        }}
-      >
-        Update Profile
-      </button>
+              <button className="logout-btn" onClick={userlogout}>
+                LOG OUT
+              </button>
 
-      {!profilepic && (
-        <input
-          type="file"
-          name="image"
-          accept="image/*"
-          multiple={false}
-          onChange={imageHandler}
-        />
-      )}
+              <button
+                className="delete-btn"
+                onClick={() => {
+                  setOpenPopup(true);
+                  setisupdate(false);
+                }}
+              >
+                DELETE PROFILE
+              </button>
 
-      {!profilepic && (
-        <button disabled={!image} onClick={uploadImage}>
-          upload image
-        </button>
-      )}
+              <button
+                className="update-btn"
+                onClick={() => {
+                  setOpenPopup(true);
+                  setisupdate(true);
+                }}
+              >
+                UPDATE PROFILE
+              </button>
 
-      <Popup
-        openPopup={openPopup}
-        title={isupdate ? "Update Profile form" : "Delete Profile form"}
-        setOpenPopup={setOpenPopup}
-      >
-        {isupdate ? (
-          <UpdateCustomer customer={profile} setOpenPopup={setOpenPopup} />
-        ) : (
-          <DeleteCustomer id={id} />
-        )}
-      </Popup>
+              <Popup
+                openPopup={openPopup}
+                title={isupdate ? "Update Profile form" : "Delete Profile form"}
+                setOpenPopup={setOpenPopup}
+              >
+                {isupdate ? (
+                  <UpdateCustomer
+                    customer={profile}
+                    setOpenPopup={setOpenPopup}
+                  />
+                ) : (
+                  <DeleteCustomer id={id} />
+                )}
+              </Popup>
+            </div>
+          </div>
+          <div className="right-container">
+            <h1>HEllO</h1>
+            <br />
+            <h1>HEllO</h1>
+            <br />
+            <h1>HEllO</h1>
+            <br />
+            <h1>HEllO</h1>
+            <br />
+            <h1>HEllO</h1>
+            <br />
+            <h1>HEllO</h1>
+            <br />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

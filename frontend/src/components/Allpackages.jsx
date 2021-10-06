@@ -5,6 +5,9 @@ import Popup from "../components/popup";
 import Update from '../components/Updatepackage';
 import Addpackage from './Addpackage';
 import Header from './header'
+import Sidebar from './dashbord/sidebar/sidebar';
+import Topbar from './dashbord/topbar/tobbar';
+
 
 export default function Allpackages() {
 
@@ -118,8 +121,15 @@ export default function Allpackages() {
 
     //------------------------------------------ 
     return (
-        <div>
-            <Header />
+        <div className="usr_background">
+            <Topbar/>
+            <Sidebar/>
+            <div className="table-name">
+                <h1>PACKAGES</h1>
+                <hr/>
+            </div>
+
+            
             <div className="container">
 
 

@@ -8,15 +8,15 @@ const router = express.Router()
 router.route("/add").post((req, res ) =>{
     
     const EmpName = req.body.EmpName;
-    const Password = req.body.Password;
+    
     const Email = req.body.Email;
-    const Phone = Number(req.body.Phone);
-    const NIC = Number(req.body.NIC);
+    const Phone = req.body.Phone;
+    const NIC = req.body.NIC;
     const Type = req.body.Type;
 
     const newEmployee = new Employee({
         EmpName,
-        Password,
+        
         Email,
         Phone,
         NIC,
@@ -47,7 +47,7 @@ router.route("/update/:id").put(async(req,res)=>{
     EmpID = req.params.id;
     const {
         EmpName,
-        Password,
+        
         Email,
         Phone,
         NIC,
@@ -56,7 +56,7 @@ router.route("/update/:id").put(async(req,res)=>{
 
     const updateemployee ={
         EmpName,
-        Password,
+       
         Email,
         Phone,
         NIC,

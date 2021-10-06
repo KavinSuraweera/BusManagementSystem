@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Link, useHistory, s } from 'react-router-dom'
+import { BrowserRouter as Link, useHistory } from 'react-router-dom'
 import Header from './header'
 import { Description } from '@material-ui/icons';
 
@@ -85,6 +85,7 @@ export default function Booking() {
         <div className="usr_background">
             <Header />
             <div className="booking-container-1">
+                
                 <div className="booking-container-2">
                     <div className="booking-container-left">
                         <div className="img-1">

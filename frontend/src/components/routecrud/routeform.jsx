@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Popup from "../../components/popup";
 import Addroute from './route';
 import Header from '../header'
+import Slider  from '../dashbord/sidebar/sidebar';
+import Sidebar from '../dashbord/sidebar/sidebar';
+import Topbar from '../dashbord/topbar/tobbar';
 
 export default function Allroute() {
 
@@ -111,8 +114,14 @@ export default function Allroute() {
 
     //------------------------------------------ 
     return (
-        <div>
-            <Header />
+        <div className="usr_background">
+            <Topbar/>
+            <Sidebar/>
+            <div className="table-name">
+                <h1>ROUTES</h1>
+                <hr/>
+            </div>
+
             <div className="container">
 
 
@@ -129,6 +138,7 @@ export default function Allroute() {
                             <th scope="col">Adult</th>
                             <th scope="col">Child</th>
                             <th scope="col">Student</th>
+                            <th scope="col">Action</th>
                         
                         </tr>
                     </thead>
@@ -140,9 +150,9 @@ export default function Allroute() {
                                 <td>{route.routeName}</td>
                                 <td>{route.to}</td>
                                 <td>{route.from}</td>
-                                <td>{route.pAdult}</td>
-                                <td>{route.pChild}</td>
-                                <td>{route.pStudent}</td>
+                                <td>LKR {route.pAdult}</td>
+                                <td>LKR {route.pChild}</td>
+                                <td>LKR {route.pStudent}</td>
 
                                 <td>
                                     <button type="button" class="btn btn-primary">

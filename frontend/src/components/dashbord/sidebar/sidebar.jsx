@@ -48,11 +48,14 @@ export default function Sidebar() {
                             <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
+
+                        <Link to="/BusOwner">
                         <li className="sidebarListItem">
                         <i class="fas fa-walking"></i>
                             <p className={sidebarToggeled? "active p" : "p"}>OWNERS</p>
                             <span className="tooltip">DASHBORD</span>
                         </li>
+                        </Link>
 
                         <Link to="/schedule">
                         <li className="sidebarListItem">
@@ -78,11 +81,14 @@ export default function Sidebar() {
                             <span className="tooltip">DASHBORD</span>
                         </li>
                         </Link>
+
+                        <Link to="/packages">
                         <li className="sidebarListItem">
                         <i class="fas fa-file-powerpoint"></i>
                             <p className={sidebarToggeled? "active p" : "p"}>PACKAGES</p>
                            <div className="tooltip">DASHBORD</div> 
                         </li>
+                        </Link>
 
                         <Link to="./routes">
                         <li className="sidebarListItem">
@@ -91,6 +97,15 @@ export default function Sidebar() {
                            <div className="tooltip">DASHBORD</div> 
                         </li>
                         </Link>
+
+                        <Link to="./admin">
+                        <li className="sidebarListItem">
+                        <i class="fas fa-user-tie"></i>
+                            <p className={sidebarToggeled? "active p" : "p"}>ADMINS</p>
+                           <div className="tooltip">ADMINS</div> 
+                        </li>
+                        </Link>
+                        
                     </ul>
                 </div>
             </div>
