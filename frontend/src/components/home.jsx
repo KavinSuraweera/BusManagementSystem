@@ -5,7 +5,7 @@ import Logincart from './usercard/card'
 
 export default function home() {
     return (
-        <div>
+        <div className="home-background">
             <Header />
             <Logincart/>
             <div className="hero-image">
@@ -49,15 +49,15 @@ export default function home() {
                 </div>
 
                 <div className="whyus-content">
-                    <div className="whyus-img">aa</div>
+                    <div className="whyus-img"><div className="img1"></div></div>
                     <div className="whyus-txt-l"></div>
                 </div>
                 <div className="whyus-content">
-                    <div className="whyus-img-l">aa</div>
-                    <div className="whyus-txt"></div>
+                    <div className="whyus-img-l"></div>
+                    <div className="whyus-txt"><div className="img2"></div></div>
                 </div>
                 <div className="whyus-content">
-                    <div className="whyus-img">a</div>
+                    <div className="whyus-img"><div className="img3"></div></div>
                     <div className="whyus-txt-l"></div>
                 </div>
 

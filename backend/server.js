@@ -19,6 +19,7 @@ const empRouter = require('./routes/employee.js');
 const adminRouter = require('./routes/admin.js');
 const bookingRouter = require('./routes/booking.js')
 const ownerRouter = require('./routes/posts.js')
+const seatsRouter = require('./routes/seats.js')
 
 //app midleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use("/route", routeRouter);
 app.use("/admin",adminRouter);
 app.use("/employee",empRouter);
 app.use("/booking",bookingRouter);
+app.use("/seats", seatsRouter);
 app.use(ownerRouter);
  
 const PORT = 8000;
