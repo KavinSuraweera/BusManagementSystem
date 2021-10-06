@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react'
-import { useLocation,useHistory } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header';
 import { Backdrop, Container } from '@material-ui/core';
@@ -56,15 +56,15 @@ export default function Seats() {
         <div className="usr_background">
             <Header />
             <div className="seat-container">
-            <button type="button" class="btn btn-primary" 
-            onClick={()=>{
-                history.goBack()
-            }
-            }>
-                
-                <i class="fas fa-backward"></i></button>
+                <button type="button" class="btn btn-primary"
+                    onClick={() => {
+                        history.goBack()
+                    }
+                    }>
+
+                    <i class="fas fa-backward"></i></button>
                 <h1>SELECT SEATS</h1>
-                <hr/>
+                <hr />
                 <div className="bus">
                     <div className="seat-rows">
 
@@ -72,83 +72,83 @@ export default function Seats() {
                         {/* ====================== */}
 
                         <ul>
-                            
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
 
                         </ul>
                         <ul>
-                            
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
 
                         </ul>
-                        
+
                         <ul>
-                            
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
 
                         </ul>
-                        <br/>
+                        <br />
                         <ul>
-                            
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
 
                         </ul>
                         <ul>
-                            
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
-                            <li><label><input type="checkbox" className="seat occupied"/><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                            <li><label><input type="checkbox" className="seat occupied" /><i className="fas fa-chair" value="" name="" id="i occupied"></i></label></li>
 
                         </ul>
 
-    
+
 
                         {/* ====================== */}
 
-{/*
+                        {/*
                          <div className="row" id="1">
                             <div ></div>
                             <div className="seatid selected" id="1"></div>
