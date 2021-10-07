@@ -8,8 +8,6 @@ export default function Card() {
             <div className="profile-img">
                 
             </div>
-            
-
         </div>
     )
 }

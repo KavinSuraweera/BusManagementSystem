@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setid } from "../../actions/authAction";
 import Header from "../header";
 import LoginImg from "../../img/login/loginimg.jpg";
+import LoginBack from "../../img/login/loginback.png"
+
 
 export default function UserLogin() {
   const dispatch = useDispatch();
@@ -43,11 +45,12 @@ export default function UserLogin() {
   };
 
   return (
-    <div className="page-div">
+    <div className="page-div" style={{ backgroundImage: `url(${LoginBack})` }}>
+      <Header/>
       <div className="outer-shell">
         <div className="left-container">
           
-          <h1 className="LoginHeader">LOGIN</h1>
+          <h1 className="LoginHeader">WELCOME BACK</h1>
           <div className="f1">
 
             <div class="group">
