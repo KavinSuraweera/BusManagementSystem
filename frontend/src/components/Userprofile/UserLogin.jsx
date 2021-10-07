@@ -5,6 +5,7 @@ import "./ProfileCSS/Userlogin.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setid } from "../../actions/authAction";
 import Header from "../header";
+import LoginImg from "../../img/login/loginimg.jpg";
 
 export default function UserLogin() {
   const dispatch = useDispatch();
@@ -42,52 +43,88 @@ export default function UserLogin() {
   };
 
   return (
-    <div>
-      <div className="usr_backgound">
-        <Header/>
-        <div className="inner-container">
-          <div className="form">
-            <div className="header">
-              <h2>WELCOME BACK</h2>
-              <hr className="linebar"/>
+    <div className="page-div">
+      <div className="outer-shell">
+        <div className="left-container">
+          
+          <h1 className="LoginHeader">LOGIN</h1>
+          <div className="f1">
+
+            <div class="group">
+              <input type="text" name="email" onChange={onChange} required />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Email</label>
             </div>
-            <br/>
-            <br/>
-            <label className="classheader" for="email">
-              Enter Email:
-            </label>
-            <br />
-            <input
-              className="classanswer"
-              type="text"
-              name="email"
-              placeholder="jhonedoe@gmial.com"
-              onChange={onChange}
-            />
-            <br />
-            <br />
-            <label className="classheader" for="password">
-              Enter Password:
-            </label>
-            <br />
-            <input
-              className="classanswer"
-              type="text"
-              name="password"
-              placeholder="X X X X X X"
-              onChange={onChange}
-            />
-            
-            <br />
-            <p className="Forgotp"><a href="#">Forget Password?</a></p>
-            <center>
+
+            <div class="group">
+              <input type="password" name="password" onChange={onChange} required />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Password</label>
+            </div>
+
             <button className="submitbtn" onClick={submit}>
               L O G I N
             </button>
-            </center>
+
           </div>
+        </div>
+       
+        <div className="right-container">
+          <img src={LoginImg} className="image-login-form" />
         </div>
       </div>
     </div>
   );
+
+  // return (
+  //   <div>
+  //     <div className="usr_backgound">
+  //       <Header/>
+  //       <div className="inner-container">
+  //         <div className="form">
+  //           <div className="header">
+  //             <h2>WELCOME BACK</h2>
+  //             <hr className="linebar"/>
+  //           </div>
+  //           <br/>
+  //           <br/>
+  //           <label className="classheader" for="email">
+  //             Enter Email:
+  //           </label>
+  //           <br />
+  //           <input
+  //             className="classanswer"
+  //             type="text"
+  //             name="email"
+  //             placeholder="jhonedoe@gmial.com"
+  //             onChange={onChange}
+  //           />
+  //           <br />
+  //           <br />
+  //           <label className="classheader" for="password">
+  //             Enter Password:
+  //           </label>
+  //           <br />
+  //           <input
+  //             className="classanswer"
+  //             type="text"
+  //             name="password"
+  //             placeholder="X X X X X X"
+  //             onChange={onChange}
+  //           />
+
+  //           <br />
+  //           <p className="Forgotp"><a href="#">Forget Password?</a></p>
+  //           <center>
+  //           <button className="submitbtn" onClick={submit}>
+  //             L O G I N
+  //           </button>
+  //           </center>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 }
