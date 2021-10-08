@@ -9,7 +9,10 @@ const EmpSchema = new Schema({
         required : true
     },
 
-    
+    Password:{
+        type:String,
+        required:true
+    },
 
     Phone : {
         type : String,

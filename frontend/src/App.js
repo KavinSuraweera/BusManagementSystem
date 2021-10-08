@@ -39,7 +39,8 @@ import CreatePost from './components/BusOwner/CreatePost';
 import EditPost from './components/BusOwner/EditPost';
 import busOwner from './components/BusOwner/BusOwner';
 import PostDetails from './components/BusOwner/PostDetails';
-
+import ConLogin from "./components/conLogin";
+import ConDash from "./components/conductorDash";
 
 
 import {  useSelector } from 'react-redux';
@@ -65,7 +66,8 @@ function App() {
         <Route path="/routes" exact component={routes} />
         <Route path="/BusOwner" exact component={busOwner}/>
         <Route path="/admin" exact component={admin}/>
-
+        <Route path="/conLogin" exact component={ConLogin}/>
+        <Route path="/conDash" exact component={ConDash}/>
 
         <Switch>
           <Route path="/Admin-Login">

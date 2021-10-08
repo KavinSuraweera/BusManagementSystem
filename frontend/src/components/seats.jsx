@@ -15,9 +15,9 @@ export default function Seats() {
     const [seats, setSeats] = useState("");
     const [seatsStatus, setSeatsStatus] = useState("");
 
-    const [seat01, setSeat1] = useState("");
-    const [seat02, setSeat2] = useState("");
-    const [seat03, setSeat3] = useState("");
+    const [seat01, setSeat1] = useState();
+    const [seat02, setSeat2] = useState();
+    const [seat03, setSeat3] = useState();
     const [seat04, setSeat4] = useState();
     const [seat05, setSeat5] = useState();
     const [seat06, setSeat6] = useState();
@@ -351,16 +351,6 @@ export default function Seats() {
             alert(err)
         })
     }
-
-    const seat1 = seats.seat1
-
-  
-
-    setSeat1(seat1,"<-- test")
-    
-
-
-    
   
 
     return (

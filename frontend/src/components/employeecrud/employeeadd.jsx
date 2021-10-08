@@ -9,8 +9,9 @@ export default function Addpackage(props) {
     const { recordForEdit } = props;
 
     const [employee, setEmployee] = useState({});
-
+    
     const [EmpName, setEmpName] = useState("");
+    const [Password, setPassword] = useState("");
     const [Phone, setPhone] = useState("");
     const [NIC, setNIC] = useState("");
     const [Email, setEmail] = useState("");
@@ -25,6 +26,7 @@ export default function Addpackage(props) {
         const newEmployee = {
             
             EmpName,
+            Password,
             Phone,
             NIC,
             Email,
@@ -46,6 +48,7 @@ export default function Addpackage(props) {
 
     const updateEmployee = {
         EmpName,
+        Password,
         Phone,
         NIC,
         Email,
@@ -80,6 +83,7 @@ export default function Addpackage(props) {
             })
 
             setEmpName(recordForEdit.EmpName)
+            setPassword(recordForEdit.Password)
             setPhone(recordForEdit.Phone)
             setNIC(recordForEdit.NIC)
             setEmail(recordForEdit.Email)
@@ -143,6 +147,17 @@ export default function Addpackage(props) {
           </div>
 
           <div className="col-md-5">
+              <label htmlFor="timePeriod" className="form-label">Enter Employee Type</label>
+              <input type="text" className="form-control" name="Type" placeholder="Enter Employee Type"
+                  value={Type}
+                  onChange={(e) => {
+                      setType(e.target.value);
+                  }}
+              />
+          </div>
+
+
+          <div className="col-md-5">
               <label htmlFor="timePeriod" className="form-label">Enter Email :</label>
               <input type="text" className="form-control" name="Email" placeholder="Enter Email"
                   value={Email}
@@ -156,12 +171,14 @@ export default function Addpackage(props) {
           </div>
 
           <div className="col-md-5">
-              <label htmlFor="timePeriod" className="form-label">Enter Employee Type</label>
-              <input type="text" className="form-control" name="Type" placeholder="Enter Employee Type"
-                  value={Type}
+              <label htmlFor="timePeriod" className="form-label">Enter Password:</label>
+              <input type="text" className="form-control" name="Password" placeholder="Enter Password"
+                  value={Password}
                   onChange={(e) => {
-                      setType(e.target.value);
+                      setEmail(e.target.value);
                   }}
+                  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                  required
               />
           </div>
         

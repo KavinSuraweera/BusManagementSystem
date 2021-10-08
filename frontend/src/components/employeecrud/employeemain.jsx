@@ -90,6 +90,7 @@ export default function Employeemain() {
             <th scope="col">Phone</th>
             <th scope="col">NIC</th>
             <th scope="col">E-mail</th>
+            <th scope="col">Password</th>
             <th scope="col">Type</th>
             <th scope="col">Action</th>
           </tr>
@@ -103,6 +104,7 @@ export default function Employeemain() {
               <td>{employee.Phone}</td>
               <td>{employee.NIC}</td>
               <td>{employee.Email}</td>
+              <td>{employee.Password}</td>
               <td>{employee.Type}</td>
               
               

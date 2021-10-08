@@ -3,20 +3,20 @@ let Employee = require('../models/employee.js')
 
 const router = express.Router()
 
-//add schedule
+//add Employee
 
 router.route("/add").post((req, res ) =>{
     
     const EmpName = req.body.EmpName;
-    
+    const Password = req.body.Password;
     const Email = req.body.Email;
     const Phone = req.body.Phone;
     const NIC = req.body.NIC;
     const Type = req.body.Type;
 
     const newEmployee = new Employee({
-        EmpName,
-        
+        EmpName,  
+        Password,
         Email,
         Phone,
         NIC,
@@ -35,6 +35,7 @@ router.route("/add").post((req, res ) =>{
     })
 })
 
+//RETRIEVE ALL
 router.route("/").get((req, res) =>{
     Employee.find().then((emp) =>{
         res.json(emp)
@@ -43,11 +44,12 @@ router.route("/").get((req, res) =>{
     })
 })
 
+//UPDATE
 router.route("/update/:id").put(async(req,res)=>{
     EmpID = req.params.id;
     const {
         EmpName,
-        
+        Password,
         Email,
         Phone,
         NIC,
@@ -56,7 +58,7 @@ router.route("/update/:id").put(async(req,res)=>{
 
     const updateemployee ={
         EmpName,
-       
+        Password,
         Email,
         Phone,
         NIC,
@@ -73,6 +75,7 @@ router.route("/update/:id").put(async(req,res)=>{
 
 })
 
+//RETREIVE ONE
 router.route("get/:id").get(async(req, res) => {
     let empId = res.params.id;
     const employee = await Employee.findById(empId).then((emp)=>{
@@ -83,6 +86,7 @@ router.route("get/:id").get(async(req, res) => {
     })
 })
 
+//DELETE
 router.route("/delete/:id").delete(async(req, res) =>{
     let empId = req.params.id;
     const employee = await Employee.findByIdAndDelete(empId).then((emp) =>{
@@ -92,5 +96,30 @@ router.route("/delete/:id").delete(async(req, res) =>{
         res.status(500).send({status:"Error with removing employee",err : err.message})
     })
 })
+
+//LOGIN
+router.route("/login").post((req, res) => {
+
+    const Email = req.body.Email;
+    const Password =req.body.Password;
+
+   Employee.findOne({Email}).then((employee)=>{  
+       if(!employee){
+            return res.status(400).json({msg:"Employee does not exist"});
+       }
+       if(employee.Password===Password){
+           res.json(employee);
+       }
+       else{
+           res.status(400).json({msg:"Invalid Password"});
+       }
+        console.log(employee)
+
+    }).catch((err) =>{
+        res.status(500).json({msg:"Server Error"});
+    })
+
+})
+
 
 module.exports = router;
