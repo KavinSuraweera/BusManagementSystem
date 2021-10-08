@@ -19,7 +19,7 @@ export default function home() {
                         you start dreaming.</p>
                         <div className="book-now-link" >
                             <a href="#">Book now
-                                <i class="far fa-arrow-circle-right"></i>
+                                <i className="far fa-arrow-circle-right"></i>
                             </a>
                         </div>
                         
