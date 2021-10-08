@@ -16,12 +16,7 @@ export default function Booking() {
 
 
     const [routeId, setRId] = useState("")
-    const [schedule, setSchedules] = useState([]);
     const [show, setShow] = useState(false);
-    const [selecterRoute, setSelectedRoute] = useState("");
-    const [from, setFrom] = useState("");
-    const [to, setTo] = useState("");
-
     const [adult, setAdult] = useState("")
     const [child, setChild] = useState("")
     const [student, setStudent] = useState("")

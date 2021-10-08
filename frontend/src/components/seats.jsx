@@ -11,15 +11,13 @@ export default function Seats() {
     const id = useSelector((state) => state.auth.id);
 
     const [bus, setBus] = useState({});
-    const [busNumber, setBusId] = useState();
-    const [adult, setAdult] = useState();
-    const [child, setChild] = useState();
-    const [student, setStudent] = useState();
-    const [seats, setSeats] = useState("");
 
-    const [seat01, setSeat1] = useState();
-    const [seat02, setSeat2] = useState();
-    const [seat03, setSeat3] = useState();
+    const [seats, setSeats] = useState("");
+    const [seatsStatus, setSeatsStatus] = useState("");
+
+    const [seat01, setSeat1] = useState("");
+    const [seat02, setSeat2] = useState("");
+    const [seat03, setSeat3] = useState("");
     const [seat04, setSeat4] = useState();
     const [seat05, setSeat5] = useState();
     const [seat06, setSeat6] = useState();
@@ -75,38 +73,45 @@ export default function Seats() {
 
 
 
-
-
+    const busNumber = location.state.BusNumber
+    const adult = location.state.adult
+    const child = location.state.child
+    const student = location.state.student
 
 
     useEffect(() => {
 
-        setBusId(location.state.BusNumber);
-        setAdult(location.state.adult);
-        setChild(location.state.child);
-        setStudent(location.state.student);
-
 
         axios.get(`http://localhost:8000/seats/getseats/${busNumber}`).then((res) => {
-            setSeats(res.data.seats[0].busId)
-            console.log(res.data.seats[0].busId)
-            setSeats(!null)
+            setSeats(res.data.seats[0])
+            console.log("sets eats not null")
+            setSeatsStatus(!null)
+            
 
         }).catch((err) => {
-            setSeats(null)
+            setSeatsStatus(null)
+            console.log("set seats null")
         })
 
 
     }, [])
 
+ 
+    
+
+    
+    
 
     function bookOrAdd(){
-        if (seats == null){
+        if (seatsStatus == null){
             console.log("Null seats")
             bookSeats()
         }else{
-            console.log("already exisits")
-            updateSeats()
+            console.log("already exisits", )
+            //console.log(seats._id)
+            
+            updateSeats(seats._id)
+            
         }
     }
 
@@ -231,7 +236,7 @@ export default function Seats() {
         })
     }
 
-    function updateSeats() {
+    function updateSeats(id) {
 
         const busId = busNumber;
         const seat1 = seat01; 
@@ -285,7 +290,7 @@ export default function Seats() {
         const seat49 = seat049;
         const seat50 = seat050;
 
-        const newSeats = {
+        const updateSeats = {
             busId,
             seat1,
             seat2,
@@ -339,7 +344,7 @@ export default function Seats() {
             seat50,
         }
 
-        axios.post("http://localhost:8000/seats/add", newSeats).then(() => {
+        axios.put(`http://localhost:8000/seats/update/${id}`, updateSeats).then(() => {
             alert("Seats booked ")
             window.location.reload(false);
         }).catch((err) => {
@@ -347,8 +352,15 @@ export default function Seats() {
         })
     }
 
+    const seat1 = seats.seat1
+
+  
+
+    setSeat1(seat1,"<-- test")
     
 
+
+    
   
 
     return (
@@ -379,72 +391,72 @@ export default function Seats() {
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat1(checked);
-                                        console.log(checked);
+                                        console.log(seats.seat1?true:checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat1?"checked":null} className="seat occupied" /><i className={seats.seat1?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat2(checked);
-                                        console.log(checked);
+                                        console.log(seats.seat2?true:checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat2?"checked":null} className="seat occupied" /><i className={seats.seat2?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat3(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat3?"checked":null} className="seat occupied" /><i className={seats.seat3?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat4(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat4?"checked":null} className="seat occupied" /><i className={seats.seat4?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat5(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat5?"checked":null} className="seat occupied" /><i className={seats.seat5?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat6(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat6?"checked":null} className="seat occupied" /><i className={seats.seat6?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat7(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat7?"checked":null} className="seat occupied" /><i className={seats.seat7?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat8(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat8?"checked":null} className="seat occupied" /><i className={seats.seat8?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat9(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat9?"checked":null} className="seat occupied" /><i className={seats.seat9?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         let checked = e.target.checked;
                                         setSeat10(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat10?"checked":null} className="seat occupied" /><i className={seats.seat10?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
