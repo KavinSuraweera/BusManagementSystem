@@ -84,6 +84,56 @@ export default function Seats() {
 
         axios.get(`http://localhost:8000/seats/getseats/${busNumber}`).then((res) => {
             setSeats(res.data.seats[0])
+            setSeat1(res.data.seats[0].seat1)
+            setSeat2(res.data.seats[0].seat2)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat4(res.data.seats[0].seat3)
+            setSeat5(res.data.seats[0].seat3)
+            setSeat6(res.data.seats[0].seat3)
+            setSeat7(res.data.seats[0].seat3)
+            setSeat8(res.data.seats[0].seat3)
+            setSeat9(res.data.seats[0].seat3)
+            setSeat10(res.data.seats[0].seat3)
+            setSeat11(res.data.seats[0].seat3)
+            setSeat12(res.data.seats[0].seat3)
+            setSeat13(res.data.seats[0].seat3)
+            setSeat14(res.data.seats[0].seat3)
+            setSeat15(res.data.seats[0].seat3)
+            setSeat16(res.data.seats[0].seat3)
+            setSeat17(res.data.seats[0].seat3)
+            setSeat18(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
+            setSeat3(res.data.seats[0].seat3)
             console.log("sets eats not null")
             setSeatsStatus(!null)
             
@@ -352,11 +402,11 @@ export default function Seats() {
         })
     }
 
-    const seat1 = seats.seat1
+    
 
   
 
-    setSeat1(seat1,"<-- test")
+
     
 
 
