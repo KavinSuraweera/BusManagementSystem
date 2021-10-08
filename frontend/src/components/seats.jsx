@@ -812,7 +812,7 @@ export default function Seats() {
                                         setSeat50(checked);
                                         console.log(checked);
                                     }}
-                                    type="checkbox" checked={seats.seat50?"checked":null} className="seat occupied" /><i className={seats.seat50?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat0?"checked":null} className="seat occupied" /><i className={seats.seat50?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
