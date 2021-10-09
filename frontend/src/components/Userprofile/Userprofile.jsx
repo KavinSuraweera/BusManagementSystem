@@ -5,10 +5,8 @@ import { useParams, useHistory } from "react-router-dom";
 import "./ProfileCSS/Userprofile.css";
 import Popup from "./userpopup";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../actions/authAction";
-import { setid } from "../../actions/authAction";
+import { logout, setimage, setid } from "../../actions/authAction";
 import Header from "../header";
-
 
 //DELETE CUSTOMER
 function DeleteCustomer({ id }) {
@@ -80,7 +78,7 @@ function UpdateCustomer({ customer, setOpenPopup }) {
         alert(err);
       });
   };
-
+  //UPDATE POPUP EKE PART EKAK
   return (
     <div>
       <center>
@@ -216,7 +214,24 @@ export default function Userprofile() {
       });
   };
 
+  const [userPackage, setUserPackage] = useState();
+
   useEffect(() => {
+
+    
+
+    //Subscription Detail retriever
+    axios.
+      get(`http://localhost:8000/userpackage/${id}`)
+      .then((response) => {
+        setUserPackage(response?.data);
+      })
+      .catch((err) => {
+        setError(true);
+      });
+
+
+    //Customer Details getter
     axios
       .get(`http://localhost:8000/customer/${id}`)
       .then((response) => {
@@ -231,7 +246,9 @@ export default function Userprofile() {
       .get(`http://localhost:8000/customer/image/${id}`)
       .then((response) => {
         const data = response?.data?.image?.image?.split("/");
-        setProfilepic(data[1]);
+        setProfilepic(data[1])
+        dispatch(setimage(data[1]))
+        ;
       })
       .catch((err) => {});
   }, []);
@@ -250,6 +267,10 @@ export default function Userprofile() {
     );
   }
 
+
+
+
+  ///PAGE WORK START FROM HERE
   return (
     <div>
       <div className="outermost-container">
@@ -281,8 +302,7 @@ export default function Userprofile() {
             </div>
 
             <div className="button-container">
-
-            <div className="imageadd">
+              <div className="imageadd">
                 {!profilepic && (
                   <input
                     type="file"
@@ -343,18 +363,52 @@ export default function Userprofile() {
               </Popup>
             </div>
           </div>
+
+          {/*---------------------RIGHT SIDE-------------------------- */}
           <div className="right-container">
-            <h1>HEllO</h1>
+            <h1>Subscribed packages</h1>
+
+            <table className="table">
+              <thead>
+              <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Subscription Name</th>
+                  <th scope="col">Expiration Date</th>
+                  <th scope="col">sample</th>
+                </tr>
+
+  
+
+                {userPackage?.map((item, index)=>{
+                  return(
+                    <tr key={index}>
+                      <td scope="col">{index+1}</td>
+                      <td scope="col">{item.packageName}</td>
+                      <td scope="col">{item.packageDesc}</td>
+                      <td scope="col">{item.packageCost}</td>
+                </tr>
+                  )        
+                })}
+              </thead>
+            </table>
             <br />
-            <h1>HEllO</h1>
             <br />
-            <h1>HEllO</h1>
+
+            <h1>Bookings</h1>
+
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col">Date</th> 
+                  <th scope="col">Busno</th>
+                </tr>
+              </thead>
+            </table>
             <br />
-            <h1>HEllO</h1>
             <br />
-            <h1>HEllO</h1>
-            <br />
-            <h1>HEllO</h1>
+
             <br />
           </div>
         </div>

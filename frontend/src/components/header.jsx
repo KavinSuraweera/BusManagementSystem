@@ -26,7 +26,7 @@ export default function header() {
                         <Link to="#" className="link">SCEDULES</Link>
                     </li>
                     <li className="item">
-                        <Link to="#" className="link">PACKAGES</Link>
+                        <Link to="/Upackages" className="link">PACKAGES</Link>
                     </li>
                     <li className="item">
                         <Link to="/contact" className="link">CONTACT US</Link>

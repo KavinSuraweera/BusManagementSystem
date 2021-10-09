@@ -10,17 +10,17 @@ const routeSchema = new Schema({
 
     routeName : {
         type : String,
-        requuired : true
+        required : true
     },
 
     to : {
         type : String,
-        requuired : true
+        required : true
     }  , 
 
     from: {
         type : String,
-        requuired : true
+        required : true
     },
     
     pAdult:{

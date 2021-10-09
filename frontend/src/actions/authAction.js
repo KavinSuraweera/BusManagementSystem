@@ -1,4 +1,4 @@
-import {SET_ADMINID,SET_ID,LOGOUT,SET_CONID} from '../actions/types';
+import {SET_ADMINID,SET_ID,LOGOUT,SET_CONID, SET_IMAGE} from '../actions/types';
 
 export const logout=()=>{
     return{
@@ -24,5 +24,12 @@ export const setconductorid=(id)=>{
     return{
         type:SET_CONID,
         payload:id,
+    }
+}
+
+export const setimage=(id)=>{
+    return{
+        type:SET_IMAGE,
+        payload:id
     }
 }

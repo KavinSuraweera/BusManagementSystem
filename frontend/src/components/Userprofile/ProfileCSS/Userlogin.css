@@ -71,7 +71,7 @@
 .login-input:focus { outline:none; }
 
 /* LABEL ======================================= */
- .login-label 				 {
+ .login-label{
   color:#999; 
   font-size:18px;
   font-weight:normal;
