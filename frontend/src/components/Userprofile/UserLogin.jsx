@@ -48,20 +48,20 @@ export default function UserLogin() {
     <div className="page-div" style={{ backgroundImage: `url(${LoginBack})` }}>
       <Header/>
       <div className="outer-shell">
-        <div className="left-container">
+        <div className="left1-container">
           
           <h1 className="LoginHeader">WELCOME BACK</h1>
           <div className="f1">
 
             <div class="group">
-              <input type="text" name="email" onChange={onChange} required />
+              <input className="login-input" type="text" name="email" onChange={onChange} required />
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Email</label>
             </div>
 
             <div class="group">
-              <input type="password" name="password" onChange={onChange} required />
+              <input className="login-input" type="password" name="password" onChange={onChange} required />
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Password</label>
@@ -74,7 +74,7 @@ export default function UserLogin() {
           </div>
         </div>
        
-        <div className="right-container">
+        <div className="right1-container">
           <img src={LoginImg} className="image-login-form" />
         </div>
       </div>
