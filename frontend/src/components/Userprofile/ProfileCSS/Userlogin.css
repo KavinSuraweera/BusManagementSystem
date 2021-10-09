@@ -1,4 +1,4 @@
-.page-div{
+ .page-div{
     position: absolute;
     display: block;
     width: 100%;
@@ -47,7 +47,7 @@
   }
   
   /*css for form*/
-  .f1{
+ .f1{
     margin-left: 20%;
     margin-top: 20%;
   }
@@ -71,7 +71,7 @@
   .login-input:focus { outline:none; }
   
   /* LABEL ======================================= */
-  label 				 {
+   label 				 {
     color:#999; 
     font-size:18px;
     font-weight:normal;
@@ -155,8 +155,10 @@
     color: white;
     padding: 5px;
     cursor: pointer;
-  }
+  } 
   
+
+  /*///////////////////////////////////////////////////////////////////////////////////////////////*/
   /* #center{
     position: relative;
     top: 25%;
@@ -219,4 +221,3 @@
   .Forgotp{
       margin-left:350px;
   } */
-  
