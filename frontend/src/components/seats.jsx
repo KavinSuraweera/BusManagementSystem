@@ -1,6 +1,6 @@
 
 import { React, useEffect, useState } from 'react'
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, Link  } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header';
 import { useSelector, useDispatch } from "react-redux";
@@ -477,7 +477,8 @@ export default function Seats() {
 
         axios.put(`http://localhost:8000/seats/update/${id}`, updateSeats).then(() => {
             alert("Seats booked ")
-            window.location.reload(false);
+            window.location.reload(false); 
+            history.push("/payment");
         }).catch((err) => {
             alert(err)
         })
@@ -622,11 +623,18 @@ export default function Seats() {
         axios.post("http://localhost:8000/booking/add", newUserBooking).then(() => {
             window.location.reload(false);
         }).catch((err) => {
-            alert("fuck")
+            alert("err")
         })
     }
 
 
+
+   
+      
+        function push() {
+         
+        }
+      
 
 
     return (
@@ -1292,10 +1300,14 @@ export default function Seats() {
                 <div>
                     {disabled ? <font color="red "><p>You can't book more seats</p></font> : <p>You can book {totalPassengers - count} more seats</p>}
                 </div>
+                <div>
+                    
                 <button onClick={() => {
                     bookOrAdd();
                     bookPassengerSeats();
-                }} className="btn btn-success">Book my seats </button>
+                    push();
+                }} className="btn btn-success">Book my seats and continue</button>
+                </div>
                 <button onClick={() => {
                     refresh();
                 }} className="btn btn-success"> Refresh </button>

@@ -25,6 +25,7 @@ import admin from './components/admincrud/adminmain'
 import UserPackages from './components/UserPackages'
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
+import mainPayment from './components/payment/mainPayment'
 
 import schedule from "./components/ScheduleCrud/ScheduleForm";
 
@@ -71,6 +72,7 @@ function App() {
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
         <Route path="/Upackages" exact component={UserPackages}/>
+        <Route path="/payment" exact component={mainPayment} />
         
         
 
