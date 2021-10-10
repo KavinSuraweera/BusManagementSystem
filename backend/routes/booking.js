@@ -7,11 +7,13 @@ const router = express.Router();
 router.route("/add").post((req, res) =>{
     const busId =  req.body.busId;
     const uId = req.body.uId;
+    const seat1 = Number(req.body.seat1)
     
 
     const newSeats = new Seats({
         uId,
         busId,
+        seat1
     
         
 

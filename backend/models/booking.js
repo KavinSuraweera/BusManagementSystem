@@ -14,6 +14,11 @@ const bookingSchema = new Schema({
         required : true
     },
 
+    seat1 : {
+        type : Boolean,
+        require : true
+    }
+
 
 });
 

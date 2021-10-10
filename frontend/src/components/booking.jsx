@@ -12,6 +12,7 @@ export default function Booking() {
     const [routes, setroutes] = useState([]);
     const [routedata, setRouteData] = useState([]);
     const [route, setRoute] = useState([]);
+    const [seats, setSeats] = useState(false);
 
 
 
@@ -59,21 +60,165 @@ export default function Booking() {
     const history = useHistory();
 
     const goToseats = (BusNumber) => {
+
         if (adult == 0 && child == 0 && student == 0) {
             alert("please enter count of passengers")
         } else {
+            getBookingdetails(BusNumber)
+
+            if(seats !=  false){
+                
+                history.push("/seats", {
+                    BusNumber: BusNumber ,
+                    adult: adult,
+                    child: child,
+                    student: student
+                })
+            }else{
+                createBus(BusNumber)
+                history.push("/seats", {
+                    BusNumber: BusNumber ,
+                    adult: adult,
+                    child: child,
+                    student: student
+                })
+            }
             
-            history.push("/seats", {
-                BusNumber: BusNumber,
-                adult: adult,
-                child: child,
-                student: student
-
-
-            })
+            
         }
     }
+    
+    const createBus = (busNumber) => {
 
+        const busId = busNumber;
+        const seat1 = false;        
+        const seat2 = false;        
+        const seat3 = false;        
+        const seat4 = false;        
+        const seat5 = false;        
+        const seat6 = false;        
+        const seat7 = false;        
+        const seat8 = false;        
+        const seat9 = false;        
+        const seat10 = false;
+        const seat11 = false;
+        const seat12 = false;
+        const seat13 = false;
+        const seat14 = false;
+        const seat15 = false;
+        const seat16 = false;
+        const seat17 = false;
+        const seat18 = false;
+        const seat19 = false;
+        const seat20 = false;
+        const seat21 = false;
+        const seat22 = false;
+        const seat23 = false;
+        const seat24 = false;
+        const seat25 = false;
+        const seat26 = false;
+        const seat27 = false;
+        const seat28 = false;
+        const seat29 = false;
+        const seat30 = false;
+        const seat31 = false;
+        const seat32 = false;
+        const seat33 = false;
+        const seat34 = false;
+        const seat35 = false;
+        const seat36 = false;
+        const seat37 = false;
+        const seat38 = false;
+        const seat39 = false;
+        const seat40 = false;
+        const seat41 = false;
+        const seat42 = false;
+        const seat43 = false;
+        const seat44 = false;
+        const seat45 = false;
+        const seat46 = false;
+        const seat47 = false;
+        const seat48 = false;
+        const seat49 = false;
+        const seat50 = false;
+
+        const newSeats = {
+            busId,
+            seat1,
+            seat2,
+            seat3,
+            seat4,
+            seat5,
+            seat6,
+            seat7,
+            seat8,
+            seat9,
+            seat10,
+            seat11,
+            seat12,
+            seat13,
+            seat14,
+            seat15,
+            seat16,
+            seat17,
+            seat18,
+            seat19,
+            seat20,
+            seat21,
+            seat22,
+            seat23,
+            seat24,
+            seat25,
+            seat26,
+            seat27,
+            seat28,
+            seat29,
+            seat30,
+            seat31,
+            seat32,
+            seat33,
+            seat34,
+            seat35,
+            seat36,
+            seat37,
+            seat38,
+            seat39,
+            seat40,
+            seat41,
+            seat42,
+            seat43,
+            seat44,
+            seat45,
+            seat46,
+            seat47,
+            seat48,
+            seat49,
+            seat50,
+        }
+
+        axios.post("http://localhost:8000/seats/add", newSeats).then(() => {
+
+        }).catch((err) => {
+            alert(err)
+        })
+    }
+
+    const getBookingdetails = (BusNumber) =>{
+        const busId = BusNumber;
+
+        axios.get(`http://localhost:8000/seats/getseats/${busId}`).then((res) => {
+            setSeats(res.data.seats[0])
+            
+            
+
+
+        }).catch((err) => {
+
+            alert("not available")
+
+
+        })
+    }
 
 
     return (
