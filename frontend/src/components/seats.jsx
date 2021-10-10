@@ -1,6 +1,6 @@
 
 import { React, useEffect, useState } from 'react'
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, Link  } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header';
 import { useSelector, useDispatch } from "react-redux";
@@ -13,11 +13,11 @@ export default function Seats() {
 
     const [bus, setBus] = useState({});
 
-    const [seats, setSeats] = useState("");
+    const [seats, setSeats] = useState({});
     const [seatsStatus, setSeatsStatus] = useState("");
-    const [disabled ,setDisabled] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
-    const [seat01, setSeat1] = useState();
+    const [seat01, setSeat1] = useState(false);
     const [seat02, setSeat2] = useState();
     const [seat03, setSeat3] = useState();
     const [seat04, setSeat4] = useState();
@@ -69,6 +69,55 @@ export default function Seats() {
     const [seat050, setSeat50] = useState();
 
     const [bookS1, setBookS1] = useState()
+    const [bookS2, setBookS2] = useState()
+    const [bookS3, setBookS3] = useState()
+    const [bookS4, setBookS4] = useState()
+    const [bookS5, setBookS5] = useState()
+    const [bookS6, setBookS6] = useState()
+    const [bookS7, setBookS7] = useState()
+    const [bookS8, setBookS8] = useState()
+    const [bookS9, setBookS9] = useState()
+    const [bookS10, setBookS10] = useState()
+    const [bookS11, setBookS11] = useState()
+    const [bookS12, setBookS12] = useState()
+    const [bookS13, setBookS13] = useState()
+    const [bookS14, setBookS14] = useState()
+    const [bookS15, setBookS15] = useState()
+    const [bookS16, setBookS16] = useState()
+    const [bookS17, setBookS17] = useState()
+    const [bookS18, setBookS18] = useState()
+    const [bookS19, setBookS19] = useState()
+    const [bookS20, setBookS20] = useState()
+    const [bookS21, setBookS21] = useState()
+    const [bookS22, setBookS22] = useState()
+    const [bookS23, setBookS23] = useState()
+    const [bookS24, setBookS24] = useState()
+    const [bookS25, setBookS25] = useState()
+    const [bookS26, setBookS26] = useState()
+    const [bookS27, setBookS27] = useState()
+    const [bookS28, setBookS28] = useState()
+    const [bookS29, setBookS29] = useState()
+    const [bookS30, setBookS30] = useState()
+    const [bookS31, setBookS31] = useState()
+    const [bookS32, setBookS32] = useState()
+    const [bookS33, setBookS33] = useState()
+    const [bookS34, setBookS34] = useState()
+    const [bookS35, setBookS35] = useState()
+    const [bookS36, setBookS36] = useState()
+    const [bookS37, setBookS37] = useState()
+    const [bookS38, setBookS38] = useState()
+    const [bookS39, setBookS39] = useState()
+    const [bookS40, setBookS40] = useState()
+    const [bookS41, setBookS41] = useState()
+    const [bookS42, setBookS42] = useState()
+    const [bookS43, setBookS43] = useState()
+    const [bookS44, setBookS44] = useState()
+    const [bookS45, setBookS45] = useState()
+    const [bookS46, setBookS46] = useState()
+    const [bookS47, setBookS47] = useState()
+    const [bookS48, setBookS48] = useState()
+    const [bookS49, setBookS49] = useState()
+    const [bookS50, setBookS50] = useState()
 
 
 
@@ -90,6 +139,8 @@ export default function Seats() {
 
         axios.get(`http://localhost:8000/seats/getseats/${busNumber}`).then((res) => {
             setSeats(res.data.seats[0])
+            console.log("done")
+
             setSeat1(res.data.seats[0].seat1)
             setSeat2(res.data.seats[0].seat2)
             setSeat3(res.data.seats[0].seat3)
@@ -145,6 +196,8 @@ export default function Seats() {
 
 
         }).catch((err) => {
+
+            getSeats();
             setSeatsStatus(null)
             console.log("set seats null")
             setSeatsFalse()
@@ -155,36 +208,26 @@ export default function Seats() {
 
 
 
+    const getSeats = () => {
+        axios.get(`http://localhost:8000/seats/getseats/${busNumber}`).then((res) => {
+            setSeats(res.data.seats[0])
+            console.log("sets eats not null")
+            setSeatsStatus(!null)
 
 
+        }).catch((err) => {
 
+            console.log("Seat error")
 
-    function bookOrAdd() {
-        if (seatsStatus == null) {
-            console.log("Null seats")
-            bookSeats()
-
-
-        } else {
-            console.log("already exisits",)
-            //console.log(seats._id)
-
-            updateSeats(seats._id)
-
-        }
+        })
     }
 
-    const setSeatsFalse = () => {
-        setSeat1(false)
-    }
 
-    
+    const bookSeats = () => {
 
-
-    function bookSeats() {
 
         const busId = busNumber;
-        const seat1 = seat01;
+        const seat1 = false;
         const seat2 = seat02;
         const seat3 = seat03;
         const seat4 = seat04;
@@ -295,7 +338,34 @@ export default function Seats() {
         }).catch((err) => {
             alert(err)
         })
+
     }
+
+
+
+
+    const bookOrAdd = () => {
+        if (seatsStatus == null) {
+            console.log("Null seats")
+            bookSeats()
+
+
+        } else {
+            console.log("already exisits",)
+            //console.log(seats._id)
+
+            updateSeats(seats._id)
+
+        }
+    }
+
+    const setSeatsFalse = () => {
+        setSeat1(false)
+    }
+
+
+
+
 
     function updateSeats(id) {
 
@@ -407,7 +477,8 @@ export default function Seats() {
 
         axios.put(`http://localhost:8000/seats/update/${id}`, updateSeats).then(() => {
             alert("Seats booked ")
-            window.location.reload(false);
+            window.location.reload(false); 
+            history.push("/payment");
         }).catch((err) => {
             alert(err)
         })
@@ -417,10 +488,10 @@ export default function Seats() {
     const [count, setCount] = useState(0)
 
     const increment = () => {
-        if(count > (totalPassengers-2 )){
+        if (count > (totalPassengers - 2)) {
             setDisabled(true)
-            
-            
+
+
         }
         setCount(count + 1)
 
@@ -437,7 +508,133 @@ export default function Seats() {
     }
 
 
+    const bookPassengerSeats = () => {
 
+        const uId = id;
+        const busId = busNumber;
+        const seat1 = bookS1;
+        const seat2 = bookS2;
+        const seat3= bookS3;
+        const seat4 = bookS4;
+        const seat5 = bookS5;
+        const seat6 = bookS6;
+        const seat7 = bookS7;
+        const seat8 = bookS8;
+        const seat9 = bookS9;
+        const seat10 = bookS10;
+        const seat11 = bookS11;
+        const seat12 = bookS12;
+        const seat13 = bookS13;
+        const seat14 = bookS14;
+        const seat15 = bookS15;
+        const seat16 = bookS16;
+        const seat17 = bookS17;
+        const seat18 = bookS18;
+        const seat19 = bookS19;
+        const seat20 = bookS20;
+        const seat21 = bookS21;
+        const seat22 = bookS22;
+        const seat23 = bookS23;
+        const seat24 = bookS24;
+        const seat25 = bookS25;
+        const seat26 = bookS26;
+        const seat27 = bookS27;
+        const seat28 = bookS28;
+        const seat29 = bookS29;
+        const seat30 = bookS30;
+        const seat31 = bookS31;
+        const seat32 = bookS32;
+        const seat33 = bookS33;
+        const seat34 = bookS34;
+        const seat35 = bookS35;
+        const seat36 = bookS36;
+        const seat37 = bookS37;
+        const seat38 = bookS38;
+        const seat39 = bookS39;
+        const seat40 = bookS40;
+        const seat41 = bookS41;
+        const seat42 = bookS42;
+        const seat43 = bookS43;
+        const seat44 = bookS44;
+        const seat45 = bookS45;
+        const seat46 = bookS46;
+        const seat47 = bookS47;
+        const seat48 = bookS48;
+        const seat49 = bookS49;
+        const seat50 = bookS50;
+         
+
+        const newUserBooking = {
+            uId,
+            busId,
+            seat1,
+            seat2,
+            seat3,
+            seat4,
+            seat5,
+            seat6,
+            seat7,
+            seat8,
+            seat9,
+            seat10,
+            seat11,
+            seat12,
+            seat13,
+            seat14,
+            seat15,
+            seat16,
+            seat17,
+            seat18,
+            seat19,
+            seat20,
+            seat21,
+            seat22,
+            seat23,
+            seat24,
+            seat25,
+            seat26,
+            seat27,
+            seat28,
+            seat29,
+            seat30,
+            seat31,
+            seat32,
+            seat33,
+            seat34,
+            seat35,
+            seat36,
+            seat37,
+            seat38,
+            seat39,
+            seat40,
+            seat41,
+            seat42,
+            seat43,
+            seat44,
+            seat45,
+            seat46,
+            seat47,
+            seat48,
+            seat49,
+            seat50,
+            
+        }
+
+        axios.post("http://localhost:8000/booking/add", newUserBooking).then(() => {
+            window.location.reload(false);
+        }).catch((err) => {
+            alert("err")
+        })
+    }
+
+
+
+   
+      
+        function push() {
+         
+        }
+      
 
 
     return (
@@ -466,16 +663,18 @@ export default function Seats() {
 
                                 <li><label><input
                                     onChange={e => {
-                                        if (seats.seat2 == true) {
+                                        if (seats.seat1 == true) {
                                             alert("you can't book this seat")
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat1(checked);
-                                            setBookS1(checked)
+                                            setBookS1(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" checked={seat01 ? "checked" : null} disabled={disabled} className="seat occupied" /><i className={seat01 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seats.seat1 ? "checked" : null} disabled={disabled} className="seat occupied" /><i className={seats.seat1 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+
+
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat2 == true) {
@@ -483,10 +682,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat2(checked);
+                                            setBookS2(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat02 ? "checked" : null} className="seat occupied" /><i className={seat02 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat2 ? "checked" : null} className="seat occupied" /><i className={seats.seat2 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat3 == true) {
@@ -494,10 +694,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat3(checked);
+                                            setBookS3(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat03 ? "checked" : null} className="seat occupied" /><i className={seat03 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat3 ? "checked" : null} className="seat occupied" /><i className={seats.seat3 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat4 == true) {
@@ -505,10 +706,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat4(checked);
+                                            setBookS4(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat04 ? "checked" : null} className="seat occupied" /><i className={seat04 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat4 ? "checked" : null} className="seat occupied" /><i className={seats.seat4 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat5 == true) {
@@ -516,10 +718,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat5(checked);
+                                            setBookS5(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat05 ? "checked" : null} className="seat occupied" /><i className={seat05 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat5 ? "checked" : null} className="seat occupied" /><i className={seats.seat5 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat6 == true) {
@@ -527,10 +730,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat6(checked);
+                                            setBookS6(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat06 ? "checked" : null} className="seat occupied" /><i className={seat06 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat6 ? "checked" : null} className="seat occupied" /><i className={seats.seat6 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat7 == true) {
@@ -538,10 +742,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat7(checked);
+                                            setBookS7(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat07 ? "checked" : null} className="seat occupied" /><i className={seat07 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat7 ? "checked" : null} className="seat occupied" /><i className={seats.seat7 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat8 == true) {
@@ -549,10 +754,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat8(checked);
+                                            setBookS8(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat08 ? "checked" : null} className="seat occupied" /><i className={seat08 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat8 ? "checked" : null} className="seat occupied" /><i className={seats.seat8 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat9 == true) {
@@ -560,10 +766,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat9(checked);
+                                            setBookS9(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat09 ? "checked" : null} className="seat occupied" /><i className={seat09 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat9 ? "checked" : null} className="seat occupied" /><i className={seats.seat9 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat10 == true) {
@@ -571,14 +778,15 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat10(checked);
+                                            setBookS10(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat010 ? "checked" : null} className="seat occupied" /><i className={seat010 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat10 ? "checked" : null} className="seat occupied" /><i className={seats.seat10 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
-                            {/* 2nd row */}
+
 
                             <ul>
 
@@ -589,10 +797,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat11(checked);
+                                            setBookS11(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat011 ? "checked" : null} className="seat occupied" /><i className={seat011 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat11 ? "checked" : null} className="seat occupied" /><i className={seats.seat11 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat12 == true) {
@@ -600,10 +809,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat12(checked);
+                                            setBookS12(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat012 ? "checked" : null} className="seat occupied" /><i className={seat012  ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat12 ? "checked" : null} className="seat occupied" /><i className={seats.seat12 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat13 == true) {
@@ -611,10 +821,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat13(checked);
+                                            setBookS13(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat013 ? "checked" : null} className="seat occupied" /><i className={seat013 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat13 ? "checked" : null} className="seat occupied" /><i className={seats.seat13 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat14 == true) {
@@ -622,10 +833,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat14(checked);
+                                            setBookS14(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat014 ? "checked" : null} className="seat occupied" /><i className={seat014 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat14 ? "checked" : null} className="seat occupied" /><i className={seats.seat14 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat15 == true) {
@@ -633,10 +845,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat15(checked);
+                                            setBookS15(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat015 ? "checked" : null} className="seat occupied" /><i className={seat015 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat15 ? "checked" : null} className="seat occupied" /><i className={seats.seat15 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat16 == true) {
@@ -644,10 +857,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat16(checked);
+                                            setBookS16(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat016 ? "checked" : null} className="seat occupied" /><i className={seat016 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat16 ? "checked" : null} className="seat occupied" /><i className={seats.seat16 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat17 == true) {
@@ -655,10 +869,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat17(checked);
+                                            setBookS17(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat017 ? "checked" : null} className="seat occupied" /><i className={seat017 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat17 ? "checked" : null} className="seat occupied" /><i className={seats.seat17 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat18 == true) {
@@ -666,10 +881,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat18(checked);
+                                            setBookS18(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat018 ? "checked" : null} className="seat occupied" /><i className={seat018 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat18 ? "checked" : null} className="seat occupied" /><i className={seats.seat18 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat19 == true) {
@@ -677,10 +893,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat10(checked);
+                                            setBookS19(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat019 ? "checked" : null} className="seat occupied" /><i className={seat019 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat19 ? "checked" : null} className="seat occupied" /><i className={seats.seat19 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat20 == true) {
@@ -688,14 +905,14 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat20(checked);
+                                            setBookS20(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat020 ? "checked" : null} className="seat occupied" /><i className={seat020 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat20 ? "checked" : null} className="seat occupied" /><i className={seats.seat20 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
-                            {/* 3rd row */}
 
                             <ul>
 
@@ -706,10 +923,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat21(checked);
+                                            setBookS21(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat021 ? "checked" : null} className="seat occupied" /><i className={seat021 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat21 ? "checked" : null} className="seat occupied" /><i className={seats.seat21 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat22 == true) {
@@ -717,10 +935,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat22(checked);
+                                            setBookS22(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat022 ? "checked" : null} className="seat occupied" /><i className={seat022 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat22 ? "checked" : null} className="seat occupied" /><i className={seats.seat22 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat23 == true) {
@@ -728,10 +947,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat23(checked);
+                                            setBookS23(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat023 ? "checked" : null} className="seat occupied" /><i className={seat023 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat23 ? "checked" : null} className="seat occupied" /><i className={seats.seat23 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat24 == true) {
@@ -739,10 +959,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat24(checked);
+                                            setBookS24(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat024 ? "checked" : null} className="seat occupied" /><i className={seat024 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat24 ? "checked" : null} className="seat occupied" /><i className={seats.seat24 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat25 == true) {
@@ -750,10 +971,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat25(checked);
+                                            setBookS25(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat025 ? "checked" : null} className="seat occupied" /><i className={seat025 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat25 ? "checked" : null} className="seat occupied" /><i className={seats.seat25 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat26 == true) {
@@ -761,10 +983,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat26(checked);
+                                            setBookS26(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat026 ? "checked" : null} className="seat occupied" /><i className={seat026 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat26 ? "checked" : null} className="seat occupied" /><i className={seats.seat26 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat27 == true) {
@@ -772,10 +995,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat27(checked);
+                                            setBookS27(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat027 ? "checked" : null} className="seat occupied" /><i className={seat027 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat27 ? "checked" : null} className="seat occupied" /><i className={seats.seat27 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat28 == true) {
@@ -783,10 +1007,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat28(checked);
+                                            setBookS28(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat028 ? "checked" : null} className="seat occupied" /><i className={seat028 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat28 ? "checked" : null} className="seat occupied" /><i className={seats.seat28 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat29 == true) {
@@ -794,10 +1019,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat29(checked);
+                                            setBookS29(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat029 ? "checked" : null} className="seat occupied" /><i className={seat029 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat29 ? "checked" : null} className="seat occupied" /><i className={seats.seat29 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat30 == true) {
@@ -805,15 +1031,15 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat30(checked);
+                                            setBookS30(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat030 ? "checked" : null} className="seat occupied" /><i className={seat030 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat30 ? "checked" : null} className="seat occupied" /><i className={seats.seat30 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
                             <br />
 
-                            {/* 4th raw */}
                             <ul>
 
                                 <li><label><input
@@ -823,10 +1049,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat31(checked);
+                                            setBookS31(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat031 ? "checked" : null} className="seat occupied" /><i className={seat031 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat31 ? "checked" : null} className="seat occupied" /><i className={seats.seat31 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat32 == true) {
@@ -834,10 +1061,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat32(checked);
+                                            setBookS32(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat032 ? "checked" : null} className="seat occupied" /><i className={seat032 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat32 ? "checked" : null} className="seat occupied" /><i className={seats.seat32 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat33 == true) {
@@ -845,10 +1073,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat33(checked);
+                                            setBookS33(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat033 ? "checked" : null} className="seat occupied" /><i className={seat033 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat33 ? "checked" : null} className="seat occupied" /><i className={seats.seat33 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat34 == true) {
@@ -856,10 +1085,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat34(checked);
+                                            setBookS34(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat034 ? "checked" : null} className="seat occupied" /><i className={seat034 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat34 ? "checked" : null} className="seat occupied" /><i className={seats.seat34 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat35 == true) {
@@ -867,10 +1097,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat35(checked);
+                                            setBookS35(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat035 ? "checked" : null} className="seat occupied" /><i className={seat035 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat35 ? "checked" : null} className="seat occupied" /><i className={seats.seat35 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat36 == true) {
@@ -878,10 +1109,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat36(checked);
+                                            setBookS36(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat036 ? "checked" : null} className="seat occupied" /><i className={seat036 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat36 ? "checked" : null} className="seat occupied" /><i className={seats.seat36 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat37 == true) {
@@ -889,10 +1121,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat37(checked);
+                                            setBookS37(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat037 ? "checked" : null} className="seat occupied" /><i className={seat037 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat37 ? "checked" : null} className="seat occupied" /><i className={seats.seat37 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat38 == true) {
@@ -900,10 +1133,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat38(checked);
+                                            setBookS38(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat038 ? "checked" : null} className="seat occupied" /><i className={seat038 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat38 ? "checked" : null} className="seat occupied" /><i className={seats.seat38 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat39 == true) {
@@ -911,10 +1145,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat39(checked);
+                                            setBookS39(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat039 ? "checked" : null} className="seat occupied" /><i className={seat039 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat39 ? "checked" : null} className="seat occupied" /><i className={seats.seat39 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat40 == true) {
@@ -922,13 +1157,14 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat40(checked);
+                                            setBookS40(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat040 ? "checked" : null} className="seat occupied" /><i className={seat040 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat40 ? "checked" : null} className="seat occupied" /><i className={seats.seat40 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
-                            {/* 5th raw */}
+                            
                             <ul>
 
                                 <li><label><input
@@ -938,10 +1174,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat41(checked);
+                                            setBookS41(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat041 ? "checked" : null} className="seat occupied" /><i className={seat041 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat41 ? "checked" : null} className="seat occupied" /><i className={seats.seat41 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat42 == true) {
@@ -949,10 +1186,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat42(checked);
+                                            setBookS42(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat042 ? "checked" : null} className="seat occupied" /><i className={seat042 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat42 ? "checked" : null} className="seat occupied" /><i className={seats.seat42 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat43 == true) {
@@ -960,10 +1198,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat43(checked);
+                                            setBookS43(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat043 ? "checked" : null} className="seat occupied" /><i className={seat043 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat43 ? "checked" : null} className="seat occupied" /><i className={seats.seat43 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat44 == true) {
@@ -971,10 +1210,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat44(checked);
+                                            setBookS44(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat044 ? "checked" : null} className="seat occupied" /><i className={seat044 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat44 ? "checked" : null} className="seat occupied" /><i className={seats.seat44 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat45 == true) {
@@ -982,10 +1222,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat45(checked);
+                                            setBookS45(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat045 ? "checked" : null} className="seat occupied" /><i className={seat045 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat45 ? "checked" : null} className="seat occupied" /><i className={seats.seat45 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat46 == true) {
@@ -993,10 +1234,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat46(checked);
+                                            setBookS46(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat046 ? "checked" : null} className="seat occupied" /><i className={seat046 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat46 ? "checked" : null} className="seat occupied" /><i className={seats.seat46 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat47 == true) {
@@ -1004,10 +1246,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat47(checked);
+                                            setBookS47(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat047 ? "checked" : null} className="seat occupied" /><i className={seat047 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat47 ? "checked" : null} className="seat occupied" /><i className={seats.seat47 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat48 == true) {
@@ -1015,11 +1258,12 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat48(checked);
+                                            setBookS48(checked);
                                             checked ? increment() : decrement();
                                         }
 
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat048 ? "checked" : null} className="seat occupied" /><i className={seat048 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat48 ? "checked" : null} className="seat occupied" /><i className={seats.seat48 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat49 == true) {
@@ -1027,10 +1271,11 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat49(checked);
+                                            setBookS49(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat049 ? "checked" : null} className="seat occupied" /><i className={seat049 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat49 ? "checked" : null} className="seat occupied" /><i className={seats.seat49 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
                                         if (seats.seat50 == true) {
@@ -1038,24 +1283,31 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat50(checked);
+                                            setBookS50(checked);
                                             checked ? increment() : decrement();
                                         }
 
                                     }}
-                                    type="checkbox" disabled={disabled} checked={seat050 ? "checked" : null} className="seat occupied" /><i className={seat050 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat50 ? "checked" : null} className="seat occupied" /><i className={seats.seat50 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+
+
 
                             </ul>
-
 
                         </div>
                     </div>
                 </form>
                 <div>
-                    {disabled?<font color="red "><p>You can't book more seats</p></font>:<p>You can book {totalPassengers-count} more seats</p>}
+                    {disabled ? <font color="red "><p>You can't book more seats</p></font> : <p>You can book {totalPassengers - count} more seats</p>}
                 </div>
+                <div>
+                    
                 <button onClick={() => {
                     bookOrAdd();
-                }} className="btn btn-success">Book my seats </button>
+                    bookPassengerSeats();
+                    push();
+                }} className="btn btn-success">Book my seats and continue</button>
+                </div>
                 <button onClick={() => {
                     refresh();
                 }} className="btn btn-success"> Refresh </button>
@@ -1063,6 +1315,9 @@ export default function Seats() {
             </div>
 
             <div>
+
+
+
 
                 <h1>{busNumber}</h1>
                 <h1>{id}</h1>

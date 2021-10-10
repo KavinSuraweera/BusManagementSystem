@@ -1,9 +1,19 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import Header from './header'
 import { Link } from 'react-router-dom'
 import Logincart from './usercard/card'
+import FeedbackCards from './feedbackCards/feedbackCards'
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
-export default function home() {
+
+
+export default function Home() { 
+
+    useEffect(() => {
+        Aos.init({duration: 2000 });
+    },[])
+
     return (
         <div className="home-background">
             <Header />
@@ -39,30 +49,37 @@ export default function home() {
                 </div>
 
             </div>
-            <div className="gold-hr">
-                <hr/>
-            </div>
+            
             <div className="home-content">
                 <div className="whyus-container">
-                    <h1>why us ?</h1>
-
+                <div className="gold-hr">
+                <hr/>
+            </div>
+                <div className="home_headings">
+                    <h1>WHY US?</h1>
                 </div>
 
-                <div className="whyus-content">
+
+                </div>
+                
+                <div className="whyus-content" data-aos="fade-left">
                     <div className="whyus-img"><div className="img1"></div></div>
                     <div className="whyus-txt-l"></div>
                 </div>
-                <div className="whyus-content">
-                    <div className="whyus-img-l"></div>
-                    <div className="whyus-txt"><div className="img2"></div></div>
+                <div className="whyus-content" data-aos="fade-right">
+                    <div className="whyus-img-l" ></div>
+                    <div className="whyus-txt" ><div className="img2"></div></div>
                 </div>
-                <div className="whyus-content">
+               
+                <div data-aos="fade-left" className="whyus-content">
                     <div className="whyus-img"><div className="img3"></div></div>
                     <div className="whyus-txt-l"></div>
                 </div>
 
             </div>
-
+            <div className="feedbackCards" data-aos="fade-up">
+                <FeedbackCards/>
+            </div>
         </div>
     )
 }
