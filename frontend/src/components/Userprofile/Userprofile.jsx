@@ -7,6 +7,7 @@ import Popup from "./userpopup";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, setimage, setid } from "../../actions/authAction";
 import Header from "../header";
+import Background from "../../img/profilepage_background.jpg"
 
 //DELETE CUSTOMER
 function DeleteCustomer({ id }) {
@@ -28,8 +29,11 @@ function DeleteCustomer({ id }) {
   const [btnlock, setBtnlock] = useState(false);
   console.log(btnlock);
 
+
   return (
     <div className="prof-delete-popup">
+      <h6>Once deleted profile cannot be retrieved.</h6>
+      <p>Are you sure you want to delete profile?</p>
       <input
        className="prof-delte-checkbox"
         onChange={() => setBtnlock(!btnlock)}
@@ -306,9 +310,10 @@ export default function Userprofile() {
 
   ///REAL PAGE WORK START FROM HERE
   return (
-    <div>
+    <div className="extraout-container">
       <div className="outermost-container">
         <Header />
+        <img className="background-img" src={Background}/>
         <div className="outer-container">
           <div className="left-container">
             <div className="profilepic-container">
@@ -400,15 +405,16 @@ export default function Userprofile() {
 
           {/*---------------------RIGHT SIDE-------------------------- */}
           <div className="right-container">
-            <h1>Subscribed packages</h1>
+            <h2 className="subscription-view">Subscribed Packages</h2>
+            <hr/>
 
-            <table className="table">
+            <table className="table table-prof">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Subscription Name</th>
-                  <th scope="col">Expiration Date</th>
-                  <th scope="col">Price</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Validity</th>
                   <th scope="col">Action</th>
                 </tr>
 
@@ -418,7 +424,7 @@ export default function Userprofile() {
                       <td scope="col">{index + 1}</td>
                       <td scope="col">{item.packageName}</td>
                       <td scope="col">{item.packageDesc}</td>
-                      <td scope="col">{item.packageCost}</td>
+                      <td scope="col">{item.packageTime +" days"}</td>
                       <td>
                         <button
                           className="btn btn-danger"
@@ -437,9 +443,9 @@ export default function Userprofile() {
             <br />
             <br />
 
-            <h1>Bookings</h1>
-
-            <table className="table">
+            <h2 className="subscription-view2">Bookings</h2>
+            <hr />
+            <table className="table" >
               <thead>
                 <tr>
                   <th scope="col">#</th>

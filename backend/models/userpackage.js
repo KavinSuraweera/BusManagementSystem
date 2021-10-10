@@ -23,6 +23,11 @@ const userpackageSchema = new Schema({
         required:true
     },
 
+    packageTime:{
+        type:Number,
+        required:true
+    },
+
     packageCost:{
         type:Number,
         required:true

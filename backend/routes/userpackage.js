@@ -30,6 +30,7 @@ router.route("/add").post((req, res ) =>{
     const packageId = req.body.packageId;
     const packageName = req.body.packageName;
     const packageDesc = req.body.packageDesc;
+    const packageTime = req.body.packageTime;
     const packageCost = req.body.packageCost;
 
     const newUPack = new UserPackage({
@@ -37,6 +38,7 @@ router.route("/add").post((req, res ) =>{
         packageId,
         packageName,
         packageDesc,
+        packageTime,
         packageCost,
     })
 
