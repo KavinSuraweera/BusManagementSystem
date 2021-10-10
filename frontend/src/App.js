@@ -71,17 +71,14 @@ function App() {
         <Route path="/admin" exact component={admin}/>
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
-<<<<<<< HEAD
 
         <Route path="/Upackages">
           {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
         </Route>
-=======
-        <Route path="/Upackages" exact component={UserPackages}/>
+
         <Route path="/payment" exact component={mainPayment} />
         
         
->>>>>>> 30edaeda2e19a2670c720b619d5a986b0641efc9
 
         <Switch>
           <Route path="/Admin-Login">
