@@ -13,15 +13,9 @@ export default function Allbus() {
     const [openPopup, setOpenPopup] = useState(false);
     const [bus, setBus] = useState([]);
 
-
-
-
-
     function sendData(e) {
 
         e.preventDefault();
-
-
 
         axios.post("http://localhost:8000/bus/add", bus).then(() => {
             // alert("Bus added!")
