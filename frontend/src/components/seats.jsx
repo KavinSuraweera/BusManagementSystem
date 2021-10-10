@@ -69,6 +69,55 @@ export default function Seats() {
     const [seat050, setSeat50] = useState();
 
     const [bookS1, setBookS1] = useState()
+    const [bookS2, setBookS2] = useState()
+    const [bookS3, setBookS3] = useState()
+    const [bookS4, setBookS4] = useState()
+    const [bookS5, setBookS5] = useState()
+    const [bookS6, setBookS6] = useState()
+    const [bookS7, setBookS7] = useState()
+    const [bookS8, setBookS8] = useState()
+    const [bookS9, setBookS9] = useState()
+    const [bookS10, setBookS10] = useState()
+    const [bookS11, setBookS11] = useState()
+    const [bookS12, setBookS12] = useState()
+    const [bookS13, setBookS13] = useState()
+    const [bookS14, setBookS14] = useState()
+    const [bookS15, setBookS15] = useState()
+    const [bookS16, setBookS16] = useState()
+    const [bookS17, setBookS17] = useState()
+    const [bookS18, setBookS18] = useState()
+    const [bookS19, setBookS19] = useState()
+    const [bookS20, setBookS20] = useState()
+    const [bookS21, setBookS21] = useState()
+    const [bookS22, setBookS22] = useState()
+    const [bookS23, setBookS23] = useState()
+    const [bookS24, setBookS24] = useState()
+    const [bookS25, setBookS25] = useState()
+    const [bookS26, setBookS26] = useState()
+    const [bookS27, setBookS27] = useState()
+    const [bookS28, setBookS28] = useState()
+    const [bookS29, setBookS29] = useState()
+    const [bookS30, setBookS30] = useState()
+    const [bookS31, setBookS31] = useState()
+    const [bookS32, setBookS32] = useState()
+    const [bookS33, setBookS33] = useState()
+    const [bookS34, setBookS34] = useState()
+    const [bookS35, setBookS35] = useState()
+    const [bookS36, setBookS36] = useState()
+    const [bookS37, setBookS37] = useState()
+    const [bookS38, setBookS38] = useState()
+    const [bookS39, setBookS39] = useState()
+    const [bookS40, setBookS40] = useState()
+    const [bookS41, setBookS41] = useState()
+    const [bookS42, setBookS42] = useState()
+    const [bookS43, setBookS43] = useState()
+    const [bookS44, setBookS44] = useState()
+    const [bookS45, setBookS45] = useState()
+    const [bookS46, setBookS46] = useState()
+    const [bookS47, setBookS47] = useState()
+    const [bookS48, setBookS48] = useState()
+    const [bookS49, setBookS49] = useState()
+    const [bookS50, setBookS50] = useState()
 
 
 
@@ -463,11 +512,111 @@ export default function Seats() {
         const uId = id;
         const busId = busNumber;
         const seat1 = bookS1;
+        const seat2 = bookS2;
+        const seat3= bookS3;
+        const seat4 = bookS4;
+        const seat5 = bookS5;
+        const seat6 = bookS6;
+        const seat7 = bookS7;
+        const seat8 = bookS8;
+        const seat9 = bookS9;
+        const seat10 = bookS10;
+        const seat11 = bookS11;
+        const seat12 = bookS12;
+        const seat13 = bookS13;
+        const seat14 = bookS14;
+        const seat15 = bookS15;
+        const seat16 = bookS16;
+        const seat17 = bookS17;
+        const seat18 = bookS18;
+        const seat19 = bookS19;
+        const seat20 = bookS20;
+        const seat21 = bookS21;
+        const seat22 = bookS22;
+        const seat23 = bookS23;
+        const seat24 = bookS24;
+        const seat25 = bookS25;
+        const seat26 = bookS26;
+        const seat27 = bookS27;
+        const seat28 = bookS28;
+        const seat29 = bookS29;
+        const seat30 = bookS30;
+        const seat31 = bookS31;
+        const seat32 = bookS32;
+        const seat33 = bookS33;
+        const seat34 = bookS34;
+        const seat35 = bookS35;
+        const seat36 = bookS36;
+        const seat37 = bookS37;
+        const seat38 = bookS38;
+        const seat39 = bookS39;
+        const seat40 = bookS40;
+        const seat41 = bookS41;
+        const seat42 = bookS42;
+        const seat43 = bookS43;
+        const seat44 = bookS44;
+        const seat45 = bookS45;
+        const seat46 = bookS46;
+        const seat47 = bookS47;
+        const seat48 = bookS48;
+        const seat49 = bookS49;
+        const seat50 = bookS50;
+         
 
         const newUserBooking = {
             uId,
             busId,
-            seat1
+            seat1,
+            seat2,
+            seat3,
+            seat4,
+            seat5,
+            seat6,
+            seat7,
+            seat8,
+            seat9,
+            seat10,
+            seat11,
+            seat12,
+            seat13,
+            seat14,
+            seat15,
+            seat16,
+            seat17,
+            seat18,
+            seat19,
+            seat20,
+            seat21,
+            seat22,
+            seat23,
+            seat24,
+            seat25,
+            seat26,
+            seat27,
+            seat28,
+            seat29,
+            seat30,
+            seat31,
+            seat32,
+            seat33,
+            seat34,
+            seat35,
+            seat36,
+            seat37,
+            seat38,
+            seat39,
+            seat40,
+            seat41,
+            seat42,
+            seat43,
+            seat44,
+            seat45,
+            seat46,
+            seat47,
+            seat48,
+            seat49,
+            seat50,
+            
         }
 
         axios.post("http://localhost:8000/booking/add", newUserBooking).then(() => {
@@ -525,6 +674,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat2(checked);
+                                            setBookS2(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -536,6 +686,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat3(checked);
+                                            setBookS3(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -547,6 +698,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat4(checked);
+                                            setBookS4(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -558,6 +710,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat5(checked);
+                                            setBookS5(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -569,6 +722,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat6(checked);
+                                            setBookS6(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -580,6 +734,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat7(checked);
+                                            setBookS7(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -591,6 +746,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat8(checked);
+                                            setBookS8(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -602,6 +758,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat9(checked);
+                                            setBookS9(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -613,6 +770,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat10(checked);
+                                            setBookS10(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -631,6 +789,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat11(checked);
+                                            setBookS11(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -642,6 +801,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat12(checked);
+                                            setBookS12(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -653,6 +813,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat13(checked);
+                                            setBookS13(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -664,6 +825,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat14(checked);
+                                            setBookS14(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -675,6 +837,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat15(checked);
+                                            setBookS15(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -686,6 +849,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat16(checked);
+                                            setBookS16(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -697,6 +861,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat17(checked);
+                                            setBookS17(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -708,6 +873,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat18(checked);
+                                            setBookS18(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -719,6 +885,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat10(checked);
+                                            setBookS19(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -730,6 +897,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat20(checked);
+                                            setBookS20(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -747,6 +915,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat21(checked);
+                                            setBookS21(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -758,6 +927,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat22(checked);
+                                            setBookS22(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -769,6 +939,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat23(checked);
+                                            setBookS23(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -780,6 +951,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat24(checked);
+                                            setBookS24(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -791,6 +963,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat25(checked);
+                                            setBookS25(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -802,6 +975,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat26(checked);
+                                            setBookS26(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -813,6 +987,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat27(checked);
+                                            setBookS27(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -824,6 +999,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat28(checked);
+                                            setBookS28(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -835,6 +1011,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat29(checked);
+                                            setBookS29(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -846,6 +1023,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat30(checked);
+                                            setBookS30(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -863,6 +1041,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat31(checked);
+                                            setBookS31(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -874,6 +1053,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat32(checked);
+                                            setBookS32(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -885,6 +1065,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat33(checked);
+                                            setBookS33(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -896,6 +1077,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat34(checked);
+                                            setBookS34(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -907,6 +1089,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat35(checked);
+                                            setBookS35(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -918,6 +1101,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat36(checked);
+                                            setBookS36(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -929,6 +1113,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat37(checked);
+                                            setBookS37(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -940,6 +1125,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat38(checked);
+                                            setBookS38(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -951,6 +1137,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat39(checked);
+                                            setBookS39(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -962,6 +1149,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat40(checked);
+                                            setBookS40(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -978,6 +1166,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat41(checked);
+                                            setBookS41(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -989,6 +1178,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat42(checked);
+                                            setBookS42(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1000,6 +1190,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat43(checked);
+                                            setBookS43(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1011,6 +1202,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat44(checked);
+                                            setBookS44(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1022,6 +1214,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat45(checked);
+                                            setBookS45(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1033,6 +1226,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat46(checked);
+                                            setBookS46(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1044,6 +1238,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat47(checked);
+                                            setBookS47(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1055,6 +1250,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat48(checked);
+                                            setBookS48(checked);
                                             checked ? increment() : decrement();
                                         }
 
@@ -1067,6 +1263,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat49(checked);
+                                            setBookS49(checked);
                                             checked ? increment() : decrement();
                                         }
                                     }}
@@ -1078,6 +1275,7 @@ export default function Seats() {
                                         } else {
                                             let checked = e.target.checked;
                                             setSeat50(checked);
+                                            setBookS50(checked);
                                             checked ? increment() : decrement();
                                         }
 
