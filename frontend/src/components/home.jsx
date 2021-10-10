@@ -77,9 +77,9 @@ export default function Home() {
                 </div>
 
             </div>
-            <div className="feedbackCards" data-aos="fade-up">
+            {/* <div className="feedbackCards" data-aos="fade-up">
                 <FeedbackCards/>
-            </div>
+            </div> */}
         </div>
     )
 }
