@@ -33,8 +33,8 @@ export default function Home() {
                             </a>
                         </div>
                         
-                        <div className="home-buttons">
-
+                         <div className="home-buttons"> 
+        
                          <Link to="./Login-Page">
                             <button>Login</button>
                             </Link>

@@ -249,8 +249,19 @@ export default function Userprofile() {
   };
 
   const [userPackage, setUserPackage] = useState();
+  const[userBooking, setUserBooking] = useState();
 
   useEffect(() => {
+    //GETTER FOR BOOKING
+    axios
+      .get(`http://localhost:8000/booking/${id}`)
+      .then((response) => {
+        setUserBooking(response?.data);
+      })
+      .catch((err) => {
+        setError(true);
+      });
+
     //Subscription Detail retriever
     axios
       .get(`http://localhost:8000/userpackage/${id}`)
@@ -307,6 +318,20 @@ export default function Userprofile() {
         alert(err);
       });
   }
+
+  
+  //REMOVE BOOKING
+  function remove_booking(pID) {
+    axios
+      .delete(`http://localhost:8000/booking/delete/${pID}`)
+      .then((req, res) => {
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
 
   ///REAL PAGE WORK START FROM HERE
   return (
@@ -449,10 +474,40 @@ export default function Userprofile() {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Destination</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Busno</th>
+                  <th scope="col">Booking id</th>
+                  <th scope="col">Seat No</th>
+                  <th scope="col">Action</th>
                 </tr>
+                
+               
+
+                {userBooking?.map((item, index) => {
+                  
+                  return (
+                    <tr key={index}>
+                      <td scope="col">{index + 1}</td>
+                      <td scope="col">{item[0].value}</td>
+                      <td scope="col">{item.map((seat, i)=>{
+                        if(i!==0){
+                          console.log(seat.key);
+                          return (`${seat.key} `);
+                          
+                        }
+                      })}</td>
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            remove_booking(item[0].value);
+                          }}
+                        >
+                          <i className="far fa-trash-alt"></i>&nbsp;Unsubscribe
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+
               </thead>
             </table>
             <br />
