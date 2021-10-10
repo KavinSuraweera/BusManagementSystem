@@ -23,6 +23,7 @@ import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
 import UserPackages from './components/UserPackages'
+import pContact from "./components/pContact";
 
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
@@ -69,6 +70,7 @@ function App() {
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
         <Route path="/Upackages" exact component={UserPackages}/>
+        <Route path="/pContact" exact component={pContact}/>
 
         <Switch>
           <Route path="/Admin-Login">
