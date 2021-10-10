@@ -10,7 +10,11 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "aos": "^2.3.4",
+<<<<<<< HEAD
     "axios": "^0.21.4",
+=======
+    "axios": "^0.21.1",
+>>>>>>> 216a0f2d3fd8886ad4a224c5422e62f87eea25f1
     "bootstrap": "^5.1.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.6",

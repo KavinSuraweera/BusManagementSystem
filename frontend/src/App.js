@@ -23,9 +23,12 @@ import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
 import UserPackages from './components/UserPackages'
+
+import pContact from "./components/pContact";
+
+
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
-import mainPayment from './components/payment/mainPayment'
 
 import schedule from "./components/ScheduleCrud/ScheduleForm";
 
@@ -79,6 +82,7 @@ function App() {
         <Route path="/payment" exact component={mainPayment} />
         
         
+
 
         <Switch>
           <Route path="/Admin-Login">
