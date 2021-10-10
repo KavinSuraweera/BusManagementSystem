@@ -128,3 +128,69 @@
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
+
+
+/*----------------UPDATE POPUP WORK----------------*/
+.profile-update-popup{
+  width: 350px;
+  height:380px;
+}
+
+.tabel-row-prof{
+}
+
+.row-gap{
+  margin-top: 10px;
+}
+
+.tabel-col-right{
+  padding-left: 5px;
+  margin-left: 20px;
+}
+
+.profile-update-popup-submitbtn{
+  background-color:#008CBA;
+  border: 0px;
+  color: white;
+  border-radius: 250px;
+  padding: 5px 0px 5px 0px;
+  width: 100px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.profile-update-popup-submitbtn:hover {
+  opacity: 1
+}
+
+/*----------DELETE POPUP CSS----------*/
+.prof-delete-popup{
+  width: 250px;
+  height: 100px;
+}
+
+.prof-delte-checkbox{
+  margin-left: 50px;
+  float: left;
+  width: 30px;
+  height: 30px;
+}
+
+.prof-delete-popup-btn{
+  padding: 3px;
+  float: left;
+  font-size: 18px;
+  text-align:center;
+  width: 100px;
+  margin-left: 20px;
+  border:0px;
+  border-radius: 10px;
+  color: white;
+  background-color: #CA0B00;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.prof-delete-popup:hover{
+opacity: 1;
+}

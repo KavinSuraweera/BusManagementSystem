@@ -3,30 +3,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
+
+    uId : {
+        type : String,
+        required : true
+    },
+
     busId : {
         type : String,
         required : true
     },
 
-    adultsCount : {
-        type : Number,
-        required : true
-    },
-
-    childrenCount : {
-        type : Number,
-        required : true
-    },
-
-    studentCount : {
-        type : Number,
-        required : true
-    },
-
     seat1 : {
         type : Boolean,
-        required : true
-
+        require : true
     },
 
     seat2 : {
@@ -324,6 +314,8 @@ const bookingSchema = new Schema({
     }
 
     
+
+
 });
 
 const booking = mongoose.model("booking", bookingSchema);
