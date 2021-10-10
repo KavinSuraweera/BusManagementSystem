@@ -217,19 +217,15 @@ export default function Userprofile() {
   const [userPackage, setUserPackage] = useState();
 
   useEffect(() => {
-
-    
-
     //Subscription Detail retriever
-    axios.
-      get(`http://localhost:8000/userpackage/${id}`)
+    axios
+      .get(`http://localhost:8000/userpackage/${id}`)
       .then((response) => {
         setUserPackage(response?.data);
       })
       .catch((err) => {
         setError(true);
       });
-
 
     //Customer Details getter
     axios
@@ -246,9 +242,8 @@ export default function Userprofile() {
       .get(`http://localhost:8000/customer/image/${id}`)
       .then((response) => {
         const data = response?.data?.image?.image?.split("/");
-        setProfilepic(data[1])
-        dispatch(setimage(data[1]))
-        ;
+        setProfilepic(data[1]);
+        dispatch(setimage(data[1]));
       })
       .catch((err) => {});
   }, []);
@@ -267,8 +262,17 @@ export default function Userprofile() {
     );
   }
 
-
-
+  //REMOVE PACKAGE
+  function remove_package(pID) {
+    axios
+      .delete(`http://localhost:8000/userpackage/delete/${pID}`)
+      .then((req, res) => {
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
 
   ///PAGE WORK START FROM HERE
   return (
@@ -370,24 +374,33 @@ export default function Userprofile() {
 
             <table className="table">
               <thead>
-              <tr>
+                <tr>
                   <th scope="col">#</th>
                   <th scope="col">Subscription Name</th>
                   <th scope="col">Expiration Date</th>
-                  <th scope="col">sample</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Action</th>
                 </tr>
 
-  
-
-                {userPackage?.map((item, index)=>{
-                  return(
+                {userPackage?.map((item, index) => {
+                  return (
                     <tr key={index}>
-                      <td scope="col">{index+1}</td>
+                      <td scope="col">{index + 1}</td>
                       <td scope="col">{item.packageName}</td>
                       <td scope="col">{item.packageDesc}</td>
                       <td scope="col">{item.packageCost}</td>
-                </tr>
-                  )        
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            remove_package(item._id);
+                          }}
+                        >
+                          <i className="far fa-trash-alt"></i>&nbsp;Unsubscribe
+                        </button>
+                      </td>
+                    </tr>
+                  );
                 })}
               </thead>
             </table>
@@ -401,7 +414,7 @@ export default function Userprofile() {
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Destination</th>
-                  <th scope="col">Date</th> 
+                  <th scope="col">Date</th>
                   <th scope="col">Busno</th>
                 </tr>
               </thead>
