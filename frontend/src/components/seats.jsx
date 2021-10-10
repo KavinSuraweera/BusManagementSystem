@@ -1,3 +1,4 @@
+
 import { React, useEffect, useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom';
 import axios from 'axios';
@@ -14,10 +15,11 @@ export default function Seats() {
 
     const [seats, setSeats] = useState("");
     const [seatsStatus, setSeatsStatus] = useState("");
+    const [disabled ,setDisabled] = useState(false);
 
-    const [seat01, setSeat1] = useState("");
-    const [seat02, setSeat2] = useState("");
-    const [seat03, setSeat3] = useState("");
+    const [seat01, setSeat1] = useState();
+    const [seat02, setSeat2] = useState();
+    const [seat03, setSeat3] = useState();
     const [seat04, setSeat4] = useState();
     const [seat05, setSeat5] = useState();
     const [seat06, setSeat6] = useState();
@@ -66,6 +68,8 @@ export default function Seats() {
     const [seat049, setSeat49] = useState();
     const [seat050, setSeat50] = useState();
 
+    const [bookS1, setBookS1] = useState()
+
 
 
     const history = useHistory();
@@ -74,11 +78,11 @@ export default function Seats() {
 
 
     const busNumber = location.state.BusNumber
-    const adult = location.state.adult
-    const child = location.state.child
-    const student = location.state.student
+    let adult = Number(location.state.adult)
+    let child = Number(location.state.child)
+    let student = Number(location.state.student)
 
-    const totPassengers = adult+child+student
+    const totalPassengers = adult + child + student
 
 
     useEffect(() => {
@@ -89,93 +93,98 @@ export default function Seats() {
             setSeat1(res.data.seats[0].seat1)
             setSeat2(res.data.seats[0].seat2)
             setSeat3(res.data.seats[0].seat3)
-            setSeat4(res.data.seats[0].seat3)
-            setSeat5(res.data.seats[0].seat3)
-            setSeat6(res.data.seats[0].seat3)
-            setSeat7(res.data.seats[0].seat3)
-            setSeat8(res.data.seats[0].seat3)
-            setSeat9(res.data.seats[0].seat3)
-            setSeat10(res.data.seats[0].seat3)
-            setSeat11(res.data.seats[0].seat3)
-            setSeat12(res.data.seats[0].seat3)
-            setSeat13(res.data.seats[0].seat3)
-            setSeat14(res.data.seats[0].seat3)
-            setSeat15(res.data.seats[0].seat3)
-            setSeat16(res.data.seats[0].seat3)
-            setSeat17(res.data.seats[0].seat3)
-            setSeat18(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
-            setSeat3(res.data.seats[0].seat3)
+            setSeat4(res.data.seats[0].seat4)
+            setSeat5(res.data.seats[0].seat5)
+            setSeat6(res.data.seats[0].seat6)
+            setSeat7(res.data.seats[0].seat7)
+            setSeat8(res.data.seats[0].seat8)
+            setSeat9(res.data.seats[0].seat9)
+            setSeat10(res.data.seats[0].seat10)
+            setSeat11(res.data.seats[0].seat11)
+            setSeat12(res.data.seats[0].seat12)
+            setSeat13(res.data.seats[0].seat13)
+            setSeat14(res.data.seats[0].seat14)
+            setSeat15(res.data.seats[0].seat15)
+            setSeat16(res.data.seats[0].seat16)
+            setSeat17(res.data.seats[0].seat17)
+            setSeat18(res.data.seats[0].seat18)
+            setSeat19(res.data.seats[0].seat19)
+            setSeat20(res.data.seats[0].seat20)
+            setSeat21(res.data.seats[0].seat21)
+            setSeat22(res.data.seats[0].seat22)
+            setSeat23(res.data.seats[0].seat23)
+            setSeat24(res.data.seats[0].seat24)
+            setSeat25(res.data.seats[0].seat25)
+            setSeat26(res.data.seats[0].seat26)
+            setSeat27(res.data.seats[0].seat27)
+            setSeat28(res.data.seats[0].seat28)
+            setSeat29(res.data.seats[0].seat29)
+            setSeat30(res.data.seats[0].seat30)
+            setSeat31(res.data.seats[0].seat31)
+            setSeat32(res.data.seats[0].seat32)
+            setSeat33(res.data.seats[0].seat33)
+            setSeat34(res.data.seats[0].seat34)
+            setSeat35(res.data.seats[0].seat34)
+            setSeat36(res.data.seats[0].seat36)
+            setSeat37(res.data.seats[0].seat37)
+            setSeat38(res.data.seats[0].seat38)
+            setSeat39(res.data.seats[0].seat39)
+            setSeat40(res.data.seats[0].seat40)
+            setSeat41(res.data.seats[0].seat41)
+            setSeat42(res.data.seats[0].seat42)
+            setSeat43(res.data.seats[0].seat43)
+            setSeat44(res.data.seats[0].seat34)
+            setSeat45(res.data.seats[0].seat45)
+            setSeat46(res.data.seats[0].seat46)
+            setSeat47(res.data.seats[0].seat47)
+            setSeat48(res.data.seats[0].seat48)
+            setSeat49(res.data.seats[0].seat49)
+            setSeat50(res.data.seats[0].seat50)
             console.log("sets eats not null")
             setSeatsStatus(!null)
-            
+
 
         }).catch((err) => {
             setSeatsStatus(null)
             console.log("set seats null")
+            setSeatsFalse()
         })
 
 
     }, [])
 
- 
-    
 
-    
-    
 
-    function bookOrAdd(){
-        if (seatsStatus == null){
+
+
+
+
+    function bookOrAdd() {
+        if (seatsStatus == null) {
             console.log("Null seats")
             bookSeats()
-        }else{
-            console.log("already exisits", )
+
+
+        } else {
+            console.log("already exisits",)
             //console.log(seats._id)
-            
+
             updateSeats(seats._id)
-            
+
         }
     }
 
+    const setSeatsFalse = () => {
+        setSeat1(false)
+    }
 
-
-
+    
 
 
     function bookSeats() {
 
         const busId = busNumber;
-        const seat1 = seat01; 
+        const seat1 = seat01;
         const seat2 = seat02;
         const seat3 = seat03;
         const seat4 = seat04;
@@ -291,7 +300,7 @@ export default function Seats() {
     function updateSeats(id) {
 
         const busId = busNumber;
-        const seat1 = seat01; 
+        const seat1 = seat01;
         const seat2 = seat02;
         const seat3 = seat03;
         const seat4 = seat04;
@@ -404,16 +413,32 @@ export default function Seats() {
         })
     }
 
-    
 
-  
+    const [count, setCount] = useState(0)
+
+    const increment = () => {
+        if(count > (totalPassengers-2 )){
+            setDisabled(true)
+            
+            
+        }
+        setCount(count + 1)
+
+    }
 
 
-    
+    const decrement = () => {
+        setCount(count - 1)
+    }
 
 
-    
-  
+    const refresh = () => {
+        window.location.reload(false);
+    }
+
+
+
+
 
     return (
         <div className="usr_background">
@@ -441,74 +466,115 @@ export default function Seats() {
 
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat1(checked);
-                                        console.log(seats.seat1?true:checked);
+                                        if (seats.seat2 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat1(checked);
+                                            setBookS1(checked)
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat1?"checked":null} className="seat occupied" /><i className={seats.seat1?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" checked={seat01 ? "checked" : null} disabled={disabled} className="seat occupied" /><i className={seat01 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat2(checked);
-                                        console.log(seats.seat2?true:checked);
+                                        if (seats.seat2 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat2(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat2?"checked":null} className="seat occupied" /><i className={seats.seat2?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat02 ? "checked" : null} className="seat occupied" /><i className={seat02 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat3(checked);
-                                        console.log(checked);
+                                        if (seats.seat3 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat3(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat3?"checked":null} className="seat occupied" /><i className={seats.seat3?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat03 ? "checked" : null} className="seat occupied" /><i className={seat03 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat4(checked);
-                                        console.log(checked);
+                                        if (seats.seat4 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat4(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat4?"checked":null} className="seat occupied" /><i className={seats.seat4?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat04 ? "checked" : null} className="seat occupied" /><i className={seat04 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat5(checked);
-                                        console.log(checked);
+                                        if (seats.seat5 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat5(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat5?"checked":null} className="seat occupied" /><i className={seats.seat5?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat05 ? "checked" : null} className="seat occupied" /><i className={seat05 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat6(checked);
-                                        console.log(checked);
+                                        if (seats.seat6 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat6(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat6?"checked":null} className="seat occupied" /><i className={seats.seat6?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat06 ? "checked" : null} className="seat occupied" /><i className={seat06 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat7(checked);
-                                        console.log(checked);
+                                        if (seats.seat7 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat7(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat7?"checked":null} className="seat occupied" /><i className={seats.seat7?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat07 ? "checked" : null} className="seat occupied" /><i className={seat07 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat8(checked);
-                                        console.log(checked);
+                                        if (seats.seat8 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat8(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat8?"checked":null} className="seat occupied" /><i className={seats.seat8?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat08 ? "checked" : null} className="seat occupied" /><i className={seat08 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat9(checked);
-                                        console.log(checked);
+                                        if (seats.seat9 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat9(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat9?"checked":null} className="seat occupied" /><i className={seats.seat9?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat09 ? "checked" : null} className="seat occupied" /><i className={seat09 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat10(checked);
-                                        console.log(checked);
+                                        if (seats.seat10 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat10(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" checked={seats.seat10?"checked":null} className="seat occupied" /><i className={seats.seat10?"i occupied fas fa-chair":"i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat010 ? "checked" : null} className="seat occupied" /><i className={seat010 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
@@ -518,74 +584,114 @@ export default function Seats() {
 
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat11(checked);
-                                        console.log(checked);
+                                        if (seats.seat11 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat11(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seat011 ? "checked" : null} className="seat occupied" /><i className={seat011 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat12(checked);
-                                        console.log(checked);
+                                        if (seats.seat12 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat12(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat12 ? "checked" : null} className="seat occupied" /><i className={seats.seat12 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat13(checked);
-                                        console.log(checked);
+                                        if (seats.seat13 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat13(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat13 ? "checked" : null} className="seat occupied" /><i className={seats.seat13 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat14(checked);
-                                        console.log(checked);
+                                        if (seats.seat14 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat14(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat14 ? "checked" : null} className="seat occupied" /><i className={seats.seat14 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat15(checked);
-                                        console.log(checked);
+                                        if (seats.seat15 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat15(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat15 ? "checked" : null} className="seat occupied" /><i className={seats.seat15 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat16(checked);
-                                        console.log(checked);
+                                        if (seats.seat16 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat16(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat16 ? "checked" : null} className="seat occupied" /><i className={seats.seat16 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat17(checked);
-                                        console.log(checked);
+                                        if (seats.seat17 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat17(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat17 ? "checked" : null} className="seat occupied" /><i className={seats.seat17 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat18(checked);
-                                        console.log(checked);
+                                        if (seats.seat18 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat18(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat18 ? "checked" : null} className="seat occupied" /><i className={seats.seat18 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat19(checked);
-                                        console.log(checked);
+                                        if (seats.seat19 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat10(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat19 ? "checked" : null} className="seat occupied" /><i className={seats.seat19 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat20(checked);
-                                        console.log(checked);
+                                        if (seats.seat20 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat20(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat20 ? "checked" : null} className="seat occupied" /><i className={seats.seat20 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
@@ -595,74 +701,114 @@ export default function Seats() {
 
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat21(checked);
-                                        console.log(checked);
+                                        if (seats.seat21 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat21(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat21 ? "checked" : null} className="seat occupied" /><i className={seats.seat21 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat22(checked);
-                                        console.log(checked);
+                                        if (seats.seat22 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat22(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat22 ? "checked" : null} className="seat occupied" /><i className={seats.seat22 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat23(checked);
-                                        console.log(checked);
+                                        if (seats.seat23 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat23(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat23 ? "checked" : null} className="seat occupied" /><i className={seats.seat23 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat24(checked);
-                                        console.log(checked);
+                                        if (seats.seat24 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat24(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat24 ? "checked" : null} className="seat occupied" /><i className={seats.seat24 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat25(checked);
-                                        console.log(checked);
+                                        if (seats.seat25 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat25(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat25 ? "checked" : null} className="seat occupied" /><i className={seats.seat25 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat26(checked);
-                                        console.log(checked);
+                                        if (seats.seat26 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat26(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat26 ? "checked" : null} className="seat occupied" /><i className={seats.seat26 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat27(checked);
-                                        console.log(checked);
+                                        if (seats.seat27 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat27(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat27 ? "checked" : null} className="seat occupied" /><i className={seats.seat27 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat28(checked);
-                                        console.log(checked);
+                                        if (seats.seat28 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat28(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat28 ? "checked" : null} className="seat occupied" /><i className={seats.seat28 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat29(checked);
-                                        console.log(checked);
+                                        if (seats.seat29 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat29(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat29 ? "checked" : null} className="seat occupied" /><i className={seats.seat29 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat30(checked);
-                                        console.log(checked);
+                                        if (seats.seat30 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat30(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat30 ? "checked" : null} className="seat occupied" /><i className={seats.seat30 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
                             <br />
@@ -672,74 +818,114 @@ export default function Seats() {
 
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat31(checked);
-                                        console.log(checked);
+                                        if (seats.seat31 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat31(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat31 ? "checked" : null} className="seat occupied" /><i className={seats.seat31 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat32(checked);
-                                        console.log(checked);
+                                        if (seats.seat32 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat32(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat32 ? "checked" : null} className="seat occupied" /><i className={seats.seat32 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat33(checked);
-                                        console.log(checked);
+                                        if (seats.seat33 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat33(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat33 ? "checked" : null} className="seat occupied" /><i className={seats.seat33 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat34(checked);
-                                        console.log(checked);
+                                        if (seats.seat34 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat34(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat34 ? "checked" : null} className="seat occupied" /><i className={seats.seat34 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat35(checked);
-                                        console.log(checked);
+                                        if (seats.seat35 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat35(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat35 ? "checked" : null} className="seat occupied" /><i className={seats.seat35 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat36(checked);
-                                        console.log(checked);
+                                        if (seats.seat36 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat36(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat36 ? "checked" : null} className="seat occupied" /><i className={seats.seat36 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat37(checked);
-                                        console.log(checked);
+                                        if (seats.seat37 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat37(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat37 ? "checked" : null} className="seat occupied" /><i className={seats.seat37 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat38(checked);
-                                        console.log(checked);
+                                        if (seats.seat38 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat38(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat38 ? "checked" : null} className="seat occupied" /><i className={seats.seat38 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat39(checked);
-                                        console.log(checked);
+                                        if (seats.seat39 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat39(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat39 ? "checked" : null} className="seat occupied" /><i className={seats.seat39 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat40(checked);
-                                        console.log(checked);
+                                        if (seats.seat40 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat40(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat40 ? "checked" : null} className="seat occupied" /><i className={seats.seat40 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
                             {/* 5th raw */}
@@ -747,74 +933,116 @@ export default function Seats() {
 
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat41(checked);
-                                        console.log(checked);
+                                        if (seats.seat41 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat41(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat41 ? "checked" : null} className="seat occupied" /><i className={seats.seat41 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat42(checked);
-                                        console.log(checked);
+                                        if (seats.seat42 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat42(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat42 ? "checked" : null} className="seat occupied" /><i className={seats.seat42 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat43(checked);
-                                        console.log(checked);
+                                        if (seats.seat43 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat43(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat43 ? "checked" : null} className="seat occupied" /><i className={seats.seat43 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat44(checked);
-                                        console.log(checked);
+                                        if (seats.seat44 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat44(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat44 ? "checked" : null} className="seat occupied" /><i className={seats.seat44 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat45(checked);
-                                        console.log(checked);
+                                        if (seats.seat45 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat45(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat45 ? "checked" : null} className="seat occupied" /><i className={seats.seat45 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat46(checked);
-                                        console.log(checked);
+                                        if (seats.seat46 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat46(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat46 ? "checked" : null} className="seat occupied" /><i className={seats.seat46 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat47(checked);
-                                        console.log(checked);
+                                        if (seats.seat47 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat47(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat47 ? "checked" : null} className="seat occupied" /><i className={seats.seat47 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat48(checked);
-                                        console.log(checked);
+                                        if (seats.seat48 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat48(checked);
+                                            checked ? increment() : decrement();
+                                        }
+
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat48 ? "checked" : null} className="seat occupied" /><i className={seats.seat48 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat49(checked);
-                                        console.log(checked);
+                                        if (seats.seat49 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat49(checked);
+                                            checked ? increment() : decrement();
+                                        }
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat49 ? "checked" : null} className="seat occupied" /><i className={seats.seat49 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
                                 <li><label><input
                                     onChange={e => {
-                                        let checked = e.target.checked;
-                                        setSeat50(checked);
-                                        console.log(checked);
+                                        if (seats.seat50 == true) {
+                                            alert("you can't book this seat")
+                                        } else {
+                                            let checked = e.target.checked;
+                                            setSeat50(checked);
+                                            checked ? increment() : decrement();
+                                        }
+
                                     }}
-                                    type="checkbox" className="seat occupied" /><i className="i fas fa-chair" value="" name="" id="i occupied"></i></label></li>
+                                    type="checkbox" disabled={disabled} checked={seats.seat50 ? "checked" : null} className="seat occupied" /><i className={seats.seat50 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
 
@@ -822,9 +1050,15 @@ export default function Seats() {
                         </div>
                     </div>
                 </form>
+                <div>
+                    {disabled?<font color="red "><p>You can't book more seats</p></font>:<p>You can book {totalPassengers-count} more seats</p>}
+                </div>
                 <button onClick={() => {
                     bookOrAdd();
                 }} className="btn btn-success">Book my seats </button>
+                <button onClick={() => {
+                    refresh();
+                }} className="btn btn-success"> Refresh </button>
 
             </div>
 
@@ -837,6 +1071,8 @@ export default function Seats() {
 
                 <h1>{adult}</h1>
                 <h1>{student}</h1>
+                <h1>{totalPassengers}</h1>
+                <h1>{count}</h1>
 
             </div>
         </div>
