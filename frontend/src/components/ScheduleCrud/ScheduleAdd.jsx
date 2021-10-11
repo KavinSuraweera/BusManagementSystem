@@ -2,7 +2,7 @@ import React, { useState, useEffect, useForms } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import '../../CSS/App.css';
-import { FindReplaceOutlined, NearMeRounded } from '@material-ui/icons';
+import { FindReplaceOutlined, MessageSharp, NearMeRounded } from '@material-ui/icons';
 
 
 export default function Addschedule(props) {
@@ -176,7 +176,9 @@ export default function Addschedule(props) {
                         value={scheduleId}
                         onChange={(e) => {
                             setscheduleId(e.target.value);
+
                         }}
+                
                         pattern = "S.[0-3]{1,5}$"
                         required
                     />
@@ -223,22 +225,111 @@ export default function Addschedule(props) {
                             setTime(e.target.value);
                         }}>
                         <option selected >...</option>
-                        <option >8:00 a.m</option>
-                        <option >8:30 a.m</option>
-                        <option >9:00 a.m</option>
-                        <option >9:30 a.m</option>
-                        <option >10:00 a.m</option>
-                        <option >11:00 a.m</option>
-                        <option >12:00</option>
-                        <option >01:00 p.m</option>
-                        <option >02:00 p.m</option>
-                        <option >03:00 p.m</option>
-                        <option >04:00 p.m</option>
-                        <option >05:00 p.m</option>
-                        <option >06:00 p.m</option>
-                        <option >07:00 p.m</option>
-                        <option >08:00 p.m</option>
-
+                        <option >03:30 A.M</option>
+                        <option >03.45 A.M</option>
+                        <option >04:00 A.M</option>
+                        <option >04:10 A.M</option>
+                        <option >04:25 A.M</option>
+                        <option >04:30 A.M</option>
+                        <option >04:45 A.M</option>
+                        <option >05:00 A.M</option>
+                        <option >05:10 A.M</option>
+                        <option >05:25 A.M</option>
+                        <option >05:30 A.M</option>
+                        <option >05:45 A.M</option>
+                        <option >06:00 A.M</option>
+                        <option >06:10 A.M</option>
+                        <option >06:25 A.M</option>
+                        <option >06:30 A.M</option>
+                        <option >06:45 A.M</option>
+                        <option >07:00 A.M</option>
+                        <option >07:10 A.M</option>
+                        <option >07:25 A.M</option>
+                        <option >07:30 A.M</option>
+                        <option >07:45 A.M</option>
+                        <option >08:00 A.M</option>
+                        <option >08:10 A.M</option>
+                        <option >08:25 A.M</option>
+                        <option >08:30 A.M</option>
+                        <option >08:45 A.M</option>
+                        <option >09:00 A.M</option>
+                        <option >09:10 A.M</option>
+                        <option >09:25 A.M</option>
+                        <option >09:30 A.M</option>
+                        <option >09:45 A.M</option>
+                        <option >10:00 A.M</option>
+                        <option >10:10 A.M</option>
+                        <option >10:25 A.M</option>
+                        <option >10:30 A.M</option>
+                        <option >10:45 A.M</option>
+                        <option >11:00 A.M</option>
+                        <option >11:10 A.M</option>
+                        <option >11:25 A.M</option>
+                        <option >11:30 A.M</option>
+                        <option >11:45 A.M</option>
+                        <option >12:00 P.M</option>
+                        <option >12:00 P.M</option>
+                        <option >12:10 P.M</option>
+                        <option >12:25 P.M</option>
+                        <option >12:30 P.M</option>
+                        <option >12:45 P.M</option>
+                        <option >01:00 P.M</option>
+                        <option >01:10 P.M</option>
+                        <option >01:25 P.M</option>
+                        <option >01:30 P.M</option>
+                        <option >01:45 P.M</option>
+                        <option >02:00 P.M</option>
+                        <option >02:10 P.M</option>
+                        <option >02:25 P.M</option>
+                        <option >02:30 P.M</option>
+                        <option >02:45 P.M</option>
+                        <option >03:00 P.M</option>
+                        <option >03:10 P.M</option>
+                        <option >03:25 P.M</option>
+                        <option >03:30 P.M</option>
+                        <option >03:45 P.M</option>
+                        <option >04:00 P.M</option>
+                        <option >04:10 P.M</option>
+                        <option >04:25 P.M</option>
+                        <option >04:30 P.M</option>
+                        <option >04:45 P.M</option>
+                        <option >05:00 P.M</option>
+                        <option >05:10 P.M</option>
+                        <option >05:25 P.M</option>
+                        <option >05:30 P.M</option>
+                        <option >05:45 P.M</option>
+                        <option >06:00 P.M</option>
+                        <option >06:10 P.M</option>
+                        <option >06:25 P.M</option>
+                        <option >06:30 P.M</option>
+                        <option >06:45 P.M</option>
+                        <option >07:00 P.M</option>
+                        <option >07:10 P.M</option>
+                        <option >07:25 P.M</option>
+                        <option >07:30 P.M</option>
+                        <option >07:45 P.M</option>
+                        <option >08:00 P.M</option>
+                        <option >08:10 P.M</option>
+                        <option >08:25 P.M</option>
+                        <option >08:30 P.M</option>
+                        <option >08:45 P.M</option>
+                        <option >09:00 P.M</option>
+                        <option >09:10 P.M</option>
+                        <option >09:25 P.M</option>
+                        <option >09:30 P.M</option>
+                        <option >09:45 P.M</option>
+                        <option >10:00 P.M</option>
+                        <option >10:10 A.M</option>
+                        <option >10:25 P.M</option>
+                        <option >10:30 P.M</option>
+                        <option >10:45 P.M</option>
+                        <option >11:00 P.M</option>
+                        <option >11:10 P.M</option>
+                        <option >11:25 P.M</option>
+                        <option >11:30 P.M</option>
+                        <option >11:45 P.M</option>
+                        <option >12:00 A.M</option>
+                        
 
 
                     </select>
