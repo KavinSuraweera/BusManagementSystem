@@ -90,7 +90,7 @@ router.route("/delete/:id").delete(async(req, res) =>{
         res.status(500).send({status:"Error with deleting bus",err : err.message})
     })
 })
-
+//fetch by busnumber for booking
 router.route("/getbybusid/:busN").get(async(req, res)=>{
     let Bnum = req.params.busN;
     const bus = await Bus.find({busNo : Bnum}).then((bus) =>{

@@ -1,8 +1,17 @@
+.extraout-container{
+  width: 1903px;
+  height: 1000px;
+}
+
+.background-img{
+  height: 95%;
+  width: 100%;
+  object-fit:cover;
+}
+
 .outermost-container {
-  display: block;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .outermost-container .outer-container {
@@ -10,7 +19,7 @@
   margin-left: 2%;
   position: absolute;
   margin-top: 200px;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 1700px;
@@ -26,6 +35,7 @@
   width: 700px;
   height: 800px;
   background-color: white;
+  opacity: 0.96;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -126,11 +136,19 @@
   width: 700px;
   height: 800px;
   background-color: white;
+  opacity: 0.96;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 
 /*----------------UPDATE POPUP WORK----------------*/
+
+.table-prof{
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
 .profile-update-popup{
   width: 350px;
   height:380px;
@@ -165,8 +183,8 @@
 
 /*----------DELETE POPUP CSS----------*/
 .prof-delete-popup{
-  width: 250px;
-  height: 100px;
+  width: 300px;
+  height: 50px;
 }
 
 .prof-delte-checkbox{
@@ -191,6 +209,25 @@
   transition: 0.3s;
 }
 
-.prof-delete-popup:hover{
+.prof-delete-popup-btn:hover{
 opacity: 1;
+}
+
+/*------------------subscription css work------------------*/
+
+.right-container hr{
+  margin: auto;
+  width: 80%;
+  margin-bottom: 20px;
+  background-color: blue;
+}
+
+.right-container .subscription-view{
+  margin-top: 20px;
+  margin-left: 25%;
+}
+
+.right-container .subscription-view2{
+  margin-top: 20px;
+  margin-left:38%;
 }

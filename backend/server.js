@@ -18,9 +18,10 @@ const routeRouter = require('./routes/route.js')
 const empRouter = require('./routes/employee.js');
 const adminRouter = require('./routes/admin.js');
 const bookingRouter = require('./routes/booking.js');
-const ownerRouter = require('./routes/posts.js');
+const ownerRouter = require('./routes/busowner.js')
 const seatsRouter = require('./routes/seats.js');
 const userPackage = require('./routes/userpackage.js')
+const busrepair= require('./routes/busrepair.js')
 
 //app midleware
 app.use(bodyParser.json());
@@ -34,8 +35,9 @@ app.use("/admin",adminRouter);
 app.use("/employee",empRouter);
 app.use("/booking",bookingRouter);
 app.use("/seats", seatsRouter);
-app.use(ownerRouter);
 app.use("/userpackage",userPackage); 
+app.use("/busowner",ownerRouter);
+app.use("/busRepair", busrepair);
 
 const PORT = 8000;
 // const DB_URL = 'mongodb+srv://user:user@busapp.1dmsk.mongodb.net/bus?retryWrites=true&w=majority';

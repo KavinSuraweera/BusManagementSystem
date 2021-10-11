@@ -4,6 +4,55 @@ const schedules = require('../models/busschedule.js')
 
 const router = express.Router();
 
+
+
+
+//GET DATA BY ID
+router.route("/:id").get((req, res)=>{
+    //GET SEATS FUNC
+    function getseat(list){
+        return list.map((seats)=>{
+            let array = [];
+            for (const [key, value] of Object.entries(seats)) {
+                if(key!="uId" && key !="busId"){
+                    if(value){
+                        array.push({key,value})
+                    }
+                }
+            
+            }
+            return array;
+            
+        })
+    }
+
+    const cusId = req.params.id;
+        booking.find({uId:cusId}).then((book) =>{     
+            res.json(getseat(JSON.parse(JSON.stringify(book))))
+        }).catch((err)=>{   
+            console.log(err)
+        })
+});
+
+//GET DATA
+router.route("/").get((req, res) =>{
+    booking.find().then((add) =>{
+        res.json(add)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+router.route("/delete/:id").delete(async(req, res) =>{
+    let adId = req.params.id;
+    const admin = await booking.findByIdAndDelete(adId).then((emp) =>{
+        res.status(200).send({status:"Booking removed sucessfully"})
+    }).catch((err)=>{S
+        console.log(err.message);
+        res.status(500).send({status:"Error with removing admin",err : err.message})
+    })
+})
+
 router.route("/add").post((req, res) =>{
     const busId =  req.body.busId;
     const uId = req.body.uId;

@@ -131,10 +131,7 @@ export default function Addpackage(props) {
                         <option selected >...</option>
                         <option >54</option>
                         <option >42</option>
-                      
-                        
-                        
-
+                    
                     </select>
                     {/* <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
                         value={NoOfSeats}
@@ -178,14 +175,19 @@ export default function Addpackage(props) {
                 </div>
 
                 <div className="col-md-5">
-                    <label htmlFor="timePeriod" className="form-label">Enter Permit ID:</label>
-                    <input type="text" required className="form-control" id="timePeriod" placeholder="Enter permit ID"
-                        value={permitID}
+                    <label htmlFor="packageName" className="form-label">Enter Bus Status:</label>
+                    <select id="depatureTime" className="form-input-2"
                         onChange={(e) => {
+                            // setShow(true);
                             setpermitID(e.target.value);
-                        }}
-                    />
-                </div>
+                        }}>
+                        <option selected >...</option>
+                        <option >Available</option>
+                        <option >Unavailable</option>
+                    
+                    </select>
+                    </div>
+
 
               
 

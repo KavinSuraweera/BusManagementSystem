@@ -31,6 +31,7 @@ export default function UserPackages() {
             packageDesc: item.description,
             packageName: item.name,
             packageCost:item.price,
+            packageTime:item.time_period,
           };
       
           axios
@@ -50,6 +51,7 @@ export default function UserPackages() {
                           {item.name}<br/>
                           {item.description}<br/>
                           {item.price}<br/>
+                          {item.time_period+" days"}<br/>
 
                           <button onClick={()=>addPackage(item)}> 
                                Subscribe
