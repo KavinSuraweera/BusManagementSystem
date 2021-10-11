@@ -1,5 +1,5 @@
 const express = require('express');
-const booking = require('../models/route.js');
+const booking = require('../models/booking.js');
 const schedules = require('../models/busschedule.js')
 
 const router = express.Router();
@@ -7,10 +7,6 @@ const router = express.Router();
 router.route("/add").post((req, res) =>{
     const busId =  req.body.busId;
     const uId = req.body.uId;
-    const adultsCount = Number(req.body.adultsCount)
-    const childrenCount = Number(req.body.childrenCount)
-    const studentCount = Number(req.body.studentCount)
-
     const seat1 = Boolean(req.body.seat1)
     const seat2 = Boolean(req.body.seat2)
     const seat3 = Boolean(req.body.seat3)
@@ -67,12 +63,10 @@ router.route("/add").post((req, res) =>{
     const seat49 = Boolean(req.body.seat49)
     const seat50 = Boolean(req.body.seat50)
 
-    const newSeats = new Seats({
+    
+
+    const newSeats = new booking({
         uId,
-        busId,
-        adultsCount,
-        childrenCount,
-        studentCount,
         busId,
         seat1, 
         seat2,
@@ -124,6 +118,8 @@ router.route("/add").post((req, res) =>{
         seat48,  
         seat49,  
         seat50
+    
+    
         
 
     })
@@ -135,7 +131,7 @@ router.route("/add").post((req, res) =>{
             });
         }
         return res.status(200).json({
-            success:"Seats booked successfully"
+            success:"booked successfully"
         })
     })
 })

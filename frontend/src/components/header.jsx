@@ -26,7 +26,11 @@ export default function header() {
                         <Link to="#" className="link">SCEDULES</Link>
                     </li>
                     <li className="item">
+<<<<<<< HEAD
                         <Link to="/viewPackages" className="link">PACKAGES</Link>
+=======
+                        <Link to="/Upackages" className="link">PACKAGES</Link>
+>>>>>>> 216a0f2d3fd8886ad4a224c5422e62f87eea25f1
                     </li>
                     <li className="item">
                         <Link to="/contact" className="link">CONTACT US</Link>

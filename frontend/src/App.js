@@ -22,6 +22,9 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
+import UserPackages from './components/UserPackages'
+
+import pContact from "./components/pContact";
 
 
 import bus from "./components/busCrud/busform";
@@ -33,6 +36,7 @@ import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
 import "./CSS/usercard.css"
+import "./CSS/feedbaclCards.css"
 import Allpackages from "./components/Allpackages";
 
 import CreatePost from './components/BusOwner/CreatePost';
@@ -41,9 +45,11 @@ import busOwner from './components/BusOwner/BusOwner';
 import PostDetails from './components/BusOwner/PostDetails';
 import ConLogin from "./components/conLogin";
 import ConDash from "./components/conductorDash";
+import feedbackCards from "./components/feedbackCards/feedbackCards"
 
 
 import {  useSelector } from 'react-redux';
+import { FreeBreakfast } from "@material-ui/icons";
 
 function App() {
 
@@ -68,6 +74,13 @@ function App() {
         <Route path="/admin" exact component={admin}/>
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
+        <Route path="/Upackages" exact component={UserPackages}/>
+
+        <Route path="/pContact" exact component={pContact}/>
+
+        
+        
+
 
         <Switch>
           <Route path="/Admin-Login">

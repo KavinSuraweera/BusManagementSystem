@@ -1,8 +1,10 @@
-import {SET_ADMINID,SET_ID,LOGOUT} from '../actions/types';
+import {SET_ADMINID,SET_ID,LOGOUT, SET_IMAGE, SET_CONID} from '../actions/types';
 
 const initialState={
     id:null,
     adminid:null,
+    conid:null,
+    imageid:null,
 }
 
 export default function(state=initialState,action){
@@ -18,6 +20,17 @@ export default function(state=initialState,action){
                 ...state,
                 adminid:action.payload
             }
+            case SET_CONID:
+                return{
+                    ...state,
+                    conid:action.payload
+                }
+            case SET_IMAGE:
+                return{
+                    ...state,
+                    imageid:action.payload
+                }        
+
 
         case LOGOUT:
             return initialState;
