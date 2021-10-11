@@ -22,7 +22,13 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
+import Schedulefront from "./components/Schedulefront";
+import busfares from "./components/busfares";
+import googlemap from "./components/googlemap";
 import UserPackages from './components/UserPackages'
+
+import pContact from "./components/pContact";
+
 
 import bus from "./components/busCrud/busform";
 import adminmain from "./components/admincrud/adminmain";
@@ -33,6 +39,7 @@ import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
 import "./CSS/usercard.css"
+import "./CSS/feedbaclCards.css"
 import Allpackages from "./components/Allpackages";
 
 import busowner from './components/BusOwner/busownermain'
@@ -40,9 +47,11 @@ import busownermain from "./components/BusOwner/busownermain";
 
 import ConLogin from "./components/conLogin";
 import ConDash from "./components/conductorDash";
+import feedbackCards from "./components/feedbackCards/feedbackCards"
 
 
 import {  useSelector } from 'react-redux';
+import { FreeBreakfast } from "@material-ui/icons";
 
 function App() {
 
@@ -65,9 +74,20 @@ function App() {
         <Route path="/routes" exact component={routes} />
         
         <Route path="/admin" exact component={admin}/>
+        <Route path="/Schedulefront" exact component={Schedulefront}/>
+        <Route path="/busfares" exact component={busfares}/>
+        <Route path="/googlemap" exact component={googlemap}/>
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
-        <Route path="/Upackages" exact component={UserPackages}/>
+
+        <Route path="/Upackages">
+          {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
+        </Route>
+
+        <Route path="/payment" exact component={mainPayment} />
+        
+        
+
 
         <Route path="/busowner" exact component={busowner}/>
 
