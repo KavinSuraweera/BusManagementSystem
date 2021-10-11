@@ -35,10 +35,9 @@ import "./CSS/seats.css";
 import "./CSS/usercard.css"
 import Allpackages from "./components/Allpackages";
 
-import CreatePost from './components/BusOwner/CreatePost';
-import EditPost from './components/BusOwner/EditPost';
-import busOwner from './components/BusOwner/BusOwner';
-import PostDetails from './components/BusOwner/PostDetails';
+import busowner from './components/BusOwner/busownermain'
+import busownermain from "./components/BusOwner/busownermain";
+
 import ConLogin from "./components/conLogin";
 import ConDash from "./components/conductorDash";
 
@@ -64,11 +63,13 @@ function App() {
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
         <Route path="/routes" exact component={routes} />
-        <Route path="/BusOwner" exact component={busOwner}/>
+        
         <Route path="/admin" exact component={admin}/>
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
         <Route path="/Upackages" exact component={UserPackages}/>
+
+        <Route path="/busowner" exact component={busowner}/>
 
         <Switch>
           <Route path="/Admin-Login">
@@ -77,14 +78,13 @@ function App() {
           <Route path="/customermain" exact component={customermain} />
           <Route path="/employeemain" exact component={employeemain} />
           <Route path="/adminmain" exact component={adminmain} />
+          <Route path="/busownermain" exact component={busownermain} />
           <Route path="/Sign-Up" exact component={userreg} />
           <Route path="/Login-Page" >
              {userID?<Redirect to="/Userprofile"/>:<UserLogin/>}
           </Route>
           <Route path="/Userprofile" exact component={Userprofile}/>    
-          <Route path="/add" component={CreatePost}></Route>
-          <Route path="/edit/:id" component={EditPost}></Route>
-          <Route path="/post/:id" component={PostDetails}></Route>
+          
         </Switch>
 
       </Router>

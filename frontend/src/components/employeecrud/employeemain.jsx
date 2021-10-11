@@ -72,6 +72,7 @@ export default function Employeemain() {
       });
     }
   }, [recordForEdit]);
+  
   return (
     <div className="usr_background">
       <Topbar/>
