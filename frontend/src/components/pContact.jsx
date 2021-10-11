@@ -2,16 +2,14 @@
 import { Link } from 'react-router-dom'
 import Header from './header'
 
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function PContact() {
+export default class pContact extends Component {
+  render() {
     return (
-        <>
-        <section class="border">
-
+      <>
+      <section class="border">
 <div class="card">
-
-
   <div class="row">
     <div class="col-lg-8">
       <div class="card-body form">   
@@ -78,18 +76,18 @@ export default function PContact() {
     
     <div class="col-lg-4">
 
-      <div class="card-body contact text-center h-100 white-text">
+      <div class="card-body contact text-center h-100 blue-text">
 
         <h3 class="my-4 pb-2">Contact information</h3>
         <ul class="text-lg-left list-unstyled ml-4">
           <li>
-            <p><i class="fas fa-map-marker-alt pr-2"></i>New York, 94126, USA</p>
+            <p><i class="fas fa-map-marker-alt pr-2"></i>14/9-1,Rajamaha Vihara Rd,Navinna,Maharagama</p>
           </li>
           <li>
-            <p><i class="fas fa-phone pr-2"></i>+ 01 234 567 89</p>
+            <p><i class="fas fa-phone pr-2"></i>+94 77 602 7072</p>
           </li>
           <li>
-            <p><i class="fas fa-envelope pr-2"></i>contact@example.com</p>
+            <p><i class="fas fa-envelope pr-2"></i>buzzybus@gmail.com</p>
           </li>
         </ul>
         <hr class="hr-light my-4"/>
@@ -117,10 +115,8 @@ export default function PContact() {
 </div>
 </section>
 
-
-
- 
-</>
         
+      </>
     )
+  }
 }
