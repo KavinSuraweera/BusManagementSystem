@@ -39,6 +39,9 @@ import "./CSS/booking.css";
 import "./CSS/seats.css";
 import "./CSS/usercard.css"
 import "./CSS/feedbaclCards.css"
+import "./CSS/aboutusCards.css"
+import "./CSS/payment.css"
+
 import Allpackages from "./components/Allpackages";
 
 import busowner from './components/BusOwner/busownermain'

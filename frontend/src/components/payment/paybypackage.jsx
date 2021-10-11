@@ -18,10 +18,6 @@ export default function paybycard() {
             <div className="content">
                 <div className="blue-bar">
                     <div className="icons">
-                        <h1> <RiVisaFill /> </h1>
-                        <h1> <FaCcMastercard /> </h1>
-                        <h1> <SiAmericanexpress /> </h1>
-                        <h1> <FaApplePay /> </h1>
                     </div>
                 </div>
 
@@ -29,8 +25,6 @@ export default function paybycard() {
 
                 <div className="form1">
                     <form action="">
-                        <br />
-                        <br />
                         <label htmlFor="name-on-card">
                             Name on card :
                         </label>
@@ -45,7 +39,7 @@ export default function paybycard() {
                 </div>
                 
                 <div className="payButton">
-                <Button variant="primary" ><BsCashCoin /> Book seats by package</Button>{' '}
+                <Button variant="primary" ><BsCashCoin /> Book by package </Button>{' '}
                 </div>
             </div>
         </div>

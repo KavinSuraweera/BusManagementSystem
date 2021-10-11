@@ -11,6 +11,11 @@
     text-align: center;
 }
 
+.selection{
+  width: 100%;
+  height: 30px;
+}
+
 .payment_headings h1{
     letter-spacing: 12px;
 }
