@@ -20,8 +20,6 @@ export default function Addpackage(props) {
 
     function sendData() {
 
-
-
         const newBus = {
             id: '0',
             busNo,
@@ -70,9 +68,6 @@ export default function Addpackage(props) {
     }
 
 
-
-
-
     useEffect(() => {
         if (recordForEdit != null) {
             setBus({
@@ -102,9 +97,6 @@ export default function Addpackage(props) {
         }
 
     }
-
-
-
 
     return (
         <div className="popup_container">
@@ -161,17 +153,9 @@ export default function Addpackage(props) {
                         <option >Luxury</option>
                         <option >Semi-Luxury</option>
                         <option >Regular</option>
-                      
-                        
-                        
 
                     </select>
-                    {/* <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
-                        value={NoOfSeats}
-                        onChange={(e) => {
-                            setNoOfSeats(e.target.value);
-                        }}
-                    /> */}
+ 
                 </div>
 
                 <div className="col-md-5">
@@ -187,9 +171,6 @@ export default function Addpackage(props) {
                     
                     </select>
                     </div>
-
-
-              
 
                 <div>
                     <input type="submit" className="btn btn-primary" href="/home" value="Submit" />

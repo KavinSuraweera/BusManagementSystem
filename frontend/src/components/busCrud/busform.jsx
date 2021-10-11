@@ -39,17 +39,6 @@ export default function Allbus() {
     }, [])
 
 
-
-    // const [pId, setId] = useState("")
-    // function sendId(pId) {
-
-
-
-
-    // }
-
-
-
     function onDelete(kId) {
       
       axios.delete(`http://localhost:8000/bus/delete/${kId}`).then((req, res) => {
@@ -60,15 +49,11 @@ export default function Allbus() {
     }
 
 
-
-
     const openInPopup = bus => {
         setRecordForEdit(bus);
         setOpenPopup(true);
         console.log(bus)
     }
-
-
 
 
     function refreshpage(){
@@ -90,24 +75,9 @@ export default function Allbus() {
 
     }
 
-
-
-
-    // update error fixed ---------------------
-
-
     const [updateBtn, setUpdatebtn] = useState(false);
     console.log(updateBtn);
 
-    // const updateBtnactive = () =>{
-
-    //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
-    //     }
-
-
-
-
-    //------------------------------------------ 
     return (
         <div className="usr_background">
             <Sidebar/>
@@ -118,9 +88,6 @@ export default function Allbus() {
             </div>
 
             <div className="container">
-
-
-
 
                 <table className="table">
                     <thead>
@@ -194,3 +161,4 @@ export default function Allbus() {
         </div>
     )
 }
+

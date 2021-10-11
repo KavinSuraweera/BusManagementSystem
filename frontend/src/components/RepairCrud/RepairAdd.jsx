@@ -58,7 +58,6 @@ export default function Addrepair(props) {
 
     };
 
-
     useEffect(() => {
         const getBus = () => {
             axios.get("http://localhost:8000/bus/").then((res) => {
@@ -115,10 +114,6 @@ export default function Addrepair(props) {
         }
 
     }
-
-
-
-
 
     return (
         <div className="popup_container">

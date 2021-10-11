@@ -79,7 +79,7 @@ export default function Repairmain() {
       <Topbar />
       <Sidebar />
       <div className="table-name">
-                <h1>Bus Repaire</h1>
+                <h1>Available Repair Buses</h1>
                 <hr/>
             </div>
 
@@ -134,7 +134,7 @@ export default function Repairmain() {
           </tbody>
         </table>
         <button className="btn btn-success" onClick={() => setOpenPopup(true)}>
-          Add Bus to be Repaired
+          Add Buses to be Repaired
         </button>
         <Popup
           title="Repair Form"
