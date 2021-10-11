@@ -1,10 +1,11 @@
-import {SET_ADMINID,SET_ID,LOGOUT, SET_IMAGE, SET_CONID} from '../actions/types';
+import {SET_ADMINID,SET_ID,LOGOUT, SET_IMAGE, SET_CONID, SET_SEARCH} from '../actions/types';
 
 const initialState={
     id:null,
     adminid:null,
     conid:null,
     imageid:null,
+    search:""
 }
 
 export default function(state=initialState,action){
@@ -29,7 +30,12 @@ export default function(state=initialState,action){
                 return{
                     ...state,
                     imageid:action.payload
-                }        
+                }  
+            case SET_SEARCH:
+                return{
+                    ...state,
+                    search:action.payload
+                }         
 
 
         case LOGOUT:

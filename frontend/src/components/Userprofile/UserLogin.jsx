@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setid } from "../../actions/authAction";
 import Header from "../header";
 import LoginImg from "../../img/login/loginimg.jpg";
-import LoginBack from "../../img/login/loginback.png"
+import LoginBack from "../../img/login/london-bus.jpg"
 
 
 export default function UserLogin() {
@@ -68,8 +68,14 @@ export default function UserLogin() {
             </div>
 
             <button className="submitbtn" onClick={submit}>
-              L O G I N
+              LOGIN
             </button>
+            <p>If you do not have an account already</p>
+            {/* <Link to="./Sign-Up">
+            <button className="submitbtn">
+              SIGN UP
+            </button>
+            </Link> */}
 
           </div>
         </div>

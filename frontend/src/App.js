@@ -79,7 +79,7 @@ function App() {
           {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
         </Route>
 
-        <Route path="/payment" exact component={mainPayment} />
+        {/*<Route path="/payment" exact component={mainPayment} />*/}
         
         
 

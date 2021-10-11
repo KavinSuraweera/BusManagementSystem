@@ -1,13 +1,28 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Popup from "../../components/popup";
 import Addadmin from "./adminadd";
 import Header from "../header";
 import Sidebar from "../dashbord/sidebar/sidebar"
 import Topbar from "../dashbord/topbar/tobbar";
+import { useDispatch, useSelector} from 'react-redux';
+import {setsearch} from '../../actions/authAction'
+
+import {
+  MatchText,
+  SearchProvider,
+  SearchContext,
+  SearchEventContext,
+} from 'react-ctrl-f';
 
 export default function Allpackages() {
+
+  const { searchValue, activeCount, totalCount } = useContext(SearchContext);
+  const { onSearchChange, onPrev, onNext } = useContext(SearchEventContext);
+
+  const dispatch = useDispatch();
+  
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
   const [admin, setAdmin] = useState([]);
@@ -27,6 +42,10 @@ export default function Allpackages() {
   }
 
   useEffect(() => {
+
+    //reset search
+    dispatch(setsearch(""));
+
     const getAdmin = () => {
       axios
         .get("http://localhost:8000/admin/")
@@ -91,16 +110,46 @@ export default function Allpackages() {
   //     }
 
   //------------------------------------------
+
+  //----------------------------------search ekaaa----------------------------------
+  const search = useSelector((state)=>state.auth.search);
+
+  const getHighlightedText=(text="", highlight)=> 
+  {
+    // Split text on highlight term, include term itself into parts, ignore case
+    const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
+    return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
+  }
+
+  const[down,Setdown] = useState(false);
+
+  //--------report generation--------------
+
+  const reportGen=()=>{
+    axios
+    .get(`http://localhost:8000/Report`)
+    .then((response) => {
+      Setdown(true);
+      
+    })
+    .catch((err) => {});
+  }
+
+
+  
   return (
+    
     <div className="usr_background">
       <Topbar />
       <Sidebar />
+        
       <div className="table-name">
         <h1>Admin</h1>
         <hr />
       </div>
 
       <div className="container">
+
         <table className="table">
           <thead>
             <tr>
@@ -117,12 +166,12 @@ export default function Allpackages() {
             {admin.map((admin, index) => (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
-                <td>{admin.NIC}</td>
-                <td>{admin.Name}</td>
-                <td>{admin.Phone}</td>
-                <td>{admin.Type}</td>
-                <td>{admin.Email}</td>
-                <td>{admin.Password}</td>
+                <td>{getHighlightedText(admin.NIC,search)}</td>
+                <td>{getHighlightedText(admin.Name,search)}</td>
+                <td>{getHighlightedText(admin.Phone,search)}</td>
+                <td>{getHighlightedText(admin.Type,search)}</td>
+                <td>{getHighlightedText(admin.Email,search)}</td>
+                <td>{getHighlightedText(admin.Password,search)}</td>
                 <td>
                   <button type="button" class="btn btn-primary">
                     <i class="far fa-eye"></i>&nbsp;View
@@ -152,6 +201,7 @@ export default function Allpackages() {
             ))}
           </tbody>
         </table>
+        
         <button
           className="btn btn-success"
           onClick={() => {
@@ -161,6 +211,21 @@ export default function Allpackages() {
         >
           Add new Admin
         </button>
+
+        <button
+          className="btn btn-success"
+          onClick={reportGen}
+        >
+          Generate Report
+        </button>
+
+        {down&&< a href="http://localhost:8000/pdf/output.pdf" download> 
+        <button
+          className="btn btn-success">
+            DOWNLOAD PDF
+        </button>
+        </a>}
+
         <Popup
           title={updateBtn ? "Update Admin form" : "Add new Admin form"}
           openPopup={openPopup}
@@ -170,6 +235,14 @@ export default function Allpackages() {
           <Addadmin recordForEdit={recordForEdit} addOrEdit={addOrEdit} />
         </Popup>
       </div>
-    </div>
+      </div>
   );
 }
+
+
+
+
+
+
+
+
