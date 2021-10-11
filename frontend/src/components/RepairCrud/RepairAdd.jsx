@@ -28,7 +28,7 @@ export default function Addrepair(props) {
 
 
 
-        const newSchedule = {
+        const newRepair = {
             id: '0',
             BusNumber,
             RepairReason,
@@ -111,7 +111,7 @@ export default function Addrepair(props) {
         else {
 
 
-            editSchedule(repair._id)
+            editRepair(repair._id)
         }
 
     }
