@@ -27,6 +27,12 @@ export default function contactUs() {
             </button><br/><br/>
             </Link>
 
+            <Link to="./conLogin">
+            <button>
+                Employee Login
+            </button><br/><br/>
+            </Link>
+
         </div>
     )
 }

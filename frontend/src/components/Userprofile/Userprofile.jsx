@@ -5,10 +5,9 @@ import { useParams, useHistory } from "react-router-dom";
 import "./ProfileCSS/Userprofile.css";
 import Popup from "./userpopup";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../actions/authAction";
-import { setid } from "../../actions/authAction";
+import { logout, setimage, setid } from "../../actions/authAction";
 import Header from "../header";
-
+import Background from "../../img/profilepage_background.jpg"
 
 //DELETE CUSTOMER
 function DeleteCustomer({ id }) {
@@ -30,15 +29,20 @@ function DeleteCustomer({ id }) {
   const [btnlock, setBtnlock] = useState(false);
   console.log(btnlock);
 
+
   return (
-    <div>
+    <div className="prof-delete-popup">
+      <h6>Once deleted profile cannot be retrieved.</h6>
+      <p>Are you sure you want to delete profile?</p>
       <input
+       className="prof-delte-checkbox"
         onChange={() => setBtnlock(!btnlock)}
         value={btnlock}
         type="checkbox"
-      ></input>
+      >  
+      </input>
       <button
-        className="logout-btn"
+        className="prof-delete-popup-btn"
         onClick={deleteProfile}
         disabled={!btnlock}
       >
@@ -80,75 +84,103 @@ function UpdateCustomer({ customer, setOpenPopup }) {
         alert(err);
       });
   };
-
+  //UPDATE POPUP EKE PART EKAK
   return (
-    <div>
+    <div className="profile-update-popup">
       <center>
-        <div className="form">
-          Username:
-          <input
-            type="text"
-            name="UserName"
-            value={profile.UserName}
-            placeholder="First Name"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          First Name:
-          <input
-            type="text"
-            name="FirstName"
-            value={profile.FirstName}
-            placeholder="First Name"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Last Name:
-          <input
-            type="text"
-            name="LastName"
-            value={profile.LastName}
-            placeholder="Last Name"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Phone:
-          <input
-            type="tel"
-            name="Phone"
-            value={profile.Phone}
-            placeholder="Phone"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Email:
-          <input
-            type="email"
-            name="Email"
-            value={profile.Email}
-            placeholder="Email"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          Enter Password:
-          <input
-            type="text"
-            name="Password"
-            value={profile.Password}
-            placeholder="Enter Password"
-            onChange={onChange}
-          />
-          <br />
-          <br />
-          <button className="submit-btn" onClick={updateProfile}>
-            Submit
-          </button>
-        </div>
+      <table>
+       <tr className="tabel-row-prof">
+          <td >Username:</td>  
+          <td>
+            <input
+              className="tabel-col-right"
+              type="text"
+              name="UserName"
+              value={profile.UserName}
+              placeholder="First Name"
+              onChange={onChange}
+            />
+          </td>
+        </tr>
+
+        <tr className="tabel-row-prof">
+          <td className="row-gap">First Name:</td>
+          <td>
+            <input
+              className="tabel-col-right row-gap" 
+              type="text"
+              name="FirstName"
+              value={profile.FirstName}
+              placeholder="First Name"
+              onChange={onChange}
+            />
+          </td>
+        </tr>
+
+        <tr className="tabel-row-prof">
+          <td className="row-gap">Last Name:</td>
+          <td>
+            <input
+              className="tabel-col-right row-gap"
+              type="text"
+              name="LastName"
+              value={profile.LastName}
+              placeholder="Last Name"
+              onChange={onChange}
+            />
+          </td>
+        </tr>
+
+        <tr className="tabel-row-prof">
+          <td className="row-gap">Phone:</td>
+          <td>
+            <input
+              className="tabel-col-right row-gap"
+              type="tel"
+              name="Phone"
+              value={profile.Phone}
+              placeholder="Phone"
+              onChange={onChange}
+            />
+          </td>
+        </tr>
+
+        <tr className="tabel-row-prof">
+          <td className="row-gap">Email:</td>
+          <td>
+            <input
+              className="tabel-col-right row-gap"
+              type="email"
+              name="Email"
+              value={profile.Email}
+              placeholder="Email"
+              onChange={onChange}
+            />
+          </td>
+        </tr>
+
+        <tr className="tabel-row-prof">
+          <td className="row-gap">Enter Password:</td>
+          <td>
+            <input
+              className="tabel-col-right row-gap"
+              type="text"
+              name="Password"
+              value={profile.Password}
+              placeholder="Enter Password"
+              onChange={onChange}
+            />
+          </td>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <button
+        className="profile-update-popup-submitbtn"
+        onClick={updateProfile}
+      >
+        Submit
+      </button>
       </center>
     </div>
   );
@@ -216,7 +248,31 @@ export default function Userprofile() {
       });
   };
 
+  const [userPackage, setUserPackage] = useState();
+  const[userBooking, setUserBooking] = useState();
+
   useEffect(() => {
+    //GETTER FOR BOOKING
+    axios
+      .get(`http://localhost:8000/booking/${id}`)
+      .then((response) => {
+        setUserBooking(response?.data);
+      })
+      .catch((err) => {
+        setError(true);
+      });
+
+    //Subscription Detail retriever
+    axios
+      .get(`http://localhost:8000/userpackage/${id}`)
+      .then((response) => {
+        setUserPackage(response?.data);
+      })
+      .catch((err) => {
+        setError(true);
+      });
+
+    //Customer Details getter
     axios
       .get(`http://localhost:8000/customer/${id}`)
       .then((response) => {
@@ -232,6 +288,7 @@ export default function Userprofile() {
       .then((response) => {
         const data = response?.data?.image?.image?.split("/");
         setProfilepic(data[1]);
+        dispatch(setimage(data[1]));
       })
       .catch((err) => {});
   }, []);
@@ -250,10 +307,38 @@ export default function Userprofile() {
     );
   }
 
+  //REMOVE PACKAGE
+  function remove_package(pID) {
+    axios
+      .delete(`http://localhost:8000/userpackage/delete/${pID}`)
+      .then((req, res) => {
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  
+  //REMOVE BOOKING
+  function remove_booking(pID) {
+    axios
+      .delete(`http://localhost:8000/booking/delete/${pID}`)
+      .then((req, res) => {
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+
+  ///REAL PAGE WORK START FROM HERE
   return (
-    <div>
+    <div className="extraout-container">
       <div className="outermost-container">
         <Header />
+        <img className="background-img" src={Background}/>
         <div className="outer-container">
           <div className="left-container">
             <div className="profilepic-container">
@@ -281,8 +366,7 @@ export default function Userprofile() {
             </div>
 
             <div className="button-container">
-
-            <div className="imageadd">
+              <div className="imageadd">
                 {!profilepic && (
                   <input
                     type="file"
@@ -329,7 +413,7 @@ export default function Userprofile() {
 
               <Popup
                 openPopup={openPopup}
-                title={isupdate ? "Update Profile form" : "Delete Profile form"}
+                title={isupdate ? "Update Profile Form" : "Delete Profile Form"}
                 setOpenPopup={setOpenPopup}
               >
                 {isupdate ? (
@@ -343,18 +427,92 @@ export default function Userprofile() {
               </Popup>
             </div>
           </div>
+
+          {/*---------------------RIGHT SIDE-------------------------- */}
           <div className="right-container">
-            <h1>HEllO</h1>
+            <h2 className="subscription-view">Subscribed Packages</h2>
+            <hr/>
+
+            <table className="table table-prof">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Subscription Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Validity</th>
+                  <th scope="col">Action</th>
+                </tr>
+
+                {userPackage?.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td scope="col">{index + 1}</td>
+                      <td scope="col">{item.packageName}</td>
+                      <td scope="col">{item.packageDesc}</td>
+                      <td scope="col">{item.packageTime +" days"}</td>
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            remove_package(item._id);
+                          }}
+                        >
+                          <i className="far fa-trash-alt"></i>&nbsp;Unsubscribe
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </thead>
+            </table>
             <br />
-            <h1>HEllO</h1>
             <br />
-            <h1>HEllO</h1>
+
+            <h2 className="subscription-view2">Bookings</h2>
+            <hr />
+            <table className="table" >
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Booking id</th>
+                  <th scope="col">Seat No</th>
+                  <th scope="col">Action</th>
+                </tr>
+                
+               
+
+                {userBooking?.map((item, index) => {
+                  
+                  return (
+                    <tr key={index}>
+                      <td scope="col">{index + 1}</td>
+                      <td scope="col">{item[0].value}</td>
+                      <td scope="col">{item.map((seat, i)=>{
+                        if(i!==0){
+                          console.log(seat.key);
+                          return (`${seat.key} `);
+                          
+                        }
+                      })}</td>
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            remove_booking(item[0].value);
+                          }}
+                        >
+                          <i className="far fa-trash-alt"></i>&nbsp;Unsubscribe
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+
+              </thead>
+            </table>
             <br />
-            <h1>HEllO</h1>
             <br />
-            <h1>HEllO</h1>
-            <br />
-            <h1>HEllO</h1>
+
             <br />
           </div>
         </div>

@@ -49,7 +49,10 @@ export default function Allpackages() {
     // const [pId, setId] = useState("")
     // function sendId(pId) {
 
-
+    function refreshpage(){
+        window.location.reload();
+    }
+    
 
 
     // }

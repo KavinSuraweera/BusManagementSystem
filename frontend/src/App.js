@@ -22,9 +22,15 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
+<<<<<<< HEAD
 import Schedulefront from "./components/Schedulefront";
 import busfares from "./components/busfares";
 import googlemap from "./components/googlemap";
+=======
+import UserPackages from './components/UserPackages'
+
+import pContact from "./components/pContact";
+>>>>>>> e07b25d6c4c2ce59dc6756e4f43cbc0c04665c40
 
 
 import bus from "./components/busCrud/busform";
@@ -36,16 +42,20 @@ import "./CSS/App.css";
 import "./CSS/booking.css";
 import "./CSS/seats.css";
 import "./CSS/usercard.css"
+import "./CSS/feedbaclCards.css"
 import Allpackages from "./components/Allpackages";
 
 import CreatePost from './components/BusOwner/CreatePost';
 import EditPost from './components/BusOwner/EditPost';
 import busOwner from './components/BusOwner/BusOwner';
 import PostDetails from './components/BusOwner/PostDetails';
-
+import ConLogin from "./components/conLogin";
+import ConDash from "./components/conductorDash";
+import feedbackCards from "./components/feedbackCards/feedbackCards"
 
 
 import {  useSelector } from 'react-redux';
+import { FreeBreakfast } from "@material-ui/icons";
 
 function App() {
 
@@ -68,9 +78,23 @@ function App() {
         <Route path="/routes" exact component={routes} />
         <Route path="/BusOwner" exact component={busOwner}/>
         <Route path="/admin" exact component={admin}/>
+<<<<<<< HEAD
         <Route path="/Schedulefront" exact component={Schedulefront}/>
         <Route path="/busfares" exact component={busfares}/>
         <Route path="/googlemap" exact component={googlemap}/>
+=======
+        <Route path="/conLogin" exact component={ConLogin}/>
+        <Route path="/conDash" exact component={ConDash}/>
+
+        <Route path="/Upackages">
+          {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
+        </Route>
+
+        <Route path="/payment" exact component={mainPayment} />
+        
+        
+
+>>>>>>> e07b25d6c4c2ce59dc6756e4f43cbc0c04665c40
 
         <Switch>
           <Route path="/Admin-Login">

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function header() {
     return (
         <div>
-            <div className="marquee effect2"><div className="header-logo"></div></div>
+            
             <div className="blue_line">
             </div>
             <nav className="navbar navbar-expand-lg ">
@@ -26,7 +26,7 @@ export default function header() {
                         <Link to="#" className="link">SCEDULES</Link>
                     </li>
                     <li className="item">
-                        <Link to="#" className="link">PACKAGES</Link>
+                        <Link to="/Upackages" className="link">PACKAGES</Link>
                     </li>
                     <li className="item">
                         <Link to="/contact" className="link">CONTACT US</Link>

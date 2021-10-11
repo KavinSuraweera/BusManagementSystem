@@ -1,4 +1,172 @@
-.inner-container {
+.page-div{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+ .outer-shell{
+  position: fixed;
+  width: 1002px;
+  top: 25%;
+  left: 25%;
+  height: 502px;
+
+} 
+
+.left1-container{
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 500px;
+  height: 500px;
+  z-index: 9;
+  background-color: white;
+} 
+
+.right1-container{
+  display: inline-block;
+  position: relative;
+  right: 0;
+  float: left;
+  width: 500px;
+  height: 500px;
+}
+
+.image-login-form{
+  width: 800px;
+  height: 500px;
+  margin-left: -300px;
+}
+
+.LoginHeader{
+  margin-left: 20%;
+  margin-top: 10px;
+}
+
+/*css for form*/
+.f1{
+  margin-left: 20%;
+  margin-top: 20%;
+}
+
+.centerf{
+  margin-left: 100px;
+}
+
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+.login-input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.login-input:focus { outline:none; }
+
+/* LABEL ======================================= */
+ .login-label{
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.login-input :focus ~ .login-label , .login-input:valid ~ .login-label  		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+.login-input :focus ~ .bar:before, .login-input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.login-input :focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+
+.submitbtn{
+  background-color: #1B4F72 ;
+  width: 150px;
+  margin-left: 20%;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+} 
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////*/
+/* #center{
+  position: relative;
+  top: 25%;
+  left: 25%;
+} */
+
+
+/* .inner-container {
   display: block;
   width: 100%;
   height: 100%;
@@ -52,4 +220,4 @@
 
 .Forgotp{
     margin-left:350px;
-}
+} */

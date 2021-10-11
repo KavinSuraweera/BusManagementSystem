@@ -165,6 +165,11 @@ export default function Addpackage(props) {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            //validations
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+
+            required
+
           />
         </div>
 
