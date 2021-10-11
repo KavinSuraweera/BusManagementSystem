@@ -22,15 +22,12 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
-<<<<<<< HEAD
 import Schedulefront from "./components/Schedulefront";
 import busfares from "./components/busfares";
 import googlemap from "./components/googlemap";
-=======
 import UserPackages from './components/UserPackages'
 
 import pContact from "./components/pContact";
->>>>>>> e07b25d6c4c2ce59dc6756e4f43cbc0c04665c40
 
 
 import bus from "./components/busCrud/busform";
@@ -78,11 +75,9 @@ function App() {
         <Route path="/routes" exact component={routes} />
         <Route path="/BusOwner" exact component={busOwner}/>
         <Route path="/admin" exact component={admin}/>
-<<<<<<< HEAD
         <Route path="/Schedulefront" exact component={Schedulefront}/>
         <Route path="/busfares" exact component={busfares}/>
         <Route path="/googlemap" exact component={googlemap}/>
-=======
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
 
@@ -94,7 +89,6 @@ function App() {
         
         
 
->>>>>>> e07b25d6c4c2ce59dc6756e4f43cbc0c04665c40
 
         <Switch>
           <Route path="/Admin-Login">
