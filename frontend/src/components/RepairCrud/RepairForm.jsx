@@ -142,7 +142,7 @@ export default function Repairmain() {
           setOpenPopup={setOpenPopup}
           refreshpage={refreshpage}
         >
-          <AddSchedule recordForEdit={recordForEdit} />
+          <AddRepair recordForEdit={recordForEdit} />
         </Popup>
       </div>
     </div>

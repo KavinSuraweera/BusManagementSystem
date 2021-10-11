@@ -25,6 +25,7 @@ import admin from './components/admincrud/adminmain'
 import Schedulefront from "./components/Schedulefront";
 import busfares from "./components/busfares";
 import UserPackages from './components/UserPackages'
+import repair from './components/RepairCrud/RepairForm'
 
 import pContact from "./components/pContact";
 
@@ -55,6 +56,7 @@ import mainPayment from "./components/payment/mainPayment";
 import {  useSelector } from 'react-redux';
 import { FreeBreakfast } from "@material-ui/icons";
 
+
 function App() {
 
   const  userID  = useSelector(state => state.auth.id)
@@ -80,7 +82,7 @@ function App() {
         <Route path="/busfares" exact component={busfares}/>
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
-
+        <Route path="/repair" exact component={repair}/>
         <Route path="/Upackages">
           {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
         </Route>
