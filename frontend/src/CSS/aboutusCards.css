@@ -1,0 +1,55 @@
+.about-us-cards{
+
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.card-layout{
+    
+    align-items: center;
+    text-align: center;
+    background-color: green;
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    text-align: center;
+}
+
+.aboutcard{
+    display: inline-block;
+    float: left;
+    background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    width: 300px;
+    height: 500px;
+    border-radius: 5px;
+    margin:     5px;
+    text-align: center;
+    border-radius: 20px;
+
+}
+
+.aboutcard .image-view{
+    display: block;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background-color: tomato;
+    border-radius: 50% ;
+    margin: auto;
+    margin-top: 12px;
+}
+
+.aboutcard .text-view{
+    padding:10px;
+}
+
+.aboutcard .text-view h1{
+    letter-spacing: 5px;
+
+}
+
+.aboutcard .text-view p{
+    letter-spacing: 2px;
+    color: #707070;
+
+}
