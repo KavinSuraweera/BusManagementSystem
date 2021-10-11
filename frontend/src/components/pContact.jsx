@@ -76,7 +76,7 @@ export default class pContact extends Component {
     
     <div class="col-lg-4">
 
-      <div class="card-body contact text-center h-100 blue-text">
+      <div class="card-body contact text-center h-100 black-text">
 
         <h3 class="my-4 pb-2">Contact information</h3>
         <ul class="text-lg-left list-unstyled ml-4">
