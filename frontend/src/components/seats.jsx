@@ -1,6 +1,6 @@
 
 import { React, useEffect, useState } from 'react'
-import { useLocation, useHistory, Link  } from 'react-router-dom';
+import { useLocation, useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from './header';
 import { useSelector, useDispatch } from "react-redux";
@@ -130,6 +130,11 @@ export default function Seats() {
     let adult = Number(location.state.adult)
     let child = Number(location.state.child)
     let student = Number(location.state.student)
+    let routeId = location.state.routeId
+    let routeName = location.state.routeName
+    let time = location.state.time
+
+
 
     const totalPassengers = adult + child + student
 
@@ -477,8 +482,19 @@ export default function Seats() {
 
         axios.put(`http://localhost:8000/seats/update/${id}`, updateSeats).then(() => {
             alert("Seats booked ")
-            window.location.reload(false); 
-            history.push("/payment");
+            window.location.reload(false);
+            ;
+            history.push("/payment", {
+                BusNumber: busId ,
+                adult: adult,
+                child: child,
+                student: student,
+                routeName: routeName,
+                routeId: routeId,
+                time: time,
+             
+                
+            })
         }).catch((err) => {
             alert(err)
         })
@@ -514,7 +530,7 @@ export default function Seats() {
         const busId = busNumber;
         const seat1 = bookS1;
         const seat2 = bookS2;
-        const seat3= bookS3;
+        const seat3 = bookS3;
         const seat4 = bookS4;
         const seat5 = bookS5;
         const seat6 = bookS6;
@@ -562,7 +578,7 @@ export default function Seats() {
         const seat48 = bookS48;
         const seat49 = bookS49;
         const seat50 = bookS50;
-         
+
 
         const newUserBooking = {
             uId,
@@ -617,7 +633,7 @@ export default function Seats() {
             seat48,
             seat49,
             seat50,
-            
+
         }
 
         axios.post("http://localhost:8000/booking/add", newUserBooking).then(() => {
@@ -629,17 +645,37 @@ export default function Seats() {
 
 
 
-   
-      
-        function push() {
-         
-        }
-      
+
+    function push() {
+
+    }
+
 
 
     return (
         <div className="usr_background">
             <Header />
+            <div className="bookingdetails">
+                <div>
+
+
+    
+
+                    <h1>{busNumber}</h1>
+                    <h1>{routeName}</h1>
+                    <h1>{time}</h1>
+                    
+                    <hr/>
+
+                    <p>Count of Adults : &nbsp; &nbsp; &nbsp; &nbsp; {adult}</p>
+                    <p>Count of Childs : &nbsp; &nbsp; &nbsp; &nbsp; {child}</p>
+                    <p>Count of Students : &nbsp; &nbsp;{student}</p>
+                    <hr/>
+                    <p>Total passengers : &nbsp; &nbsp;&nbsp;&nbsp;{totalPassengers}</p>
+                    <hr/>
+
+                </div>
+            </div>
             <div className="seat-container">
                 <button type="button" className="btn btn-primary"
                     onClick={() => {
@@ -647,7 +683,7 @@ export default function Seats() {
                     }
                     }>
 
-                    <i className="fas fa-backward"></i></button>
+                    <i className="fas fa-backward"></i> Back to route selection</button>
                 <h1>SELECT SEATS</h1>
                 <hr />
                 <form>
@@ -1164,7 +1200,7 @@ export default function Seats() {
                                     type="checkbox" disabled={disabled} checked={seats.seat40 ? "checked" : null} className="seat occupied" /><i className={seats.seat40 ? "i occupied fas fa-chair" : "i fas fa-chair"} value="" name="" id="i occupied"></i></label></li>
 
                             </ul>
-                            
+
                             <ul>
 
                                 <li><label><input
@@ -1300,36 +1336,22 @@ export default function Seats() {
                 <div>
                     {disabled ? <font color="red "><p>You can't book more seats</p></font> : <p>You can book {totalPassengers - count} more seats</p>}
                 </div>
-                <div>
-                    
-                <button onClick={() => {
-                    bookOrAdd();
-                    bookPassengerSeats();
-                    push();
-                }} className="btn btn-success">Book my seats and continue</button>
+                <div className="button">
+
+                    <button onClick={() => {
+                        bookOrAdd();
+                        bookPassengerSeats();
+                        push();
+                    }} className="btn btn-success">Book my seats and continue</button>
                 </div>
-                <button onClick={() => {
-                    refresh();
-                }} className="btn btn-success"> Refresh </button>
-
+                <div className="button">
+                    <button onClick={() => {
+                        refresh();
+                    }} className="btn btn-success"> Refresh </button>
+                </div>
             </div>
 
-            <div>
 
-
-
-
-                <h1>{busNumber}</h1>
-                <h1>{id}</h1>
-                <h1>{child}</h1>
-
-
-                <h1>{adult}</h1>
-                <h1>{student}</h1>
-                <h1>{totalPassengers}</h1>
-                <h1>{count}</h1>
-
-            </div>
         </div>
     )
 }

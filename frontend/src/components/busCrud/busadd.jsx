@@ -20,8 +20,6 @@ export default function Addpackage(props) {
 
     function sendData() {
 
-
-
         const newBus = {
             id: '0',
             busNo,
@@ -70,9 +68,6 @@ export default function Addpackage(props) {
     }
 
 
-
-
-
     useEffect(() => {
         if (recordForEdit != null) {
             setBus({
@@ -103,9 +98,6 @@ export default function Addpackage(props) {
 
     }
 
-
-
-
     return (
         <div className="popup_container">
             <form className="row g-3" onSubmit={(e) => { handleSubmit(e) }}>
@@ -131,10 +123,7 @@ export default function Addpackage(props) {
                         <option selected >...</option>
                         <option >54</option>
                         <option >42</option>
-                      
-                        
-                        
-
+                    
                     </select>
                     {/* <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
                         value={NoOfSeats}
@@ -164,30 +153,24 @@ export default function Addpackage(props) {
                         <option >Luxury</option>
                         <option >Semi-Luxury</option>
                         <option >Regular</option>
-                      
-                        
-                        
 
                     </select>
-                    {/* <input type="text" className="form-control" id="packageName" placeholder="Enter Number of Seats"
-                        value={NoOfSeats}
-                        onChange={(e) => {
-                            setNoOfSeats(e.target.value);
-                        }}
-                    /> */}
+ 
                 </div>
 
                 <div className="col-md-5">
-                    <label htmlFor="timePeriod" className="form-label">Enter Permit ID:</label>
-                    <input type="text" required className="form-control" id="timePeriod" placeholder="Enter permit ID"
-                        value={permitID}
+                    <label htmlFor="packageName" className="form-label">Enter Bus Status:</label>
+                    <select id="depatureTime" className="form-input-2"
                         onChange={(e) => {
+                            // setShow(true);
                             setpermitID(e.target.value);
-                        }}
-                    />
-                </div>
-
-              
+                        }}>
+                        <option selected >...</option>
+                        <option >Available</option>
+                        <option >Unavailable</option>
+                    
+                    </select>
+                    </div>
 
                 <div>
                     <input type="submit" className="btn btn-primary" href="/home" value="Submit" />

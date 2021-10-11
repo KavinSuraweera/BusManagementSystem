@@ -22,7 +22,10 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
+import Schedulefront from "./components/Schedulefront";
+import busfares from "./components/busfares";
 import UserPackages from './components/UserPackages'
+import repair from './components/RepairCrud/RepairForm'
 
 import pContact from "./components/pContact";
 
@@ -37,19 +40,22 @@ import "./CSS/booking.css";
 import "./CSS/seats.css";
 import "./CSS/usercard.css"
 import "./CSS/feedbaclCards.css"
+import "./CSS/aboutusCards.css"
+import "./CSS/payment.css"
+
 import Allpackages from "./components/Allpackages";
 
-import CreatePost from './components/BusOwner/CreatePost';
-import EditPost from './components/BusOwner/EditPost';
-import busOwner from './components/BusOwner/BusOwner';
-import PostDetails from './components/BusOwner/PostDetails';
+import busowner from './components/BusOwner/busownermain'
+import busownermain from "./components/BusOwner/busownermain";
+
 import ConLogin from "./components/conLogin";
 import ConDash from "./components/conductorDash";
 import feedbackCards from "./components/feedbackCards/feedbackCards"
-
+import mainPayment from "./components/payment/mainPayment";
 
 import {  useSelector } from 'react-redux';
 import { FreeBreakfast } from "@material-ui/icons";
+
 
 function App() {
 
@@ -70,11 +76,13 @@ function App() {
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
         <Route path="/routes" exact component={routes} />
-        <Route path="/BusOwner" exact component={busOwner}/>
+        
         <Route path="/admin" exact component={admin}/>
+        <Route path="/Schedulefront" exact component={Schedulefront}/>
+        <Route path="/busfares" exact component={busfares}/>
         <Route path="/conLogin" exact component={ConLogin}/>
         <Route path="/conDash" exact component={ConDash}/>
-
+        <Route path="/repair" exact component={repair}/>
         <Route path="/Upackages">
           {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
         </Route>
@@ -84,6 +92,8 @@ function App() {
         
 
 
+        <Route path="/busowner" exact component={busowner}/>
+
         <Switch>
           <Route path="/Admin-Login">
              {adminID?<Redirect to="/dashbord"/>:<AdminLogin/>}
@@ -91,14 +101,13 @@ function App() {
           <Route path="/customermain" exact component={customermain} />
           <Route path="/employeemain" exact component={employeemain} />
           <Route path="/adminmain" exact component={adminmain} />
+          <Route path="/busownermain" exact component={busownermain} />
           <Route path="/Sign-Up" exact component={userreg} />
           <Route path="/Login-Page" >
              {userID?<Redirect to="/Userprofile"/>:<UserLogin/>}
           </Route>
           <Route path="/Userprofile" exact component={Userprofile}/>    
-          <Route path="/add" component={CreatePost}></Route>
-          <Route path="/edit/:id" component={EditPost}></Route>
-          <Route path="/post/:id" component={PostDetails}></Route>
+          
         </Switch>
 
       </Router>
