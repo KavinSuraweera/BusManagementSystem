@@ -7,6 +7,16 @@ import Header from '../header'
 import Slider  from '../dashbord/sidebar/sidebar';
 import Sidebar from '../dashbord/sidebar/sidebar';
 import Topbar from '../dashbord/topbar/tobbar';
+import { useDispatch, useSelector} from 'react-redux';
+import {setsearch} from '../../actions/authAction'
+
+import {
+    MatchText,
+    SearchProvider,
+    SearchContext,
+    SearchEventContext,
+  } from 'react-ctrl-f';
+  
 
 export default function Allroute() {
 
@@ -14,6 +24,7 @@ export default function Allroute() {
     const [openPopup, setOpenPopup] = useState(false);
     const [route, setRoute] = useState([]);
 
+    const dispatch = useDispatch();
 
     function refreshpage(){
         window.location.reload();
@@ -37,6 +48,10 @@ export default function Allroute() {
     }
 
     useEffect(() => {
+
+    //reset search
+    dispatch(setsearch(""));
+
         const getRoute = () => {
             axios.get("http://localhost:8000/route/").then((res) => {
                 setRoute(res.data);
@@ -109,7 +124,14 @@ export default function Allroute() {
     //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
     //     }
 
+    const search = useSelector((state)=>state.auth.search);
 
+    const getHighlightedText=(text="", highlight)=> 
+    {
+      // Split text on highlight term, include term itself into parts, ignore case
+      const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
+      return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
+    }
 
 
     //------------------------------------------ 
@@ -146,13 +168,13 @@ export default function Allroute() {
                         {route.map((route, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{route.routeId}</td>
-                                <td>{route.routeName}</td>
-                                <td>{route.to}</td>
-                                <td>{route.from}</td>
-                                <td>LKR {route.pAdult}</td>
-                                <td>LKR {route.pChild}</td>
-                                <td>LKR {route.pStudent}</td>
+                                <td>{getHighlightedText(route.routeId,search)}</td>
+                                <td>{getHighlightedText(route.routeName,search)}</td>
+                                <td>{getHighlightedText(route.to,search)}</td>
+                                <td>{getHighlightedText(route.from,search)}</td>
+                                <td>LKR {getHighlightedText(route.pAdult,search)}</td>
+                                <td>LKR {getHighlightedText(route.pChild,search)}</td>
+                                <td>LKR {getHighlightedText(route.pStudent,search)}</td>
 
                                 <td>
                                     <button type="button" class="btn btn-primary">

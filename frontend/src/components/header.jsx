@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Header from './header'
 export default function header() {
     return (
         <div>
-            
             <div className="blue_line">
+            
             </div>
             <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
@@ -23,7 +23,7 @@ export default function header() {
                         <Link to="/bookings" className="link">BUS BOOKINGS</Link>
                     </li>
                     <li className="item">
-                        <Link to="#" className="link">SCEDULES</Link>
+                        <Link to="/Schedulefront" className="link">SCEDULES</Link>
                     </li>
                     <li className="item">
 

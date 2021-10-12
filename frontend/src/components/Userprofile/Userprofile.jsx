@@ -339,7 +339,7 @@ export default function Userprofile() {
   return (
     <div className="extraout-container">
       <div className="outermost-container">
-        <Header />
+        <Header/>
         <img className="background-img" src={Background}/>
         <div className="outer-container">
           <div className="left-container">

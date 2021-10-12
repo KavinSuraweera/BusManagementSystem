@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import Header from './header'
 import {Table} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -13,9 +12,7 @@ import PDF7 from "../pdf/pdf7.pdf"
 import  PDF8 from "../pdf/pdf8.pdf"
 import PDF10 from "../pdf/pdf9.pdf"
 
-
-
-
+import Busfairs from "./busfares"
 
 import React from 'react';
 
@@ -38,9 +35,12 @@ export default function Schedulefront() {
 
 <div>
 
-
+<Header/>
 <form action="https://www.google.com/maps/dir/Kandy+Bus+Stand+(%E0%B6%B8%E0%B7%84%E0%B6%B1%E0%B7%94%E0%B7%80%E0%B6%BB+%E0%B6%B6%E0%B7%83%E0%B7%8A+%E0%B6%B1%E0%B7%90%E0%B7%80%E0%B6%AD%E0%B7%94%E0%B6%B8%E0%B7%8A%E0%B6%B4%E0%B7%9C%E0%B7%85+),+Kandy/Fort,+Colombo/@7.1202492,80.3659598,9.63z/data=!4m14!4m13!1m5!1m1!1s0x3ae36970c5a5a31f:0xd6e19563d79cbf59!2m2!1d80.6310872!2d7.2898251!1m5!1m1!1s0x3ae259215509991f:0xc20babe3d8e8795e!2m2!1d79.8450497!2d6.9360701!3e3?hl=en"><input type="submit" value="View Schedules" /></form>  
-
+<Link to="/busfares">
+<button style={{position:"relative", float:"left", right:"0"}}>Bus Fares</button>
+</Link>
+<div style={{padding:"50px"}}>
 <Table striped bordered hover variant="dark">
   <thead>
     <tr>
@@ -254,7 +254,7 @@ export default function Schedulefront() {
 
   </tbody>
 </Table>
-
+</div>
 
 </div>
 

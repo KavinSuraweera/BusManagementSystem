@@ -5,14 +5,29 @@ import Popup from "../../components/popup";
 import AddSchedule from "./ScheduleAdd";
 import Sidebar from '../dashbord/sidebar/sidebar';
 import Topbar from '../dashbord/topbar/tobbar';
+import { useDispatch, useSelector} from 'react-redux';
+import {setsearch} from '../../actions/authAction'
+
+import {
+  MatchText,
+  SearchProvider,
+  SearchContext,
+  SearchEventContext,
+} from 'react-ctrl-f';
+
 
 export default function Schedulemain() {
+
+  const dispatch = useDispatch(); 
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
 
   const [schedule, setSchedule] = useState([]);
 
   useEffect(() => {
+    //reset search
+    dispatch(setsearch(""));
+
     const getSchedule = () => {
       axios
         .get("http://localhost:8000/busschedule/")
@@ -74,6 +89,17 @@ export default function Schedulemain() {
       });
     }
   }, [recordForEdit]);
+
+
+  const search = useSelector((state)=>state.auth.search);
+
+  const getHighlightedText=(text="", highlight)=> 
+  {
+    // Split text on highlight term, include term itself into parts, ignore case
+    const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
+    return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
+  }
+  
   return (
     <div className="usr_background">
       <Topbar />
@@ -100,10 +126,10 @@ export default function Schedulemain() {
             {schedule.map((schedule, index) => (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
-                <td>{schedule.scheduleId}</td>
-                <td>{schedule.Route}</td>
-                <td>{schedule.Time}</td>
-                <td>{schedule.BusNumber}</td>
+                <td>{getHighlightedText(schedule.scheduleId,search)}</td>
+                <td>{getHighlightedText(schedule.Route,search)}</td>
+                <td>{getHighlightedText(schedule.Time,search)}</td>
+                <td>{getHighlightedText(schedule.BusNumber,search)}</td>
 
                 <td>
                   <button type="button" class="btn btn-primary">

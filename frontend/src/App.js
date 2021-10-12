@@ -22,12 +22,11 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import Blocks from "./components/dashbord/features/blocks"
 import routes from "./components/routecrud/routeform";
 import admin from './components/admincrud/adminmain'
-import Schedulefront from "./components/Schedulefront";
 import busfares from "./components/busfares";
 import UserPackages from './components/UserPackages'
 import repair from './components/RepairCrud/RepairForm'
 import paymentReport from './components/payment/finelPayment'
-
+import Schedulefront from "./components/Schedulefront";
 import pContact from "./components/pContact";
 
 
@@ -68,6 +67,7 @@ function App() {
     <div>
       <Router>
       <Route path="/" exact component={Home} />  
+    \
         <Route path="/bookings" exact component={Booking} />
         <Route path="/contact" exact component={contact} />
         <Route path="/avilablebus" exact component={availablebuses} />
@@ -77,7 +77,6 @@ function App() {
         <Route path="/bus" exact component={bus} />
         <Route path="/schedule" exact component={schedule} />
         <Route path="/routes" exact component={routes} />
-        
         <Route path="/admin" exact component={admin}/>
         <Route path="/Schedulefront" exact component={Schedulefront}/>
         <Route path="/busfares" exact component={busfares}/>

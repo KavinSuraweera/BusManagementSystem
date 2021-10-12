@@ -112,6 +112,20 @@ export default function Allpackages() {
     return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
   }
 
+
+  const[down,Setdown] = useState(false);
+
+  
+
+  const reportGen=()=>{
+    axios
+    .get(`http://localhost:8000/Report`)
+    .then((response) => {
+      Setdown(true);
+      
+    })
+    .catch((err) => {});
+  }
   // const updateBtnactive = () =>{
 
   //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
@@ -184,6 +198,21 @@ export default function Allpackages() {
         >
           Add new Owner
         </button>
+        <button
+         style={{marginLeft:"20px", marginRight:"20px"}}
+          className="btn btn-success"
+          onClick={reportGen}
+        >
+          Generate Report
+        </button>
+
+        {down&&< a href="http://localhost:8000/pdf/busoutput.pdf" download> 
+        <button
+          className="btn btn-success">
+            DOWNLOAD PDF
+        </button>
+        </a>}
+
         <Popup
           title={updateBtn ? "Update Bus Owner Form" : "Add new Bus Owner form"}
           openPopup={openPopup}

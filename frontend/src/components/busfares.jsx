@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import {Table} from 'react-bootstrap'
 
-
 import Header from './header'
 
 import  BF1 from "../pdf/bf1.pdf"
@@ -27,9 +26,11 @@ export default function Bfares() {
 
     return (
         
-
-       <div>
-           Bus Fares
+<div>
+<Header/>
+       <div style={{padding:"50px"}}>
+         
+           <h1>Bus Fares</h1>
            <Table striped bordered hover>
   <thead>
     <tr>
@@ -105,7 +106,7 @@ export default function Bfares() {
   </tbody>
 </Table>
        </div>
-
+       </div>
         
 
     )
