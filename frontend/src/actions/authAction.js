@@ -1,4 +1,4 @@
-import {SET_ADMINID,SET_ID,LOGOUT,SET_CONID, SET_IMAGE} from '../actions/types';
+import {SET_ADMINID,SET_ID,LOGOUT,SET_CONID, SET_IMAGE,SET_SEARCH} from '../actions/types';
 
 export const logout=()=>{
     return{
@@ -31,5 +31,12 @@ export const setimage=(id)=>{
     return{
         type:SET_IMAGE,
         payload:id
+    }
+}
+
+export const setsearch=(value)=>{
+    return{
+        type:SET_SEARCH,
+        payload:value
     }
 }

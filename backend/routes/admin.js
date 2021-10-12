@@ -1,8 +1,18 @@
 const express = require('express');
 let Admin = require('../models/admin.js')
+var fs = require("fs");
+var pdf = require("pdf-creator-node");
+const pdfdata = require('../reportgenerator');
 
 const router = express.Router()
 
+
+//pdf genrator and getter
+router.route('./adminReport').get(async(req, res) => {
+    //const response = await pdf.create(pdfdata.document,pdfdata.options);
+    console.log("ssssssssssss",pdfdata)
+    res.send("response");
+  });
 
 //GET ONE ADMIN
 router.route("/:id").get((req, res) =>{
@@ -76,7 +86,7 @@ router.route("/add").post((req, res ) =>{
         })
     })
 })
-
+//get all details
 router.route("/").get((req, res) =>{
     Admin.find().then((add) =>{
         res.json(add)

@@ -1,8 +1,24 @@
 import {React, useEffect, useState } from 'react'
+import { useLocation, useHistory, Link } from 'react-router-dom';
 import Paybycard from './paybycard';
+import { useSelector, useDispatch } from "react-redux";
 import Paybypackage from './paybypackage'
 
 export default function MainPayment() {
+
+    const history = useHistory();
+    const location = useLocation();
+
+
+
+    const busNumber = location.state.BusNumber
+    let adult = Number(location.state.adult)
+    let child = Number(location.state.child)
+    let student = Number(location.state.student)
+    let routeId = location.state.routeId
+    let routeName = location.state.routeName
+    let time = location.state.time
+    
 
     const [paymentMethod, setPaymentMethod] = useState(false);
 

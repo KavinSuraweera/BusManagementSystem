@@ -5,6 +5,13 @@ const cors = require('cors');
 
 const app = express();
 
+let Admin = require('./models/admin')
+
+//pdf generator parts
+const pdfdata = require('./reportgenerator');
+var fs = require("fs");
+var pdf = require("pdf-creator-node");
+
  app.use(express.static('public'))
 
 //  app.use('/uploads', express.static(path.resolve(__dirname, './uploads')));
@@ -57,3 +64,37 @@ mongoose.connect(DB_URL,{
 app.listen(PORT, ()=>{
     console.log(`App is running on port ${PORT}`)
 });
+
+
+//-----------pdf report gen------
+// Read HTML Template
+var html = fs.readFileSync("./template.html", "utf8");
+
+app.get('/Report',async(req, res) => {
+        Admin.find().then(async(test) =>{
+
+            const list = test.map((item)=>{
+                const temp = JSON.parse(JSON.stringify(item));
+                return temp;
+            })
+            
+
+            var document = {
+                html: html,
+                data: {
+                  users: list,
+                },
+                path: "./public/pdf/output.pdf",
+                type: "",
+              };
+
+            const response = await pdf.create(document,pdfdata.options);
+    
+            res.send(response);
+            
+
+        }).catch((err)=>{
+            console.log(err)
+        })
+    
+  })

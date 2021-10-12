@@ -13,6 +13,13 @@ export default function Booking() {
     const [routedata, setRouteData] = useState([]);
     const [route, setRoute] = useState([]);
     const [seats, setSeats] = useState(false);
+    const [NewRouteId, setNewRouteId] = useState("");
+    const [newRouteName, setNewRouteName] = useState("");
+    const [newBusNumber, setNewBusNumber] = useState("");
+    const [time, setTime] = useState("");
+
+
+
 
 
 
@@ -59,6 +66,11 @@ export default function Booking() {
 
     const history = useHistory();
 
+    // console.log(time)
+    // console.log(NewRouteId)
+    // console.log(newRouteName)
+    // console.log(routeId)
+
     const goToseats = (BusNumber) => {
 
         if (adult == 0 && child == 0 && student == 0) {
@@ -66,40 +78,48 @@ export default function Booking() {
         } else {
             getBookingdetails(BusNumber)
 
-            if(seats !=  false){
-                
+            if (seats != false) {
+
                 history.push("/seats", {
-                    BusNumber: BusNumber ,
+                    BusNumber: BusNumber,
                     adult: adult,
                     child: child,
-                    student: student
+                    student: student,
+                    routeId: NewRouteId,
+                    routeName: newRouteName,
+                    time: time
+
                 })
-            }else{
+            } else {
                 createBus(BusNumber)
                 history.push("/seats", {
-                    BusNumber: BusNumber ,
+                    BusNumber: BusNumber,
                     adult: adult,
                     child: child,
-                    student: student
+                    student: student,
+                    routeId: NewRouteId,
+                    routeName: newRouteName,
+                    time: time
+
                 })
             }
-            
-            
+
+
         }
     }
-    
+
     const createBus = (busNumber) => {
 
         const busId = busNumber;
-        const seat1 = false;        
-        const seat2 = false;        
-        const seat3 = false;        
-        const seat4 = false;        
-        const seat5 = false;        
-        const seat6 = false;        
-        const seat7 = false;        
-        const seat8 = false;        
-        const seat9 = false;        
+        const seat1 = false;
+        const seat2 = false;
+        const seat3 = false;
+        const seat4 = false;
+        const seat5 = false;
+        const seat6 = false;
+        const seat7 = false;
+        const seat8 = false;
+        const seat9 = false;
         const seat10 = false;
         const seat11 = false;
         const seat12 = false;
@@ -203,13 +223,13 @@ export default function Booking() {
         })
     }
 
-    const getBookingdetails = (BusNumber) =>{
+    const getBookingdetails = (BusNumber) => {
         const busId = BusNumber;
 
         axios.get(`http://localhost:8000/seats/getseats/${busId}`).then((res) => {
             setSeats(res.data.seats[0])
-            
-            
+
+
 
 
         }).catch((err) => {
@@ -220,12 +240,19 @@ export default function Booking() {
         })
     }
 
+    const onclick = (id) => {
+        console.log(time)
+        //goToseats(id)
+    }
+
+
+
 
     return (
         <div className="usr_background">
             <Header />
             <div className="booking-container-1">
-                
+
                 <div className="booking-container-2">
                     <div className="booking-container-left">
                         <div className="img-1">
@@ -363,12 +390,18 @@ export default function Booking() {
 
 
 
+
                                                             <button type="button" class="btn btn-primary"
                                                                 onClick={() => {
-                                                                    goToseats(route.BusNumber);
+                                                                    setNewRouteId(route._id)
+                                                                    setNewRouteName(route.Route)
+                                                                    setTime(route.Time)
+                                                                    setNewBusNumber(route.BusNumber)
+
+
                                                                 }}
                                                             >
-                                                                Go
+                                                                Seletct
                                                             </button>
 
 
@@ -384,7 +417,6 @@ export default function Booking() {
                             </div>
 
 
-
                             {/* <div className="form-raw">
                                 <div className="search-button">
                                     <Link to="/avilablebus">
@@ -394,6 +426,27 @@ export default function Booking() {
                             </div> */}
                         </form>
                     </div>
+                        
+                    {
+                    show ?<div className="details">
+                        <p>{NewRouteId}</p>
+                        <p>{newRouteName}</p>
+                        <p>{time}</p>
+
+
+                        <button type="button" class="btn btn-primary"
+                            onClick={() => {
+                                goToseats(newBusNumber)
+                                
+
+
+                            }}
+                        >
+                            Seletct
+                        </button>
+
+                    </div>:null
+}
                 </div>
 
             </div>

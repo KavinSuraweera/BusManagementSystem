@@ -3,13 +3,13 @@ import axios from "axios";
 import logo from "../img/adminlogin/bus-blue.png";
 import admincss from "../CSS/adminlogin.css";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { setadminid } from "../actions/authAction";
 
 export default function AdminLogin() {
   const history = useHistory();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const initialValues = {
     email: "",
@@ -41,62 +41,50 @@ export default function AdminLogin() {
       });
   };
 
-  console.log(logo);
-
   return (
-    <div className="border">
-      <div className="pageleft">
-        <div className="image12"></div>
-        <center>
-          <div></div>
-        </center>
-      </div>
+    <div className="ad-log-outer-container">
+      <div className="midbox">
+        <div className="leftside">
+          <img src={logo} />
+        </div>
+        <div class="vl"></div>
+        <div className="rightside">
+          <center>
+          <h2>LOGIN AS ADMIN</h2>
+          <hr/>
+          </center>
+          <div className="form">
+          <div>
+            <label for="email">Email</label>
+            <br />
+            <input
+              id="email"
+              name="email"
+              className="textboxes-adminlog"
+              placeholder="example@abcgmail.com"
+              type="text"
+              onChange={onChange}
+            /><br/>
 
-      <div className="pageright">
-        <hr className="line" />
-        <h2>LOGIN AS ADMIN</h2>
-        <div>
-          <p className="e_mail">Email</p>
-          <br />
-          <input
-            id="email"
-            name="email"
-            className="login-email"
-            placeholder="example@abcgmail.com"
-            type="text"
-            onChange={onChange}
-          />
-
-          <p className="pword">Password</p>
-          <br />
-          <input
-            id="password"
-            name="password"
-            className="login-pw"
-            placeholder="Enter your password..."
-            type="password"
-            onChange={onChange}
-          />
-          <br />
-
-          <input
-            className="loginbtn"
-            onClick={submit}
-            type="button"
-            value="L O G I N"
-          />
-
-          <div className="center">
-          <a href="#">
-            <p className="forgot-pword">Forgot your password?</p>
-          </a>
-          
-            <a href="#">
-              <p className="help">Get help Signin</p>
-            </a>
-            <a href="#">
-              <p className="policy">Terms of use Privacy Policy</p>
-            </a>
+            <label for="password">Password</label>
+            <br />
+            <input
+              id="password"
+              name="password"
+              className="textboxes-adminlog"
+              placeholder="Enter your password..."
+              type="password"
+              onChange={onChange}
+            />
+            <br />
+            <a href="#">Forgot password?</a>
+            <input
+              className="admin-loginbtn"
+              onClick={submit}
+              type="button"
+              value="L O G I N"
+            />
+          </div>
           </div>
         </div>
       </div>

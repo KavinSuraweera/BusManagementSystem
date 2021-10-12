@@ -256,7 +256,7 @@ const updateprofile=()=>{
                 <hr />
                 <span className="featuredTile">
                     {profilepic && (
-                        <img class="profilepics" src={`http://localhost:8000/${profilepic}`} alt="img" />
+                        <img className="profilepics" src={`http://localhost:8000/${profilepic}`} alt="img" />
                       )}
                 </span>
                 <div className="block1-container">

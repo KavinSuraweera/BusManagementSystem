@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import "./topbar.css";
-import {AccountCircle} from '@material-ui/icons';
+import {AccountCircle, Search} from '@material-ui/icons';
 import profile from "../../../img/profile.jpg"
 import { useDispatch, useSelector} from 'react-redux';
 import { useHistory } from "react-router-dom";
-import {logout} from '../../../actions/authAction'
+import {logout, setsearch} from '../../../actions/authAction'
+
 import axios from 'axios';
 
 export default function Tobbar() {
@@ -19,6 +20,10 @@ export default function Tobbar() {
     const logoutadmin=()=>{
         dispatch(logout());
         history.push('/Admin-Login');
+    }
+
+    const searchfunc=(e)=>{
+        dispatch(setsearch(e.target.value));
     }
 
     useEffect(() => {
@@ -40,10 +45,13 @@ export default function Tobbar() {
                 <span className="logo">Admin Portal</span> 
                 </div>
                 <div className="topleft">
+
                     <input 
                     className="searchbox" 
                     type="text"
-                    placeholder="Search..."/>
+                    placeholder="Search..."
+                    onChange={searchfunc}/>
+
                 </div>
                 <div className="topright">
                       <div className="topbarIcons">
