@@ -6,14 +6,28 @@ import Addbus from './busadd';
 import Header from '../header'
 import Sidebar from '../dashbord/sidebar/sidebar';
 import Topbar from '../dashbord/topbar/tobbar';
+import { useDispatch, useSelector} from 'react-redux';
+import {setsearch} from '../../actions/authAction'
+
+import {
+    MatchText,
+    SearchProvider,
+    SearchContext,
+    SearchEventContext,
+  } from 'react-ctrl-f';
+
+
 
 export default function Allbus() {
+
+    const dispatch = useDispatch();
 
     const [recordForEdit, setRecordForEdit] = useState(null);
     const [openPopup, setOpenPopup] = useState(false);
     const [bus, setBus] = useState([]);
 
     function sendData(e) {
+
 
         e.preventDefault();
 
@@ -28,6 +42,11 @@ export default function Allbus() {
     }
 
     useEffect(() => {
+
+            //reset search
+    dispatch(setsearch(""));
+
+
         const getBus = () => {
             axios.get("http://localhost:8000/bus/").then((res) => {
                 setBus(res.data);
@@ -75,6 +94,17 @@ export default function Allbus() {
 
     }
 
+    const search = useSelector((state)=>state.auth.search);
+
+    const getHighlightedText=(text="", highlight)=> 
+    {
+      // Split text on highlight term, include term itself into parts, ignore case
+      const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
+      return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
+    }
+
+    const[down,Setdown] = useState(false);
+
     const [updateBtn, setUpdatebtn] = useState(false);
     console.log(updateBtn);
 
@@ -106,11 +136,11 @@ export default function Allbus() {
                         {bus.map((bus, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{bus.busNo}</td>
-                                <td>{bus.NoOfSeats}</td>
-                                <td>{bus.regNo}</td>
-                                <td>{bus.Type}</td>
-                                <td>{bus.permitID}</td>
+                                <td>{getHighlightedText(bus.busNo,search)}</td>
+                                <td>{getHighlightedText(bus.NoOfSeats,search)}</td>
+                                <td>{getHighlightedText(bus.regNo,search)}</td>
+                                <td>{getHighlightedText(bus.Type,search)}</td>
+                                <td>{getHighlightedText(bus.permitID,search)}</td>
 
                                 <td>
                                     <button type="button" class="btn btn-primary">

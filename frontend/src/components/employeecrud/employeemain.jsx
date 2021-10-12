@@ -5,14 +5,27 @@ import Popup from "../../components/popup";
 import EmployeeAdd from "./employeeadd";
 import Sidebar from '../dashbord/sidebar/sidebar';
 import Topbar from '../dashbord/topbar/tobbar';
+import { useDispatch, useSelector} from 'react-redux';
+import {setsearch} from '../../actions/authAction'
+
+import {
+  MatchText,
+  SearchProvider,
+  SearchContext,
+  SearchEventContext,
+} from 'react-ctrl-f';
 
 export default function Employeemain() {
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
 
   const [employee, setEmployee] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+   //reset search
+   dispatch(setsearch(""));
+
     const getEmployee = () => {
       axios
         .get("http://localhost:8000/employee/")
@@ -73,6 +86,17 @@ export default function Employeemain() {
     }
   }, [recordForEdit]);
   
+//search eke parts
+const search = useSelector((state)=>state.auth.search);
+
+  const getHighlightedText=(text="", highlight)=> 
+  {
+    // Split text on highlight term, include term itself into parts, ignore case
+    const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
+    return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
+  }
+
+
   return (
     <div className="usr_background">
       <Topbar/>
@@ -85,7 +109,7 @@ export default function Employeemain() {
     <div className="container">
       <table className="table">
         <thead>
-          <tr>
+          <tr>  
             <th scope="col">#</th>
             <th scope="col">EmpName</th>
             <th scope="col">Phone</th>
@@ -100,13 +124,12 @@ export default function Employeemain() {
           {employee.map((employee, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{employee.EmpName}</td>
-              
-              <td>{employee.Phone}</td>
-              <td>{employee.NIC}</td>
-              <td>{employee.Email}</td>
-              <td>{employee.Password}</td>
-              <td>{employee.Type}</td>
+              <td>{getHighlightedText(employee.EmpName,search)}</td>
+              <td>{getHighlightedText(employee.Phone,search)}</td>
+              <td>{getHighlightedText(employee.NIC,search)}</td>
+              <td>{getHighlightedText(employee.Email,search)}</td>
+              <td>{getHighlightedText(employee.Password,search)}</td>
+              <td>{getHighlightedText(employee.Type,search)}</td>
               
               
               

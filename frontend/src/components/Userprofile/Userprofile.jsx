@@ -29,7 +29,7 @@ function DeleteCustomer({ id }) {
   const [btnlock, setBtnlock] = useState(false);
   console.log(btnlock);
 
-
+  //Delete popup
   return (
     <div className="prof-delete-popup">
       <h6>Once deleted profile cannot be retrieved.</h6>
@@ -251,6 +251,8 @@ export default function Userprofile() {
   const [userPackage, setUserPackage] = useState();
   const[userBooking, setUserBooking] = useState();
 
+  
+
   useEffect(() => {
     //GETTER FOR BOOKING
     axios
@@ -341,6 +343,9 @@ export default function Userprofile() {
         <img className="background-img" src={Background}/>
         <div className="outer-container">
           <div className="left-container">
+          <button className="logout-btn" id="logout-btn" onClick={userlogout}>
+                LOG OUT
+              </button>
             <div className="profilepic-container">
               <center>
                 {profilepic && (
@@ -350,8 +355,8 @@ export default function Userprofile() {
                     alt="img"
                   />
                 )}
-
                 <h1>{profile.UserName}</h1>
+                <hr className="ultimate-hr"/>
               </center>
             </div>
             <div className="userinfo-container">
@@ -386,10 +391,6 @@ export default function Userprofile() {
                   </button>
                 )}
               </div>
-
-              <button className="logout-btn" onClick={userlogout}>
-                LOG OUT
-              </button>
 
               <button
                 className="delete-btn"
@@ -475,6 +476,7 @@ export default function Userprofile() {
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Booking id</th>
+                  <th scope="col">Date</th>
                   <th scope="col">Seat No</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -487,6 +489,7 @@ export default function Userprofile() {
                     <tr key={index}>
                       <td scope="col">{index + 1}</td>
                       <td scope="col">{item[0].value}</td>
+                      <th scope="col" style={{fontWeight:"200"}}>10-12-2021</th>
                       <td scope="col">{item.map((seat, i)=>{
                         if(i!==0){
                           console.log(seat.key);
@@ -501,7 +504,7 @@ export default function Userprofile() {
                             remove_booking(item[0].value);
                           }}
                         >
-                          <i className="far fa-trash-alt"></i>&nbsp;Unsubscribe
+                          <i className="far fa-trash-alt"></i>&nbsp;Remove Booking
                         </button>
                       </td>
                     </tr>

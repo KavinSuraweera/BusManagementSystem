@@ -8,11 +8,22 @@ import Sidebar from "../dashbord/sidebar/sidebar"
 import Topbar from "../dashbord/topbar/tobbar";
 import busownerimg from "./../../img/busowner/busowner1.jpg";
 import "./../../CSS/busowner.css";
+import { useDispatch, useSelector} from 'react-redux';
+import {setsearch} from '../../actions/authAction';
+
+import {
+  MatchText,
+  SearchProvider,
+  SearchContext,
+  SearchEventContext,
+} from 'react-ctrl-f';
 
 export default function Allpackages() {
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
   const [busowner, setBusOwner] = useState([]);
+
+  const dispatch = useDispatch();
 
   function sendData(e) {
     e.preventDefault();
@@ -29,6 +40,10 @@ export default function Allpackages() {
   }
 
   useEffect(() => {
+
+    //reset search
+    dispatch(setsearch(""));
+
     const getBusOwner = () => {
       axios
         .get("http://localhost:8000/busowner/")
@@ -87,6 +102,16 @@ export default function Allpackages() {
   const [updateBtn, setUpdatebtn] = useState(false);
   console.log(updateBtn);
 
+//search parts
+  const search = useSelector((state)=>state.auth.search);
+
+  const getHighlightedText=(text="", highlight)=> 
+  {
+    // Split text on highlight term, include term itself into parts, ignore case
+    const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
+    return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
+  }
+
   // const updateBtnactive = () =>{
 
   //      updateBtn? setUpdatebtn(true):setUpdatebtn(false);
@@ -119,12 +144,12 @@ export default function Allpackages() {
             {busowner.map((busowner, index) => (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
-                <td>{busowner.Bid}</td>
-                <td>{busowner.Bname}</td>
-                <td>{busowner.Sname}</td>
-                <td>{busowner.Nic}</td>
-                <td>{busowner.Pnum}</td>
-                <td>{busowner.Email}</td>
+                <td>{getHighlightedText(busowner.Bid,search)}</td>
+                <td>{getHighlightedText(busowner.Bname,search)}</td>
+                <td>{getHighlightedText(busowner.Sname,search)}</td>
+                <td>{getHighlightedText(busowner.Nic,search)}</td>
+                <td>{getHighlightedText(busowner.Pnum,search)}</td>
+                <td>{getHighlightedText(busowner.Email,search)}</td>
                 <td>
                   <button
                     className="btn btn-warning"

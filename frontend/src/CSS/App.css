@@ -234,6 +234,8 @@ margin-left: 10px;
 }
 
 .hero-text .home-buttons button{
+  cursor: pointer;
+  opacity: 0.2;
   border: none;
   width: 150px;
   border-radius: 50px;
@@ -249,10 +251,10 @@ margin-left: 10px;
   color: white;
   transition: 0.3s;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .hero-text .home-buttons button:hover{
+  opacity: 1;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #0865D5;
 }

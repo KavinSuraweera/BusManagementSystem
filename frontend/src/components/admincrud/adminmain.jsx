@@ -120,10 +120,11 @@ export default function Allpackages() {
     const parts = text?.toString()?.split(new RegExp(`(${highlight})`, 'gi'));
     return <span>{parts?.map(part => part?.toLowerCase() === highlight?.toLowerCase() ? <span style={{backgroundColor: "yellow"}}>{part}</span>: part)}</span>;
   }
-
+  
+//--------report generation--------------
   const[down,Setdown] = useState(false);
 
-  //--------report generation--------------
+  
 
   const reportGen=()=>{
     axios
@@ -213,6 +214,7 @@ export default function Allpackages() {
         </button>
 
         <button
+         style={{marginLeft:"20px", marginRight:"20px"}}
           className="btn btn-success"
           onClick={reportGen}
         >
