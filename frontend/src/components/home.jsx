@@ -80,9 +80,9 @@ export default function Home() {
                 </div>
 
             </div>
-            <div className="feedbackCards" data-aos="zoom-out-up">
+            {/* <div className="feedbackCards" data-aos="zoom-out-up">
                 <FeedbackCards />
-            </div>
+            </div> */}
 
 
             <div className="about-us-cards">

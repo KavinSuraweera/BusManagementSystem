@@ -1,9 +1,10 @@
 .about-us-cards{
-
+    overflow-y: scroll;
 
 }
 
 .card-layout{
+    
     align-items: center;
     text-align: center;
     background-color: green;
@@ -13,6 +14,7 @@
 }
 
 .aboutcard{
+    
     display: inline-block;
     float: left;
     background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);

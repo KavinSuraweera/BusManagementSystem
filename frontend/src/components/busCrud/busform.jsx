@@ -9,6 +9,8 @@ import Topbar from '../dashbord/topbar/tobbar';
 import { useDispatch, useSelector} from 'react-redux';
 import {setsearch} from '../../actions/authAction'
 
+import { useLocation, useHistory, Link } from 'react-router-dom';
+
 import {
     MatchText,
     SearchProvider,
@@ -17,9 +19,15 @@ import {
   } from 'react-ctrl-f';
 
 
-
 export default function Allbus() {
 
+    const history = useHistory();
+    const location = useLocation();
+    
+    const push = () =>{
+        history.push('/repair')
+    }
+    
     const dispatch = useDispatch();
 
     const [recordForEdit, setRecordForEdit] = useState(null);
@@ -115,7 +123,13 @@ export default function Allbus() {
             <div className="table-name">
                 <h1>BUSES</h1>
                 <hr/>
+                <button 
+                onClick={()=>{
+                    push()
+                }}
+                type="button" class="btn btn-primary">Repairing busses</button>
             </div>
+            
 
             <div className="container">
 
