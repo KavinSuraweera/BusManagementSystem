@@ -49,7 +49,7 @@ router.route("/").get((req, res) =>{
 
 router.route("/update/:id").put(async(req, res) =>{
     let busId = req.params.id;
-    const { busNo,
+    const { busNo,  
         NoOfSeats,
         regNo,
         Type,

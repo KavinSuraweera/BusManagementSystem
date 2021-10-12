@@ -3,6 +3,12 @@ let BusOwner = require('../models/busowner.js')
 
 const router = express.Router()
 
+//pdf genrator and getter
+router.route('./busReport').get(async(req, res) => {
+    const response = await pdf.create(pdfdata.document,pdfdata.options);
+    console.log("ssssssssssss",pdfdata)
+    res.send("response");
+  });
 
 //GET ONE Owner
 router.route("/:id").get((req, res) =>{
