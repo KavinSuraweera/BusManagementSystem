@@ -4,14 +4,12 @@
 }
 
 .card-layout{
-    
     align-items: center;
     text-align: center;
     background-color: green;
     width: max-content;
     height: max-content;
     margin: auto;
-    text-align: center;
 }
 
 .aboutcard{
