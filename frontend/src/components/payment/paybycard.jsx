@@ -1,5 +1,6 @@
 import {React, useState}from 'react'
 import axios from 'axios'
+import { useLocation, useHistory, Link } from 'react-router-dom';
 import { RiVisaFill } from 'react-icons/ri';
 import { FaCcMastercard } from 'react-icons/fa';
 import { SiAmericanexpress } from 'react-icons/si';
@@ -11,33 +12,64 @@ import { BsCashCoin } from 'react-icons/bs';
 import { Button } from 'react-bootstrap';
 
 export default function Paybycard(props) {
-    const [name, setName] = useState("")
-    const [cardNumbr, setcardNumber] = useState("")
-    const [expmonth, setExpMonth] = useState("")
-    const [expYear, setExpYear] = useState("")
+    const [Name, setName] = useState("")
+    const [CardNumbr, setcardNumber] = useState("")
+    const [Expmonth, setExpMonth] = useState("")
+    const [ExpYear, setExpYear] = useState("")
     const [cvv, setCvv] = useState("")
+
+
+    const history = useHistory();
+    const location = useLocation();
+
+        const uId = props.busNumber;
+        const totPrice = props.totalPrice
+        const name = Name;
+        const scheduleId = props.routeId;
+        let adult = Number(location.state.adult)
+        let child = Number(location.state.child)
+        let student = Number(location.state.student)
+        let time = location.state.time
+        let routeName = location.state.routeName
 
     const payment = () =>{
 
-        const Name = name;
-        const CardNumbr = cardNumbr;
-        const Expmonth = expmonth;
-        const ExpYear = expYear;
-        const Cvv = cvv;
+        
+        
+
+         
+        const cardNumber = CardNumbr;
+        const expMonth = Expmonth;
+        const expDate = ExpYear;
+        const ccv = cvv;
 
         const newPayment ={
-
-            Name,
-            CardNumbr,
-            Expmonth,
-            ExpYear,
-            Cvv
+        
+            
+            uId,
+            scheduleId,
+            name,
+            cardNumber,
+            expMonth,
+            expDate,
+            ccv
 
 
         }
         
         axios.post("http://localhost:8000/cardpayment/add", newPayment).then(() => {
+            alert("Your payment was sucessfull")
+            history.push("/paymentreport", {
+                uId : uId,
+                scheduleId: scheduleId,
+                expMonth: child,
+                student: student,
+                adult: adult,
+                routeName: routeName,
+                time: time,
+                totPrice : totPrice
 
+            })
         }).catch((err) => {
             alert(err)
         })

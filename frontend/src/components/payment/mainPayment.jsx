@@ -78,6 +78,9 @@ export default function MainPayment() {
                                 busNumber={busNumber}
                                 routeId={routeId}
                                 time={time}
+                                adult = {adult}
+                                child = {child}
+                                student = {student}
                                 routeName = {routeName}
                                 totalPrice={totalPrice} />
                         </div>

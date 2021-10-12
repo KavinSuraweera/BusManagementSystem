@@ -26,6 +26,7 @@ import Schedulefront from "./components/Schedulefront";
 import busfares from "./components/busfares";
 import UserPackages from './components/UserPackages'
 import repair from './components/RepairCrud/RepairForm'
+import paymentReport from './components/payment/finelPayment'
 
 import pContact from "./components/pContact";
 
@@ -87,9 +88,9 @@ function App() {
           {!userID?<Redirect to="/Login-Page"/>:<UserPackages/>}
         </Route>
 
-        {/*<Route path="/payment" exact component={mainPayment} />*/}
+        <Route path="/payment" exact component={mainPayment} />
         
-        
+        <Route path="/paymentreport" exact component={paymentReport}/>
 
 
         <Route path="/busowner" exact component={busowner}/>
