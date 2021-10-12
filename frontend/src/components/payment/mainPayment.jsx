@@ -1,4 +1,5 @@
-import {React, useEffect, useState } from 'react'
+import { React, useEffect, useState } from 'react'
+import axios from 'axios';
 import { useLocation, useHistory, Link } from 'react-router-dom';
 import Paybycard from './paybycard';
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +9,8 @@ export default function MainPayment() {
 
     const history = useHistory();
     const location = useLocation();
+    const [schedule, setShedule] = useState("")
+    const [route, setRoute] = useState("")
 
 
 
@@ -18,7 +21,14 @@ export default function MainPayment() {
     let routeId = location.state.routeId
     let routeName = location.state.routeName
     let time = location.state.time
-    
+
+    const totalPrice = (adult * 60) + (student * 30) + (child * 15)
+
+
+    console.log(route)
+
+
+
 
     const [paymentMethod, setPaymentMethod] = useState(false);
 
@@ -37,12 +47,12 @@ export default function MainPayment() {
 
                             <div className="button">
                                 <label class="switch">
-                                    <input 
-                                        onChange = {(e)=>{
+                                    <input
+                                        onChange={(e) => {
                                             let checked = e.target.checked;
                                             setPaymentMethod(checked);
                                         }}
-                                    type="checkbox" />
+                                        type="checkbox" />
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -52,22 +62,27 @@ export default function MainPayment() {
                     </div>
 
                     {/* left */}
-                    <div className={paymentMethod?"left":"left checked"}>
-                        <div className={paymentMethod?"hide":"show "}>
-                            <Paybypackage/>
+                    <div className={paymentMethod ? "left" : "left checked"}>
+                        <div className={paymentMethod ? "hide" : "show "}>
+                            <Paybypackage />
                         </div>
                     </div>
-                        
-                    
+
+
 
 
                     {/* right */}
-                    <div className={paymentMethod?"right checked":"right "}>
-                        <div className={paymentMethod?"show":"hide "}>
-                            <Paybycard/>
+                    <div className={paymentMethod ? "right checked" : "right "}>
+                        <div className={paymentMethod ? "show" : "hide "}>
+                            <Paybycard
+                                busNumber={busNumber}
+                                routeId={routeId}
+                                time={time}
+                                routeName = {routeName}
+                                totalPrice={totalPrice} />
                         </div>
                     </div>
-              
+
                 </div>
             </div>
         </div>
