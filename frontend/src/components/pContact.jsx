@@ -76,19 +76,22 @@ export default class pContact extends Component {
     
     <div class="col-lg-4">
 
-      <div class="card-body contact text-center h-100 black-text">
+      <div class="card-body contact text-center ">
 
         <h3 class="my-4 pb-2">Contact information</h3>
         <ul class="text-lg-left list-unstyled ml-4">
+        
           <li>
-            <p><i class="fas fa-map-marker-alt pr-2"></i>14/9-1,Rajamaha Vihara Rd,Navinna,Maharagama</p>
+            
+            <p><font color="black"><i class="fas fa-map-marker-alt pr-2"></i>14/9-1,Rajamaha Vihara Rd,Navinna,Maharagama</font></p>
           </li>
           <li>
-            <p><i class="fas fa-phone pr-2"></i>+94 77 602 7072</p>
+            <p><font color="black"><i class="fas fa-phone pr-2"></i>+94 77 602 7072</font></p>
           </li>
           <li>
-            <p><i class="fas fa-envelope pr-2"></i>buzzybus@gmail.com</p>
+            <p><font color="black"><i class="fas fa-envelope pr-2"></i>buzzybus@gmail.com</font></p>
           </li>
+          
         </ul>
         <hr class="hr-light my-4"/>
         <ul class="list-inline text-center list-unstyled">
