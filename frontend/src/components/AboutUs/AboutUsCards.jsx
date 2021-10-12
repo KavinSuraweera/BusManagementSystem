@@ -10,8 +10,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Kaveen Suraweera</h1>
+                    <p>Manager - Booking Management</p>
                 </div>
                 
             </div>
@@ -21,8 +21,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Yasiru Opanayake</h1>
+                    <p>Manager - User Roles</p>
                 </div>
                 
             </div>
@@ -32,8 +32,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Naveesha Landewatta</h1>
+                    <p>Manager - Shedules</p>
                 </div>
                 
             </div>
@@ -43,8 +43,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Panchani Madanayake</h1>
+                    <p>Manager - Bus Management</p>
                 </div>
                 
             </div>
@@ -54,8 +54,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Shehan Kaushalya</h1>
+                    <p>Manager - Package Management</p>
                 </div>
                 
             </div>
@@ -65,8 +65,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Mandy Dissanayake</h1>
+                    <p>Manager - User Managememnt</p>
                 </div>
                 
             </div>
@@ -76,8 +76,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Anuththara Bandara</h1>
+                    <p>Manager - Bus Owner Management</p>
                 </div>
                 
             </div>
@@ -87,8 +87,8 @@ export default function AboutUsCards() {
                     <div className="profile1"></div>
                 </div>
                 <div className="text-view">
-                    <h1>NAME</h1>
-                    <p>descriptiion</p>
+                    <h1>Sanajana Chamodi</h1>
+                    <p>Manager - Employee Management</p>
                 </div>
                 
             </div>

@@ -1,38 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from './header'
+import Contact from './pContact'
 
 export default function contactUs() {
     return (
-        <div>
+        <div className="booking-background">
             <Header/>
-            <Link to="./Admin-Login">
-            <button>
-                admin loginn
-            </button><br/>
-            </Link>
-            <Link to="./dashbord">
-            <button>
-                dashbord
-            </button><br/>
-            </Link>
-            <Link to="./adminmain">
-            <button>
-                admin cruds
-            </button><br/><br/>
-            </Link>
-            <Link to="./BusOwner">
-            <button>
-                Bus Owner
-            </button><br/><br/>
-            </Link>
-
-            <Link to="./conLogin">
-            <button>
-                Employee Login
-            </button><br/><br/>
-            </Link>
-
+    
+            <div className="contact-comp">
+                <Contact/>
+            </div>
         </div>
     )
 }
