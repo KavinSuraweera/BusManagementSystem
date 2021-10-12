@@ -489,7 +489,7 @@ export default function Seats() {
                 adult: adult,
                 child: child,
                 student: student,
-                routeName: routeName,
+                busNumber : busNumber,
                 routeId: routeId,
                 time: time,
              

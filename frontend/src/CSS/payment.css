@@ -282,3 +282,25 @@
     width: max-content;
     font-size: 27px;
   }
+
+  .report-container{
+    border-radius: 5px;
+    display: block;
+    background-color: white;
+    width: max-content;
+    height: max-content;
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+   
+  }
+
+  .buttoncomponrnt{
+    width: max-content;
+    margin: auto;
+  }
+
+  .buttoncomponrnt button{
+    margin: 10px;
+  }
