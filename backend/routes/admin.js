@@ -9,12 +9,12 @@ const router = express.Router()
 
 //pdf genrator and getter
 router.route('./adminReport').get(async(req, res) => {
-    //const response = await pdf.create(pdfdata.document,pdfdata.options);
+    const response = await pdf.create(pdfdata.document,pdfdata.options);
     console.log("ssssssssssss",pdfdata)
     res.send("response");
   });
 
-//GET ONE ADMIN
+//GET ONE ADMINs
 router.route("/:id").get((req, res) =>{
     
     const adID = req.params.id;
