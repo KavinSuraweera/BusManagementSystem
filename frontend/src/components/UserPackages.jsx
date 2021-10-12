@@ -46,17 +46,19 @@ export default function UserPackages() {
     
     const show = ()=>{
         return(packages?.map((item)=>{
-            return (         
+            return (     
+                 
                       <div className="grid-item">
-                          {item.name}<br/>
-                          {item.description}<br/>
-                          {item.price}<br/>
-                          {item.time_period+" days"}<br/>
+                          <h1>{item.name}</h1>
+                          <p>{item.description}</p>
+                          <p>{item.price}</p>
+                          <p>{item.time_period+" days"}</p>
 
-                          <button onClick={()=>addPackage(item)}> 
+                          <button className="btn btn-success" onClick={()=>addPackage(item)}> 
                                Subscribe
                           </button>
-                      </div>                                      
+                      </div>   
+                                                 
               );
         }))
     }
